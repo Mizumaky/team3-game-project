@@ -1,8 +1,8 @@
 # Team03
 
-We are preseting the best action packed realtime tower defense action survival cooperative game.
+We are preseting the best action packed realtime tower defense action survival cooperative game - **Scientist's Doom**.
 
-Moar info **[WIKI](https://gitlab.fel.cvut.cz/B181_B4B39HRY/team03/wikis/home)**
+More info on **[WIKI](https://gitlab.fel.cvut.cz/B181_B4B39HRY/team03/wikis/home)**
 
 
 ## Team members
