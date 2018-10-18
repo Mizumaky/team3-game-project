@@ -133,7 +133,7 @@ MonoBehaviour:
     type: 2}
   enemyCount: 50
   radius: 25
-  timeOfLvl: 25
+  maxTimeBetweenWaves: 0
   curve:
     serializedVersion: 2
     m_Curve:
@@ -168,7 +168,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400010, guid: 206c7963e52c7354d977301966d969d6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.275396
+      value: -18.18
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 206c7963e52c7354d977301966d969d6, type: 3}
       propertyPath: m_LocalPosition.y
@@ -176,7 +176,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 206c7963e52c7354d977301966d969d6, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.9785432
+      value: -78.35
       objectReference: {fileID: 0}
     - target: {fileID: 400010, guid: 206c7963e52c7354d977301966d969d6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -197,6 +197,18 @@ Prefab:
     - target: {fileID: 400010, guid: 206c7963e52c7354d977301966d969d6, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 206c7963e52c7354d977301966d969d6, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.1001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 206c7963e52c7354d977301966d969d6, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.1001
+      objectReference: {fileID: 0}
+    - target: {fileID: 400010, guid: 206c7963e52c7354d977301966d969d6, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.1001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 206c7963e52c7354d977301966d969d6, type: 3}
