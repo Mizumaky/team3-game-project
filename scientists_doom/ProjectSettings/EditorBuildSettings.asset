@@ -18,6 +18,18 @@ EditorBuildSettings:
     path: Assets/Scenes/MultiPlayerGame.unity
     guid: 6df933d2a95c5e5428172e6778eff982
   - enabled: 0
-    path: Assets/SceneCopies/petr/petr_scene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: 
+    guid: 00000000000000000000000000000000
+  - enabled: 0
+    path: Assets/SceneCopies/petr/MainMenu 1.unity
+    guid: d51d32ff28768584d9dd1dd98f93c2ae
+  - enabled: 0
+    path: Assets/SceneCopies/petr/lobby 1.unity
+    guid: 38600b0cfe39c2c428c1cc3d65fd6303
+  - enabled: 0
+    path: Assets/SceneCopies/petr/SinglePlayerGame 1.unity
+    guid: 56497a3f1422afa499be04b73acafe88
+  - enabled: 0
+    path: Assets/SceneCopies/petr/MultiPlayerGame 1.unity
+    guid: f0b9f22dd081584419bae3eab02e88c3
   m_configObjects: {}

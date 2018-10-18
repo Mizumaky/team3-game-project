@@ -846,7 +846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d0b56f882e89f42a7e30a2cdac64df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castle: {fileID: 4791160268784350, guid: e8c7d447a0a7060429d719ec90854b57, type: 2}
+  castle: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
   player: {fileID: 1617892163682710, guid: 0df0912ecf9dc3240bc4b3d8ae4c0b30, type: 2}
 --- !u!195 &195693831623862548
 NavMeshAgent:
