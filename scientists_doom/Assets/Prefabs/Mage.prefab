@@ -516,7 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 500
   projectileVelocity: 20
-  projectilePrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
+  projectilePrefab: {fileID: 1164206773813186, guid: 908a4e982846ecb45bfdfaae85df81ba,
     type: 2}
   spawnPosition: {fileID: 4445568800751354}
 --- !u!114 &114543196394816540
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21db7f706c45b474091d404267c88b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAlive: 0
+  playerAlive: 1
   maxHealth: 100
   health: 0
   healthIncrement: 10

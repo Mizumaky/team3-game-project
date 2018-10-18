@@ -12059,6 +12059,7 @@ GameObject:
   - component: {fileID: 81403866168681896}
   - component: {fileID: 114434345970702944}
   - component: {fileID: 114776090603855444}
+  - component: {fileID: 114782293169331660}
   m_Layer: 0
   m_Name: Camera
   m_TagString: MainCamera
@@ -21106,7 +21107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1659580591669172
 GameObject:
   m_ObjectHideFlags: 1
@@ -25098,6 +25099,22 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 8
+  m_IsActive: 1
+--- !u!1 &1802597365803818
+GameObject:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4141816498187098}
+  - component: {fileID: 108139380738931520}
+  m_Layer: 2
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!1 &1802850766487020
 GameObject:
@@ -34043,6 +34060,19 @@ Transform:
   m_Father: {fileID: 4409680692764712}
   m_RootOrder: 130
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4141816498187098
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802597365803818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.06, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4592247287189482}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4141920924022244
 Transform:
   m_ObjectHideFlags: 1
@@ -36098,7 +36128,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1231961175678462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1855612, y: 1.3, z: -0.16161948}
+  m_LocalPosition: {x: 2.1855612, y: 0.68, z: -0.16161948}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children: []
   m_Father: {fileID: 4175797458501482}
@@ -37748,7 +37778,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1140588665217342}
-  m_LocalRotation: {x: 0.86559796, y: 0.13376829, z: -0.3585424, w: 0.32294524}
+  m_LocalRotation: {x: -0.9515426, y: -0.044498496, z: -0.2549652, w: 0.16607058}
   m_LocalPosition: {x: 0, y: 9.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -37756,7 +37786,7 @@ Transform:
   - {fileID: 4125779961219518}
   m_Father: {fileID: 4175797458501482}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 139.08, y: 45, z: 0}
+  m_LocalEulerAnglesHint: {x: 199.8, y: 330, z: 0}
 --- !u!4 &4307639374802554
 Transform:
   m_ObjectHideFlags: 1
@@ -46179,6 +46209,7 @@ Transform:
   m_Children:
   - {fileID: 4808617192404926}
   - {fileID: 4440078177331512}
+  - {fileID: 4141816498187098}
   m_Father: {fileID: 4175797458501482}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -56074,7 +56105,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.26788893, g: 0.5899271, b: 0.8113208, a: 0}
+  m_BackGroundColor: {r: 0.080347836, g: 0.31565207, b: 0.59400004, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -56087,7 +56118,7 @@ Camera:
     height: 1
   near clip plane: 5
   far clip plane: 200
-  field of view: 70
+  field of view: 60
   orthographic: 0
   orthographic size: 7
   m_Depth: -1
@@ -107357,7 +107388,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_Materials:
   - {fileID: 2100000, guid: e04b229cf03d8e5439c229c2547a061d, type: 2}
-  - {fileID: 2100008, guid: 13a6c09307c2b426db262c256409e77e, type: 3}
+  - {fileID: 2100000, guid: 5a22b04bfd5526f40b5b3ebbf05cd393, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -133419,7 +133450,7 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1140588665217342}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2d2bfa86b365b884bb9bd42015b12352, type: 2}
   m_CullingMode: 0
@@ -133466,6 +133497,43 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!108 &108139380738931520
+Light:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1802597365803818}
+  m_Enabled: 1
+  serializedVersion: 8
+  m_Type: 2
+  m_Color: {r: 1, g: 0.67987275, b: 0, a: 1}
+  m_Intensity: 8
+  m_Range: 10
+  m_SpotAngle: 30
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 2
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 0
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!108 &108284348239994142
 Light:
   m_ObjectHideFlags: 1
@@ -133781,6 +133849,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 1375c1b3d9f4b844f96b3bb97eb68872, type: 2}
+--- !u!114 &114782293169331660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1375113163564790}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e39a83aa94d8e41807b74b7bc1894f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  captureWidth: 3840
+  captureHeight: 2160
+  hideGameObject: {fileID: 0}
+  optimizeForManyScreenshots: 0
+  format: 2
+  folder: 
 --- !u!114 &114894963332278212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -133796,5 +133881,5 @@ MonoBehaviour:
   daylightColor: {r: 0.26, g: 0.55, b: 0.76, a: 0}
   morningEveningColor: {r: 0.81, g: 0.41, b: 0.44, a: 0}
   moonlightColor: {r: 0.11, g: 0.43, b: 0.81, a: 0}
-  atmoshphereColor: {r: 0.26788893, g: 0.5899271, b: 0.8113208, a: 0}
+  atmoshphereColor: {r: 0.080347836, g: 0.31565207, b: 0.59400004, a: 0}
   fogDensity: 0.0192
