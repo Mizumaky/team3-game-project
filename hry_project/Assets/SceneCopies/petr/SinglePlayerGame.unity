@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44945896, g: 0.49953377, b: 0.5756859, a: 1}
+  m_IndirectSpecularColor: {r: 0.4494595, g: 0.4995346, b: 0.5756866, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -133,7 +133,7 @@ MonoBehaviour:
     type: 2}
   enemyCount: 50
   radius: 25
-  timeOfLvl: 25
+  maxTimeBetweenWaves: 0
   curve:
     serializedVersion: 2
     m_Curve:
@@ -339,6 +339,32 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4445568800751354, guid: 1f3a5b3ac4c83e3488c9048bc947f43a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445568800751354, guid: 1f3a5b3ac4c83e3488c9048bc947f43a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445568800751354, guid: 1f3a5b3ac4c83e3488c9048bc947f43a, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445568800751354, guid: 1f3a5b3ac4c83e3488c9048bc947f43a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4445568800751354, guid: 1f3a5b3ac4c83e3488c9048bc947f43a, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114514332399094810, guid: 1f3a5b3ac4c83e3488c9048bc947f43a,
+        type: 2}
+      propertyPath: projectilePrefab
+      value: 
+      objectReference: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f3a5b3ac4c83e3488c9048bc947f43a, type: 2}
   m_IsPrefabAsset: 0
