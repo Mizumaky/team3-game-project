@@ -33,18 +33,18 @@ MonoBehaviour:
     m_Settings:
       method: 0
       fxaaSettings:
-        preset: 1
+        preset: 4
       taaSettings:
         jitterSpread: 0.75
         sharpen: 0.3
         stationaryBlending: 0.95
         motionBlending: 0.85
   ambientOcclusion:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
-      intensity: 2
-      radius: 0.5
-      sampleCount: 10
+      intensity: 1.14
+      radius: 0.75
+      sampleCount: 6
       downsampling: 0
       forceForwardCompatibility: 0
       ambientOnly: 0
@@ -71,7 +71,7 @@ MonoBehaviour:
   depthOfField:
     m_Enabled: 0
     m_Settings:
-      focusDistance: 7.74
+      focusDistance: 13.15
       aperture: 0.1
       focalLength: 16
       useCameraFov: 1
@@ -97,14 +97,14 @@ MonoBehaviour:
       logMin: -12
       logMax: 2
   bloom:
-    m_Enabled: 0
+    m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 0.57
-        threshold: 0.79
+        intensity: 2.19
+        threshold: 0.91
         softKnee: 0
-        radius: 2.2
-        antiFlicker: 1
+        radius: 1.35
+        antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
         intensity: 0

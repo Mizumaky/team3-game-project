@@ -49,13 +49,13 @@ public class ForestGenerator : MonoBehaviour {
 		for (int i = 0; i < treeCount; i++) {
 			// randomize ring rotation
 			ringAngleOffset = Random.Range(-ringAngleOffsetLimit, ringAngleOffsetLimit);
-			offsetAngle = (accurateAngle * (i + 1) + ringAngleOffset) % 360;
+			offsetAngle = (accurateAngle * i + ringAngleOffset) % 360;
 
 			// create a ray to find tree y pos
 			float rayPosX = transform.position.x + ringRadius * Mathf.Sin(offsetAngle * Mathf.Deg2Rad);
 			float rayPosZ = transform.position.z + ringRadius * Mathf.Cos(offsetAngle * Mathf.Deg2Rad);
 			float rayLength = 100f;
-			Vector3 rayOriginPosition = new Vector3(rayPosX, transform.position.y / 2f, rayPosZ);
+			Vector3 rayOriginPosition = new Vector3(rayPosX, 10f, rayPosZ);
 			Ray rayDown = new Ray(rayOriginPosition, Vector3.down);
 
 			// spawn tree on the intersection of the ray and terrain
