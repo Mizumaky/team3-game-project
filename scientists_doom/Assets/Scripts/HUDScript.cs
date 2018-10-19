@@ -6,7 +6,7 @@ public class HUDScript : MonoBehaviour {
 
     [SerializeField] private GameObject player;
     [SerializeField] private Image healthSlider;
-    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Text healthText;
     [SerializeField] private Image xpSlider;
 
     private void LateUpdate()

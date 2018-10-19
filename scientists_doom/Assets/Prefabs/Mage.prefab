@@ -197,13 +197,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1885970165570086}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0.123, y: 0.326, z: 0.058}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4794200684828452}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!4 &4602254152425530
 Transform:
   m_ObjectHideFlags: 1
@@ -516,7 +516,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distance: 500
   projectileVelocity: 20
-  projectilePrefab: {fileID: 1732657526960664, guid: 6c06dc8cc31e0a04c89041459303596b,
+  projectilePrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
     type: 2}
   spawnPosition: {fileID: 4445568800751354}
 --- !u!114 &114543196394816540
@@ -530,7 +530,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21db7f706c45b474091d404267c88b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAlive: 0
+  playerAlive: 1
   maxHealth: 100
   health: 0
   healthIncrement: 10
