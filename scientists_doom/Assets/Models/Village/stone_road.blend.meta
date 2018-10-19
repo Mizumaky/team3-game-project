@@ -1,44 +1,23 @@
 fileFormatVersion: 2
-guid: 206c7963e52c7354d977301966d969d6
+guid: ac4aac8cf570eab44a3b6c0af97af437
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Circle
-    100002: Cylinder
-    100004: Cylinder_001
-    100006: Plane
-    100008: Plane_001
-    100010: //RootNode
-    400000: Circle
-    400002: Cylinder
-    400004: Cylinder_001
-    400006: Plane
-    400008: Plane_001
-    400010: //RootNode
+    100000: //RootNode
+    400000: //RootNode
     2100000: unnamed
-    2100002: Material_003
-    2100004: Material
-    2100006: Material_002
-    2100008: Material_001
-    2300000: Circle
-    2300002: Cylinder
-    2300004: Cylinder_001
-    2300006: Plane
-    2300008: Plane_001
-    3300000: Circle
-    3300002: Cylinder
-    3300004: Cylinder_001
-    3300006: Plane
-    3300008: Plane_001
-    4300000: Plane_001
-    4300002: Plane
-    4300004: Cylinder_001
-    4300006: Cylinder
-    4300008: Circle
+    2100002: Material_001
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube_003
     7400000: Default Take
     9500000: //RootNode
-    2186277476908879412: ImportLogs
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001
+    second: {fileID: 2100000, guid: b6262887c061f9a4fbc33afad208ffdb, type: 2}
   materials:
     importMaterials: 1
     materialName: 0

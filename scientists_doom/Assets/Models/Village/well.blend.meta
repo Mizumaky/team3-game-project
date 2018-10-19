@@ -1,69 +1,64 @@
 fileFormatVersion: 2
-guid: 5874f2b6849439b4e80e94d53a769bb2
+guid: 206c7963e52c7354d977301966d969d6
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cylinder
-    100002: Cylinder_001
-    100004: Cylinder_002
-    100006: Cylinder_003
-    100008: Cylinder_004
-    100010: Cylinder_005
-    100012: Cylinder_006
-    100014: Cylinder_007
-    100016: Cylinder_008
-    100018: Cylinder_009
-    100020: Cylinder_010
-    100022: //RootNode
-    400000: Cylinder
-    400002: Cylinder_001
-    400004: Cylinder_002
-    400006: Cylinder_003
-    400008: Cylinder_004
-    400010: Cylinder_005
-    400012: Cylinder_006
-    400014: Cylinder_007
-    400016: Cylinder_008
-    400018: Cylinder_009
-    400020: Cylinder_010
-    400022: //RootNode
-    2100000: Material_001
-    2300000: Cylinder
-    2300002: Cylinder_001
-    2300004: Cylinder_002
-    2300006: Cylinder_003
-    2300008: Cylinder_004
-    2300010: Cylinder_005
-    2300012: Cylinder_006
-    2300014: Cylinder_007
-    2300016: Cylinder_008
-    2300018: Cylinder_009
-    2300020: Cylinder_010
-    3300000: Cylinder
-    3300002: Cylinder_001
-    3300004: Cylinder_002
-    3300006: Cylinder_003
-    3300008: Cylinder_004
-    3300010: Cylinder_005
-    3300012: Cylinder_006
-    3300014: Cylinder_007
-    3300016: Cylinder_008
-    3300018: Cylinder_009
-    3300020: Cylinder_010
-    4300000: Cylinder_010
-    4300002: Cylinder_009
-    4300004: Cylinder_008
-    4300006: Cylinder_007
-    4300008: Cylinder_006
-    4300010: Cylinder_005
-    4300012: Cylinder_004
-    4300014: Cylinder_003
-    4300016: Cylinder_002
-    4300018: Cylinder_001
-    4300020: Cylinder
+    100000: Circle
+    100002: Cylinder
+    100004: Cylinder_001
+    100006: Plane
+    100008: Plane_001
+    100010: //RootNode
+    400000: Circle
+    400002: Cylinder
+    400004: Cylinder_001
+    400006: Plane
+    400008: Plane_001
+    400010: //RootNode
+    2100000: unnamed
+    2100002: Material_003
+    2100004: Material
+    2100006: Material_002
+    2100008: Material_001
+    2300000: Circle
+    2300002: Cylinder
+    2300004: Cylinder_001
+    2300006: Plane
+    2300008: Plane_001
+    3300000: Circle
+    3300002: Cylinder
+    3300004: Cylinder_001
+    3300006: Plane
+    3300008: Plane_001
+    4300000: Plane_001
+    4300002: Plane
+    4300004: Cylinder_001
+    4300006: Cylinder
+    4300008: Circle
     7400000: Default Take
     9500000: //RootNode
-  externalObjects: {}
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 1aeba2f28b223db4a8f6fa7ddd1ed03a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_001
+    second: {fileID: 2100000, guid: 4a2eebbcad62cbf408a3b51a2c5c7830, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_002
+    second: {fileID: 2100000, guid: b6262887c061f9a4fbc33afad208ffdb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material_003
+    second: {fileID: 2100000, guid: 6ed3472bf8851444883ff7d998c94e61, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
