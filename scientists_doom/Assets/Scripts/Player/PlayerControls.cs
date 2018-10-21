@@ -8,8 +8,13 @@ public class PlayerControls : MonoBehaviour {
     public float distance = 50f;
     public float rotationSpeed = 10f;
 
-	void Start () {
-       
+    private Animator animator;
+    private float speed;
+    private Vector3 lastPosition;
+
+    void Start () {
+        speed = 0;
+        animator = GetComponent<Animator>();
         navMeshAgent = GetComponent<NavMeshAgent>();
 	}
 
@@ -35,18 +40,26 @@ public class PlayerControls : MonoBehaviour {
             navMeshAgent.SetDestination(groundPositionVector);
             
         }
+
+        if (animator != null) {
+            
+            speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.75f) / 3.5f;
+            lastPosition = transform.position;
+
+            animator.SetFloat("speedParam", speed);
+        }
 	}
 
     Vector3 GetGroundPosition() {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, distance)) {
-            if(hit.collider.gameObject.layer == 9)
-            {
+            print(hit);
+            
                 NavMeshHit hitNavmesh;
                 NavMesh.SamplePosition(hit.point, out hitNavmesh, 500, 5);
                 return hitNavmesh.position;
-            }
+            
         }
         return GetComponent<Transform>().position;
     }
