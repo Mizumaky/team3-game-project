@@ -5,13 +5,13 @@ public class MenuController : MonoBehaviour {
 
     public void StartSinglePlayer() {
 
-        SceneManager.LoadScene("SinglePlayerGame");
+        SceneManager.LoadScene(2);
 
     }
 
     public void GoToLobby() {
 
-        SceneManager.LoadScene("Lobby");
+        SceneManager.LoadScene(1);
 
     }
 

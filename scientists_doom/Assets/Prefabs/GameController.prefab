@@ -40,7 +40,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718d29bbc0c0c9c48a55196685bfd108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentFocusLayer: 1
+  currentFocusLayer: 0
 --- !u!114 &114476786925565022
 MonoBehaviour:
   m_ObjectHideFlags: 1

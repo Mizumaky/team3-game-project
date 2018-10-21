@@ -136,12 +136,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4794200684828452}
   - component: {fileID: 114543196394816540}
-  - component: {fileID: 114509697915394878}
   - component: {fileID: 114514332399094810}
+  - component: {fileID: 114985004374278022}
   - component: {fileID: 195575405598486634}
   - component: {fileID: 136230993574262782}
+  - component: {fileID: 114292449384131310}
+  - component: {fileID: 114882312719351294}
   m_Layer: 0
-  m_Name: Mage
+  m_Name: Mage_NET
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -490,7 +492,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114509697915394878
+--- !u!114 &114292449384131310
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -498,12 +500,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1987354410413550}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26bd9b4e68ec3ff40a70ce7903187c20, type: 3}
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 0}
-  distance: 500
-  rotationSpeed: 10
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 21
+    i1: 65
+    i2: 209
+    i3: 35
+    i4: 35
+    i5: 242
+    i6: 114
+    i7: 36
+    i8: 249
+    i9: 216
+    i10: 184
+    i11: 127
+    i12: 135
+    i13: 96
+    i14: 221
+    i15: 185
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!114 &114514332399094810
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,6 +561,40 @@ MonoBehaviour:
   nextLvlExperience: 0
   attackIncrement: 0
   armorIncrement: 0
+--- !u!114 &114882312719351294
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987354410413550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 1
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 2
+  m_RotationSyncCompression: 2
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 1
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114985004374278022
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1987354410413550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 160c6987e232f444e80d1e29469f5c0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 500
+  rotationSpeed: 10
 --- !u!136 &136230993574262782
 CapsuleCollider:
   m_ObjectHideFlags: 1
