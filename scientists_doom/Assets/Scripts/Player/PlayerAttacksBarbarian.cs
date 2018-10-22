@@ -5,9 +5,6 @@ public class PlayerAttacksBarbarian : MonoBehaviour {
     public float distance = 50f;
     public float projectileVelocity = 20f;
 
-    public GameObject projectilePrefab;
-    public Transform spawnPosition;
-
     private Animator animator;
 
     private void Start()

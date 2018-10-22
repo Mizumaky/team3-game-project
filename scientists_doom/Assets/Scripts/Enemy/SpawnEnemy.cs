@@ -28,7 +28,7 @@ public class SpawnEnemy : MonoBehaviour {
             numOfEnemies = (curve.Evaluate(value) * enemyCount) - enemiesSpawned;
             enemiesSpawned += (int)numOfEnemies;
             SpawnEnemyInRing((int)numOfEnemies);
-            print("Enemies spawned now " + numOfEnemies + " " + enemiesSpawned + "/" + enemyCount);
+            //print("Enemies spawned now " + numOfEnemies + " " + enemiesSpawned + "/" + enemyCount);
             yield return new WaitForSeconds(maxTimeBetweenWaves);
         }
     }
@@ -59,7 +59,8 @@ public class SpawnEnemy : MonoBehaviour {
                 if (hit.collider.gameObject.layer == 9)
                 { 
                     Quaternion rot = Quaternion.LookRotation((center - hit.point).normalized);
-                    Instantiate(enemyPrefab, hit.point, rot);
+                    GameObject enemy = Instantiate(enemyPrefab, hit.point, rot);
+                    enemy.transform.parent = gameObject.transform;
                 }
             }
         }
