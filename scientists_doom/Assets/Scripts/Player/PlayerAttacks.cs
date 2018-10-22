@@ -24,9 +24,7 @@ public class PlayerAttacks : MonoBehaviour {
 
         //Set velocity to projectile
         projectile.GetComponent<Rigidbody>().velocity = projectile.transform.up * projectileVelocity;
-
-        
-
+        projectile.GetComponent<Projectile>().casterTransform = transform;
     }
 
     Vector3 GetGroundPosition()
