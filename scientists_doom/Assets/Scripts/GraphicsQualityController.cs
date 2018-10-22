@@ -13,8 +13,12 @@ public class GraphicsQualityController : MonoBehaviour {
 
 	public void SetPostProcessingProfile() {
 		switch (dropdown.value) {
-			case 0: behaviour.profile = low; break;
-			case 1: behaviour.profile = high; break;
+			case 0: behaviour.profile = low; 
+              QualitySettings.SetQualityLevel(0);
+              break;
+			case 1: behaviour.profile = high; 
+              QualitySettings.SetQualityLevel(5);
+              break;
 			default: break;
 		}
 	}
