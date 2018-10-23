@@ -4,18 +4,18 @@ using TMPro;
 
 public class HUDScript : MonoBehaviour {
 
-    [SerializeField] private GameObject player;
+    [SerializeField] private CharacterManager manager;
     [SerializeField] private Image healthSlider;
     [SerializeField] private Text healthText;
     [SerializeField] private Image xpSlider;
 
     private void LateUpdate()
     {
-        int maxPlayerHealth = (int)player.GetComponent<PlayerStats>().maxHealth;
-        int playerHealth = (int)player.GetComponent<PlayerStats>().health;
+        int maxPlayerHealth = (int)manager.activeCharacter.GetComponent<PlayerStats>().maxHealth;
+        int playerHealth = (int)manager.activeCharacter.GetComponent<PlayerStats>().health;
 
-        int playerXp = (int)player.GetComponent<PlayerStats>().experience;
-        int nextLevelXp = (int)player.GetComponent<PlayerStats>().nextLvlExperience;
+        int playerXp = (int)manager.activeCharacter.GetComponent<PlayerStats>().experience;
+        int nextLevelXp = (int)manager.activeCharacter.GetComponent<PlayerStats>().nextLvlExperience;
 
         healthSlider.fillAmount = maxPlayerHealth / playerHealth;
         healthText.text = playerHealth + " / " + maxPlayerHealth;
