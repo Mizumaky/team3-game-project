@@ -71,6 +71,7 @@ ModelImporter:
     4300006: Cube_001
     4300008: Cube
     7400000: Default Take
+    7400002: Falling
     9500000: //RootNode
     13700000: Cylinder
     13700002: Icosphere
@@ -88,14 +89,17 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
-      copied configuration does not match position in animation file:\n\t'Upper_Leg_L'
-      : position error = 179.090225 mm\n\t'Lower_Leg_L' : position error = 312.846741
-      mm\n\t'Foot_L' : position error = 296.911530 mm\n\t'Upper_Leg_R' : position
-      error = 173.647293 mm\n\t'Lower_Leg_R' : position error = 311.500488 mm\n\t'Foot_R'
-      : position error = 297.693939 mm\n"
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Default Take' has import animation warnings
+      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
+      to improve retargeting quality.\n\t'Upper_Leg_L' has scale animation that will
+      be discarded.\n\t'Foot_L' has scale animation that will be discarded.\n\t'Foot_R'
+      has scale animation that will be discarded.\n\nClip 'Falling' has import animation
+      warnings that might lower retargeting quality:\nNote: Activate translation DOF
+      on avatar to improve retargeting quality.\n\t'Upper_Leg_L' has scale animation
+      that will be discarded.\n\t'Foot_L' has scale animation that will be discarded.\n\t'Foot_R'
+      has scale animation that will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
