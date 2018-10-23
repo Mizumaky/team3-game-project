@@ -9,8 +9,7 @@ public class SpawnEnemy : MonoBehaviour {
     public float radius;
     public float maxTimeBetweenWaves; //
     public AnimationCurve curve;
-    [Range(0, 180f)]
-    public float ringAngleOffsetLimit;
+    private float ringAngleOffsetLimit = 180f;
 
     void Start()
     {
@@ -24,12 +23,12 @@ public class SpawnEnemy : MonoBehaviour {
         int enemiesSpawned = 0;
         while (value < 1)
         {
-            value += 0.1f;
+            value += 0.01f;
             numOfEnemies = (curve.Evaluate(value) * enemyCount) - enemiesSpawned;
             enemiesSpawned += (int)numOfEnemies;
             SpawnEnemyInRing((int)numOfEnemies);
             //print("Enemies spawned now " + numOfEnemies + " " + enemiesSpawned + "/" + enemyCount);
-            yield return new WaitForSeconds(maxTimeBetweenWaves);
+            yield return new WaitForSeconds(0.1f);
         }
     }
 

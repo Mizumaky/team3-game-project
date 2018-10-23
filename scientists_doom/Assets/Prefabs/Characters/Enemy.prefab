@@ -815,7 +815,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: -0.31, y: 0.82, z: 0.31}
+  m_Size: {x: 0.31, y: 0.82, z: 0.31}
   m_Center: {x: 0, y: 0.42, z: 0}
 --- !u!95 &95873874070448108
 Animator:
@@ -847,7 +847,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castle: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
-  player: {fileID: 1617892163682710, guid: 0df0912ecf9dc3240bc4b3d8ae4c0b30, type: 2}
 --- !u!195 &195693831623862548
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -857,7 +856,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 4
+  m_Speed: 3
   m_Acceleration: 15
   avoidancePriority: 1
   m_AngularSpeed: 120
