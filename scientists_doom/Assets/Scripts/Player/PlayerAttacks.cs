@@ -21,7 +21,7 @@ public class PlayerAttacks : MonoBehaviour {
 
         //Spawn projectile
         GameObject projectile = Instantiate(projectilePrefab, spawnPosition.position, spawnPosition.rotation) as GameObject;
-
+        FindObjectOfType<Projectile>().casterTransform = gameObject.transform;
         //Set velocity to projectile
         projectile.GetComponent<Rigidbody>().velocity = projectile.transform.up * projectileVelocity;
         projectile.GetComponent<Projectile>().casterTransform = transform;
