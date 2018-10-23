@@ -5,31 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/SceneCopies/petr/MainMenu 1.unity
-    guid: d51d32ff28768584d9dd1dd98f93c2ae
-  - enabled: 0
+    guid: 6610a4ee21174f24aa4fa20f9d72083a
+  - enabled: 1
     path: Assets/SceneCopies/petr/lobby 1.unity
-    guid: 38600b0cfe39c2c428c1cc3d65fd6303
-  - enabled: 0
+    guid: c3e31163803701a4ca03588cf8c9fb63
+  - enabled: 1
     path: Assets/SceneCopies/petr/SinglePlayerGame 1.unity
-    guid: 56497a3f1422afa499be04b73acafe88
-  - enabled: 0
+    guid: 320e938237b2d5b419a4a7415304a1c9
+  - enabled: 1
     path: Assets/SceneCopies/petr/MultiPlayerGame 1.unity
-    guid: f0b9f22dd081584419bae3eab02e88c3
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f3ccf14f628a7154ca6afd956f482cd7
-  - enabled: 1
-    path: Assets/Scenes/lobby.unity
-    guid: f590ea91b5e01cc4094082278f8f6b8b
-  - enabled: 1
-    path: Assets/Scenes/SinglePlayerGame.unity
-    guid: 39d1c0496bdb3114180ba7590015d478
-  - enabled: 1
-    path: Assets/Scenes/MultiPlayerGame.unity
-    guid: 6df933d2a95c5e5428172e6778eff982
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
+    guid: a689eb782dcfe5e40b844637f48fe997
   m_configObjects: {}

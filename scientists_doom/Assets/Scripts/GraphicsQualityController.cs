@@ -12,19 +12,28 @@ public class GraphicsQualityController : MonoBehaviour {
 	public PostProcessingProfile low;
 	public PostProcessingProfile high;
 
+	private void Awake() {
+		SetQualityPresetIndex((int)defaultPreset);
+	}
+
 	/// <summary>
-	/// Sets quality level and post processing profile
+	/// Sets graphics quality preset index
 	/// </summary>
 	/// <param name="value">Graphics preset index (0 - low, 1 - high)</param>
-	public void SetQuality(int value) {
-		switch(value) {
-			// Low == Default
-			default: behaviour.profile = low;
-							QualitySettings.SetQualityLevel(0);
-							break;
+	public void SetQualityPresetIndex(int value) {
+		defaultPreset = (GraphicsQualityPreset)value;
+	}
 
-			// High
-			case 2: behaviour.profile = high;
+	/// <summary>
+	/// Updates current graphics quality and post processing preset
+	/// </summary>
+	public void UpdateQuality() {
+		switch((int)defaultPreset) {
+			default: 	behaviour.profile = low;
+								QualitySettings.SetQualityLevel(0);
+								break;
+
+			case 1: behaviour.profile = high;
 							QualitySettings.SetQualityLevel(5);
 							break;
 		}

@@ -82,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wizard: {fileID: 1106552325252950, guid: e9e4af9646be111458eaef36fa064098, type: 2}
   barbarian: {fileID: 1659500568396690, guid: 6830cda93e9e2644592b3a90e51c3d8c, type: 2}
+  spawnOnStart: 0
   characterOnStart: 1
   spawnPoint: {fileID: 4360926578144620}
   activeCharacter: {fileID: 0}

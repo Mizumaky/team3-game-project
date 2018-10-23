@@ -21,6 +21,12 @@ public class UIController : MonoBehaviour {
 	[Header("Settings Window")]
 	public Dropdown settingsQualityDropdown;
 	
+	private void Awake() {
+		if(characterWindow.activeSelf) {
+			currentWindow = characterWindow;
+		}
+	}
+
 	private void Update() {
 		GetUIInput();
 	}
@@ -67,7 +73,8 @@ public class UIController : MonoBehaviour {
 	/// Changes quality via GraphicsQualityController
 	/// </summary>
 	public void ChangeQualitySettings() {
-		gameController.GetComponent<GraphicsQualityController>().SetQuality(settingsQualityDropdown.value);
+		gameController.GetComponent<GraphicsQualityController>().SetQualityPresetIndex(settingsQualityDropdown.value);
+		gameController.GetComponent<GraphicsQualityController>().UpdateQuality();
 	}
 
 	/// <summary>
@@ -76,6 +83,7 @@ public class UIController : MonoBehaviour {
 	/// <param name="index"></param>
 	public void ChangeActiveCharacter(int index) {
 		characterManager.ChangeActiveCharacter(index);
+		ToggleWindow(characterWindow);
 	}
 
 	/// <summary>
