@@ -14,7 +14,7 @@ public class PlayerControls : MonoBehaviour {
 
 	void Start () {
         navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
         speed = 0;
 	}
 
