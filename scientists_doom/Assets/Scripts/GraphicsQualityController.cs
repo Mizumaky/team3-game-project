@@ -24,7 +24,7 @@ public class GraphicsQualityController : MonoBehaviour {
 							break;
 
 			// High
-			case 2: behaviour.profile = high;
+			case 1: behaviour.profile = high;
 							QualitySettings.SetQualityLevel(5);
 							break;
 		}
