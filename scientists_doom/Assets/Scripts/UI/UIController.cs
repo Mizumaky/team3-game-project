@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 /// <summary>
 /// Manages UI windows
@@ -92,4 +93,8 @@ public class UIController : MonoBehaviour {
 	public void OpenSGWebsite() {
 		Application.OpenURL("http://scarcegames.com/");
 	}
+
+  public void LoadMainMenu() {
+    SceneManager.LoadScene(0);
+  }
 }
