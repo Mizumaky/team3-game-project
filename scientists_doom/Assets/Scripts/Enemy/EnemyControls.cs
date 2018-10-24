@@ -24,17 +24,17 @@ public class EnemyControls : MonoBehaviour {
             target = other.collider.GetComponentInChildren<Projectile>().casterTransform;
         }
         StartCoroutine(CheckForTarget());
-        SetPathToTarget(target);
     }
 
     IEnumerator CheckForTarget()
     {
-        while (Vector3.Distance(target.position, transform.position) < distanceToFollowPlayer)
+        while (target != null && target.gameObject.activeSelf && Vector3.Distance(target.position, transform.position) < distanceToFollowPlayer)
         {
             SetPathToTarget(target);
             yield return new WaitForSeconds(0.4f);
         }
         target = castle;
+        SetPathToTarget(target);
     }
 
     private void SetPathToTarget(Transform target)
