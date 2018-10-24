@@ -7,9 +7,9 @@ public class GameController : MonoBehaviour {
 
 		public enum FocusLayer { Game, UI }
 
-		public FocusLayer currentFocusLayer;
+		[SerializeField] public static FocusLayer currentFocusLayer;
 
 		public void LoadMainMenu() {
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene(0);
 		}
 }

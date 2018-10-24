@@ -2,14 +2,11 @@
 
 public class PlayerAttacksBarbarian : MonoBehaviour {
 
-    public float distance = 50f;
-    public float projectileVelocity = 20f;
-
     private Animator animator;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     void Update() {
