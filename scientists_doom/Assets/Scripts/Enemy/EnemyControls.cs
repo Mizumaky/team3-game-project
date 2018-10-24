@@ -20,6 +20,7 @@ public class EnemyControls : MonoBehaviour {
     
     private void OnTriggerEnter(Collider other) //colision with projectile
     {
+        print("ahoj");
         if (other.gameObject.layer == 11) // 11. layer hit enemies
         {
             if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
