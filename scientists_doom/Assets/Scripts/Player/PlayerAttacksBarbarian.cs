@@ -20,6 +20,7 @@ public class PlayerAttacksBarbarian : MonoBehaviour {
 	}
 
     void Fire() {
+        axeCollider.enabled = true;
         animator.SetTrigger("attackTrigger");
 
     }
