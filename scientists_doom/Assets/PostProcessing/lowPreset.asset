@@ -100,10 +100,10 @@ MonoBehaviour:
     m_Enabled: 1
     m_Settings:
       bloom:
-        intensity: 6.29
-        threshold: 0.98
-        softKnee: 0.044
-        radius: 1.33
+        intensity: 1.1
+        threshold: 0.95
+        softKnee: 0.14
+        radius: 1.9
         antiFlicker: 0
       lensDirt:
         texture: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
         tint: 0
         hueShift: 0
         saturation: 1
-        contrast: 1.5
+        contrast: 1.39
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: 0, y: 1, z: 0}

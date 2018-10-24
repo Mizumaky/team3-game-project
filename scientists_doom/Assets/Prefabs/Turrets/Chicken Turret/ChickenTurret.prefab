@@ -1134,7 +1134,7 @@ MonoBehaviour:
   FOV: 180
   turnSpeed: 10
   searchInterval: 0.5
-  fireRate: 3
+  fireRate: 4
   soundClip: {fileID: 8300000, guid: 975ead78572fa0f44a6cbd7ce7199d29, type: 3}
   animated: 1
   animator: {fileID: 95988203748641936}
