@@ -10,6 +10,7 @@ public class CharacterManager : MonoBehaviour {
   public GameObject barbarian;
 
   [Header("On Start")]
+  public bool spawnOnStart = false;
   public Character characterOnStart;
   public Transform spawnPoint;
 
@@ -19,7 +20,11 @@ public class CharacterManager : MonoBehaviour {
   public DoubleFocusCamera dfcamera;
 
   private void Start() {
-    SpawnNewCharacter(characterOnStart, spawnPoint);
+    if(spawnOnStart) { 
+      SpawnNewCharacter(characterOnStart, spawnPoint);
+    } else {
+      dfcamera.focus = spawnPoint;
+    }
   }
 
   private void SpawnNewCharacter(Character character, Transform transform) {
@@ -35,20 +40,16 @@ public class CharacterManager : MonoBehaviour {
   /// <summary>
   /// Destroys the old character and instantiates a new one at the same coordinates
   /// </summary>
-  /// <param name="character">new character</param>
-  public void ChangeActiveCharacter(Character newCharacter) {
-    Transform oldTransform = activeCharacter.transform;
-    Destroy(activeCharacter);
-    SpawnNewCharacter(newCharacter, oldTransform);
-  }
-
-  /// <summary>
-  /// Destroys the old character and instantiates a new one at the same coordinates
-  /// </summary>
   /// <param name="character">new character index</param>
   public void ChangeActiveCharacter(int index) {
-    Transform oldTransform = activeCharacter.transform;
-    Destroy(activeCharacter);
+    Transform oldTransform;
+    if(activeCharacter != null) {
+      oldTransform = activeCharacter.transform;
+      Destroy(activeCharacter);
+    } else {
+      oldTransform = spawnPoint;
+    }
+    
     Character newCharacter;
     switch(index) {
       default: newCharacter = Character.Barbarian; break;

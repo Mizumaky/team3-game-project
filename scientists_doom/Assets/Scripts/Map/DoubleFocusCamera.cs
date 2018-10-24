@@ -4,8 +4,8 @@ using UnityEngine;
 public class DoubleFocusCamera : MonoBehaviour {
 
     [Header("Camera Settings")]
-		public Transform focus;
-		public Transform secondaryFocus;
+    public Transform focus;
+    public Transform secondaryFocus;
 
     [SerializeField] private float defaultRadius = 20f;
     [SerializeField] private float smoothTime = .5f;

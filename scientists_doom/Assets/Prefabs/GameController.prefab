@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26af0306adac7ef40af8331cde1ef820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultPreset: 0
+  defaultPreset: 1
   behaviour: {fileID: 0}
   low: {fileID: 11400000, guid: 1375c1b3d9f4b844f96b3bb97eb68872, type: 2}
   high: {fileID: 11400000, guid: 01104620f2a0a492caac99317c71147a, type: 2}

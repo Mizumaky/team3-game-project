@@ -10,6 +10,6 @@ public class GameController : MonoBehaviour {
 		[SerializeField] public static FocusLayer currentFocusLayer;
 
 		public void LoadMainMenu() {
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene(0);
 		}
 }
