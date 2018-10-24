@@ -8,18 +8,13 @@ public class EnemyControls : MonoBehaviour {
     public Transform castle;
     private Transform target;
     private NavMeshPath path;
-    private bool followPlayer;
     private float distanceToFollowPlayer = 7f;
 
     void Start () {
         navMeshAgent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
         target = castle;
-        followPlayer = false;
-        if (NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path))
-            navMeshAgent.SetPath(path);
-        else
-            Debug.Log("Enemy could not set path");
+        SetPathToTarget(target);
     }
 
     private void OnCollisionEnter(Collision other) //colision with prijectile
@@ -27,26 +22,23 @@ public class EnemyControls : MonoBehaviour {
         if (other.gameObject.layer == 11) // 11. layer hit enemies
         {
             target = other.collider.GetComponentInChildren<Projectile>().casterTransform;
-            followPlayer = true;
-        }
-    }
-
-    void Update () {
-        if (!followPlayer)
-        {
-            return;
         }
         StartCoroutine(CheckForTarget());
+        SetPathToTarget(target);
     }
 
     IEnumerator CheckForTarget()
     {
-        if (Vector3.Distance(target.position,transform.position) > distanceToFollowPlayer)
+        while (Vector3.Distance(target.position, transform.position) < distanceToFollowPlayer)
         {
-            followPlayer = false;
-            target = castle;
+            SetPathToTarget(target);
+            yield return new WaitForSeconds(0.4f);
         }
-        //set path to target
+        target = castle;
+    }
+
+    private void SetPathToTarget(Transform target)
+    {
         if (NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path))
         {
             navMeshAgent.SetPath(path);
@@ -55,6 +47,5 @@ public class EnemyControls : MonoBehaviour {
         {
             Debug.Log("Enemy could not set path");
         }
-        yield return new WaitForSeconds(1f);
     }
 }
