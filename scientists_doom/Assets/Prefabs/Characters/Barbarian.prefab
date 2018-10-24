@@ -265,9 +265,9 @@ GameObject:
   - component: {fileID: 4160459824930038}
   - component: {fileID: 136424690498372860}
   - component: {fileID: 195102059912575474}
+  - component: {fileID: 114518244426180814}
   - component: {fileID: 114277018198271202}
   - component: {fileID: 114235568595471646}
-  - component: {fileID: 114228192535912450}
   m_Layer: 0
   m_Name: Barbarian
   m_TagString: Untagged
@@ -734,22 +734,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114228192535912450
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1659500568396690}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e7fd2be2a922b4cbc933b6dffe83a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 500
-  projectileVelocity: 20
-  projectilePrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
-    type: 2}
-  spawnPosition: {fileID: 4892815732837226}
 --- !u!114 &114235568595471646
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -784,6 +768,17 @@ MonoBehaviour:
   nextLvlExperience: 0
   attackIncrement: 0
   armorIncrement: 0
+--- !u!114 &114518244426180814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1659500568396690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 87f65e441ecc57642869058c2eae12cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!136 &136424690498372860
 CapsuleCollider:
   m_ObjectHideFlags: 1
