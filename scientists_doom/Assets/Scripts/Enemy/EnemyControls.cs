@@ -8,20 +8,27 @@ public class EnemyControls : MonoBehaviour {
     public Transform castle;
     private Transform target;
     private NavMeshPath path;
-    private float distanceToFollowPlayer = 7f;
+    [Range(5f, 10f)]
+    public float distanceToFollowPlayer = 7f;
 
-    void Start () {
+    void Awake() {
         navMeshAgent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
         target = castle;
         SetPathToTarget(target);
     }
-
-    private void OnCollisionEnter(Collision other) //colision with prijectile
+    
+    private void OnTriggerEnter(Collider other) //colision with projectile
     {
         if (other.gameObject.layer == 11) // 11. layer hit enemies
         {
-            target = other.collider.GetComponentInChildren<Projectile>().casterTransform;
+            if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
+                target = other.GetComponentInParent<PlayerAttacksBarbarian>().transform;
+            }
+            else
+            {
+                target = other.GetComponentInChildren<Projectile>().casterTransform;
+            }
         }
         StartCoroutine(CheckForTarget());
     }
