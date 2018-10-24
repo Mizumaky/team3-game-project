@@ -4,13 +4,15 @@ using UnityEditor;
 
 public class MenuController : MonoBehaviour {
 
-    public enum User { Master, Petr }
+    public enum User { Master, Petr, Mira, Fanda }
     public User currentUser = User.Petr;
 
     [Header("Paths To Scenes")]
     [Header("Scene names can be adjusted in script!")]
     public string master = "Assets/Scenes/";
     public string petr = "Assets/SceneCopies/petr/";
+    public string mira = "Assets/SceneCopies/mira/";
+    public string fanda = "Assets/SceneCopies/fanda/";
 
     public struct SceneNames {
         public string mainMenu;
@@ -41,6 +43,8 @@ public class MenuController : MonoBehaviour {
         switch(currentUser) {
             default: return master;
             case User.Petr: return petr;
+            case User.Mira: return mira;
+            case User.Fanda: return fanda;
         }
     }
 
@@ -69,6 +73,7 @@ public class MenuController : MonoBehaviour {
 		Application.OpenURL("http://scarcegames.com/");
 	}
 
+#if UNITY_EDITOR
     /// <summary>
     /// Adds mandatory scenes to build settings
     /// </summary>
@@ -83,4 +88,5 @@ public class MenuController : MonoBehaviour {
             };
         EditorBuildSettings.scenes = newScenes;
     }
+#endif
 }
