@@ -2,6 +2,7 @@
 
 public class PlayerAttacksBarbarian : MonoBehaviour {
 
+    public GameObject attackSpawnPoint;
     private Animator animator;
 
     private void Start()
@@ -18,5 +19,6 @@ public class PlayerAttacksBarbarian : MonoBehaviour {
 
     void Fire() {
         animator.SetTrigger("attackTrigger");
+        attackSpawnPoint.SetActive(true);
     }
 }

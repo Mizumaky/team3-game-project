@@ -21,7 +21,7 @@ public class EnemyControls : MonoBehaviour {
     {
         if (other.gameObject.layer == 11) // 11. layer hit enemies
         {
-            target = other.collider.GetComponentInChildren<Projectile>().casterTransform;
+            target = other.collider.GetComponentInChildren<CharacterAbility>().casterTransform;
         }
         StartCoroutine(CheckForTarget());
     }
