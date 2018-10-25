@@ -89,6 +89,8 @@ GameObject:
   - component: {fileID: 65305769933585556}
   - component: {fileID: 114761608520330236}
   - component: {fileID: 195693831623862548}
+  - component: {fileID: 54314647059553026}
+  - component: {fileID: 114533704925530090}
   m_Layer: 10
   m_Name: Enemy
   m_TagString: enemy
@@ -805,6 +807,21 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1766256572230402}
   m_Mesh: {fileID: 4300000, guid: c674a343e63371a40b992f54f30719cc, type: 3}
+--- !u!54 &54314647059553026
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407192967229382}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!65 &65305769933585556
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -835,6 +852,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114533704925530090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407192967229382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed76007a8aecdb4c942200715e383dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHealth: 50
 --- !u!114 &114761608520330236
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -847,6 +876,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castle: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
+  distanceToFollowPlayer: 7.54
 --- !u!195 &195693831623862548
 NavMeshAgent:
   m_ObjectHideFlags: 1
@@ -855,8 +885,8 @@ NavMeshAgent:
   m_GameObject: {fileID: 1407192967229382}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.2
-  m_Speed: 3
+  m_Radius: 0.4
+  m_Speed: 2
   m_Acceleration: 15
   avoidancePriority: 1
   m_AngularSpeed: 120
