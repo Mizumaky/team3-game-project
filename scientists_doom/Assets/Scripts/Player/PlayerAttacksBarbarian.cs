@@ -2,6 +2,7 @@
 
 public class PlayerAttacksBarbarian : MonoBehaviour {
 
+    public GameObject attackSpawnPoint;
     private Animator animator;
     public Collider axeCollider;
 
@@ -34,5 +35,7 @@ public class PlayerAttacksBarbarian : MonoBehaviour {
     {
         Debug.Log("Axe Disabled");
         axeCollider.enabled = false;
+        attackSpawnPoint.SetActive(true);
+
     }
 }
