@@ -22,18 +22,13 @@ public class EnemyControls : MonoBehaviour {
     {
         if (other.gameObject.layer == 11) // 11. layer hit enemies
         {
-            if (other.gameObject.layer == 11) // 11. layer hit enemies
-            {
-                if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>())
-                {
-                    target = other.GetComponentInParent<PlayerAttacksBarbarian>().transform;
-                }
-                else
-                {
-                    target = other.GetComponentInChildren<CharacterProjectile>().casterTransform;
-                }
+            if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
+                target = other.GetComponentInParent<PlayerAttacksBarbarian>().transform;
             }
-
+            else
+            {
+                target = other.GetComponentInChildren<CharacterProjectile>().casterTransform;
+            }
         }
         StartCoroutine(CheckForTarget());
     }
