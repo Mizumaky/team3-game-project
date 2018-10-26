@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.3
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.20423815, g: 0.20885265, b: 0.19552329, a: 0.3}
+  m_IndirectSpecularColor: {r: 0.038195223, g: 0.040244285, b: 0.036323655, a: 0.3}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -221,10 +221,6 @@ Prefab:
       propertyPath: dfcamera
       value: 
       objectReference: {fileID: 1669196919}
-    - target: {fileID: 4360926578144620, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -0.174
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 2}
   m_IsPrefabAsset: 0
@@ -16692,10 +16688,6 @@ Prefab:
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 2}
       propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1590163329520516, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
-      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
