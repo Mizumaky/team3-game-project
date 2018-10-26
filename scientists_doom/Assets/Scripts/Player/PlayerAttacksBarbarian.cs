@@ -26,13 +26,11 @@ public class PlayerAttacksBarbarian : MonoBehaviour {
     }
 
     public void AxeSwingStart() {
-        Debug.Log("Axe enabled");
         axeCollider.enabled = true;
     }
 
     public void AxeSwingEnd()
     {
-        Debug.Log("Axe Disabled");
         axeCollider.enabled = false;
     }
 }
