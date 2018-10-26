@@ -22,6 +22,7 @@ public class EnemyControls : MonoBehaviour {
     {
         if (other.gameObject.layer == 11) // 11. layer hit enemies
         {
+            GetComponent<EnemyStats>().enemyHealth -= 10;
             if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
                 target = other.GetComponentInParent<PlayerAttacksBarbarian>().transform;
             }
