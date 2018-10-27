@@ -54,7 +54,7 @@ public class BulletController : MonoBehaviour {
         Quaternion particleRot = Quaternion.LookRotation(target.position - transform.position);
         GameObject particle = Instantiate(impactEffect, transform.position, particleRot);
         soundSource.clip = soundClip;
-        soundSource.Play();
+        //soundSource.Play();
         Destroy(particle, 2f);
         Destroy(gameObject);
     }

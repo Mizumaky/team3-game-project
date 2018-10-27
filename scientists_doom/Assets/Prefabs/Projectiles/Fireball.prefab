@@ -20,14 +20,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4775128819655798}
   - component: {fileID: 136136793960142728}
-  - component: {fileID: 54403559534143082}
   - component: {fileID: 114467499878401324}
   - component: {fileID: 114374115485122204}
   - component: {fileID: 199991581044535354}
   - component: {fileID: 198907625602505108}
   - component: {fileID: 108677907858239518}
   - component: {fileID: 114262552023386284}
-  m_Layer: 0
+  - component: {fileID: 54399271213956376}
+  m_Layer: 11
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,13 +41,13 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164206773813186}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.806944, y: 0.418, z: 5.908702}
+  m_LocalPosition: {x: 12.074035, y: -2.299295, z: 2.759822}
   m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!54 &54403559534143082
+--- !u!54 &54399271213956376
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -57,7 +57,7 @@ Rigidbody:
   m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -107,10 +107,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1164206773813186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c991b8336f13f784387359dbd3b1ccaa, type: 3}
+  m_Script: {fileID: 11500000, guid: edcfbec7cb5324caeb61b615c2b769f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifetime: 3
+  casterTransform: {fileID: 0}
+  explosion: {fileID: 1054286298192358, guid: 4c900ea1c7839404b91ff52377ef515d, type: 2}
+  lifetime: 5
+  projectileFlightHeight: 0.5
 --- !u!114 &114374115485122204
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -171,12 +174,12 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164206773813186}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 0.5
+  m_Radius: 1.1044272
+  m_Height: 2.2088544
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0, z: -0}
 --- !u!198 &198907625602505108
 ParticleSystem:
   m_ObjectHideFlags: 1

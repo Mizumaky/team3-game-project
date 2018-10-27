@@ -20,7 +20,7 @@ public class PlayerControls_NET : NetworkBehaviour {
 
     public override void OnStartLocalPlayer()
     {
-        Camera.main.GetComponent<RotatingCamera>().player = transform;
+        Camera.main.GetComponent<DoubleFocusCamera>().focus = transform;
     }
 
     void Update () {

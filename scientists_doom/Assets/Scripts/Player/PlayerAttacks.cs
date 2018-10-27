@@ -9,22 +9,17 @@ public class PlayerAttacks : MonoBehaviour {
     public Transform spawnPosition;
 
     void Update() {
-
         if (Input.GetKeyDown(KeyCode.Space)) {
             Fire();
         }
 	}
 
     void Fire() {
-
-        //Vector3 target = (GetGroundPosition() - transform.position).normalized;
-
-        //Spawn projectile
         GameObject projectile = Instantiate(projectilePrefab, spawnPosition.position, spawnPosition.rotation) as GameObject;
 
         //Set velocity to projectile
         projectile.GetComponent<Rigidbody>().velocity = projectile.transform.up * projectileVelocity;
-        projectile.GetComponent<Projectile>().casterTransform = transform;
+        projectile.GetComponent<CharacterAbility>().casterTransform = transform;
     }
 
     Vector3 GetGroundPosition()

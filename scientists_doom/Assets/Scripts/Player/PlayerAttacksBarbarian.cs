@@ -2,14 +2,14 @@
 
 public class PlayerAttacksBarbarian : MonoBehaviour {
 
-    public float distance = 50f;
-    public float projectileVelocity = 20f;
-
     private Animator animator;
+    public Collider axeCollider;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+        animator = GetComponentInChildren<Animator>();
+        axeCollider = GetComponentInChildren<BoxCollider>();
+        axeCollider.enabled = false;
     }
 
     void Update() {
@@ -20,6 +20,19 @@ public class PlayerAttacksBarbarian : MonoBehaviour {
 	}
 
     void Fire() {
+        
         animator.SetTrigger("attackTrigger");
+
+    }
+
+    public void AxeSwingStart() {
+        Debug.Log("Axe enabled");
+        axeCollider.enabled = true;
+    }
+
+    public void AxeSwingEnd()
+    {
+        Debug.Log("Axe Disabled");
+        axeCollider.enabled = false;
     }
 }

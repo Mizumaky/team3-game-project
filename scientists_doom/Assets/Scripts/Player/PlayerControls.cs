@@ -4,7 +4,6 @@ using UnityEngine.AI;
 public class PlayerControls : MonoBehaviour {
 
     private NavMeshAgent navMeshAgent;
-    public GameController controller;
     public float distance = 50f;
     public float rotationSpeed = 10f;
 
@@ -20,7 +19,7 @@ public class PlayerControls : MonoBehaviour {
 
     void Update () {
 
-        if (controller.currentFocusLayer == GameController.FocusLayer.Game) {
+        if (GameController.currentFocusLayer == GameController.FocusLayer.Game) {
             Vector3 groundPositionVector = GetGroundPosition();
 
             Vector3 direction = (groundPositionVector - transform.position).normalized;
@@ -61,7 +60,7 @@ public class PlayerControls : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, distance)) {
-            if(hit.collider.gameObject.layer == 9)
+            if(hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 10)
             {
                 NavMeshHit hitNavmesh;
                 NavMesh.SamplePosition(hit.point, out hitNavmesh, 500, 5);
