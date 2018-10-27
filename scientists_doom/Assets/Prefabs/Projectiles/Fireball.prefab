@@ -26,7 +26,8 @@ GameObject:
   - component: {fileID: 198907625602505108}
   - component: {fileID: 108677907858239518}
   - component: {fileID: 114262552023386284}
-  m_Layer: 2
+  - component: {fileID: 54399271213956376}
+  m_Layer: 11
   m_Name: Fireball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +49,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
 --- !u!54 &54399271213956376
 Rigidbody:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164206773813186}
