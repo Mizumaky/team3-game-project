@@ -7,6 +7,7 @@ public class CharacterProjectile : CharacterAbility {
   public GameObject explosion;
   private Light light;
 	public float lifetime = 5f;
+    public float projectileFlightHeight = 1f;
 
   private void Awake() {
     light = GetComponent<Light>();
@@ -16,7 +17,21 @@ public class CharacterProjectile : CharacterAbility {
 		StartCoroutine(Fade());
 	}
 
-  private void OnCollisionEnter(Collision other) {
+    void Update()
+    {
+        Ray rayDown;
+        rayDown = new Ray(transform.position, Vector3.down);
+        RaycastHit hit;
+        if (Physics.Raycast(rayDown, out hit, 100f))
+        {
+            if (hit.collider.gameObject.layer == 9)
+            {
+                transform.position = new Vector3(transform.position.x, projectileFlightHeight + hit.point.y, transform.position.z);
+            }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other) {
     if(other.gameObject.layer == 10) { // enemy layer
       StartCoroutine(Explode());
     }

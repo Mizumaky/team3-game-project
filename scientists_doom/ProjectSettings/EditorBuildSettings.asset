@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/SceneCopies/petr/MainMenu 1.unity
-    guid: ab24f8adbb9214026a4613cedb7212d6
+    path: Assets/SceneCopies/fanda/MainMenu 1.unity
+    guid: de11e8ec1d6d3ea49ba09016f085eab2
   - enabled: 1
-    path: Assets/SceneCopies/petr/lobby 1.unity
-    guid: 506614e827c124285a8936abd61a7a03
+    path: Assets/SceneCopies/fanda/lobby 1.unity
+    guid: af5e8fdabee93c24f983cd156aa4b4ce
   - enabled: 1
-    path: Assets/SceneCopies/petr/SinglePlayerGame 1.unity
-    guid: b38ad13e597b14d2e84a56c0b82b1be5
+    path: Assets/SceneCopies/fanda/SinglePlayerGame 1.unity
+    guid: 30e3fd84c079b314ca5ba730240ecf60
   - enabled: 1
-    path: Assets/SceneCopies/petr/MultiPlayerGame 1.unity
-    guid: 2953bed0b88a9478180e9f6feedea030
+    path: Assets/SceneCopies/fanda/MultiPlayerGame 1.unity
+    guid: 3ab06fefcfd733d48877c6eb2ff06800
   m_configObjects: {}

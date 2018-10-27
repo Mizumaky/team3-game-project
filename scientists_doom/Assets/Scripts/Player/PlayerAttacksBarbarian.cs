@@ -2,12 +2,14 @@
 
 public class PlayerAttacksBarbarian : MonoBehaviour {
 
-    public GameObject attackSpawnPoint;
     private Animator animator;
+    public Collider axeCollider;
 
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        axeCollider = GetComponentInChildren<BoxCollider>();
+        axeCollider.enabled = false;
     }
 
     void Update() {
@@ -18,7 +20,17 @@ public class PlayerAttacksBarbarian : MonoBehaviour {
 	}
 
     void Fire() {
+        
         animator.SetTrigger("attackTrigger");
-        attackSpawnPoint.SetActive(true);
+
+    }
+
+    public void AxeSwingStart() {
+        axeCollider.enabled = true;
+    }
+
+    public void AxeSwingEnd()
+    {
+        axeCollider.enabled = false;
     }
 }
