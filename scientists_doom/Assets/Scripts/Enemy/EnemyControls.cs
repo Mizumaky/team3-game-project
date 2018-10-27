@@ -20,7 +20,7 @@ public class EnemyControls : MonoBehaviour {
     
     private void OnTriggerEnter(Collider other) //colision with projectile
     {
-        if (other.gameObject.layer == 11) // 11. layer hit enemies
+        if (other != null && other.gameObject.layer == 11) // 11. layer hit enemies
         {
             GetComponent<EnemyStats>().TakeDamage(10);
             if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
@@ -47,13 +47,16 @@ public class EnemyControls : MonoBehaviour {
 
     private void SetPathToTarget(Transform target)
     {
-        if (navMeshAgent.enabled && NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path))
+        if (target != null && gameObject != null)
         {
-            navMeshAgent.SetPath(path);
-        }
-        else
-        {
-            Debug.Log("Enemy could not set path");
+            if (navMeshAgent.enabled && NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path))
+            {
+                navMeshAgent.SetPath(path);
+            }
+            else
+            {
+                Debug.Log("Enemy could not set path");
+            }
         }
     }
 }

@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class EnemyStats : MonoBehaviour {
 
-    public float enemyHealth = 50;
+    public float enemyMaxHealth = 50;
+    public float enemyHealth;
 
-	void Update () {
-
-	}
+    void Start()
+    {
+        enemyHealth = enemyMaxHealth;
+    }
 
     public void TakeDamage(float damage)
     {
@@ -17,6 +19,7 @@ public class EnemyStats : MonoBehaviour {
         {
             KillEnemy();
         }
+        GetComponent<EnemyHealthBar>().AdjustHealthBar(enemyHealth/enemyMaxHealth);
     }
 
     public void KillEnemy() {
