@@ -22,7 +22,7 @@ public class EnemyStats : MonoBehaviour
         {
             KillEnemy();
         }
-        
+        GetComponent<EnemyHealthBar>().AdjustHealthBar(enemyHealth / enemyMaxHealth);
     }
 
     public void KillEnemy()

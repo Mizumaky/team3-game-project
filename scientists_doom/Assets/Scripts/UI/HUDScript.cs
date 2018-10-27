@@ -12,13 +12,13 @@ public class HUDScript : MonoBehaviour {
     private void LateUpdate()
     {
         if(manager.activeCharacter != null) {
-            int maxPlayerHealth = (int)manager.activeCharacter.GetComponent<PlayerStats>().maxHealth;
-            int playerHealth = (int)manager.activeCharacter.GetComponent<PlayerStats>().health;
+            float maxPlayerHealth = manager.activeCharacter.GetComponent<PlayerStats>().maxHealth;
+            float playerHealth = manager.activeCharacter.GetComponent<PlayerStats>().health;
 
-            int playerXp = (int)manager.activeCharacter.GetComponent<PlayerStats>().experience;
-            int nextLevelXp = (int)manager.activeCharacter.GetComponent<PlayerStats>().nextLvlExperience;
-
-            healthSlider.fillAmount = maxPlayerHealth / playerHealth;
+            float playerXp = manager.activeCharacter.GetComponent<PlayerStats>().experience;
+            float nextLevelXp = manager.activeCharacter.GetComponent<PlayerStats>().nextLvlExperience;
+            
+            healthSlider.fillAmount = playerHealth / maxPlayerHealth;
             healthText.text = playerHealth + " / " + maxPlayerHealth;
             if (nextLevelXp != 0 && playerXp != 0)
             {

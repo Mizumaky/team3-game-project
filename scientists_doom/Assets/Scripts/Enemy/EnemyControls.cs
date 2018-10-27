@@ -22,7 +22,7 @@ public class EnemyControls : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) //colision with projectile
     {
-        print("ahoj");
+        
         if (other != null && other.gameObject.layer == 11) // 11. layer hit enemies
         {
             GetComponent<EnemyStats>().TakeDamage(10);
