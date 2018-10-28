@@ -72,4 +72,9 @@ public class PlayerStats : MonoBehaviour {
         playerAlive = false;
         Debug.Log("Player is dead.");
     }
+
+    public float GetAttackDamage()
+    {
+        return attackDamage;
+    }
 }

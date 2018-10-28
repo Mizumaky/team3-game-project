@@ -6,6 +6,7 @@ public class EnemyStats : MonoBehaviour {
 
     public float enemyMaxHealth = 50;
     public float enemyHealth;
+    public float enemyDamage = 5;
 
     void Start()
     {
@@ -22,7 +23,8 @@ public class EnemyStats : MonoBehaviour {
         GetComponent<EnemyHealthBar>().AdjustHealthBar(enemyHealth/enemyMaxHealth);
     }
 
-    public void KillEnemy() {
+    public void KillEnemy()
+    {
         Destroy(gameObject);
     }
 }

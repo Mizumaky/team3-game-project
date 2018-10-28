@@ -22,14 +22,17 @@ public class EnemyControls : MonoBehaviour {
     {
         if (other != null && other.gameObject.layer == 11) // 11. layer hit enemies
         {
-            GetComponent<EnemyStats>().TakeDamage(10);
+            float dmg;
             if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
                 target = other.GetComponentInParent<PlayerAttacksBarbarian>().transform;
+                dmg = other.GetComponentInParent<PlayerStats>().GetAttackDamage();
             }
             else
             {
                 target = other.GetComponentInChildren<CharacterProjectile>().casterTransform;
+                dmg = other.GetComponentInChildren<CharacterProjectile>().damage;
             }
+            GetComponent<EnemyStats>().TakeDamage(dmg);
         }
         StartCoroutine(CheckForTarget());
     }
@@ -59,4 +62,5 @@ public class EnemyControls : MonoBehaviour {
             }
         }
     }
+
 }

@@ -54,11 +54,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4655581949215580}
   - component: {fileID: 114405902540129212}
-  - component: {fileID: 136398262592522218}
-  - component: {fileID: 195068485964946464}
   - component: {fileID: 114388175959441078}
-  - component: {fileID: 54021564690586358}
   - component: {fileID: 114099383847727086}
+  - component: {fileID: 114277961461933266}
+  - component: {fileID: 195068485964946464}
+  - component: {fileID: 136398262592522218}
+  - component: {fileID: 54110984155710912}
   m_Layer: 10
   m_Name: Peasant
   m_TagString: enemy
@@ -244,7 +245,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1189768932553766}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.853673, y: -1.6621819, z: -6.303071}
+  m_LocalPosition: {x: 0.2065863, y: -1.5159726, z: 9.342359}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4515903111044538}
@@ -426,7 +427,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1940294446339004}
   m_Mesh: {fileID: 4300022, guid: 3345ebdc2352cc64eb510ad8c046a285, type: 3}
---- !u!54 &54021564690586358
+--- !u!54 &54110984155710912
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,6 +473,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 114403575535520070}
   timeToHideHealthBar: 5
+--- !u!114 &114277961461933266
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1189768932553766}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc785e73e7777884998d2ba816349faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 2
 --- !u!114 &114311681686442374
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -501,6 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyMaxHealth: 50
   enemyHealth: 50
+  enemyDamage: 2
 --- !u!114 &114403575535520070
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -596,9 +610,9 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1189768932553766}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.2
+  m_Radius: 0.23
   m_Height: 0.8
   m_Direction: 1
   m_Center: {x: 0, y: 0.4, z: 0}

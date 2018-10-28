@@ -23,7 +23,8 @@ public class PlayerControls : MonoBehaviour {
             Vector3 groundPositionVector = GetGroundPosition();
 
             Vector3 direction = (groundPositionVector - transform.position).normalized;
-            if (direction != new Vector3(0, 0, 0)) {
+            if (direction != new Vector3(0, 0, 0))
+            {
                 Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
                 transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
             }
@@ -68,5 +69,21 @@ public class PlayerControls : MonoBehaviour {
             }
         }
         return GetComponent<Transform>().position;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.layer == 10) //enemy leyer
+        {
+            other.gameObject.GetComponent<EnemyAttacks>().StartAttackPlayer(gameObject);            
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.layer == 10)
+        {
+            other.gameObject.GetComponent<EnemyAttacks>().StopAttackPlayer();
+        }
     }
 }

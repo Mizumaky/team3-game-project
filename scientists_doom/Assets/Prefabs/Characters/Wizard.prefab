@@ -710,8 +710,8 @@ MonoBehaviour:
   heroLevel: 0
   experience: 0
   nextLvlExperience: 0
-  attackIncrement: 0
-  armorIncrement: 0
+  attackIncrement: 1
+  armorIncrement: 1
 --- !u!114 &114310330986673260
 MonoBehaviour:
   m_ObjectHideFlags: 1
