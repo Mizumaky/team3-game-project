@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour {
     [SerializeField]
@@ -19,7 +20,7 @@ public class PlayerStats : MonoBehaviour {
     public float experience;
     [HideInInspector]
     public float nextLvlExperience;
-
+    
     private float attackDamage = 10;
     [Header("Attack")]
     [SerializeField]
