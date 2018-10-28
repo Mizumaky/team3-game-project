@@ -22,6 +22,8 @@ ModelImporter:
     2100004: unnamed
     2100006: Material
     2100008: Material_001
+    2100010: Wood
+    2100012: Leaves
     2300000: Cone
     2300002: Cone_001
     2300004: Cone_002
@@ -45,6 +47,7 @@ ModelImporter:
     4300012: Bottom
     7400000: Default Take
     9500000: //RootNode
+    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -77,7 +80,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
