@@ -1,53 +1,18 @@
 fileFormatVersion: 2
-guid: 3e21b155980b54b16bdbe42d20586214
+guid: 9639a1eaee7df27498e5a5b2fd2bf6d3
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cone
-    100002: Cone_001
-    100004: Cone_002
-    100006: Cylinder
-    100008: //RootNode
-    100010: Bottom
-    100012: Top
-    400000: Cone
-    400002: Cone_001
-    400004: Cone_002
-    400006: Cylinder
-    400008: //RootNode
-    400010: Bottom
-    400012: Top
-    2100000: GrassDark
-    2100002: WoodDark
-    2100004: unnamed
-    2100006: Material
-    2100008: Material_001
-    2100010: Wood
-    2100012: Leaves
-    2300000: Cone
-    2300002: Cone_001
-    2300004: Cone_002
-    2300006: Cylinder
-    2300008: //RootNode
-    2300010: Bottom
-    2300012: Top
-    3300000: Cone
-    3300002: Cone_001
-    3300004: Cone_002
-    3300006: Cylinder
-    3300008: //RootNode
-    3300010: Bottom
-    3300012: Top
-    4300000: Cone_002
-    4300002: Cone_001
-    4300004: Cone
-    4300006: Cylinder
-    4300008: tree
-    4300010: Top
-    4300012: Bottom
+    100000: //RootNode
+    400000: //RootNode
+    2100000: unnamed
+    2100002: Material_002
+    2100004: Material_001
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cube
     7400000: Default Take
     9500000: //RootNode
-    2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -80,7 +45,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 3
+    meshCompression: 0
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
@@ -106,7 +71,7 @@ ModelImporter:
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
-  importAnimation: 0
+  importAnimation: 1
   copyAvatar: 0
   humanDescription:
     serializedVersion: 2

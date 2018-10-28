@@ -112,7 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   casterTransform: {fileID: 0}
   explosion: {fileID: 1054286298192358, guid: 4c900ea1c7839404b91ff52377ef515d, type: 2}
-  lifetime: 5
+  lifetime: 2
   projectileFlightHeight: 0.5
 --- !u!114 &114374115485122204
 MonoBehaviour:
@@ -428,7 +428,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -745,7 +745,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    size3D: 1
+    size3D: 0
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2

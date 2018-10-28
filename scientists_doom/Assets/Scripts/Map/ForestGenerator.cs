@@ -74,9 +74,10 @@ public class ForestGenerator : MonoBehaviour {
 		float scaleFactor = Random.Range(minTreeScale, maxTreeScale) + treeScaleMod; //scale tree by n and scale from ring radius
 		//pos.y *= n; //adjust position relative to scale   
 
-		int treeIndex = Random.Range(0, 3); //random tree prefab selection
+		int treeIndex = Random.Range(0, treePrefabList.Count); //random tree prefab selection
 
-		GameObject tree = Instantiate(treePrefabList[treeIndex], pos, treePrefabList[treeIndex].transform.rotation, forest.transform);	
+		Vector3 rotation = new Vector3(-90f, Random.Range(0, 45f), 0);
+		GameObject tree = Instantiate(treePrefabList[treeIndex], pos, Quaternion.Euler(rotation), forest.transform);	
 		tree.transform.localScale = tree.transform.localScale * scaleFactor;
 	}
 }
