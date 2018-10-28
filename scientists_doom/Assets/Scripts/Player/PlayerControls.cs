@@ -50,7 +50,7 @@ public class PlayerControls : MonoBehaviour {
         if (animator != null)
         {
 
-            speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.75f) / 3.5f;
+            speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
             lastPosition = transform.position;
 
             animator.SetFloat("speedParam", speed);

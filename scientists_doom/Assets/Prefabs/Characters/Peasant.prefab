@@ -410,7 +410,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1611541734813210}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.50413615, y: -1.8781443, z: 10.562562}
+  m_LocalPosition: {x: 6.2256346, y: -1.1213789, z: -2.6324127}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
   - {fileID: 4445918559654256}
@@ -770,7 +770,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.9607843, b: 0.010548849, a: 0.6901961}
+  m_Color: {r: 1, g: 0, b: 0.06511307, a: 0.6901961}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -1075,7 +1075,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 3.5
+  m_Speed: 3
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -1156,7 +1156,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0.9805887}
-  m_SizeDelta: {x: 4.47, y: 0.97}
+  m_SizeDelta: {x: 4.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224857349297333856
 RectTransform:
@@ -1175,5 +1175,5 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 4.42, y: 0.63}
+  m_SizeDelta: {x: 4.5, y: 0.3}
   m_Pivot: {x: 0.5, y: 0.5}

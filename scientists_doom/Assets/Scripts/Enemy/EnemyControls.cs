@@ -10,14 +10,31 @@ public class EnemyControls : MonoBehaviour {
     private NavMeshPath path;
     [Range(5f, 10f)]
     public float distanceToFollowPlayer = 7f;
+    private Animator animator;
+    private float speed;
+    private Vector3 lastPosition;
 
     void Awake() {
         navMeshAgent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
         target = castle;
         SetPathToTarget(target);
+        animator = GetComponent<Animator>();
+        speed = 0;
     }
-    
+
+    private void Update()
+    {
+        if (GetComponent<EnemyStats>().enemyAlive) {
+            if (animator != null) {
+                speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
+                lastPosition = transform.position;
+
+                animator.SetFloat("speedParam", speed);
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other) //colision with projectile
     {
         if (other != null && other.gameObject.layer == 11) // 11. layer hit enemies
