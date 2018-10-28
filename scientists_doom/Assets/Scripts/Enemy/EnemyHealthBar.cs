@@ -38,7 +38,7 @@ public class EnemyHealthBar : MonoBehaviour {
 
     IEnumerator RotateCanvas()
     {
-        float divide = 0.5f;
+        float divide = 0.1f;
         while (time >= 0)
         {
             time -= divide;

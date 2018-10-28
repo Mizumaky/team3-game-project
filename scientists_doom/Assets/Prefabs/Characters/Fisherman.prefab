@@ -104,10 +104,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4618069840509012}
   - component: {fileID: 114761608520330236}
-  - component: {fileID: 136477161980523242}
+  - component: {fileID: 114744273502013338}
+  - component: {fileID: 114269121902656422}
+  - component: {fileID: 114026137942720054}
   - component: {fileID: 195693831623862548}
   - component: {fileID: 54855919793095100}
-  - component: {fileID: 114744273502013338}
+  - component: {fileID: 136477161980523242}
   m_Layer: 10
   m_Name: Fisherman
   m_TagString: enemy
@@ -893,6 +895,32 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114026137942720054
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407192967229382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc785e73e7777884998d2ba816349faa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cooldown: 2
+--- !u!114 &114269121902656422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407192967229382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed76007a8aecdb4c942200715e383dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMaxHealth: 50
+  enemyHealth: 50
+  enemyDamage: 2
 --- !u!114 &114324827773801340
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1017,7 +1045,7 @@ CapsuleCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1407192967229382}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.2
   m_Height: 0.8

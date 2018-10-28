@@ -8,6 +8,7 @@ public class EnemyStats : MonoBehaviour
     public float enemyHealth;
     private Animator animator;
     public bool enemyAlive = true;
+    public float enemyDamage = 5;
 
     void Start()
     {
