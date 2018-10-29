@@ -17,7 +17,26 @@ public class PlayerMovement : MonoBehaviour {
         speed = 0;
 	}
 
+    //TODO add if state not moving tak at se to nejak resetne do default
+    public void StopMoving()
+    {
+        navMeshAgent.isStopped = true;
+        navMeshAgent.ResetPath();
+        navMeshAgent.enabled = false;
+        if (animator != null)
+        {
+            animator.SetFloat("speedParam", 0f);
+
+        }
+    }
+    public void StartMoving()
+    {
+        navMeshAgent.enabled = true;
+        navMeshAgent.isStopped = false;
+    }
+
     public void Move() {
+
         Vector3 groundPositionVector = GetGroundPosition();
 
         Vector3 direction = (groundPositionVector - transform.position).normalized;

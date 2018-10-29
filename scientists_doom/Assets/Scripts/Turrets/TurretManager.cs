@@ -21,10 +21,10 @@ public class TurretManager : MonoBehaviour {
 
     [Space]
     [Header("In-game script references")]
-    public GameObject barbarianTurretActive;
-    public GameObject wizardTurretActive;
-    public GameObject rangerTurretActive;
-    public GameObject witchTurretActive;
+    public static GameObject barbarianTurretActive = null;
+    public static GameObject wizardTurretActive = null;
+    public static GameObject rangerTurretActive = null;
+    public static GameObject witchTurretActive = null;
 
     private void Start()
     {
@@ -33,29 +33,36 @@ public class TurretManager : MonoBehaviour {
 
     private void Update()
     {
-        if (barbarianTurretActive == null && Input.GetKeyDown(KeyCode.Alpha1))
+        if     (barbarianTurretActive == null && Input.GetKeyDown(KeyCode.Alpha1))
         {
             SpawnNewTurret(Turret.BarbarianTurret, barbarianTurretSpawnPoint);
         } else if (wizardTurretActive == null && Input.GetKeyDown(KeyCode.Alpha2))
         {
-            SpawnNewTurret(Turret.BarbarianTurret, barbarianTurretSpawnPoint); 
+            SpawnNewTurret(Turret.WizardTurret, wizardTurretSpawnPoint); 
         } else if (rangerTurretActive == null && Input.GetKeyDown(KeyCode.Alpha3))
         {
-            SpawnNewTurret(Turret.BarbarianTurret, barbarianTurretSpawnPoint); 
+            SpawnNewTurret(Turret.RangerTurret, rangerTurretSpawnPoint); 
         } else if (witchTurretActive == null && Input.GetKeyDown(KeyCode.Alpha4))
         {
-            SpawnNewTurret(Turret.BarbarianTurret, barbarianTurretSpawnPoint); 
+            SpawnNewTurret(Turret.WitchTurret, witchTurretSpawnPoint); 
         }
     }
 
     private void SpawnNewTurret(Turret turret, Transform spawnPoint)
     {
-        GameObject newTurret;
         switch (turret)
         {
             case Turret.BarbarianTurret:
-                newTurret = barbarianTurretPrefab;
-                barbarianTurretActive = Instantiate(newTurret, spawnPoint.position, spawnPoint.rotation, this.transform);
+                barbarianTurretActive = Instantiate(barbarianTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
+                break;
+            case Turret.WizardTurret:
+                wizardTurretActive = Instantiate(wizardTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
+                break;
+            case Turret.RangerTurret:
+                rangerTurretActive = Instantiate(rangerTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
+                break;
+            case Turret.WitchTurret:
+                witchTurretActive = Instantiate(witchTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
                 break;
             default:
                 break;

@@ -9,7 +9,8 @@ public class PlayerController : MonoBehaviour {
     public GameObject associatedTurret;
  //   public Transform playerPositionAtTurret;
     protected PlayerMovement movementScript;
-    protected PlayerTurretControls turretScript;
+    protected TurretManager turretManagerScript;
+    protected PlayerTurretControls turretControlsScript;
 
     protected enum PlayerState
     {
@@ -18,9 +19,13 @@ public class PlayerController : MonoBehaviour {
     }
     protected PlayerState currentState = PlayerState.movingState;
 
+    private Transform oldPosition;
+    private Transform oldParent;
+
     void Start () {
         movementScript = GetComponent<PlayerMovement>();
-        turretScript = GetComponent<PlayerTurretControls>();
+        turretControlsScript = GetComponent<PlayerTurretControls>();
+        turretManagerScript = GetComponent<TurretManager>();
     }
 
     void Update()
@@ -30,21 +35,18 @@ public class PlayerController : MonoBehaviour {
             switch (currentState)
             {
                 case PlayerState.movingState:
-                    if (Input.GetKeyDown(KeyCode.R))
+                    if ( Input.GetKeyDown(KeyCode.T))
                     {
-
-                        transform.position = associatedTurret.gameObject.GetComponentInChildren<Transform>().Find("PlayerPosition").position; //Playerposition should be a child object of the turret
-                        //transform.rotation = transform.parent.Find("PlayerPosition").rotation;
-                        transform.parent = associatedTurret.transform; //attach player to the turret
-                        currentState = PlayerState.turretControlState;
-                       
+                        SwitchToTurret();
+                    } else
+                    {
+                        movementScript.Move();
                     }
-                    movementScript.Move();
                     break;
                 case PlayerState.turretControlState:
-                    if (Input.GetKeyDown(KeyCode.R))
+                    if (Input.GetKeyDown(KeyCode.T))
                     {
-                        currentState = PlayerState.movingState;
+                        SwitchFromTurret();
                     }
                     break;
                 default:
@@ -52,5 +54,41 @@ public class PlayerController : MonoBehaviour {
                     break;
             }
         }
+    }
+
+    private void SwitchToTurret()
+    {
+        associatedTurret = TurretManager.barbarianTurretActive; //TODO i mean, its obvious
+        if (associatedTurret != null)
+        {
+            movementScript.StopMoving();
+
+            Transform newTrans = associatedTurret.transform.GetChild(0).Find("RotationPoint").Find("PlayerPosition"); //Playerposition should be a child object of the turret
+            if (newTrans != null)
+            {
+                oldPosition = transform; //TODO repair does not work
+                transform.position = newTrans.position;
+                oldParent = transform.parent;
+                transform.parent = associatedTurret.transform.GetChild(0).Find("RotationPoint");
+                transform.localRotation = Quaternion.identity; //zero rotation under rotationpoint
+                currentState = PlayerState.turretControlState;
+            }
+            else
+            {
+                Debug.LogError("cant get player position object from turret");
+            }
+        }
+        else
+        {
+            Debug.Log("Turret plz! (I mean, press T key)");
+        }
+    }
+    private void SwitchFromTurret() {
+        transform.parent = oldParent;
+        transform.position = oldPosition.position;
+        transform.rotation = oldPosition.rotation;
+        currentState = PlayerState.movingState;
+
+        movementScript.StartMoving();
     }
 }
