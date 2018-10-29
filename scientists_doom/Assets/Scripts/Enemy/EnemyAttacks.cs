@@ -9,6 +9,7 @@ public class EnemyAttacks : MonoBehaviour {
     private bool attacking;
     private float damage;
 
+
 	// Use this for initialization
 	void Start () {
         readyToAttack = true;
@@ -29,7 +30,7 @@ public class EnemyAttacks : MonoBehaviour {
 
     IEnumerator AttackPlayer(GameObject player)
     {
-        while (attacking && player != null) {
+        while (gameObject != null && attacking && player != null) {
             player.GetComponent<PlayerStats>().TakeDamage(damage);
             yield return new WaitForSeconds(cooldown);
         }

@@ -16653,7 +16653,12 @@ Prefab:
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 2}
       propertyPath: enemyCount
-      value: 50
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 2}
+      propertyPath: radius
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}

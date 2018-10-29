@@ -10,18 +10,21 @@ public class EnemyControls : MonoBehaviour {
     private NavMeshPath path;
     [Range(5f, 10f)]
     public float distanceToFollowPlayer = 7f;
+    public bool triggered;
 
     void Awake() {
         navMeshAgent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
         target = castle;
         SetPathToTarget(target);
+        triggered = false;
     }
     
     private void OnTriggerEnter(Collider other) //colision with projectile
     {
         if (other != null && other.gameObject.layer == 11) // 11. layer hit enemies
         {
+            triggered = true;
             float dmg;
             if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
                 target = other.GetComponentInParent<PlayerAttacksBarbarian>().transform;
@@ -45,6 +48,7 @@ public class EnemyControls : MonoBehaviour {
             yield return new WaitForSeconds(0.4f);
         }
         target = castle;
+        triggered = false;
         SetPathToTarget(target);
     }
 

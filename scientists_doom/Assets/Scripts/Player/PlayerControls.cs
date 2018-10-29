@@ -73,7 +73,7 @@ public class PlayerControls : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.layer == 10) //enemy leyer
+        if (other.gameObject.layer == 10 && other.gameObject.GetComponent<EnemyControls>().triggered) //enemy leyer
         {
             other.gameObject.GetComponent<EnemyAttacks>().StartAttackPlayer(gameObject);            
         }
