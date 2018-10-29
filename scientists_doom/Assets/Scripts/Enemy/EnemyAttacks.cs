@@ -31,7 +31,7 @@ public class EnemyAttacks : MonoBehaviour {
 
     IEnumerator AttackPlayer(GameObject player)
     {
-        while (gameObject && player != null) {
+        while (GetComponent<EnemyStats>().enemyAlive && attacking && player != null) {
             animator.SetTrigger("attackTrigger");
             player.GetComponent<PlayerStats>().TakeDamage(damage);
             yield return new WaitForSeconds(cooldown);
