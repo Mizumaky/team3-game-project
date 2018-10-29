@@ -50,7 +50,7 @@ public class PlayerControls : MonoBehaviour {
         if (animator != null)
         {
 
-            speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.75f) / 3.5f;
+            speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
             lastPosition = transform.position;
 
             animator.SetFloat("speedParam", speed);
@@ -61,7 +61,7 @@ public class PlayerControls : MonoBehaviour {
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit, distance)) {
-            if(hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 10)
+            if(hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 10 || hit.collider.gameObject.layer == 11)
             {
                 NavMeshHit hitNavmesh;
                 NavMesh.SamplePosition(hit.point, out hitNavmesh, 500, 5);

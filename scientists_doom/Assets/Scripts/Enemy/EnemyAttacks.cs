@@ -8,10 +8,11 @@ public class EnemyAttacks : MonoBehaviour {
     private bool readyToAttack;
     private bool attacking;
     private float damage;
-
+    private Animator animator;
 
 	// Use this for initialization
 	void Start () {
+        animator = GetComponent<Animator>();
         readyToAttack = true;
         attacking = false;
         damage = gameObject.GetComponent<EnemyStats>().enemyDamage;
@@ -30,7 +31,8 @@ public class EnemyAttacks : MonoBehaviour {
 
     IEnumerator AttackPlayer(GameObject player)
     {
-        while (gameObject != null && attacking && player != null) {
+        while (gameObject && player != null) {
+            animator.SetTrigger("attackTrigger");
             player.GetComponent<PlayerStats>().TakeDamage(damage);
             yield return new WaitForSeconds(cooldown);
         }

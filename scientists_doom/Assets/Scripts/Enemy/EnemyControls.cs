@@ -10,21 +10,35 @@ public class EnemyControls : MonoBehaviour {
     private NavMeshPath path;
     [Range(5f, 10f)]
     public float distanceToFollowPlayer = 7f;
-    public bool triggered;
+    private Animator animator;
+    private float speed;
+    private Vector3 lastPosition;
 
     void Awake() {
         navMeshAgent = GetComponent<NavMeshAgent>();
         path = new NavMeshPath();
         target = castle;
         SetPathToTarget(target);
-        triggered = false;
+        animator = GetComponent<Animator>();
+        speed = 0;
     }
-    
+
+    private void Update()
+    {
+        if (GetComponent<EnemyStats>().enemyAlive) {
+            if (animator != null) {
+                speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
+                lastPosition = transform.position;
+
+                animator.SetFloat("speedParam", speed);
+            }
+        }
+    }
+
     private void OnTriggerEnter(Collider other) //colision with projectile
     {
         if (other != null && other.gameObject.layer == 11) // 11. layer hit enemies
         {
-            triggered = true;
             float dmg;
             if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
                 target = other.GetComponentInParent<PlayerAttacksBarbarian>().transform;
@@ -42,14 +56,16 @@ public class EnemyControls : MonoBehaviour {
 
     IEnumerator CheckForTarget()
     {
-        while (target != null && target.gameObject.activeSelf && Vector3.Distance(target.position, transform.position) < distanceToFollowPlayer)
+        if (GetComponent<EnemyStats>().enemyAlive)
         {
+            while (target != null && target.gameObject.activeSelf && Vector3.Distance(target.position, transform.position) < distanceToFollowPlayer)
+            {
+                SetPathToTarget(target);
+                yield return new WaitForSeconds(0.4f);
+            }
+            target = castle;
             SetPathToTarget(target);
-            yield return new WaitForSeconds(0.4f);
         }
-        target = castle;
-        triggered = false;
-        SetPathToTarget(target);
     }
 
     private void SetPathToTarget(Transform target)
@@ -66,5 +82,17 @@ public class EnemyControls : MonoBehaviour {
             }
         }
     }
+
+    public void DisableMovement()
+    {
+        StopAllCoroutines();
+        navMeshAgent.ResetPath();
+    }
+
+    public void DisableCollision()
+    {
+        GetComponent<CapsuleCollider>().enabled = false;
+    }
+
 
 }
