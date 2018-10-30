@@ -55,6 +55,7 @@ GameObject:
   - component: {fileID: 114297458085727660}
   - component: {fileID: 114272553194761250}
   - component: {fileID: 114095940901312090}
+  - component: {fileID: 114386475218829322}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -694,7 +695,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106552325252950}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c7e7fd2be2a922b4cbc933b6dffe83a7, type: 3}
   m_Name: 
@@ -725,6 +726,23 @@ MonoBehaviour:
   nextLvlExperience: 0
   attackIncrement: 1
   armorIncrement: 1
+--- !u!114 &114386475218829322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106552325252950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57c7f7465cbc1eb4a9e1ad131040aaf3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponTransform: {fileID: 4028849457006998}
+  weaponDamage: 10
+  fireballPrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
+    type: 2}
+  fireballMaxChargeTime: 1
+  fireballChargeSpeed: 2
 --- !u!114 &114528442627379542
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -888,7 +906,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.2
   m_Speed: 4
-  m_Acceleration: 15
+  m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 500
   m_StoppingDistance: 0

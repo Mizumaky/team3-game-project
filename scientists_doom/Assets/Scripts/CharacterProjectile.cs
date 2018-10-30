@@ -4,64 +4,97 @@ using UnityEngine;
 
 public class CharacterProjectile : CharacterAbility {
 
-  public GameObject explosion;
-  private Light light;
-	public float lifetime = 5f;
-    public float projectileFlightHeight = 1f;
+  [Header ("Projectile")]
+  public float velocity = 20f;
+  public float lifeTime = 2f;
+  public float flightHeightFromTerrain = 0.5f;
+  private Light thisLight;
+  private float initialLightIntensity;
+  private bool collisionEnabled = false;
+  [Space]
 
-  private void Awake() {
-    light = GetComponent<Light>();
+  [Header ("Impact Effect")]
+  public GameObject impactEffect;
+  public float impactRadius = 0.5f;
+  CustomUpdateTimer impactEndTimer;
+
+  public void SetCollisionEnabled (bool value) {
+    collisionEnabled = value;
   }
 
-	void Start () {
-		StartCoroutine(Fade());
-	}
+  private void Awake () {
+    thisLight = GetComponent<Light> ();
+    initialLightIntensity = thisLight.intensity;
 
-    void Update()
-    {
-        Ray rayDown;
-        rayDown = new Ray(transform.position, Vector3.down);
-        RaycastHit hit;
-        if (Physics.Raycast(rayDown, out hit, 100f))
-        {
-            if (hit.collider.gameObject.layer == 9)
-            {
-                transform.position = new Vector3(transform.position.x, projectileFlightHeight + hit.point.y, transform.position.z);
-            }
+  }
+
+  private void Update () {
+    // Destroy GO after impact timer has ended
+    if (impactEndTimer != null) {
+      if (impactEndTimer.isLastTick (Time.deltaTime)) {
+        Destroy (gameObject);
+      } else {
+        thisLight.intensity = initialLightIntensity * impactEndTimer.GetTimeLeftPercent ();
+      }
+    }
+  }
+
+  public void Release () {
+    StartCoroutine (UpdateHeight ());
+    collisionEnabled = true;
+  }
+
+  private IEnumerator UpdateHeight () {
+    int groundLayerIndex = LayerMask.NameToLayer ("Ground");
+
+    while (true) {
+      Ray rayDown = new Ray (transform.position, Vector3.down);
+      RaycastHit hit;
+      if (Physics.Raycast (rayDown, out hit, 2f)) {
+        if (hit.collider.gameObject.layer == groundLayerIndex) {
+          transform.position = new Vector3 (transform.position.x, flightHeightFromTerrain + hit.point.y, transform.position.z);
         }
+      }
+      yield return null;
     }
 
-    private void OnTriggerEnter(Collider other) {
-    if(other.gameObject.layer == 10) { // enemy layer
-      StartCoroutine(Explode());
-    }
-  }
-	
-	IEnumerator Fade() {
-    float tick = 0.1f;
-    float ticks = lifetime / tick;
-    float intensityDec = light.intensity / ticks;
-    while(light.intensity > 0) {
-      yield return new WaitForSeconds(tick);
-      light.intensity -= intensityDec;
-    }
-    Destroy(gameObject);
-	}
-
-  private IEnumerator Explode() {
-    Destroy(GetComponent<Rigidbody>());
-    Instantiate(explosion, transform.position, transform.rotation, transform);
-    if(light != null) {
-      FadeLight();
-    }
-    yield return new WaitForSeconds(0.5f);
-    Destroy(gameObject);
   }
 
-  private IEnumerator FadeLight() {
-    while(light.intensity > 0) {
-      yield return new WaitForSeconds(0.1f);
-      light.intensity -= 0.1f;
+  private void OnTriggerEnter (Collider other) {
+    if (collisionEnabled) {
+      // Enemy
+      if (other.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
+        Explode ();
+      }
     }
+  }
+
+  private void Explode () {
+    collisionEnabled = false;
+    CheckHitsAndDealDamage ();
+
+    Destroy (GetComponent<Rigidbody> ());
+    GetComponent<ParticleSystem> ().Stop ();
+
+    GameObject explosionInstance = Instantiate (impactEffect, transform.position, transform.rotation, transform);
+    explosionInstance.transform.localScale = transform.localScale;
+
+    impactEndTimer = new CustomUpdateTimer (0.9f * impactEffect.GetComponent<ParticleSystem> ().main.startLifetime.Evaluate (0));
+  }
+
+  private void CheckHitsAndDealDamage () {
+    Collider[] hits = Physics.OverlapSphere (transform.position, impactRadius);
+
+    int enemyLayer = LayerMask.NameToLayer ("Enemy");
+    foreach (Collider hit in hits) {
+      if (hit.gameObject.layer == enemyLayer) {
+        hit.GetComponent<EnemyStats> ().TakeDamage (damage);
+      }
+    }
+  }
+
+  private void OnDrawGizmosSelected () {
+    Gizmos.color = Color.red;
+    Gizmos.DrawWireSphere (transform.position, impactRadius);
   }
 }
