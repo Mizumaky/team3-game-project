@@ -1,20 +1,25 @@
 ﻿using UnityEngine;
 
-public class PlayerAttacksBarbarian : PlayerController {
+public class PlayerAttacksBarbarian : MonoBehaviour {
+
+    public Collider axeCollider;
 
     private Animator animator;
-    public Collider axeCollider;
+    private PlayerController controllerScript;
+
 
     private void Start()
     {
-        animator = GetComponentInChildren<Animator>();
         axeCollider = GetComponentInChildren<BoxCollider>();
         axeCollider.enabled = false;
+
+        animator = GetComponentInChildren<Animator>();
+        controllerScript = GetComponent<PlayerController>();
     }
 
     void Update() {
 
-        if (currentState == PlayerState.movingState && Input.GetKeyDown(KeyCode.Space)) {
+        if (controllerScript.currentState == PlayerController.PlayerState.movingState && Input.GetKeyDown(KeyCode.Space)) {
             Fire();
         }
 	}

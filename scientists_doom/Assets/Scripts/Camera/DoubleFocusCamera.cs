@@ -28,15 +28,13 @@ public class DoubleFocusCamera : MonoBehaviour {
 
     private float lerpTime = 0;
 
-    public void SetFocusTransform(Transform focus) {
-			this.focus = focus;
-    }
-	
-	void LateUpdate () {
-		UpdateCamera();
-	}
 
-    void UpdateCamera() {
+    public void SetFocusTransform(Transform focus)
+    {
+        this.focus = focus;
+    }
+
+    public void UpdateDFCamera() {
         //get scroll wheel value
         if (Input.GetAxis("scrollwheel") > 0 && scrollWheel < 1f)
         {

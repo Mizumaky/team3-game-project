@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerAttacksWizard : PlayerController {
+public class PlayerAttacksWizard : MonoBehaviour {
 
     public float distance = 50f;
     public float projectileVelocity = 20f;
@@ -8,20 +8,18 @@ public class PlayerAttacksWizard : PlayerController {
     public GameObject projectilePrefab;
     public Transform spawnPosition;
 
+    private PlayerController controllerScript;
+
+    private void Start()
+    {
+        controllerScript = GetComponent<PlayerController>();
+    }
+
     void Update() {
-        if (currentState == PlayerState.movingState && Input.GetKeyDown(KeyCode.Space)) {
+        if (controllerScript.currentState == PlayerController.PlayerState.movingState && Input.GetKeyDown(KeyCode.Space)) {
             Fire();
         } 
 	}
-
-    void jumpToTurret ()
-    {
-        Debug.Log("jumping to turret");
-    }
-    void jumpFromTurret()
-    {
-        Debug.Log("jumping from turret");
-    }
 
     void Fire() {
         GameObject projectile = Instantiate(projectilePrefab, spawnPosition.position, spawnPosition.rotation) as GameObject;

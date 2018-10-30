@@ -11,6 +11,21 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1385296277460146}
   m_IsPrefabAsset: 1
+--- !u!1 &1027094050033570
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4362697634877522}
+  m_Layer: 0
+  m_Name: cameraPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1037238239854306
 GameObject:
   m_ObjectHideFlags: 1
@@ -451,6 +466,19 @@ Transform:
   m_Father: {fileID: 4198243353994212}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4362697634877522
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1027094050033570}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.05, z: -1.08}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4442133605874742}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4396547733867504
 Transform:
   m_ObjectHideFlags: 1
@@ -496,14 +524,15 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1385296277460146}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.0748305, y: -1.1587567, z: -5.065593}
+  m_LocalRotation: {x: -0, y: 0.18393697, z: -0, w: 0.98293805}
+  m_LocalPosition: {x: 1.1, y: 3.47, z: 2.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4201968923741748}
+  - {fileID: 4362697634877522}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 21.198002, z: 0}
 --- !u!4 &4489536629896462
 Transform:
   m_ObjectHideFlags: 1
@@ -1387,9 +1416,7 @@ MonoBehaviour:
   animated: 1
   animationName: chickenShoot
   animationOffset: 0.08
-  partsToRotate: {fileID: 0}
   bulletPrefab: {fileID: 1244204383033026, guid: ab56b5d1bf679fd40a37c8a64fb4f340,
     type: 2}
-  firePoint: {fileID: 0}
   enemyTag: enemy
   searchingActive: 1

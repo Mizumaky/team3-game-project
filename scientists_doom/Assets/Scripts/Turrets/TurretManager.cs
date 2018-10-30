@@ -9,89 +9,43 @@ public class TurretManager : MonoBehaviour {
     //TODO change spawnpoint dle turretu, udelat nejaky dic nebo tak na zacatku
 
     public enum Turret { BarbarianTurret, WizardTurret, RangerTurret, WitchTurret }
-    [Header("Turret Prefabs")]
+    [Header("Turrets and spawnpoints")]
     public GameObject barbarianTurretPrefab;
-    public Transform barbarianTurretSpawnPoint;
     public GameObject wizardTurretPrefab;
-    public Transform wizardTurretSpawnPoint;
     public GameObject rangerTurretPrefab;
-    public Transform rangerTurretSpawnPoint;
-    public GameObject witchTurretPrefab;
-    public Transform witchTurretSpawnPoint;
+
+    public Transform SpawnPoint1;
+    public Transform SpawnPoint2;
+    public Transform SpawnPoint3;
 
     [Space]
     [Header("In-game script references")]
-    public static GameObject barbarianTurretActive = null;
-    public static GameObject wizardTurretActive = null;
-    public static GameObject rangerTurretActive = null;
-    public static GameObject witchTurretActive = null;
+    public static GameObject activeTurretObject = null;
+    //public static Turret activeTurret;
 
-    private void Start()
-    {
+    private void Start() {
 
     }
 
-    private void Update()
-    {
-        if     (barbarianTurretActive == null && Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            SpawnNewTurret(Turret.BarbarianTurret, barbarianTurretSpawnPoint);
-        } else if (wizardTurretActive == null && Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            SpawnNewTurret(Turret.WizardTurret, wizardTurretSpawnPoint); 
-        } else if (rangerTurretActive == null && Input.GetKeyDown(KeyCode.Alpha3))
-        {
-            SpawnNewTurret(Turret.RangerTurret, rangerTurretSpawnPoint); 
-        } else if (witchTurretActive == null && Input.GetKeyDown(KeyCode.Alpha4))
-        {
-            SpawnNewTurret(Turret.WitchTurret, witchTurretSpawnPoint); 
+    private void Update() {
+        if (activeTurretObject == null && Input.GetKeyDown(KeyCode.T)) {
+            SpawnNewTurret(SpawnPoint1); //TODO multiplayer different spawnpoints
         }
     }
 
-    private void SpawnNewTurret(Turret turret, Transform spawnPoint)
-    {
-        switch (turret)
-        {
-            case Turret.BarbarianTurret:
-                barbarianTurretActive = Instantiate(barbarianTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
+    private void SpawnNewTurret(Transform spawnPoint) {
+        switch (CharacterManager.activeCharacter) {
+            case CharacterManager.Character.Barbarian:
+                activeTurretObject = Instantiate(barbarianTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
                 break;
-            case Turret.WizardTurret:
-                wizardTurretActive = Instantiate(wizardTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
+            case CharacterManager.Character.Wizard:
+                activeTurretObject = Instantiate(wizardTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
                 break;
-            case Turret.RangerTurret:
-                rangerTurretActive = Instantiate(rangerTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
-                break;
-            case Turret.WitchTurret:
-                witchTurretActive = Instantiate(witchTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
+            case CharacterManager.Character.Ranger:
+                activeTurretObject = Instantiate(rangerTurretPrefab, spawnPoint.position, spawnPoint.rotation, this.transform);
                 break;
             default:
                 break;
         }
-
-
     }
-
-    /*
-    public void ChangeActiveCharacter(int index)
-    {
-        Transform oldTransform;
-        if (activeCharacter != null)
-        {
-            oldTransform = activeCharacter.transform;
-            Destroy(activeCharacter);
-        }
-        else
-        {
-            oldTransform = spawnPoint;
-        }
-
-        Turret newCharacter;
-        switch (index)
-        {
-            default: newCharacter = Turret.Barbarian; break;
-            case 1: newCharacter = Turret.Wizard; break;
-        }
-        SpawnNewCharacter(newCharacter, oldTransform);
-    }
-    */
 }
