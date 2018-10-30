@@ -14,7 +14,8 @@ public class HUDScript : MonoBehaviour {
     private void LateUpdate()
     {
         if(CharacterManager.activeCharacterObject != null) {
-            if (lastActiveCharObject != CharacterManager.activeCharacterObject) { //get new playerstats component reference on character change
+            //get new playerstats component reference only on character change
+            if (lastActiveCharObject != CharacterManager.activeCharacterObject) { 
                 playerStatsReference = CharacterManager.activeCharacterObject.GetComponent<PlayerStats>();
             }
             lastActiveCharObject = CharacterManager.activeCharacterObject;

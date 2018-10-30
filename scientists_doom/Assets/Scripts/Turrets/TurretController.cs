@@ -6,7 +6,7 @@ public class TurretController : MonoBehaviour {
     [Header("Aiming")]
     public float range = 20f;
     public float FOV = 170f;
-    public float turnSpeed = 10f;
+    public float turnSpeed = 6f;
     public float searchInterval = 0.5f;
     [Header("Firing")]
     public float fireRate = 3f;

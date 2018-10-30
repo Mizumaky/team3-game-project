@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class TurretCamera : MonoBehaviour {
 
-    //implement somehow changing of cam position right on switch
+    private Transform previousCameraParent;
+    private Transform camPoint;
 
-    public void UpdateTurretCamera()
-    {
-        //mouse aim camera from point with lerp
+    //implement somehow changing of cam position right on switch
+    public void SwitchTo() {
+        camPoint = TurretManager.activeTurretObject.transform.GetChild(0).Find("RotationPoint").Find("CameraPoint");
+        transform.position = camPoint.position;
+        transform.rotation = camPoint.rotation;
+        previousCameraParent = transform.parent;
+        transform.parent = camPoint;
+    }
+
+    public void SwitchFrom() {
+        transform.parent = previousCameraParent;
+    }
+
+    public void UpdateTurretCamera() {
+        
+
     }
 }

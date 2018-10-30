@@ -23,6 +23,7 @@ ModelImporter:
     100034: prkno_001
     100036: prkno_002
     100038: FirePoint
+    100040: CameraPoint
     400000: Anchor
     400002: AnimationPart
     400004: //RootNode
@@ -43,6 +44,7 @@ ModelImporter:
     400034: prkno_001
     400036: prkno_002
     400038: FirePoint
+    400040: CameraPoint
     2100000: unnamed
     2100002: stone
     2100004: wood2

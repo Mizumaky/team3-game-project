@@ -49,6 +49,7 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+
     private void SwitchToTurret() {
         if (TurretManager.activeTurretObject != null) {
             movementScript.StopMoving();
@@ -61,6 +62,8 @@ public class PlayerController : MonoBehaviour {
                 transform.parent = TurretManager.activeTurretObject.transform.GetChild(0).Find("RotationPoint");
                 transform.localRotation = Quaternion.identity; //zero rotation under rotationpoint
                 currentState = PlayerState.turretControlState;
+
+                CameraController.currentCamera = CameraController.Camera.TurretFP;
             }
             else {
                 Debug.LogError("cant get player position object from turret");
@@ -77,5 +80,7 @@ public class PlayerController : MonoBehaviour {
         currentState = PlayerState.movingState;
 
         movementScript.StartMoving();
+
+        CameraController.currentCamera = CameraController.Camera.PlayerDF;
     }
 }
