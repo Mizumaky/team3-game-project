@@ -84,9 +84,10 @@ GameObject:
   - component: {fileID: 95718846748745428}
   - component: {fileID: 136572997442453196}
   - component: {fileID: 195112880611732538}
+  - component: {fileID: 114632542107689334}
   - component: {fileID: 114087519261758408}
-  - component: {fileID: 114943320044902962}
   - component: {fileID: 114006685341032748}
+  - component: {fileID: 114435792236455624}
   m_Layer: 0
   m_Name: Barbarian
   m_TagString: Untagged
@@ -789,7 +790,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axeCollider: {fileID: 65593174920619836}
---- !u!114 &114943320044902962
+--- !u!114 &114435792236455624
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -797,11 +798,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 1195421657766132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26bd9b4e68ec3ff40a70ce7903187c20, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dd81b4cb303a8b4c8d8849d75183c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 500
-  rotationSpeed: 10
+  distance: 150
+  rotationSpeed: 100
+--- !u!114 &114632542107689334
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195421657766132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5440bfc55cf964d940bbc2a478b7ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!136 &136572997442453196
 CapsuleCollider:
   m_ObjectHideFlags: 1

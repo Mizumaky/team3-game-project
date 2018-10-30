@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TurretController : MonoBehaviour {
@@ -7,34 +6,57 @@ public class TurretController : MonoBehaviour {
     [Header("Aiming")]
     public float range = 20f;
     public float FOV = 170f;
-    public float turnSpeed = 10f;
+    public float turnSpeed = 6f;
     public float searchInterval = 0.5f;
     [Header("Firing")]
     public float fireRate = 3f;
     public AudioClip soundClip;
-    [Header("Shooting Animation")]
+    [Header("Firing Animation")]
     public bool animated = false;
-    public Animator animator;
     public string animationName; //animation asset name
     public float animationOffset = 0.08f; //time how much earlier should the animation start
     [Header("Other settings")]
-    public AudioSource soundSource;
-    public Transform partsToRotate;
     public GameObject bulletPrefab;
-    public Transform firePoint;
     public string enemyTag = "enemy";
 
+    [Space]
+    [Header("In-game script references")]
+    public bool searchingActive = true;
+
+    private Animator animator;
+    private Transform partsToRotate;
+    private Transform firePoint;
     private Transform targetTransform; //the turret will aim here
+    private AudioSource soundSource;
     private float firingCountdown = 1f; //actual time remaining before next fire
 
     void Start () {
         if (animated)
         {
-            animator = GetComponent<Animator>();
+            animator = GetComponentInChildren<Animator>();
         }
+        soundSource = GetComponent<AudioSource>();
         soundSource.clip = soundClip;
-        InvokeRepeating("SearchTarget", 0, searchInterval); //start intervalled search routine
+        partsToRotate = transform.GetChild(0).Find("RotationPoint");
+        firePoint = partsToRotate.Find("FirePoint");
+        if (partsToRotate == null || firePoint == null)
+        {
+            Debug.Log("error when getting parts, make sure thisprefab/anyturret/RotationPoint/FirePoint exists in the prefab");
+        } else
+        {
+            StartCoroutine(RepeatSearchTarget(searchInterval)); //start intervalled search routine
+        }
 	}
+
+    IEnumerator RepeatSearchTarget(float searchInterval)
+    {
+        while (searchingActive)
+        {
+            SearchTarget();
+            yield return new WaitForSeconds(searchInterval);
+        }
+        //if searching not active then coroutine ends and need to be started again
+    }
 
     void SearchTarget() //search closest object tagged enemy && in range && in fov
     {
@@ -52,10 +74,13 @@ public class TurretController : MonoBehaviour {
                 float enemyAngle = Vector3.Angle(transform.forward, enemyDir); //get angle to enemy
                 if (enemyAngle <= FOV * 0.5f) //CHECK ANGLE
                 {
-                    if (enemyDistance < closestEnemyDistance) //CHECK IF CLOSEST
+                    if (enemy.GetComponent<EnemyStats>().enemyAlive) //CHECK IF ALIVE
                     {
-                        closestEnemyDistance = enemyDistance;
-                        closestEnemy = enemy;
+                        if (enemyDistance < closestEnemyDistance) //CHECK IF CLOSEST
+                        {
+                            closestEnemyDistance = enemyDistance;
+                            closestEnemy = enemy;
+                        }
                     }
                 }
             }

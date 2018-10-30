@@ -19,7 +19,7 @@ public class DoubleFocusCamera : MonoBehaviour {
 
     //leave here for debugging
     private float diameter;
-    
+
     private float scrollWheel = 0.5f;
 
     //for smoothDaping
@@ -28,52 +28,47 @@ public class DoubleFocusCamera : MonoBehaviour {
 
     private float lerpTime = 0;
 
-    public void SetFocusTransform(Transform focus) {
-			this.focus = focus;
-    }
-	
-	void LateUpdate () {
-		UpdateCamera();
-	}
 
-    void UpdateCamera() {
+    /*public void SetFocusTransform(Transform focus) {
+        this.focus = focus;
+    }*/
+
+    public void UpdateDFCamera() {
         //get scroll wheel value
-        if (Input.GetAxis("scrollwheel") > 0 && scrollWheel < 1f)
-        {
+        if (Input.GetAxis("scrollwheel") > 0 && scrollWheel < 1f) {
             scrollWheel += 0.2f;
-            
+
         }
-        else if (Input.GetAxis("scrollwheel") < 0 && scrollWheel >= 0.1f)
-        {
+        else if (Input.GetAxis("scrollwheel") < 0 && scrollWheel >= 0.1f) {
             scrollWheel -= 0.2f;
-            
+
         }
 
         float currentFOV = gameObject.GetComponent<Camera>().fieldOfView;
         float targetFOV = minFOV + Mathf.Lerp(0, maxFOV - minFOV, scrollWheel);
 
         gameObject.GetComponent<Camera>().fieldOfView = Mathf.SmoothDamp(currentFOV, targetFOV, ref FOVvelocity, smoothTime);
-        
+
 
         float playerDistance = Vector3.Distance(secondaryFocus.position, focus.position);
 
         //camera position modifiers
         float distanceScale;
         float cameraHeight = heightCurve.Evaluate(playerDistance);
-        
-        
+
+
 
         diameter = defaultRadius;
 
         if (playerDistance > playerBounds) {
-            float k = Mathf.Lerp(0, 12, 1 - playerBounds/playerDistance);
+            float k = Mathf.Lerp(0, 12, 1 - playerBounds / playerDistance);
             diameter = defaultRadius + k;
         }
 
         distanceScale = diameter / playerDistance;
 
         Vector3 newPosition = new Vector3(distanceScale * focus.position.x,
-                                          cameraHeight, 
+                                          cameraHeight,
                                           distanceScale * focus.position.z);
         Vector3 cameraPos = Vector3.SmoothDamp(transform.position, newPosition, ref velocity, smoothTime);
         transform.position = cameraPos;

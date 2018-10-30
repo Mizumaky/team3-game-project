@@ -4,19 +4,27 @@ using TMPro;
 
 public class HUDScript : MonoBehaviour {
 
-    [SerializeField] private CharacterManager manager;
+    //[SerializeField] private CharacterManager manager; - made activeCharacterObject static, so this is obsolete
     [SerializeField] private Image healthSlider;
     [SerializeField] private Text healthText;
     [SerializeField] private Image xpSlider;
+    private PlayerStats playerStatsReference;
+    private GameObject lastActiveCharObject = null;
 
     private void LateUpdate()
     {
-        if(manager.activeCharacter != null) {
-            float maxPlayerHealth = manager.activeCharacter.GetComponent<PlayerStats>().maxHealth;
-            float playerHealth = manager.activeCharacter.GetComponent<PlayerStats>().health;
+        if(CharacterManager.activeCharacterObject != null) {
+            //get new playerstats component reference only on character change
+            if (lastActiveCharObject != CharacterManager.activeCharacterObject) { 
+                playerStatsReference = CharacterManager.activeCharacterObject.GetComponent<PlayerStats>();
+            }
+            lastActiveCharObject = CharacterManager.activeCharacterObject;
 
-            float playerXp = manager.activeCharacter.GetComponent<PlayerStats>().experience;
-            float nextLevelXp = manager.activeCharacter.GetComponent<PlayerStats>().nextLvlExperience;
+            float maxPlayerHealth = playerStatsReference.maxHealth;
+            float playerHealth = playerStatsReference.health;
+
+            float playerXp = playerStatsReference.experience;
+            float nextLevelXp = playerStatsReference.nextLvlExperience;
             
             healthSlider.fillAmount = playerHealth / maxPlayerHealth;
             healthText.text = playerHealth + " / " + maxPlayerHealth;
@@ -27,6 +35,8 @@ public class HUDScript : MonoBehaviour {
             else {
                 xpSlider.fillAmount = 0;
             }
+        } else {
+            lastActiveCharObject = null;
         }
     }
 }

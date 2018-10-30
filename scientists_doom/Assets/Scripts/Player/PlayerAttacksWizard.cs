@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerAttacks : MonoBehaviour {
+public class PlayerAttacksWizard : MonoBehaviour {
 
     public float distance = 50f;
     public float projectileVelocity = 20f;
@@ -8,10 +8,17 @@ public class PlayerAttacks : MonoBehaviour {
     public GameObject projectilePrefab;
     public Transform spawnPosition;
 
+    private PlayerController controllerScript;
+
+    private void Start()
+    {
+        controllerScript = GetComponent<PlayerController>();
+    }
+
     void Update() {
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (controllerScript.currentState == PlayerController.PlayerState.movingState && Input.GetKeyDown(KeyCode.Space)) {
             Fire();
-        }
+        } 
 	}
 
     void Fire() {

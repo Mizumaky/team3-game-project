@@ -18,6 +18,12 @@ ModelImporter:
     100024: slepice
     100026: sutr
     100028: vec
+    100030: PlayerPosition
+    100032: prkno
+    100034: prkno_001
+    100036: prkno_002
+    100038: FirePoint
+    100040: CameraPoint
     400000: Anchor
     400002: AnimationPart
     400004: //RootNode
@@ -33,6 +39,12 @@ ModelImporter:
     400024: slepice
     400026: sutr
     400028: vec
+    400030: PlayerPosition
+    400032: prkno
+    400034: prkno_001
+    400036: prkno_002
+    400038: FirePoint
+    400040: CameraPoint
     2100000: unnamed
     2100002: stone
     2100004: wood2
@@ -55,6 +67,9 @@ ModelImporter:
     2300018: slepice
     2300020: sutr
     2300022: vec
+    2300024: prkno
+    2300026: prkno_001
+    2300028: prkno_002
     3300000: Anchor
     3300002: AnimationPart
     3300004: kamen
@@ -67,6 +82,9 @@ ModelImporter:
     3300018: slepice
     3300020: sutr
     3300022: vec
+    3300024: prkno
+    3300026: prkno_001
+    3300028: prkno_002
     4300000: Anchor
     4300002: kamen
     4300004: AnimationPart
@@ -79,6 +97,9 @@ ModelImporter:
     4300018: slepice
     4300020: oci
     4300022: vec
+    4300024: prkno_002
+    4300026: prkno_001
+    4300028: prkno
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}

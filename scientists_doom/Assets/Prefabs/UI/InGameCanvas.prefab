@@ -528,6 +528,7 @@ GameObject:
   - component: {fileID: 114480727584785590}
   - component: {fileID: 114595462466261082}
   - component: {fileID: 114870714632496926}
+  - component: {fileID: 114821042572495128}
   m_Layer: 0
   m_Name: InGameCanvas
   m_TagString: Untagged
@@ -1928,7 +1929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af0aca260220c7346870d75b31d9d3f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
   healthSlider: {fileID: 114474228201779356}
   healthText: {fileID: 114538783248538128}
   xpSlider: {fileID: 114196704972505424}
@@ -2513,6 +2513,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114821042572495128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1515567185274046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c105deadf1cc98c468af356f58ce1d22, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114823644249215506
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -2,19 +2,24 @@
 
 public class PlayerAttacksBarbarian : MonoBehaviour {
 
-    private Animator animator;
     public Collider axeCollider;
+
+    private Animator animator;
+    private PlayerController controllerScript;
+
 
     private void Start()
     {
-        animator = GetComponentInChildren<Animator>();
         axeCollider = GetComponentInChildren<BoxCollider>();
         axeCollider.enabled = false;
+
+        animator = GetComponentInChildren<Animator>();
+        controllerScript = GetComponent<PlayerController>();
     }
 
     void Update() {
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
+        if (controllerScript.currentState == PlayerController.PlayerState.movingState && Input.GetKeyDown(KeyCode.Space)) {
             Fire();
         }
 	}

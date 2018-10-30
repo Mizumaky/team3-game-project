@@ -34,9 +34,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4981200066306656}
-  - component: {fileID: 20874872077049208}
   - component: {fileID: 81794949109612392}
+  - component: {fileID: 20874872077049208}
+  - component: {fileID: 114695854193939932}
   - component: {fileID: 114700509174181696}
+  - component: {fileID: 114259350857119338}
   - component: {fileID: 114070245551861322}
   - component: {fileID: 114394194804221872}
   m_Layer: 0
@@ -83,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1325774286190844}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.69, z: 0}
+  m_LocalPosition: {x: -0.97, y: 0.48, z: -0.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4256388101895934}
@@ -111,7 +113,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.080347836, g: 0.31565207, b: 0.59400004, a: 0}
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -161,6 +163,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   profile: {fileID: 11400000, guid: 1375c1b3d9f4b844f96b3bb97eb68872, type: 2}
+--- !u!114 &114259350857119338
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1335610351868658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cce4f82d9105c734a8d561fcab8ac0b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114394194804221872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,6 +191,17 @@ MonoBehaviour:
   optimizeForManyScreenshots: 0
   format: 2
   folder: 
+--- !u!114 &114695854193939932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1335610351868658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c58afd14df8cdff4295b60d5137ba5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114700509174181696
 MonoBehaviour:
   m_ObjectHideFlags: 1

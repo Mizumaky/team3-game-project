@@ -31,7 +31,7 @@ public class BulletController : MonoBehaviour {
     }
 
     void Update () {
-		if (target == null) //just in case target gets killed or so before it hits him
+		if (target == null) //just in case target gets destroyed or so before it hits him
         {
             Destroy(gameObject);
             return;
@@ -54,7 +54,8 @@ public class BulletController : MonoBehaviour {
         Quaternion particleRot = Quaternion.LookRotation(target.position - transform.position);
         GameObject particle = Instantiate(impactEffect, transform.position, particleRot);
         soundSource.clip = soundClip;
-        //soundSource.Play();
+        target.gameObject.GetComponent<EnemyStats>().TakeDamage(10);
+
         Destroy(particle, 2f);
         Destroy(gameObject);
     }

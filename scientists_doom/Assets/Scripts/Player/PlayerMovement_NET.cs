@@ -3,7 +3,7 @@ using UnityEngine.AI;
 using UnityEngine.Networking;
 using UnityEngine.SceneManagement;
 
-public class PlayerControls_NET : NetworkBehaviour {
+public class PlayerMovement_NET : NetworkBehaviour {
 
     private NavMeshAgent navMeshAgent;
     public float distance = 50f;

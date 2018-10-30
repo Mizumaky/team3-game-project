@@ -36,6 +36,7 @@ public class EnemyStats : MonoBehaviour
 
             GetComponent<EnemyControls>().DisableCollision();
             GetComponent<EnemyControls>().DisableMovement();
+            Destroy(gameObject, 3f);
         }
         else {
             Debug.Log("Enemy does not have animator component!");

@@ -51,9 +51,10 @@ GameObject:
   - component: {fileID: 4740743643972830}
   - component: {fileID: 136795661427076916}
   - component: {fileID: 195906687292211236}
+  - component: {fileID: 114528442627379542}
   - component: {fileID: 114297458085727660}
-  - component: {fileID: 114310330986673260}
   - component: {fileID: 114272553194761250}
+  - component: {fileID: 114095940901312090}
   m_Layer: 0
   m_Name: Wizard
   m_TagString: Untagged
@@ -674,6 +675,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114095940901312090
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106552325252950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2dd81b4cb303a8b4c8d8849d75183c30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 150
+  rotationSpeed: 100
 --- !u!114 &114272553194761250
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -711,7 +725,7 @@ MonoBehaviour:
   nextLvlExperience: 0
   attackIncrement: 1
   armorIncrement: 1
---- !u!114 &114310330986673260
+--- !u!114 &114528442627379542
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -719,11 +733,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1106552325252950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26bd9b4e68ec3ff40a70ce7903187c20, type: 3}
+  m_Script: {fileID: 11500000, guid: 8b5440bfc55cf964d940bbc2a478b7ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 500
-  rotationSpeed: 100
+  currentState: 0
 --- !u!136 &136795661427076916
 CapsuleCollider:
   m_ObjectHideFlags: 1
