@@ -741,7 +741,7 @@ MonoBehaviour:
   weaponDamage: 10
   fireballPrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
     type: 2}
-  fireballMaxChargeTime: 1
+  fireballMaxChargeTime: 1.5
   fireballChargeSpeed: 2
 --- !u!114 &114528442627379542
 MonoBehaviour:
