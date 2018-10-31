@@ -27,7 +27,6 @@ public class SpawnEnemy : MonoBehaviour {
             numOfEnemies = (curve.Evaluate(value) * enemyCount) - enemiesSpawned;
             enemiesSpawned += (int)numOfEnemies;
             SpawnEnemyInRing((int)numOfEnemies);
-            //print("Enemies spawned now " + numOfEnemies + " " + enemiesSpawned + "/" + enemyCount);
             yield return new WaitForSeconds(0.1f);
         }
     }

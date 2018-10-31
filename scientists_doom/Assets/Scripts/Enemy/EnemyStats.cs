@@ -33,7 +33,7 @@ public class EnemyStats : MonoBehaviour
             animator.SetTrigger("dieTrigger");
 
             enemyAlive = false;
-
+            print("Enemy should lie on ground and dont move !!!");
             GetComponent<EnemyControls>().DisableCollision();
             GetComponent<EnemyControls>().DisableMovement();
         }

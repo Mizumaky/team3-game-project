@@ -29,7 +29,7 @@ GameObject:
   - component: {fileID: 54399271213956376}
   m_Layer: 11
   m_Name: Fireball
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,6 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   casterTransform: {fileID: 0}
+  damage: 0
   explosion: {fileID: 1054286298192358, guid: 4c900ea1c7839404b91ff52377ef515d, type: 2}
   lifetime: 2
   projectileFlightHeight: 0.5
