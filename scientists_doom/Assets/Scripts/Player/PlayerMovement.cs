@@ -3,6 +3,7 @@ using UnityEngine.AI;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public LayerMask suitableAsGroundPos;
     private NavMeshAgent navMeshAgent;
     public float distance = 50f;
     public float rotationSpeed = 10f;
@@ -11,98 +12,83 @@ public class PlayerMovement : MonoBehaviour {
     private float speed;
     private Vector3 lastPosition;
 
-	void Start () {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        animator = GetComponentInChildren<Animator>();
+    void Start () {
+        navMeshAgent = GetComponent<NavMeshAgent> ();
+        animator = GetComponentInChildren<Animator> ();
         speed = 0;
-	}
+    }
 
     //TODO add if state not moving tak at se to nejak resetne do default
-    public void StopMoving()
-    {
+    public void StopMoving () {
         navMeshAgent.isStopped = true;
-        navMeshAgent.ResetPath();
+        navMeshAgent.ResetPath ();
         navMeshAgent.enabled = false;
-        if (animator != null)
-        {
-            animator.SetFloat("speedParam", 0f);
+        if (animator != null) {
+            animator.SetFloat ("speedParam", 0f);
 
         }
     }
-    public void StartMoving()
-    {
+    public void StartMoving () {
         navMeshAgent.enabled = true;
         navMeshAgent.isStopped = false;
     }
 
-    public void Move() {
+    public void Move () {
 
-        Vector3 groundPositionVector = GetGroundPosition();
+        Vector3 groundPositionVector = GetGroundPosition ();
 
         Vector3 direction = (groundPositionVector - transform.position).normalized;
-        if (direction != new Vector3(0, 0, 0))
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
+        if (direction != new Vector3 (0, 0, 0)) {
+            Quaternion lookRotation = Quaternion.LookRotation (new Vector3 (direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, Time.deltaTime * rotationSpeed);
         }
 
-        if (Input.GetMouseButton(0))
-        {
-            NavMeshPath path = new NavMeshPath();
+        if (Input.GetMouseButton (0)) {
+            NavMeshPath path = new NavMeshPath ();
 
             //navMeshAgent.SetDestination(groundPositionVector);
-            if (NavMesh.CalculatePath(transform.position, groundPositionVector, NavMesh.AllAreas, path))
-            {
-                navMeshAgent.SetPath(path);
+            if (NavMesh.CalculatePath (transform.position, groundPositionVector, NavMesh.AllAreas, path)) {
+                navMeshAgent.SetPath (path);
+            } else {
+                Debug.Log ("Could not set path");
             }
-            else
-            {
-                Debug.Log("Could not set path");
-            }
-        }
-        else
-        {
-            navMeshAgent.ResetPath();
+        } else {
+            navMeshAgent.ResetPath ();
         }
 
-        if (animator != null)
-        {
+        if (animator != null) {
 
-            speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.75f) / 3.5f;
+            speed = Mathf.Lerp (speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.75f) / 3.5f;
             lastPosition = transform.position;
 
-            animator.SetFloat("speedParam", speed);
-                
-        }
-	}
+            animator.SetFloat ("speedParam", speed);
 
-    protected Vector3 GetGroundPosition() {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        }
+    }
+
+    protected Vector3 GetGroundPosition () {
+        Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, distance)) {
-            if(hit.collider.gameObject.layer == 9 || hit.collider.gameObject.layer == 10 || hit.collider.gameObject.layer == 11)
-            {
+        if (Physics.Raycast (ray, out hit, distance)) {
+            if (UnityExtensions.ContainsLayer (suitableAsGroundPos, hit.collider.gameObject.layer)) {
                 NavMeshHit hitNavmesh;
-                NavMesh.SamplePosition(hit.point, out hitNavmesh, 500, 5);
+                NavMesh.SamplePosition (hit.point, out hitNavmesh, 50f, 5);
                 return hitNavmesh.position;
             }
         }
-        return GetComponent<Transform>().position;
+        return GetComponent<Transform> ().position;
     }
 
-    void OnTriggerEnter(Collider other)
-    {
+    void OnTriggerEnter (Collider other) {
         if (other.gameObject.layer == 10) //enemy leyer
         {
-            other.gameObject.GetComponent<EnemyAttacks>().StartAttackPlayer(gameObject);
+            other.gameObject.GetComponent<EnemyAttacks> ().StartAttackPlayer (gameObject);
         }
     }
 
-    void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.layer == 10)
-        {
-            other.gameObject.GetComponent<EnemyAttacks>().StopAttackPlayer();
+    void OnTriggerExit (Collider other) {
+        if (other.gameObject.layer == 10) {
+            other.gameObject.GetComponent<EnemyAttacks> ().StopAttackPlayer ();
         }
     }
 

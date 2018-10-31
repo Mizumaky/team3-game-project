@@ -801,6 +801,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd81b4cb303a8b4c8d8849d75183c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suitableAsGroundPos:
+    serializedVersion: 2
+    m_Bits: 7680
   distance: 150
   rotationSpeed: 100
 --- !u!114 &114632542107689334

@@ -53,7 +53,6 @@ GameObject:
   - component: {fileID: 195906687292211236}
   - component: {fileID: 114528442627379542}
   - component: {fileID: 114297458085727660}
-  - component: {fileID: 114272553194761250}
   - component: {fileID: 114095940901312090}
   - component: {fileID: 114386475218829322}
   m_Layer: 0
@@ -687,24 +686,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd81b4cb303a8b4c8d8849d75183c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  suitableAsGroundPos:
+    serializedVersion: 2
+    m_Bits: 7680
   distance: 150
   rotationSpeed: 100
---- !u!114 &114272553194761250
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1106552325252950}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e7fd2be2a922b4cbc933b6dffe83a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  distance: 500
-  projectileVelocity: 20
-  projectilePrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
-    type: 2}
-  spawnPosition: {fileID: 4028849457006998}
 --- !u!114 &114297458085727660
 MonoBehaviour:
   m_ObjectHideFlags: 1

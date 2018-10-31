@@ -218,13 +218,13 @@ MonoBehaviour:
   defaultRadius: 20
   smoothTime: 0.35
   minFOV: 35
-  maxFOV: 60
+  maxFOV: 65
   heightCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 2
+      value: 3
       inSlope: 0
       outSlope: 0
       tangentMode: 0

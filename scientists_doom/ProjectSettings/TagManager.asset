@@ -17,9 +17,9 @@ TagManager:
   - PostProcessing
   - Ground
   - Enemy
-  - HitEnemy
-  - 
-  - 
+  - Castle
+  - Flammable
+  - ImmuneToPlayerAttacks
   - 
   - 
   - 
