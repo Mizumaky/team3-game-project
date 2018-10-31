@@ -1,35 +1,28 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-public class EnemyStats : MonoBehaviour {
-
-  public float enemyMaxHealth = 50;
-  public float enemyHealth;
+public class EnemyStats : Stats {
   private Animator animator;
-  public bool enemyAlive = true;
-  public float enemyDamage = 5;
 
   void Start () {
-    enemyHealth = enemyMaxHealth;
+    totalMaxHealth = baseMaxHealth;
+    totalAttackDamage = baseAttackDamage;
     animator = GetComponent<Animator> ();
   }
 
-  public void TakeDamage (float damage) {
-    enemyHealth -= damage;
-    if (enemyHealth <= 0) {
-      KillEnemy ();
-    }
-    GetComponent<EnemyHealthBar> ().AdjustHealthBar (enemyHealth / enemyMaxHealth);
+  public override void TakeDamage (float damage) {
+    base.TakeDamage (damage);
+    GetComponent<EnemyHealthBar> ().AdjustHealthBar (currentHealth / totalMaxHealth);
   }
 
-  public void KillEnemy () {
+  protected override void Die () {
+    base.Die ();
     if (animator != null) {
       animator.SetTrigger ("dieTrigger");
 
-      enemyAlive = false;
-
       GetComponent<EnemyControls> ().DisableCollision ();
       GetComponent<EnemyControls> ().DisableMovement ();
+
       Destroy (gameObject, 3f);
     } else {
       Debug.Log ("Enemy does not have animator component!");

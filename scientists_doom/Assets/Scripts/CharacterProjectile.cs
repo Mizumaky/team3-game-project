@@ -66,6 +66,7 @@ public class CharacterProjectile : CharacterAbility {
       // Enemy
       if (layer == LayerMask.NameToLayer ("Enemy")) {
         Explode ();
+        other.gameObject.GetComponent<EnemyControls> ().Aggro (casterTransform);
       } else if (layer == LayerMask.NameToLayer ("Castle")) {
         Explode ();
       }
@@ -91,6 +92,7 @@ public class CharacterProjectile : CharacterAbility {
     int enemyLayer = LayerMask.NameToLayer ("Enemy");
     foreach (Collider hit in hits) {
       if (hit.gameObject.layer == enemyLayer) {
+        hit.GetComponent<EnemyControls> ().Aggro (casterTransform);
         hit.GetComponent<EnemyStats> ().TakeDamage (damage);
       }
     }

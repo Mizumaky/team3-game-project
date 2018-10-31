@@ -171,12 +171,12 @@ GameObject:
   m_Component:
   - component: {fileID: 4069375167299868}
   - component: {fileID: 95502640926159146}
+  - component: {fileID: 136196219917582546}
+  - component: {fileID: 195375223217502430}
   - component: {fileID: 54033275513188132}
   - component: {fileID: 114457507051011080}
   - component: {fileID: 114355774120296820}
   - component: {fileID: 114317217418194494}
-  - component: {fileID: 195375223217502430}
-  - component: {fileID: 136196219917582546}
   m_Layer: 10
   m_Name: Peasant
   m_TagString: enemy
@@ -753,10 +753,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed76007a8aecdb4c942200715e383dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyMaxHealth: 50
-  enemyHealth: 20
-  enemyAlive: 1
-  enemyDamage: 5
+  baseMaxHealth: 100
+  healthIncrement: 10
+  baseAttackDamage: 10
+  attackDamageIncrement: 1
 --- !u!114 &114457507051011080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -770,7 +770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castle: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
   distanceToFollowPlayer: 7
-  triggered: 0
 --- !u!114 &114521743749163174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -782,7 +781,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0628125902deb20448c89a8d45fc6fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weponCollider: {fileID: 0}
   weponDamage: 0
+  aditionalDamage: 0
+  totalDamage: 0
+  layerToHit: 0
 --- !u!114 &114625231347216704
 MonoBehaviour:
   m_ObjectHideFlags: 1

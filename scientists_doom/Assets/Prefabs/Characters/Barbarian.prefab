@@ -86,10 +86,11 @@ GameObject:
   - component: {fileID: 95718846748745428}
   - component: {fileID: 136572997442453196}
   - component: {fileID: 195112880611732538}
-  - component: {fileID: 114632542107689334}
-  - component: {fileID: 114087519261758408}
+  - component: {fileID: 114154548809217280}
+  - component: {fileID: 114988507285818218}
   - component: {fileID: 114006685341032748}
-  - component: {fileID: 114435792236455624}
+  - component: {fileID: 114040945108664010}
+  - component: {fileID: 54777499673710042}
   m_Layer: 0
   m_Name: Barbarian
   m_TagString: Untagged
@@ -693,7 +694,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &54777499673710042
 Rigidbody:
-  m_ObjectHideFlags: 1
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1195421657766132}
@@ -784,17 +785,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21db7f706c45b474091d404267c88b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAlive: 1
-  maxHealth: 100
-  health: 100
+  baseMaxHealth: 100
   healthIncrement: 10
+  baseAttackDamage: 10
+  attackDamageIncrement: 1
   maxHeroLevel: 60
   heroLevel: 0
   experience: 0
   nextLvlExperience: 0
-  attackIncrement: 3
-  armorIncrement: 3
---- !u!114 &114087519261758408
+--- !u!114 &114040945108664010
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -802,10 +801,26 @@ MonoBehaviour:
   m_GameObject: {fileID: 1195421657766132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f65e441ecc57642869058c2eae12cf, type: 3}
+  m_Script: {fileID: 11500000, guid: 619c2b63a21ea4b5fac990430be26052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axeCollider: {fileID: 0}
+  weaponTransform: {fileID: 0}
+  weaponDamage: 10
+  animator: {fileID: 0}
+  collider: {fileID: 0}
+  enableCollision: 0
+--- !u!114 &114154548809217280
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195421657766132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459200d7dd7fa4358b091fb5b9f3bac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!114 &114935625415537074
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -817,8 +832,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0628125902deb20448c89a8d45fc6fb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weponCollider: {fileID: 0}
   weponDamage: 10
---- !u!114 &114943320044902962
+  aditionalDamage: 0
+  totalDamage: 0
+  layerToHit: 0
+--- !u!114 &114988507285818218
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -833,19 +852,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 7680
   distance: 150
-  rotationSpeed: 100
---- !u!114 &114632542107689334
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1195421657766132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b5440bfc55cf964d940bbc2a478b7ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
+  rotationSpeed: 50
 --- !u!136 &136572997442453196
 CapsuleCollider:
   m_ObjectHideFlags: 1

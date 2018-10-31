@@ -174,14 +174,14 @@ ModelImporter:
       curves: []
       events:
       - time: 0.2296875
-        functionName: AttackStart
+        functionName: ToggleCollision
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
       - time: 0.99843746
-        functionName: AttackEnd
+        functionName: ToggleCollision
         data: 
         objectReferenceParameter: {instanceID: 0}
         floatParameter: 0

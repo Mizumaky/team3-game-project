@@ -2,40 +2,37 @@
 
 public class PlayerAttacksBarbarian : MonoBehaviour {
 
-    public Collider axeCollider;
+  public Collider axeCollider;
 
-    private Animator animator;
-    private PlayerController controllerScript;
+  private Animator animator;
+  private PlayerStateController controllerScript;
 
+  private void Start () {
+    axeCollider = GetComponentInChildren<BoxCollider> ();
+    axeCollider.enabled = false;
 
-    private void Start()
-    {
-        axeCollider = GetComponentInChildren<BoxCollider>();
-        axeCollider.enabled = false;
+    animator = GetComponentInChildren<Animator> ();
+    controllerScript = GetComponent<PlayerStateController> ();
+  }
 
-        animator = GetComponentInChildren<Animator>();
-        controllerScript = GetComponent<PlayerController>();
+  void Update () {
+
+    if (controllerScript.currentState == PlayerStateController.PlayerState.movingState && Input.GetKeyDown (KeyCode.Space)) {
+      Fire ();
     }
+  }
 
-    void Update() {
+  void Fire () {
 
-        if (controllerScript.currentState == PlayerController.PlayerState.movingState && Input.GetKeyDown(KeyCode.Space)) {
-            Fire();
-        }
-	}
+    animator.SetTrigger ("attackTrigger");
 
-    void Fire() {
-        
-        animator.SetTrigger("attackTrigger");
+  }
 
-    }
+  public void AxeSwingStart () {
+    axeCollider.enabled = true;
+  }
 
-    public void AxeSwingStart() {
-        axeCollider.enabled = true;
-    }
-
-    public void AxeSwingEnd()
-    {
-        axeCollider.enabled = false;
-    }
+  public void AxeSwingEnd () {
+    axeCollider.enabled = false;
+  }
 }
