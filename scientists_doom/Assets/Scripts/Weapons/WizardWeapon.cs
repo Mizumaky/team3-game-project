@@ -23,11 +23,23 @@ public class WizardWeapon : Weapon {
   }
   protected override void GetInput () {
     base.GetInput ();
-    if (Input.GetKeyUp (KeyCode.Space)) {
-      if (currentlyCharged != null) {
-        ReleaseBasicAttack ();
+    // Check focus layer
+    if (GameController.currentFocusLayer == GameController.FocusLayer.Game) {
+
+      // Check player state
+      if (playerStateController != null) {
+        if (playerStateController.currentState == PlayerStateController.PlayerState.movingState) {
+          if (Input.GetKeyUp (KeyCode.Space)) {
+            if (currentlyCharged != null) {
+              ReleaseBasicAttack ();
+            }
+          }
+        }
+      } else {
+        Debug.LogWarning ("No playerStateController set!");
       }
     }
+
   }
 
   protected override void PerformBasicAttack () {

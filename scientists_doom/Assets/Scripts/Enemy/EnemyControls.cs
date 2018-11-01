@@ -41,8 +41,10 @@ public class EnemyControls : MonoBehaviour {
   }
 
   public void Aggro (Transform targetTransform) {
+    Debug.Log ("Aggroing to " + targetTransform.name);
     target = targetTransform;
     if (activeFollowCoroutine == null) {
+      Debug.Log ("Starting routine");
       activeFollowCoroutine = StartCoroutine (CheckForTargetAndFollow ());
     }
   }
@@ -52,17 +54,19 @@ public class EnemyControls : MonoBehaviour {
     if (enemyStats.isAlive ()) {
       float distance = Vector3.Distance (target.position, transform.position);
       while (target != null && target.gameObject.activeSelf && distance < distanceToFollowPlayer) {
-
-        // If taraget close enough, attack and face it
         distance = Vector3.Distance (target.position, transform.position);
+        // If taraget close enough, attack and face it
         if (distance <= 1) {
           transform.rotation = CountLookRotation ();
           animator.SetTrigger ("attackTrigger");
         } else {
           SetPathToTarget (target);
+          Debug.Log ("Setting path");
         }
         yield return new WaitForSeconds (0.1f);
       }
+
+      // Reset to castle
       target = castle;
       SetPathToTarget (target);
     }

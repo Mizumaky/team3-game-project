@@ -66,7 +66,6 @@ public class CharacterProjectile : CharacterAbility {
       // Enemy
       if (layer == LayerMask.NameToLayer ("Enemy")) {
         Explode ();
-        other.gameObject.GetComponent<EnemyControls> ().Aggro (casterTransform);
       } else if (layer == LayerMask.NameToLayer ("Castle")) {
         Explode ();
       }

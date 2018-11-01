@@ -19,7 +19,7 @@ public class HUDScript : MonoBehaviour {
       }
       lastActiveCharObject = CharacterManager.activeCharacterObject;
 
-      float maxPlayerHealth = playerStatsReference.baseMaxHealth;
+      float maxPlayerHealth = playerStatsReference.GetTotalMaxHealth ();
       float playerHealth = playerStatsReference.GetCurrentHealth ();
 
       float playerXp = playerStatsReference.experience;

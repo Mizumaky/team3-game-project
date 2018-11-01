@@ -4,9 +4,12 @@ using UnityEngine.AI;
 public class EnemyStats : Stats {
   private Animator animator;
 
-  void Start () {
-    totalMaxHealth = baseMaxHealth;
-    totalAttackDamage = baseAttackDamage;
+  private void Start () {
+    Init ();
+  }
+
+  protected override void Init () {
+    base.Init ();
     animator = GetComponent<Animator> ();
   }
 

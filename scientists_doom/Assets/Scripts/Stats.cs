@@ -5,17 +5,21 @@ public class Stats : MonoBehaviour {
   protected bool alive;
   [Header ("Health")]
   public float baseMaxHealth = 100f; // To keep health cap, so that hero cannot be overhealed 
-  protected float totalMaxHealth;
-  protected float currentHealth;
+  [SerializeField] protected float totalMaxHealth;
+  [SerializeField] protected float currentHealth;
   public float healthIncrement = 10f;
 
   [Header ("Attack")]
   public float baseAttackDamage = 10f;
-  protected float totalAttackDamage;
+  [SerializeField] protected float totalAttackDamage;
   public float attackDamageIncrement = 1f;
 
   public bool isAlive () {
     return alive;
+  }
+
+  public float GetTotalMaxHealth () {
+    return totalMaxHealth;
   }
   public float GetCurrentHealth () {
     return currentHealth;
@@ -26,8 +30,16 @@ public class Stats : MonoBehaviour {
   }
 
   private void Start () {
+    Init ();
+  }
+
+  protected virtual void Init () {
+    alive = true;
+
     totalMaxHealth = baseMaxHealth;
     totalAttackDamage = baseAttackDamage;
+
+    currentHealth = totalMaxHealth;
   }
 
   public virtual void TakeDamage (float damage) {

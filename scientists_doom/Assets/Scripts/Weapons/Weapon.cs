@@ -16,19 +16,20 @@ public class Weapon : MonoBehaviour {
     Init ();
   }
   private void Update () {
-    GetInput ();
+    if (isPlayerControlled) {
+      GetInput ();
+    }
   }
 
   protected virtual void Init () {
-    playerStateController = GetComponent<PlayerStateController> ();
 
-    if (gameObject.layer == LayerMask.NameToLayer ("Player"))
+    if (gameObject.layer == LayerMask.NameToLayer ("Player")) {
       isPlayerControlled = true;
-    else
+      playerStateController = GetComponent<PlayerStateController> ();
+    } else
       isPlayerControlled = false;
   }
 
-  // TODO: do the same check in other GetInput-s
   protected virtual void GetInput () {
     // Check focus layer
     if (GameController.currentFocusLayer == GameController.FocusLayer.Game) {

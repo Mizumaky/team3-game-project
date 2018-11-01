@@ -16,16 +16,26 @@ public class PlayerStats : Stats {
   private void Awake () {
     if (PlayerPrefs.HasKey ("heroLevel")) {
       heroLevel = PlayerPrefs.GetInt ("heroLevel", 0);
+    } else {
+      heroLevel = 1;
     }
 
     if (PlayerPrefs.HasKey ("experience")) {
       experience = PlayerPrefs.GetFloat ("experience", 0);
+    } else {
+      experience = 0;
     }
   }
 
   private void Start () {
+    Init ();
+  }
+
+  protected override void Init () {
     totalMaxHealth = baseMaxHealth + heroLevel * healthIncrement;
     totalAttackDamage = baseAttackDamage + heroLevel * attackDamageIncrement;
+
+    currentHealth = totalMaxHealth;
   }
 
   private void OnDestroy () {

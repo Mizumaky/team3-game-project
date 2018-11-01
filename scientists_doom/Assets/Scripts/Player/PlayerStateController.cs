@@ -3,7 +3,6 @@ using UnityEngine;
 
 //TODO wizard and barbarian have different classes for attack,
 //would like to make it work similiarily as for movement
-
 public class PlayerStateController : MonoBehaviour {
 
   public enum PlayerState {
