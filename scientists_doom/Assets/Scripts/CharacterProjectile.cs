@@ -40,8 +40,9 @@ public class CharacterProjectile : CharacterAbility {
   }
 
   public void Release () {
-    StartCoroutine (UpdateHeight ());
     collisionEnabled = true;
+    StartCoroutine (UpdateHeight ());
+    StartCoroutine (FadeOutAfterLifeEnd ());
   }
 
   private IEnumerator UpdateHeight () {
@@ -65,22 +66,34 @@ public class CharacterProjectile : CharacterAbility {
     if (collisionEnabled) {
       // Enemy
       if (layer == LayerMask.NameToLayer ("Enemy")) {
-        Explode ();
+        Impact ();
       } else if (layer == LayerMask.NameToLayer ("Castle")) {
-        Explode ();
+        Impact ();
       }
     }
   }
 
-  private void Explode () {
+  private IEnumerator FadeOutAfterLifeEnd () {
+    yield return new WaitForSeconds (lifeTime);
     collisionEnabled = false;
-    CheckHitsAndDealDamage ();
 
+    DisableProjectile ();
+
+    impactEndTimer = new CustomUpdateTimer (0.9f * impactEffect.GetComponent<ParticleSystem> ().main.startLifetime.Evaluate (0));
+  }
+
+  private void DisableProjectile () {
+    collisionEnabled = false;
     Destroy (GetComponent<Rigidbody> ());
     GetComponent<ParticleSystem> ().Stop ();
+  }
 
-    GameObject explosionInstance = Instantiate (impactEffect, transform.position, transform.rotation, transform);
-    explosionInstance.transform.localScale = transform.localScale;
+  private void Impact () {
+    DisableProjectile ();
+    CheckHitsAndDealDamage ();
+
+    GameObject impactEffectInstance = Instantiate (impactEffect, transform.position, transform.rotation, transform);
+    impactEffectInstance.transform.localScale = transform.localScale;
 
     impactEndTimer = new CustomUpdateTimer (0.9f * impactEffect.GetComponent<ParticleSystem> ().main.startLifetime.Evaluate (0));
   }

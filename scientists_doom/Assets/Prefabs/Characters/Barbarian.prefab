@@ -52,7 +52,7 @@ GameObject:
   - component: {fileID: 4109148981014290}
   - component: {fileID: 137703341309225770}
   - component: {fileID: 65272478680542506}
-  m_Layer: 14
+  m_Layer: 0
   m_Name: Axe
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -717,8 +717,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 2.7, y: 11.94, z: 2.09}
-  m_Center: {x: 10.89, y: 0, z: 0}
+  m_Size: {x: 5.422692, y: 19.299038, z: 5.769255}
+  m_Center: {x: 10.889901, y: -3.6794765, z: 0.27472034}
 --- !u!95 &95718846748745428
 Animator:
   serializedVersion: 3
@@ -785,11 +785,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21db7f706c45b474091d404267c88b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 100
+  baseMaxHealth: 200
   totalMaxHealth: 0
   currentHealth: 0
   healthIncrement: 10
-  baseAttackDamage: 10
+  baseAttackDamage: 30
   totalAttackDamage: 0
   attackDamageIncrement: 1
   maxHeroLevel: 60
@@ -847,9 +847,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd81b4cb303a8b4c8d8849d75183c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  suitableAsGroundPos:
-    serializedVersion: 2
-    m_Bits: 7680
   distance: 150
   rotationSpeed: 50
 --- !u!136 &136572997442453196

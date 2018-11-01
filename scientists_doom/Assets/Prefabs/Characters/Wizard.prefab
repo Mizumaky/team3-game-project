@@ -719,8 +719,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   baseMaxHealth: 100
+  totalMaxHealth: 0
+  currentHealth: 0
   healthIncrement: 10
   baseAttackDamage: 10
+  totalAttackDamage: 0
   attackDamageIncrement: 1
   maxHeroLevel: 60
   heroLevel: 0

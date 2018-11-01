@@ -8,8 +8,8 @@ public class WizardWeapon : Weapon {
   [Header ("Regular Attack")]
   [Space]
   public GameObject fireballPrefab;
-  public float fireballMaxChargeTime = 1f;
-  public float fireballChargeSpeed = 1.5f;
+  public float fireballMaxChargeTime = 1.5f;
+  public float fireballChargeSpeed = 1f;
   [Space]
 
   private GameObject currentlyCharged;
@@ -49,7 +49,7 @@ public class WizardWeapon : Weapon {
 
   protected void ReleaseBasicAttack () {
     currentlyCharged.transform.parent = null;
-    currentlyCharged.GetComponent<CharacterAbility> ().damage = weaponDamage + GetComponent<PlayerStats> ().GetAttackDamage () * currentChargeTime * fireballChargeSpeed;
+    currentlyCharged.GetComponent<CharacterAbility> ().damage = weaponDamage + GetComponent<PlayerStats> ().GetAttackDamage () * (1 + currentChargeTime * fireballChargeSpeed);
     currentlyCharged.GetComponent<CharacterProjectile> ().impactRadius *= (1 + currentChargeTime * fireballChargeSpeed);
     currentlyCharged.GetComponent<Rigidbody> ().velocity = currentlyCharged.transform.up * currentlyCharged.GetComponent<CharacterProjectile> ().velocity * (1 + currentChargeTime * fireballChargeSpeed) / 2f;
     currentlyCharged.GetComponent<CharacterProjectile> ().Release ();
@@ -61,7 +61,7 @@ public class WizardWeapon : Weapon {
       currentChargeTime += Time.deltaTime * fireballChargeSpeed;
       currentlyCharged.transform.localScale = fireballPrefab.transform.localScale * (1 + currentChargeTime * fireballChargeSpeed);
     } else {
-      ReleaseBasicAttack ();
+      //ReleaseBasicAttack ();
     }
   }
 

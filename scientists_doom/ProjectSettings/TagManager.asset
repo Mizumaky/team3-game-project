@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
   - Weapon
   layers:
   - Default
@@ -20,11 +19,8 @@ TagManager:
   - Enemy
   - Castle
   - Flammable
-  - ImmuneToPlayerAttacks
+  - 
   - Player
-  - 
-  - 
-  - 
   - 
   - 
   - 
