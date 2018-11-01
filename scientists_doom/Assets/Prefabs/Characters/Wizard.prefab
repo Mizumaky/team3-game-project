@@ -372,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334275655528204}
   m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 0, y: 0.326, z: 0.504}
+  m_LocalPosition: {x: 0, y: 0.326, z: 0.187}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4740743643972830}
@@ -623,8 +623,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106552325252950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6863365, y: -1.1941352, z: 1.4179744}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.14085355, y: -1.3470101, z: -8.213902}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children:
   - {fileID: 4414069451819044}
@@ -702,9 +702,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2dd81b4cb303a8b4c8d8849d75183c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  suitableAsGroundPos:
-    serializedVersion: 2
-    m_Bits: 7680
   distance: 150
   rotationSpeed: 100
 --- !u!114 &114297458085727660
@@ -741,11 +738,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 4028849457006998}
-  weaponDamage: 10
-  fireballPrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
-    type: 2}
-  fireballMaxChargeTime: 1.5
-  fireballChargeSpeed: 2
+  damage: 10
+  castSpeed: 2
+  regularAttack: {fileID: 11400000, guid: 98beb3c50c15f864ba2c5f40817c9201, type: 2}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  currentAbilityInstance: {fileID: 0}
+  chargeTime: 0
+  chargeScalingFactor: 1
+  releaseOnMaxCharge: 0
 --- !u!114 &114500384979674586
 MonoBehaviour:
   m_ObjectHideFlags: 1

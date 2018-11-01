@@ -1,15 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterProjectile : CharacterAbility {
+public class CharacterAbilityInstance : MonoBehaviour {
 
-  [Header ("Projectile")]
-  public float velocity = 20f;
-  public float lifeTime = 2f;
-  public float flightHeightFromTerrain = 0.5f;
-  private Light thisLight;
-  private float initialLightIntensity;
+  [Header ("Carry")]
+  [SerializeField] protected Transform casterTransform;
+  [SerializeField] protected float damage;
+  [Space]
+
+  [Header ("Object Settings")]
+  [SerializeField] protected Rigidbody rigidbody;
+  [SerializeField] protected LayerMask mask;
+  [SerializeField] protected float velocity = 0f;
+  [SerializeField] protected float lifeTime = 2f;
+  [SerializeField] protected float hightFromTerrain = 0.5f;
+  [Space]
+  [SerializeField] protected new Light light;
+  [SerializeField] protected float initialLightIntensity;
+  [Space]
   private bool collisionEnabled = false;
   [Space]
 
@@ -18,14 +26,18 @@ public class CharacterProjectile : CharacterAbility {
   public float impactRadius = 0.5f;
   CustomUpdateTimer impactEndTimer;
 
-  public void SetCollisionEnabled (bool value) {
-    collisionEnabled = value;
+  #region GettersSetters
+  public float GetVelocity () {
+    return velocity;
   }
 
-  private void Awake () {
-    thisLight = GetComponent<Light> ();
-    initialLightIntensity = thisLight.intensity;
+  public float GetImpactRadius () {
+    return impactRadius;
+  }
+  #endregion
 
+  private void Awake () {
+    initialLightIntensity = light.intensity;
   }
 
   private void Update () {
@@ -34,14 +46,29 @@ public class CharacterProjectile : CharacterAbility {
       if (impactEndTimer.isLastTick (Time.deltaTime)) {
         Destroy (gameObject);
       } else {
-        thisLight.intensity = initialLightIntensity * impactEndTimer.GetTimeLeftPercent ();
+        light.intensity = initialLightIntensity * impactEndTimer.GetTimeLeftPercent ();
       }
     }
   }
 
-  public void Release () {
+  public virtual void SetAndRelease (Transform casterTransform, Vector3 velocity, float damage, float impactRadius) {
+    this.casterTransform = casterTransform;
+    transform.parent = null;
+    rigidbody.velocity = velocity;
+    this.damage = damage;
+    this.impactRadius = impactRadius;
+
+    Release ();
+  }
+
+  private void Release () {
     collisionEnabled = true;
-    StartCoroutine (UpdateHeight ());
+
+    // Only update height if the object is moving
+    if (this.velocity > 0) {
+      StartCoroutine (UpdateHeight ());
+    }
+
     StartCoroutine (FadeOutAfterLifeEnd ());
   }
 
@@ -53,22 +80,19 @@ public class CharacterProjectile : CharacterAbility {
       RaycastHit hit;
       if (Physics.Raycast (rayDown, out hit, 2f)) {
         if (hit.collider.gameObject.layer == groundLayerIndex) {
-          transform.position = new Vector3 (transform.position.x, flightHeightFromTerrain + hit.point.y, transform.position.z);
+          transform.position = new Vector3 (transform.position.x, hightFromTerrain + hit.point.y, transform.position.z);
         }
       }
       yield return null;
     }
-
   }
 
   private void OnTriggerEnter (Collider other) {
-    int layer = other.gameObject.layer;
+    int otherLayer = other.gameObject.layer;
+
     if (collisionEnabled) {
-      // Enemy
-      if (layer == LayerMask.NameToLayer ("Enemy")) {
-        Impact ();
-      } else if (layer == LayerMask.NameToLayer ("Castle")) {
-        Impact ();
+      if (UnityExtensions.ContainsLayer (mask, otherLayer)) {
+        Impact (transform.position);
       }
     }
   }
@@ -88,11 +112,11 @@ public class CharacterProjectile : CharacterAbility {
     GetComponent<ParticleSystem> ().Stop ();
   }
 
-  private void Impact () {
+  private void Impact (Vector3 impactPosition) {
     DisableProjectile ();
     CheckHitsAndDealDamage ();
 
-    GameObject impactEffectInstance = Instantiate (impactEffect, transform.position, transform.rotation, transform);
+    GameObject impactEffectInstance = Instantiate (impactEffect, impactPosition, transform.rotation, transform);
     impactEffectInstance.transform.localScale = transform.localScale;
 
     impactEndTimer = new CustomUpdateTimer (0.9f * impactEffect.GetComponent<ParticleSystem> ().main.startLifetime.Evaluate (0));
@@ -114,4 +138,5 @@ public class CharacterProjectile : CharacterAbility {
     Gizmos.color = Color.red;
     Gizmos.DrawWireSphere (transform.position, impactRadius);
   }
+
 }

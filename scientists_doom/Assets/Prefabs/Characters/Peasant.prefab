@@ -765,7 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ed76007a8aecdb4c942200715e383dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseMaxHealth: 200
+  baseMaxHealth: 130
   totalMaxHealth: 0
   currentHealth: 0
   healthIncrement: 10
@@ -845,7 +845,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 0}
-  weaponDamage: 10
+  damage: 0
+  castSpeed: 0
+  regularAttack: {fileID: 0}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  currentAbilityInstance: {fileID: 0}
+  chargeTime: 0
+  chargeScalingFactor: 0
+  releaseOnMaxCharge: 1
   weaponHand: 0
   animator: {fileID: 0}
   collider: {fileID: 0}

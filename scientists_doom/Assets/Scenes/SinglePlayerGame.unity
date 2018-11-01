@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.07450981, g: 0.227451, b: 0.38823533, a: 0}
+  m_FogColor: {r: 0.2509804, g: 0.6, b: 0.8196079, a: 0}
   m_FogMode: 3
   m_FogDensity: 0.016
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.3
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05413115, g: 0.06776934, b: 0.0921032, a: 0.3}
+  m_IndirectSpecularColor: {r: 0.054131072, g: 0.06776919, b: 0.09210299, a: 0.3}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -260,17 +260,17 @@ Prefab:
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0.07450981
+      value: 0.2509804
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0.227451
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 0.38823533
+      value: 0.8196079
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 2}
@@ -414,19 +414,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.9644641
+      value: -0.96466464
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.030103436
+      value: -0.029993359
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.23021095
+      value: -0.22936915
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.12611794
+      value: 0.12614416
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_RootOrder
@@ -437,31 +437,6 @@ Prefab:
       propertyPath: mycamera
       value: 
       objectReference: {fileID: 1147556751}
-    - target: {fileID: 114704868668345056, guid: 44e8acd7dc8101c429aebfadc3867d61,
-        type: 2}
-      propertyPath: timeOfday
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 108112154098788458, guid: 44e8acd7dc8101c429aebfadc3867d61,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.6901961
-      objectReference: {fileID: 0}
-    - target: {fileID: 108112154098788458, guid: 44e8acd7dc8101c429aebfadc3867d61,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.427451
-      objectReference: {fileID: 0}
-    - target: {fileID: 108112154098788458, guid: 44e8acd7dc8101c429aebfadc3867d61,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0.4431373
-      objectReference: {fileID: 0}
-    - target: {fileID: 108112154098788458, guid: 44e8acd7dc8101c429aebfadc3867d61,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
   m_IsPrefabAsset: 0

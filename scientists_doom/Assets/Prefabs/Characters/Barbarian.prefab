@@ -808,7 +808,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 0}
-  weaponDamage: 10
+  damage: 10
+  castSpeed: 0
+  regularAttack: {fileID: 11400000, guid: d49c1dcdc5d6ecf44a9d855fcaa5e666, type: 2}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  currentAbilityInstance: {fileID: 0}
+  chargeTime: 0
+  chargeScalingFactor: 0
+  releaseOnMaxCharge: 1
   weaponHand: 1
   animator: {fileID: 0}
   collider: {fileID: 0}
