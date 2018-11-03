@@ -61,37 +61,42 @@ public class Weapon : MonoBehaviour {
   protected virtual void GetInput () {
     // Regular
     if (Input.GetKeyDown (KeyCode.Space)) {
-      PerformRegularAttack ();
+      PerformAbility (regularAttack);
     } else if (Input.GetKeyUp (KeyCode.Space)) {
       if (chargeUpdateRoutine != null) {
-        ReleaseRegularAttack ();
+        ReleaseAbility (regularAttack);
       }
+      // Ability 1
+    } else if (Input.GetKeyDown (KeyCode.Q)) {
+      PerformAbility (ability1);
+    } else if (Input.GetKeyUp (KeyCode.Q)) {
+      ReleaseAbility (ability1);
     }
   }
 
-  protected virtual void PerformRegularAttack () {
+  protected virtual void PerformAbility (CharacterAbility ability) {
     if (chargeUpdateRoutine != null) {
-      ReleaseRegularAttack ();
+      ReleaseAbility (ability);
     }
     if (characterAnimator != null) {
       characterAnimator.SetTrigger ("attackTrigger");
     }
 
-    Debug.Log ("Casting " + regularAttack.GetName () + "!");
-    if (regularAttack.hasInstance ()) {
-      currentAbilityInstance = Instantiate (regularAttack.GetAbilityPrefab (), weaponTransform.position, weaponTransform.rotation, weaponTransform) as GameObject;
+    Debug.Log ("Casting " + ability.GetName () + "!");
+    if (ability.hasInstance ()) {
+      currentAbilityInstance = Instantiate (ability.GetAbilityPrefab (), weaponTransform.position, weaponTransform.rotation, weaponTransform) as GameObject;
     }
 
-    if (regularAttack.GetMaxChargeTime () == 0) {
-      ReleaseRegularAttack ();
+    if (ability.GetMaxChargeTime () == 0) {
+      ReleaseAbility (ability);
     } else {
-      chargeUpdateRoutine = StartCoroutine (UpdateCurrentlyCharged ());
+      chargeUpdateRoutine = StartCoroutine (UpdateCurrentlyCharged (ability));
     }
   }
 
-  protected virtual void ReleaseRegularAttack () {
+  protected virtual void ReleaseAbility (CharacterAbility ability) {
     Vector3 velocity = transform.forward * 5f * chargeScalingFactor;
-    float damage = (GetCurrentStatPlusWeaponDamage () + regularAttack.GetDamage ()) * chargeScalingFactor;
+    float damage = (GetCurrentStatPlusWeaponDamage () + ability.GetDamage ()) * chargeScalingFactor;
     float impactRadius = currentAbilityInstance.GetComponent<CharacterAbilityInstance> ().GetImpactRadius () * chargeScalingFactor;
 
     currentAbilityInstance.GetComponent<CharacterAbilityInstance> ().SetAndRelease (transform, velocity, damage, impactRadius);
@@ -110,11 +115,11 @@ public class Weapon : MonoBehaviour {
     chargeTime = 0;
   }
 
-  private IEnumerator UpdateCurrentlyCharged () {
-    float maxChargeTime = regularAttack.GetMaxChargeTime ();
-    float chargeSpeed = regularAttack.GetChargeSpeed ();
+  private IEnumerator UpdateCurrentlyCharged (CharacterAbility ability) {
+    float maxChargeTime = ability.GetMaxChargeTime ();
+    float chargeSpeed = ability.GetChargeSpeed ();
 
-    Vector3 scale = regularAttack.GetAbilityPrefab ().transform.localScale;
+    Vector3 scale = ability.GetAbilityPrefab ().transform.localScale;
 
     while (chargeTime < maxChargeTime) {
       chargeTime += Time.deltaTime;
@@ -129,7 +134,7 @@ public class Weapon : MonoBehaviour {
     }
 
     if (releaseOnMaxCharge) {
-      ReleaseRegularAttack ();
+      ReleaseAbility (ability);
     }
   }
 

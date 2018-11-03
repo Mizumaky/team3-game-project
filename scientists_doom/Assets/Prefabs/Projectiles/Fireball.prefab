@@ -113,7 +113,7 @@ MonoBehaviour:
   rigidbody: {fileID: 54286806635182106}
   mask:
     serializedVersion: 2
-    m_Bits: 3072
+    m_Bits: 15360
   velocity: 20
   lifeTime: 2
   hightFromTerrain: 0.5

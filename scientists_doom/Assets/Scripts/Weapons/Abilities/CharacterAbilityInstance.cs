@@ -37,7 +37,9 @@ public class CharacterAbilityInstance : MonoBehaviour {
   #endregion
 
   private void Awake () {
-    initialLightIntensity = light.intensity;
+    if (light != null) {
+      initialLightIntensity = light.intensity;
+    }
   }
 
   private void Update () {
@@ -46,7 +48,9 @@ public class CharacterAbilityInstance : MonoBehaviour {
       if (impactEndTimer.isLastTick (Time.deltaTime)) {
         Destroy (gameObject);
       } else {
-        light.intensity = initialLightIntensity * impactEndTimer.GetTimeLeftPercent ();
+        if (light != null) {
+          light.intensity = initialLightIntensity * impactEndTimer.GetTimeLeftPercent ();
+        }
       }
     }
   }
@@ -87,12 +91,19 @@ public class CharacterAbilityInstance : MonoBehaviour {
     }
   }
 
-  private void OnTriggerEnter (Collider other) {
+  private void OnTriggerStay (Collider other) {
     int otherLayer = other.gameObject.layer;
 
     if (collisionEnabled) {
       if (UnityExtensions.ContainsLayer (mask, otherLayer)) {
         Impact (transform.position);
+
+        Debug.Log ("Meh");
+        Explosive e;
+        if ((e = other.GetComponent<Explosive> ()) != null) {
+          e.Explode ();
+          Debug.Log ("Heh");
+        }
       }
     }
   }

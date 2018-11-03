@@ -50,7 +50,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1903209176144838}
-  m_LocalRotation: {x: -0.96466464, y: -0.029993359, z: -0.22936915, w: 0.12614416}
+  m_LocalRotation: {x: -0.96643645, y: -0.02900165, z: -0.22178523, w: 0.12637585}
   m_LocalPosition: {x: 0, y: 4.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -98,7 +98,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.8196079, g: 0.5137255, b: 0.40000004, a: 1}
+  m_Color: {r: 0.8679245, g: 0.7781718, b: 0.63456744, a: 0}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 30
@@ -140,11 +140,11 @@ MonoBehaviour:
   mycamera: {fileID: 0}
   sceneLight: {fileID: 108112154098788458}
   intensity: 5
-  timeOfday: 0
+  timeOfday: 1
   lightType: 1
   DLUpdateInterval: 0.2
   morningColor: {r: 0.8196079, g: 0.5137255, b: 0.40000004, a: 1}
-  daylightColor: {r: 1, g: 0.882353, b: 0.69411767, a: 0}
+  daylightColor: {r: 0.8679245, g: 0.7781718, b: 0.63456744, a: 0}
   eveningColor: {r: 0.6901961, g: 0.427451, b: 0.4431373, a: 1}
   moonlightColor: {r: 0.10980393, g: 0.43137258, b: 0.8117648, a: 0}
   dayAtmosphereColor: {r: 0.20392159, g: 0.5254902, b: 0.83921576, a: 0}
