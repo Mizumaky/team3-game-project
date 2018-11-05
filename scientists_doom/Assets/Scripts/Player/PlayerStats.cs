@@ -4,14 +4,28 @@ using UnityEngine.UI;
 public class PlayerStats : Stats {
 
   [Header ("Hero Level")]
-  [SerializeField]
-  private int maxHeroLevel = 60;
-  [HideInInspector]
-  public int heroLevel;
-  [HideInInspector]
-  public float experience;
-  [HideInInspector]
-  public float nextLvlExperience;
+  [SerializeField] private int maxHeroLevel = 60;
+  [SerializeField] private int heroLevel;
+  [SerializeField] private float experience;
+  [SerializeField] private float nextLvlExperience;
+
+  #region GettersSetters
+  public int GetMaxHeroLevel () {
+    return maxHeroLevel;
+  }
+
+  public int GetCurrentHeroLevel () {
+    return heroLevel;
+  }
+
+  public float GetCurrentHeroExperience () {
+    return experience;
+  }
+
+  public float GetNextLevelExperience () {
+    return nextLvlExperience;
+  }
+  #endregion
 
   private void Awake () {
     if (PlayerPrefs.HasKey ("heroLevel")) {
@@ -25,9 +39,7 @@ public class PlayerStats : Stats {
     } else {
       experience = 0;
     }
-  }
 
-  private void Start () {
     Init ();
   }
 

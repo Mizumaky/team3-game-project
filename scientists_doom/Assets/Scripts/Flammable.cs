@@ -4,7 +4,7 @@ public class Flammable : MonoBehaviour {
 
   public GameObject fireParticleSystem;
   public Vector3[] fireSpawnPoints;
-  private int resistCharges;
+  public int resistCharges = 1;
 
   public void CheckChargesAndSetAflame () {
     if (resistCharges > 0) {
@@ -15,5 +15,4 @@ public class Flammable : MonoBehaviour {
       }
     }
   }
-
 }
