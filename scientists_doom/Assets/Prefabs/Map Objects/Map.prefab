@@ -37853,11 +37853,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2e4c78b29a344e41ab10e009020ff8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 1611541734813210, guid: 63f1e9c360900924db488023340630c9,
+  enemyPrefab: {fileID: 1719296003474282, guid: 63f1e9c360900924db488023340630c9,
     type: 2}
-  enemyCount: 50
+  enemyCount: 300
   radius: 25
-  maxTimeBetweenWaves: 0
+  timeBetweenWaves: 5
   curve:
     serializedVersion: 2
     m_Curve:

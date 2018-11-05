@@ -229,7 +229,7 @@ MonoBehaviour:
   wizard: {fileID: 1106552325252950, guid: e9e4af9646be111458eaef36fa064098, type: 2}
   barbarian: {fileID: 1195421657766132, guid: 585ff51c34f98fa469b3816fceb9eb11, type: 2}
   spawnOnStart: 1
-  characterOnStart: 0
+  characterOnStart: 1
   spawnPoint: {fileID: 4360926578144620}
   cameraParentReference: {fileID: 0}
 --- !u!114 &114626511057023918

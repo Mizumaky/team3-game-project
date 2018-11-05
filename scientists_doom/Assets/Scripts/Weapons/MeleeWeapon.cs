@@ -14,11 +14,8 @@ public class MeleeWeapon : Weapon {
 
   private void Start () {
     // Get weapon collider from the correct hand
-    if (weaponHand == WeaponHand.Left) {
-      collider = animator.GetBoneTransform (HumanBodyBones.LeftHand).GetComponentInChildren<Collider> ();
-    } else {
-      collider = animator.GetBoneTransform (HumanBodyBones.RightHand).GetComponentInChildren<Collider> ();
-    }
+    HumanBodyBones handId = (weaponHand == WeaponHand.Left ? HumanBodyBones.LeftHand : HumanBodyBones.RightHand);
+    collider = animator.GetBoneTransform (handId).GetComponentInChildren<Collider> ();
   }
 
   private void Update () {
@@ -30,12 +27,10 @@ public class MeleeWeapon : Weapon {
   protected override void Init () {
     base.Init ();
     animator = GetComponent<Animator> ();
+
+    // Bridge weapon collider's litener to this object
     ColliderBridge colliderBridge = GetComponent<ColliderBridge> ();
     colliderBridge.Initialize (this);
-  }
-
-  protected override void PerformBasicAttack () {
-    animator.SetTrigger ("attackTrigger");
   }
 
   public void OnWeaponTriggerEnter (Collider other) {
@@ -52,7 +47,7 @@ public class MeleeWeapon : Weapon {
       // Any target
       int targetLayer = LayerMask.NameToLayer (isPlayerControlled ? "Enemy" : "Player");
       if (otherLayer == targetLayer) {
-        other.GetComponent<Stats> ().TakeDamage (GetCurrentTotalDamage ());
+        other.GetComponent<Stats> ().TakeDamage (GetCurrentStatPlusWeaponDamage () + regularAttack.GetDamage ());
       }
     }
   }
