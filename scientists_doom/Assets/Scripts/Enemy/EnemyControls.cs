@@ -40,8 +40,7 @@ public class EnemyControls : MonoBehaviour {
         }
     }
 
-    private void OnTriggerEnter(Collider other) 
-    {
+    private void OnTriggerEnter(Collider other) {
         if (other != null && other.gameObject.layer == 11 && other.gameObject.tag == "Weapon") // 11. Player layer
         {
             if (!triggered)
@@ -56,7 +55,7 @@ public class EnemyControls : MonoBehaviour {
                 dmg = other.GetComponentInChildren<CharacterProjectile>().damage;
                 enemyStats.TakeDamage(dmg);
             }
-            
+
         }
 
     }
