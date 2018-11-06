@@ -1,52 +1,22 @@
 fileFormatVersion: 2
-guid: 8beb80e8a4f8f23459d083e3d7dd5f08
+guid: 1db25a37957d2574ba73b52c35a7f146
 ModelImporter:
   serializedVersion: 23
   fileIDToRecycleName:
-    100000: Cube
-    100002: Cylinder_001
-    100004: Plane
-    100006: Plane_001
-    100008: Plane_002
-    100010: //RootNode
-    100012: Cube_001
-    100014: Icosphere
-    400000: Cube
-    400002: Cylinder_001
-    400004: Plane
-    400006: Plane_001
-    400008: Plane_002
-    400010: //RootNode
-    400012: Cube_001
-    400014: Icosphere
-    2100000: Material
-    2100002: Wood_001
-    2100004: Material_001
-    2100006: axe_iron
-    2100008: axe_wood
-    2100010: axe_bladetip
-    2100012: axe_gem
-    2300000: Cube
-    2300002: Cylinder_001
-    2300004: Plane
-    2300006: Plane_001
-    2300008: Plane_002
-    2300010: Cube_001
-    2300012: Icosphere
-    3300000: Cube
-    3300002: Cylinder_001
-    3300004: Plane
-    3300006: Plane_001
-    3300008: Plane_002
-    3300010: Cube_001
-    3300012: Icosphere
-    4300000: Plane_002
-    4300002: Plane_001
-    4300004: Plane
-    4300006: Cube
-    4300008: Cylinder_001
-    4300010: Cube_001
-    4300012: Icosphere
+    100000: //RootNode
+    100002: Icosphere
+    400000: //RootNode
+    400002: Icosphere
+    2100000: axe_wood
+    2100002: axe_iron
+    2100004: axe_bladetip
+    2100006: Wood_001
+    2300000: //RootNode
+    2300002: Icosphere
+    3300000: //RootNode
+    3300002: Icosphere
+    4300000: Cube_001
+    4300002: Icosphere
     7400000: Default Take
     9500000: //RootNode
   externalObjects: {}
