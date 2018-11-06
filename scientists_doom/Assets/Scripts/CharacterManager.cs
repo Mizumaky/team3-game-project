@@ -4,58 +4,75 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour {
 
-  public enum Character { Barbarian, Wizard }
-  [Header("Character Prefabs")]
-  public GameObject wizard;
-  public GameObject barbarian;
+    public enum Character { Barbarian, Wizard, Ranger, noCharacter }
 
-  [Header("On Start")]
-  public bool spawnOnStart = false;
-  public Character characterOnStart;
-  public Transform spawnPoint;
+    [Header ("Character Prefabs")]
+    public GameObject wizard;
+    public GameObject barbarian;
 
-  [Space]
-  public GameObject activeCharacter;
-  public Transform castleTransform;
-  public DoubleFocusCamera dfcamera;
+    [Header ("On Start")]
+    public bool spawnOnStart = false;
+    public Character characterOnStart;
+    public Transform spawnPoint;
+    public GameObject cameraParentReference;
 
-  private void Start() {
-    if(spawnOnStart) { 
-      SpawnNewCharacter(characterOnStart, spawnPoint);
-    } else {
-      dfcamera.focus = spawnPoint;
+    [Space]
+    public static GameObject activeCharacterObject = null; //BTW statics OK even when multi - static variables are not shared between clients
+    public static Character activeCharacter = Character.noCharacter;
+
+    private DoubleFocusCamera dfcameraReference;
+    private TurretManager turretManagerScript;
+
+    private void Start () {
+        dfcameraReference = cameraParentReference.GetComponentInChildren<DoubleFocusCamera> ();
+        turretManagerScript = GetComponent<TurretManager> ();
+
+        if (spawnOnStart) {
+            SpawnNewCharacter (characterOnStart, spawnPoint);
+        } else {
+            dfcameraReference.focus = spawnPoint;
+        }
     }
-  }
 
-  private void SpawnNewCharacter(Character character, Transform transform) {
-    GameObject newCharacter;
-    switch(character) {
-      default: newCharacter = barbarian; break;
-      case Character.Wizard: newCharacter = wizard; break;
+    private void SpawnNewCharacter (Character character, Transform transform) {
+        GameObject newCharacter;
+        switch (character) {
+            case Character.Wizard:
+                newCharacter = wizard;
+                activeCharacter = Character.Wizard;
+                break;
+            default:
+                newCharacter = barbarian;
+                activeCharacter = Character.Barbarian;
+                break;
+        }
+        activeCharacterObject = Instantiate (newCharacter, transform.position, transform.rotation, this.transform);
+        dfcameraReference.focus = activeCharacterObject.transform;
     }
-    activeCharacter = Instantiate(newCharacter, transform.position, transform.rotation, this.transform);
-    dfcamera.focus = activeCharacter.transform;
-  }
 
-  /// <summary>
-  /// Destroys the old character and instantiates a new one at the same coordinates
-  /// </summary>
-  /// <param name="character">new character index</param>
-  public void ChangeActiveCharacter(int index) {
-    Transform oldTransform;
-    if(activeCharacter != null) {
-      oldTransform = activeCharacter.transform;
-      Destroy(activeCharacter);
-    } else {
-      oldTransform = spawnPoint;
+    /// <summary>
+    /// Destroys the old character and instantiates a new one at the same coordinates
+    /// </summary>
+    /// <param name="character">new character index</param>
+    public void ChangeActiveCharacter (int index) {
+        Transform oldTransform;
+        if (activeCharacterObject != null) {
+            oldTransform = activeCharacterObject.transform;
+            Destroy (activeCharacterObject);
+        } else {
+            oldTransform = spawnPoint;
+        }
+
+        Character newCharacter;
+        switch (index) {
+            case 1:
+                newCharacter = Character.Wizard;
+                break;
+            default:
+                newCharacter = Character.Barbarian;
+                break;
+        }
+        SpawnNewCharacter (newCharacter, oldTransform);
     }
-    
-    Character newCharacter;
-    switch(index) {
-      default: newCharacter = Character.Barbarian; break;
-      case 1: newCharacter = Character.Wizard; break;
-    }
-    SpawnNewCharacter(newCharacter, oldTransform);
-  }
 
 }

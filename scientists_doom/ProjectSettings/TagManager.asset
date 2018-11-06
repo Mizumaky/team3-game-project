@@ -4,8 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - enemy
   - Weapon
+  - enemy
   layers:
   - Default
   - TransparentFX
@@ -18,10 +18,10 @@ TagManager:
   - PostProcessing
   - Ground
   - Enemy
+  - Castle
+  - Flammable
+  - Explosive
   - Player
-  - 
-  - 
-  - 
   - 
   - 
   - 

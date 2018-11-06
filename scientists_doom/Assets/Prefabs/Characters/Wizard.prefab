@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4353805654216226}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Spine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,7 +34,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4192841159767960}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Lower_Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,12 +50,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4740743643972830}
   - component: {fileID: 136795661427076916}
+  - component: {fileID: 54706498259395010}
   - component: {fileID: 195906687292211236}
+  - component: {fileID: 114500384979674586}
   - component: {fileID: 114297458085727660}
-  - component: {fileID: 114310330986673260}
-  - component: {fileID: 114272553194761250}
-  - component: {fileID: 54005379699356138}
-  m_Layer: 11
+  - component: {fileID: 114095940901312090}
+  - component: {fileID: 114386475218829322}
+  m_Layer: 14
   m_Name: Wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4024356090746298}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Lower_Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +86,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4685291081395652}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Hand_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +101,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4092430659901186}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Upper_Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +116,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4170618992215864}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4705742012594536}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Hand_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4028849457006998}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: AttackSpawnPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +162,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4938458691622554}
   - component: {fileID: 137446683811458410}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +177,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4694981559275654}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Lower_Arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4527915580751224}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Lower_Arm_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4044948549511166}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,7 +222,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4137098620653740}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Upper_Leg_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +238,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4414069451819044}
   - component: {fileID: 95951528402305418}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: wizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +253,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4501865461979758}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Upper_Leg_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -268,7 +269,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4398710308300490}
   - component: {fileID: 137568985620823830}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +284,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4963185707465154}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Foot_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +299,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4171908476662720}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -313,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4263058025374850}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -328,7 +329,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4300037586856234}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Foot_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4347023539693618}
-  m_Layer: 11
+  m_Layer: 14
   m_Name: Upper_Arm_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -371,7 +372,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1334275655528204}
   m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 0, y: 0.326, z: 0.504}
+  m_LocalPosition: {x: 0, y: 0.326, z: 0.296}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4740743643972830}
@@ -622,8 +623,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106552325252950}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.6863365, y: -1.1941352, z: 1.4179744}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.760232, y: -2.5372663, z: 12.309643}
   m_LocalScale: {x: 1.6, y: 1.6, z: 1.6}
   m_Children:
   - {fileID: 4414069451819044}
@@ -657,7 +658,7 @@ Transform:
   m_Father: {fileID: 4192841159767960}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!54 &54005379699356138
+--- !u!54 &54706498259395010
 Rigidbody:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -690,7 +691,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &114272553194761250
+--- !u!114 &114095940901312090
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -698,14 +699,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1106552325252950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c7e7fd2be2a922b4cbc933b6dffe83a7, type: 3}
+  m_Script: {fileID: 11500000, guid: 2dd81b4cb303a8b4c8d8849d75183c30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 500
-  projectileVelocity: 20
-  projectilePrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
-    type: 2}
-  spawnPosition: {fileID: 4028849457006998}
+  distance: 150
+  rotationSpeed: 100
 --- !u!114 &114297458085727660
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -717,17 +715,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21db7f706c45b474091d404267c88b6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerAlive: 1
-  maxHealth: 100
-  health: 100
+  baseMaxHealth: 100
+  totalMaxHealth: 0
+  currentHealth: 0
   healthIncrement: 10
+  baseAttackDamage: 10
+  totalAttackDamage: 0
+  attackDamageIncrement: 1
   maxHeroLevel: 60
   heroLevel: 0
   experience: 0
   nextLvlExperience: 0
-  attackIncrement: 1
-  armorIncrement: 1
---- !u!114 &114310330986673260
+--- !u!114 &114386475218829322
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -735,11 +734,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 1106552325252950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26bd9b4e68ec3ff40a70ce7903187c20, type: 3}
+  m_Script: {fileID: 11500000, guid: 57c7f7465cbc1eb4a9e1ad131040aaf3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distance: 500
-  rotationSpeed: 100
+  weaponTransform: {fileID: 4028849457006998}
+  damage: 10
+  castSpeed: 2
+  regularAttack: {fileID: 11400000, guid: 98beb3c50c15f864ba2c5f40817c9201, type: 2}
+  ability1: {fileID: 0}
+  ability2: {fileID: 0}
+  currentAbilityInstance: {fileID: 0}
+  chargeTime: 0
+  chargeScalingFactor: 1
+  releaseOnMaxCharge: 0
+--- !u!114 &114500384979674586
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106552325252950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 459200d7dd7fa4358b091fb5b9f3bac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
 --- !u!136 &136795661427076916
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -891,7 +910,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 0.2
   m_Speed: 4
-  m_Acceleration: 15
+  m_Acceleration: 50
   avoidancePriority: 50
   m_AngularSpeed: 500
   m_StoppingDistance: 0

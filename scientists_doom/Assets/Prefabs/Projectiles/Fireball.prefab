@@ -19,15 +19,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4775128819655798}
-  - component: {fileID: 136136793960142728}
-  - component: {fileID: 114467499878401324}
-  - component: {fileID: 114374115485122204}
+  - component: {fileID: 135152030860769544}
   - component: {fileID: 199991581044535354}
+  - component: {fileID: 54286806635182106}
   - component: {fileID: 198907625602505108}
   - component: {fileID: 108677907858239518}
   - component: {fileID: 114262552023386284}
-  - component: {fileID: 54399271213956376}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: Fireball
   m_TagString: Weapon
   m_Icon: {fileID: 0}
@@ -41,15 +39,15 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164206773813186}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 12.074035, y: -2.299295, z: 2.759822}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalPosition: {x: 7.453796, y: -0.588, z: 1.436}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!54 &54399271213956376
+--- !u!54 &54286806635182106
 Rigidbody:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164206773813186}
@@ -72,8 +70,8 @@ Light:
   serializedVersion: 8
   m_Type: 2
   m_Color: {r: 1, g: 0.52359486, b: 0, a: 1}
-  m_Intensity: 4
-  m_Range: 20
+  m_Intensity: 8
+  m_Range: 15
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
@@ -107,69 +105,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 1164206773813186}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edcfbec7cb5324caeb61b615c2b769f4, type: 3}
+  m_Script: {fileID: 11500000, guid: 41147bb9268e7d84aac4353584c922a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   casterTransform: {fileID: 0}
-  damage: 0
-  explosion: {fileID: 1054286298192358, guid: 4c900ea1c7839404b91ff52377ef515d, type: 2}
-  lifetime: 2
-  projectileFlightHeight: 0.5
---- !u!114 &114374115485122204
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1164206773813186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_TransformSyncMode: 3
-  m_SendInterval: 0.033333335
-  m_SyncRotationAxis: 7
-  m_RotationSyncCompression: 2
-  m_SyncSpin: 0
-  m_MovementTheshold: 0.001
-  m_VelocityThreshold: 0.0001
-  m_SnapThreshold: 5
-  m_InterpolateRotation: 1
-  m_InterpolateMovement: 1
---- !u!114 &114467499878401324
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1164206773813186}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SceneId:
-    m_Value: 0
-  m_AssetId:
-    i0: 35
-    i1: 96
-    i2: 156
-    i3: 139
-    i4: 32
-    i5: 13
-    i6: 212
-    i7: 100
-    i8: 152
-    i9: 109
-    i10: 120
-    i11: 240
-    i12: 165
-    i13: 144
-    i14: 156
-    i15: 139
-  m_ServerOnly: 0
-  m_LocalPlayerAuthority: 0
---- !u!136 &136136793960142728
-CapsuleCollider:
+  damage: 30
+  rigidbody: {fileID: 54286806635182106}
+  mask:
+    serializedVersion: 2
+    m_Bits: 15360
+  velocity: 20
+  lifeTime: 2
+  hightFromTerrain: 0.5
+  light: {fileID: 108677907858239518}
+  initialLightIntensity: 0
+  impactEffect: {fileID: 1054286298192358, guid: 4c900ea1c7839404b91ff52377ef515d,
+    type: 2}
+  impactRadius: 0.5
+--- !u!135 &135152030860769544
+SphereCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -177,10 +131,9 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 1.1044272
-  m_Height: 2.2088544
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: -0}
+  serializedVersion: 2
+  m_Radius: 0.2
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!198 &198907625602505108
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -190,7 +143,7 @@ ParticleSystem:
   serializedVersion: 5
   lengthInSec: 1
   simulationSpeed: 1
-  stopAction: 0
+  stopAction: 1
   looping: 1
   prewarm: 0
   playOnAwake: 1
@@ -313,7 +266,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: -0.1
+      scalar: -0.025
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -429,7 +382,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 2
+      scalar: 0.2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -835,7 +788,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.31
+      value: 0.04
       mode: 0
       spread: 0
       speed:
@@ -4754,7 +4707,7 @@ ParticleSystemRenderer:
   m_RenderMode: 0
   m_SortMode: 3
   m_MinParticleSize: 0
-  m_MaxParticleSize: 0.5
+  m_MaxParticleSize: 1
   m_CameraVelocityScale: 0
   m_VelocityScale: 0
   m_LengthScale: 2
