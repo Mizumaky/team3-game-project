@@ -1,3 +1,5 @@
+//#define DEBUG
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,9 +22,10 @@ public class Weapon : MonoBehaviour {
   [Space]
 
   [Header ("Current")]
+  [SerializeField] protected CharacterAbility currentAbility;
   [SerializeField] protected GameObject currentAbilityInstance;
   [SerializeField] protected float chargeTime;
-  [SerializeField] protected float chargeScalingFactor = 1;
+  [SerializeField] protected float chargeScalingFactor = 0;
   [SerializeField] protected bool releaseOnMaxCharge = true;
   protected Coroutine chargeUpdateRoutine;
 
@@ -59,18 +62,23 @@ public class Weapon : MonoBehaviour {
   }
 
   protected virtual void GetInput () {
-    // Regular
-    if (Input.GetKeyDown (KeyCode.Space)) {
-      PerformAbility (regularAttack);
-    } else if (Input.GetKeyUp (KeyCode.Space)) {
-      if (chargeUpdateRoutine != null) {
+    if (chargeTime <= 0) {
+      // Regular
+      if (Input.GetKeyDown (KeyCode.Space))
+        PerformAbility (regularAttack);
+      // Ability 1
+      if (Input.GetKeyDown (KeyCode.Q))
+        PerformAbility (ability1);
+    }
+    if (chargeUpdateRoutine != null) {
+      // Regular
+      if (Input.GetKeyUp (KeyCode.Space)) {
         ReleaseAbility (regularAttack);
       }
       // Ability 1
-    } else if (Input.GetKeyDown (KeyCode.Q)) {
-      PerformAbility (ability1);
-    } else if (Input.GetKeyUp (KeyCode.Q)) {
-      ReleaseAbility (ability1);
+      if (Input.GetKeyUp (KeyCode.Q)) {
+        ReleaseAbility (ability1);
+      }
     }
   }
 
@@ -79,10 +87,14 @@ public class Weapon : MonoBehaviour {
       ReleaseAbility (ability);
     }
     if (characterAnimator != null) {
-      characterAnimator.SetTrigger ("attackTrigger");
+      characterAnimator.SetTrigger (ability.GetAnimationTrigger ());
     }
 
+#if DEBUG
     Debug.Log ("Casting " + ability.GetName () + "!");
+#endif
+
+    currentAbility = ability;
     if (ability.hasInstance ()) {
       currentAbilityInstance = Instantiate (ability.GetAbilityPrefab (), weaponTransform.position, weaponTransform.rotation, weaponTransform) as GameObject;
     }
@@ -95,11 +107,21 @@ public class Weapon : MonoBehaviour {
   }
 
   protected virtual void ReleaseAbility (CharacterAbility ability) {
-    Vector3 velocity = transform.forward * 5f * chargeScalingFactor;
-    float damage = (GetCurrentStatPlusWeaponDamage () + ability.GetDamage ()) * chargeScalingFactor;
-    float impactRadius = currentAbilityInstance.GetComponent<CharacterAbilityInstance> ().GetImpactRadius () * chargeScalingFactor;
+    Vector3 velocity = transform.forward * 5f * (chargeScalingFactor + 1);
+    float damage = (GetCurrentStatPlusWeaponDamage () + ability.GetDamage ()) * (chargeScalingFactor + 1);
+    float impactRadius = currentAbilityInstance.GetComponent<CharacterAbilityInstance> ().GetImpactRadius () * (chargeScalingFactor + 1);
 
-    currentAbilityInstance.GetComponent<CharacterAbilityInstance> ().SetAndRelease (transform, velocity, damage, impactRadius);
+    CharacterAbilityInstance instance = currentAbilityInstance.GetComponent<CharacterAbilityInstance> ();
+
+    if (chargeTime < ability.GetChargeStartDelay ()) {
+      if (ability.DropsDuringStartDelay ()) {
+        instance.Drop ();
+      } else {
+        instance.Fade ();
+      }
+    } else {
+      instance.SetAndRelease (transform, velocity, damage, impactRadius);
+    }
 
     ResetCurrentlyCharged ();
   }
@@ -111,25 +133,26 @@ public class Weapon : MonoBehaviour {
     }
 
     currentAbilityInstance = null;
-    chargeScalingFactor = 1;
+    chargeScalingFactor = 0;
     chargeTime = 0;
   }
 
   private IEnumerator UpdateCurrentlyCharged (CharacterAbility ability) {
     float maxChargeTime = ability.GetMaxChargeTime ();
     float chargeSpeed = ability.GetChargeSpeed ();
+    float chargeStartDelay = ability.GetChargeStartDelay ();
 
     Vector3 scale = ability.GetAbilityPrefab ().transform.localScale;
 
-    while (chargeTime < maxChargeTime) {
+    while (chargeTime < maxChargeTime + chargeStartDelay) {
       chargeTime += Time.deltaTime;
+      if (chargeTime > chargeStartDelay) {
+        chargeScalingFactor = chargeScalingFactor + Time.deltaTime * chargeSpeed;
 
-      chargeScalingFactor = chargeScalingFactor + Time.deltaTime * chargeSpeed;
-
-      if (currentAbilityInstance != null) {
-        currentAbilityInstance.transform.localScale = scale * chargeScalingFactor;
+        if (currentAbilityInstance != null) {
+          currentAbilityInstance.transform.localScale = scale * (chargeScalingFactor + 1);
+        }
       }
-
       yield return null;
     }
 

@@ -13,9 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Fireball
   icon: {fileID: 0}
+  animationTrigger: 
   maxChargeTime: 1.5
-  currentChargeModifier: 0
   chargeSpeed: 2
+  chargeStartDelay: 0.2
+  dropDuringDelay: 0
+  currentChargeModifier: 0
   damage: 10
   instance: 1
   abilityPrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,

@@ -42,6 +42,10 @@ public class MeleeWeapon : Weapon {
         if (otherLayer == LayerMask.NameToLayer ("Enemy")) {
           other.GetComponent<EnemyControls> ().Aggro (transform);
         }
+
+        if (otherLayer == LayerMask.NameToLayer ("Explosive")) {
+          other.GetComponent<Explosive> ().Explode ();
+        }
       }
 
       // Any target

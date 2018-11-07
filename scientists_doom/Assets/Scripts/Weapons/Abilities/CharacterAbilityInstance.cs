@@ -1,3 +1,5 @@
+#define DEBUG
+
 using System.Collections;
 using UnityEngine;
 
@@ -9,13 +11,14 @@ public class CharacterAbilityInstance : MonoBehaviour {
   [Space]
 
   [Header ("Object Settings")]
-  [SerializeField] protected Rigidbody rigidbody;
+  [SerializeField] protected new Rigidbody rigidbody;
   [SerializeField] protected LayerMask mask;
   [SerializeField] protected float velocity = 0f;
   [SerializeField] protected float lifeTime = 2f;
   [SerializeField] protected float hightFromTerrain = 0.5f;
   [Space]
   [SerializeField] protected new Light light;
+  [SerializeField] protected new Collider collider;
   [SerializeField] protected float initialLightIntensity;
   [Space]
   private bool collisionEnabled = false;
@@ -37,6 +40,8 @@ public class CharacterAbilityInstance : MonoBehaviour {
   #endregion
 
   private void Awake () {
+    collider = GetComponent<Collider> ();
+    collider.enabled = false;
     if (light != null) {
       initialLightIntensity = light.intensity;
     }
@@ -65,8 +70,28 @@ public class CharacterAbilityInstance : MonoBehaviour {
     Release ();
   }
 
+  public void Drop () {
+#if DEBUG
+    Debug.Log ("Dropping");
+#endif
+    collisionEnabled = false;
+    collider.enabled = true;
+
+    int groundLayerIndex = LayerMask.NameToLayer ("Ground");
+
+    Ray rayDown = new Ray (transform.position, Vector3.down);
+    RaycastHit hit;
+    if (Physics.Raycast (rayDown, out hit, 2f)) {
+      if (hit.collider.gameObject.layer == groundLayerIndex) {
+        transform.position = hit.point;
+        transform.parent = null;
+      }
+    }
+  }
+
   private void Release () {
     collisionEnabled = true;
+    collider.enabled = true;
 
     // Only update height if the object is moving
     if (this.velocity > 0) {
@@ -110,15 +135,17 @@ public class CharacterAbilityInstance : MonoBehaviour {
 
   private IEnumerator FadeOutAfterLifeEnd () {
     yield return new WaitForSeconds (lifeTime);
-    collisionEnabled = false;
+    Fade ();
+  }
 
+  public void Fade () {
     DisableProjectile ();
-
     impactEndTimer = new CustomUpdateTimer (0.9f * impactEffect.GetComponent<ParticleSystem> ().main.startLifetime.Evaluate (0));
   }
 
   private void DisableProjectile () {
     collisionEnabled = false;
+    collider.enabled = false;
     Destroy (GetComponent<Rigidbody> ());
     GetComponent<ParticleSystem> ().Stop ();
   }

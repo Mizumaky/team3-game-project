@@ -13,9 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Axe Swing
   icon: {fileID: 0}
+  animationTrigger: attackTrigger
   maxChargeTime: 0
-  currentChargeModifier: 0
   chargeSpeed: 0
+  chargeStartDelay: 0
+  dropDuringDelay: 0
+  currentChargeModifier: 0
   damage: 50
   instance: 0
   abilityPrefab: {fileID: 0}
