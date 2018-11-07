@@ -13,9 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Beer Keg
   icon: {fileID: 0}
+  animationTrigger: 
   maxChargeTime: 2
-  currentChargeModifier: 0
   chargeSpeed: 1
+  chargeStartDelay: 0.2
+  dropDuringDelay: 1
+  currentChargeModifier: 0
   damage: 10
   instance: 1
   abilityPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca,
