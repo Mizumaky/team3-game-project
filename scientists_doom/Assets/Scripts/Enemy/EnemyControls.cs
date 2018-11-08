@@ -1,98 +1,103 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.AI;
-using System.Collections;
 
 public class EnemyControls : MonoBehaviour {
 
-    private NavMeshAgent navMeshAgent;
-    public Transform castle;
-    private Transform target;
-    private NavMeshPath path;
-    [Range(5f, 10f)]
-    public float distanceToFollowPlayer = 7f;
-    private Animator animator;
-    private float speed;
-    private Vector3 lastPosition;
+  private NavMeshAgent navMeshAgent;
+  public Transform castle;
+  private Transform target;
+  private NavMeshPath path;
+  [Range (5f, 10f)]
+  public float distanceToFollowPlayer = 7f;
+  private Animator animator;
+  private float speed;
+  private Vector3 lastPosition;
+  private EnemyStats enemyStats;
+  private Collider weponCollider;
 
-    void Awake() {
-        navMeshAgent = GetComponent<NavMeshAgent>();
-        path = new NavMeshPath();
-        target = castle;
-        SetPathToTarget(target);
-        animator = GetComponent<Animator>();
-        speed = 0;
+  Coroutine activeFollowCoroutine;
+
+  void Awake () {
+    navMeshAgent = GetComponent<NavMeshAgent> ();
+    path = new NavMeshPath ();
+    target = castle;
+    SetPathToTarget (target);
+    animator = GetComponent<Animator> ();
+    speed = 0;
+    enemyStats = GetComponent<EnemyStats> ();
+
+  }
+
+  private void Update () {
+    if (enemyStats.isAlive ()) {
+      if (animator != null) {
+        speed = Mathf.Lerp (speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
+        lastPosition = transform.position;
+
+        animator.SetFloat ("speedParam", speed);
+      }
     }
+  }
 
-    private void Update()
-    {
-        if (GetComponent<EnemyStats>().enemyAlive) {
-            if (animator != null) {
-                speed = Mathf.Lerp(speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
-                lastPosition = transform.position;
+  public void Aggro (Transform targetTransform) {
+    Debug.Log ("Aggroing to " + targetTransform.name);
+    target = targetTransform;
+    if (activeFollowCoroutine == null) {
+      Debug.Log ("Starting routine");
+      activeFollowCoroutine = StartCoroutine (CheckForTargetAndFollow ());
+    }
+  }
 
-                animator.SetFloat("speedParam", speed);
-            }
+  IEnumerator CheckForTargetAndFollow () {
+
+    if (enemyStats.isAlive ()) {
+      float distance = Vector3.Distance (target.position, transform.position);
+      while (target != null && target.gameObject.activeSelf && distance < distanceToFollowPlayer) {
+        distance = Vector3.Distance (target.position, transform.position);
+        // If taraget close enough, attack and face it
+        if (distance <= 1) {
+          transform.rotation = CountLookRotation ();
+          animator.SetTrigger ("attackTrigger");
+        } else {
+          SetPathToTarget (target);
+          Debug.Log ("Setting path");
         }
-    }
+        yield return new WaitForSeconds (0.1f);
+      }
 
-    private void OnTriggerEnter(Collider other) //colision with projectile
-    {
-        if (other != null && other.gameObject.layer == 11) // 11. layer hit enemies
-        {
-            float dmg;
-            if (other.gameObject.GetComponentInParent<PlayerAttacksBarbarian>()) {
-                target = other.GetComponentInParent<PlayerAttacksBarbarian>().transform;
-                dmg = other.GetComponentInParent<PlayerStats>().GetAttackDamage();
-            }
-            else
-            {
-                target = other.GetComponentInChildren<CharacterProjectile>().casterTransform;
-                dmg = other.GetComponentInChildren<CharacterProjectile>().damage;
-            }
-            GetComponent<EnemyStats>().TakeDamage(dmg);
-        }
-        StartCoroutine(CheckForTarget());
+      // Reset to castle
+      target = castle;
+      SetPathToTarget (target);
     }
+  }
 
-    IEnumerator CheckForTarget()
-    {
-        if (GetComponent<EnemyStats>().enemyAlive)
-        {
-            while (target != null && target.gameObject.activeSelf && Vector3.Distance(target.position, transform.position) < distanceToFollowPlayer)
-            {
-                SetPathToTarget(target);
-                yield return new WaitForSeconds(0.4f);
-            }
-            target = castle;
-            SetPathToTarget(target);
-        }
+  private void SetPathToTarget (Transform target) {
+    if (target != null && gameObject != null) {
+
+      NavMeshHit hitNavmesh;
+      NavMesh.SamplePosition (target.position, out hitNavmesh, 50f, 5);
+
+      if (navMeshAgent.enabled && NavMesh.CalculatePath (transform.position, hitNavmesh.position, NavMesh.AllAreas, path)) {
+        navMeshAgent.SetPath (path);
+      } else {
+        Debug.Log ("Enemy could not set path");
+      }
     }
+  }
 
-    private void SetPathToTarget(Transform target)
-    {
-        if (target != null && gameObject != null)
-        {
-            if (navMeshAgent.enabled && NavMesh.CalculatePath(transform.position, target.position, NavMesh.AllAreas, path))
-            {
-                navMeshAgent.SetPath(path);
-            }
-            else
-            {
-                Debug.Log("Enemy could not set path");
-            }
-        }
-    }
+  private Quaternion CountLookRotation () {
+    Quaternion lookRotation = Quaternion.LookRotation (new Vector3 (target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
+    return Quaternion.Slerp (transform.rotation, lookRotation, 0.3f);
+  }
 
-    public void DisableMovement()
-    {
-        StopAllCoroutines();
-        navMeshAgent.ResetPath();
-    }
+  public void DisableMovement () {
+    StopAllCoroutines ();
+    navMeshAgent.ResetPath ();
+  }
 
-    public void DisableCollision()
-    {
-        GetComponent<CapsuleCollider>().enabled = false;
-    }
-
+  public void DisableCollision () {
+    GetComponent<CapsuleCollider> ().enabled = false;
+  }
 
 }

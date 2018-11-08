@@ -1,46 +1,35 @@
-﻿using UnityEngine.AI;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class EnemyStats : MonoBehaviour
-{
+public class EnemyStats : Stats {
+  private Animator animator;
 
-    public float enemyMaxHealth = 50;
-    public float enemyHealth;
-    private Animator animator;
-    public bool enemyAlive = true;
-    public float enemyDamage = 5;
+  private void Start () {
+    Init ();
+  }
 
-    void Start()
-    {
-        enemyHealth = enemyMaxHealth;
-        animator = GetComponent<Animator>();
+  protected override void Init () {
+    base.Init ();
+    animator = GetComponent<Animator> ();
+  }
+
+  public override void TakeDamage (float damage) {
+    base.TakeDamage (damage);
+    GetComponent<EnemyHealthBar> ().AdjustHealthBar (currentHealth / totalMaxHealth);
+  }
+
+  protected override void Die () {
+    base.Die ();
+    if (animator != null) {
+      animator.SetTrigger ("dieTrigger");
+
+      GetComponent<EnemyControls> ().DisableCollision ();
+      GetComponent<EnemyControls> ().DisableMovement ();
+
+      Destroy (gameObject, 3f);
+    } else {
+      Debug.Log ("Enemy does not have animator component!");
+      Destroy (gameObject);
     }
-
-    public void TakeDamage(float damage)
-    {
-        enemyHealth -= damage;
-        if (enemyHealth <= 0)
-        {
-            KillEnemy();
-        }
-        GetComponent<EnemyHealthBar>().AdjustHealthBar(enemyHealth / enemyMaxHealth);
-    }
-
-    public void KillEnemy()
-    {
-        if (animator != null)
-        {
-            animator.SetTrigger("dieTrigger");
-
-            enemyAlive = false;
-
-            GetComponent<EnemyControls>().DisableCollision();
-            GetComponent<EnemyControls>().DisableMovement();
-            Destroy(gameObject, 3f);
-        }
-        else {
-            Debug.Log("Enemy does not have animator component!");
-            Destroy(gameObject);
-        }
-    }
+  }
 }

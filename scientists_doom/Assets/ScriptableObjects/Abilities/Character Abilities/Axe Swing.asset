@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96af758ba804e0647acd6d854359412c, type: 3}
+  m_Name: Axe Swing
+  m_EditorClassIdentifier: 
+  objectName: Axe Swing
+  icon: {fileID: 0}
+  animationTrigger: attackTrigger
+  maxChargeTime: 0
+  chargeSpeed: 0
+  chargeStartDelay: 0
+  dropDuringDelay: 0
+  currentChargeModifier: 0
+  damage: 50
+  instance: 0
+  abilityPrefab: {fileID: 0}
+  chargingAbilityScript: {fileID: 0}

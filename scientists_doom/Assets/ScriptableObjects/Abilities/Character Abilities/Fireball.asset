@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96af758ba804e0647acd6d854359412c, type: 3}
+  m_Name: Fireball
+  m_EditorClassIdentifier: 
+  objectName: Fireball
+  icon: {fileID: 0}
+  animationTrigger: 
+  maxChargeTime: 1.5
+  chargeSpeed: 2
+  chargeStartDelay: 0.2
+  dropDuringDelay: 0
+  currentChargeModifier: 0
+  damage: 10
+  instance: 1
+  abilityPrefab: {fileID: 1164206773813186, guid: 23609c8b200dd464986d78f0a5909c8b,
+    type: 2}
+  chargingAbilityScript: {fileID: 114262552023386284, guid: 23609c8b200dd464986d78f0a5909c8b,
+    type: 2}
