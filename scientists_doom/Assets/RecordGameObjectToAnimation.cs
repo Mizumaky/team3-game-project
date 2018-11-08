@@ -1,4 +1,4 @@
-﻿using UnityEditor.Experimental.Animations;
+﻿/*using UnityEditor.Experimental.Animations;
 using UnityEngine;
 
 public class RecordGameObjectToAnimation : MonoBehaviour {
@@ -35,4 +35,4 @@ public class RecordGameObjectToAnimation : MonoBehaviour {
             gameObjectRecorder.SaveToClip(clip);
         }
     }
-}
+}*/
