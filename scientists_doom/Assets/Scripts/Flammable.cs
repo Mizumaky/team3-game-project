@@ -42,7 +42,6 @@ public class Flammable : MonoBehaviour {
   }
 
   private void SwapModels (int index) {
-    !
     Transform previousObjectTransform = currentObjectModel.transform;
 
     currentObjectModel = Instantiate (objectBurnStagePrefabs[index], previousObjectTransform.position, previousObjectTransform.rotation, transform);

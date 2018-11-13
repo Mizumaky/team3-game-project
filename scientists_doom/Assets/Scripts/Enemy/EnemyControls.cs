@@ -91,7 +91,14 @@ public class EnemyControls : MonoBehaviour {
     return Quaternion.Slerp (transform.rotation, lookRotation, 0.3f);
   }
 
+  public IEnumerator StunFor (float time) {
+    DisableMovement ();
+    yield return new WaitForSeconds (time);
+    Aggro (target);
+  }
+
   public void DisableMovement () {
+    Debug.LogWarning ("DISABLING MOVMENT");
     StopAllCoroutines ();
     navMeshAgent.ResetPath ();
   }

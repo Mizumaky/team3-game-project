@@ -6,52 +6,49 @@ using UnityEngine;
 public class Explosive : MonoBehaviour {
 
   [Header ("Explosion")]
+  [SerializeField] private LayerMask hitMask;
   [SerializeField] private GameObject explosionPrefab;
   [Space]
-  [SerializeField] private bool spawnAtObjectPosition;
-  [Space]
-  [SerializeField] private Vector3[] explosionSpawnPoints;
-  [SerializeField] private float[] explosionsScale;
-  [SerializeField] private float nextExplosionDelay;
+  [SerializeField] private float explosionRadius;
   [Space]
   [SerializeField] private float baseExplosionDamage = 100f;
 
   [Header ("Object")]
   [SerializeField] private bool enableCollision = true;
-
-  private void Awake () {
-    explosionsScale = new float[explosionSpawnPoints.Length];
-  }
+  private bool hasExploded = false;
 
   /// <summary>
   /// Spawns explosion particle effects, hits surroundings and destroys the object
   /// </summary>
-  public void Explode () {
-    // Check if solo explosion, set its origin to object's position
-    if (spawnAtObjectPosition) {
-      explosionSpawnPoints = new Vector3[1];
-      explosionSpawnPoints[0] = transform.position;
-    }
-    // Spawn explosions, hit in each exp. area
-    for (int i = 0; i < explosionSpawnPoints.Length; i++) {
-      GameObject newExplosion = Instantiate (explosionPrefab, explosionSpawnPoints[i], Quaternion.identity);
-      newExplosion.transform.localScale *= explosionsScale[i];
-      CheckHitsAndDealDamage (explosionSpawnPoints[i], explosionsScale[i]);
-    }
-    // Destroy G.O.
+  public void Explode (Transform casterTransform) {
+    if (hasExploded) return;
+
+    hasExploded = true;
+    Vector3 position = transform.position;
+
+    // Spawn explosion
+    GameObject newExplosion = Instantiate (explosionPrefab, position, Quaternion.identity);
+    newExplosion.transform.localScale *= explosionRadius / 0.5f;
+    Hit (position, explosionRadius, casterTransform);
+
     // TODO: Object destrucion animations
     Destroy (gameObject, explosionPrefab.GetComponent<ParticleSystem> ().main.startLifetime.Evaluate (0));
   }
 
-  private void CheckHitsAndDealDamage (Vector3 spawnPoint, float explosionScale) {
-    Collider[] hits = Physics.OverlapSphere (transform.position, explosionScale * 0.5f);
+  private void Hit (Vector3 spawnPoint, float explosionRadius, Transform casterTransform) {
+    Collider[] hits = Physics.OverlapSphere (transform.position, explosionRadius, hitMask);
 
     // Layers
     int enemyLayer = LayerMask.NameToLayer ("Enemy");
+    int explosiveLayer = LayerMask.NameToLayer ("Explosive");
 
     foreach (Collider hit in hits) {
       if (hit.gameObject.layer == enemyLayer) {
-        hit.GetComponent<EnemyStats> ().TakeDamage (500f);
+        hit.GetComponent<EnemyStats> ().TakeDamage (baseExplosionDamage);
+      }
+
+      if (hit.gameObject.layer == explosiveLayer) {
+        hit.GetComponent<Explosive> ().Explode (casterTransform);
       }
     }
   }
