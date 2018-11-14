@@ -1110,6 +1110,7 @@ MonoBehaviour:
   regularAttack: {fileID: 11400000, guid: d49c1dcdc5d6ecf44a9d855fcaa5e666, type: 2}
   ability1: {fileID: 11400000, guid: 8269c7f99a5a5db478914df80b899cc0, type: 2}
   ability2: {fileID: 0}
+  currentAbility: {fileID: 0}
   currentAbilityInstance: {fileID: 0}
   chargeTime: 0
   chargeScalingFactor: 0
@@ -1151,6 +1152,7 @@ MonoBehaviour:
   lifeTime: 2
   hightFromTerrain: 0.5
   light: {fileID: 0}
+  collider: {fileID: 0}
   initialLightIntensity: 0
   impactEffect: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca,
     type: 2}
