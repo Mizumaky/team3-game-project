@@ -91,12 +91,11 @@ public class CharacterAbilityInstance : MonoBehaviour {
     transform.parent = null;
 
     if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.air) {
-      destination = GetScreenPointToRayHitPoint () + Vector3.up * ability.GetDestinationHeight ();
+      destination = GetScreenPointToRayHitPoint () + Vector3.up * ability.GetDestinationHeight () * chargeFactor;
       rigidbody.velocity = (destination - transform.position).normalized * ability.GetVelocity () * chargeFactor;
     } else if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.ground) {
       rigidbody.velocity = ability.GetWeaponTransform ().up * ability.GetVelocity () * chargeFactor;
     }
-
     // only increase ability dmg by charge
     damage = weaponPlusStatDamage + ability.GetDamage () * chargeFactor;
 

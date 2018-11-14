@@ -44,6 +44,7 @@ public class Explosive : MonoBehaviour {
 
     foreach (Collider hit in hits) {
       if (hit.gameObject.layer == enemyLayer) {
+        hit.GetComponent<EnemyControls> ().Aggro (casterTransform);
         hit.GetComponent<EnemyStats> ().TakeDamage (baseExplosionDamage);
       }
 
