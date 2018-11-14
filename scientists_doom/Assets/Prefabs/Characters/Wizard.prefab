@@ -849,7 +849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 4028849457006998}
-  weaponDamage: 10
+  weaponDamage: 5
   castSpeed: 2
   regularAttack: {fileID: 11400000, guid: 98beb3c50c15f864ba2c5f40817c9201, type: 2}
   ability1: {fileID: 11400000, guid: 2399f73ab70c03c46bb68bc1e539a99c, type: 2}

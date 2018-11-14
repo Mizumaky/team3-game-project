@@ -382,7 +382,7 @@ MonoBehaviour:
   - {fileID: 4308469787492876}
   - {fileID: 4676529343430678}
   - {fileID: 4956527104619770}
-  hitRadius: 4
+  hitRadius: 10
   hitMask:
     serializedVersion: 2
     m_Bits: 9216
@@ -4930,9 +4930,9 @@ ParticleSystem:
   lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -9520,9 +9520,9 @@ ParticleSystem:
   lengthInSec: 1.7
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -14110,9 +14110,9 @@ ParticleSystem:
   lengthInSec: 1.8
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

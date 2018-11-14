@@ -26,7 +26,7 @@ MonoBehaviour:
   destinationHeight: 0
   lifeTime: 2
   baseHitRadius: 1
-  damage: 10
+  damage: 5
   stunDuration: 1
   weaponTransform: {fileID: 0}
   casterTransform: {fileID: 0}

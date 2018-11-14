@@ -5,7 +5,7 @@ using UnityEngine;
 public class StormCloud : MonoBehaviour {
 
   public Transform[] rayOrigins;
-  public float hitRadius;
+  public float hitRadius = 10f;
   public LayerMask hitMask;
   public float lightningDamage = 10f;
   private Transform casterTransform;
@@ -23,12 +23,13 @@ public class StormCloud : MonoBehaviour {
   private IEnumerator HitPeriodicly (int index) {
     float hitPeriod = rayOrigins[index].GetComponent<ParticleSystem> ().main.duration;
     while (true) {
-      yield return new WaitForSeconds (hitPeriod);
       Hit (index);
+      yield return new WaitForSeconds (hitPeriod);
     }
   }
 
   private void Hit (int rayOriginIndex) {
+    rayOrigins[rayOriginIndex].GetComponent<ParticleSystem> ().Play ();
     // Cast ray down from lighting origin
     Ray rayDown = new Ray (rayOrigins[rayOriginIndex].position, Vector3.down);
     int groundLayer = 1 << LayerMask.NameToLayer ("Ground");
@@ -36,8 +37,8 @@ public class StormCloud : MonoBehaviour {
     // Create overlap spthere at the point where the ray hits the ground
     RaycastHit rayHit;
     Collider[] sphereHit;
-    if (Physics.Raycast (rayDown, out rayHit, 10f, groundLayer)) {
-      sphereHit = Physics.OverlapSphere (rayOrigins[rayOriginIndex].position, hitRadius, hitMask);
+    if (Physics.Raycast (rayDown, out rayHit, 20f * transform.localScale.x, groundLayer)) {
+      sphereHit = Physics.OverlapSphere (rayOrigins[rayOriginIndex].position, hitRadius * transform.localScale.x, hitMask);
     } else {
       sphereHit = new Collider[0];
     }
@@ -53,7 +54,7 @@ public class StormCloud : MonoBehaviour {
         } else {
           hit.GetComponent<EnemyControls> ().Aggro (casterTransform);
         }
-        hit.GetComponent<EnemyStats> ().TakeDamage (lightningDamage);
+        hit.GetComponent<EnemyStats> ().TakeDamage (lightningDamage * transform.localScale.x);
       }
 
       if (hit.gameObject.layer == explosiveLayer) {
