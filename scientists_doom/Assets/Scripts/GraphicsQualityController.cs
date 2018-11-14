@@ -4,12 +4,13 @@ using UnityEngine.PostProcessing;
 public class GraphicsQualityController : MonoBehaviour {
 
   [Header ("Graphics Quality")]
-  public GraphicsQualityPreset defaultPreset = GraphicsQualityPreset.Low;
-  public enum GraphicsQualityPreset { Low, High }
+  public GraphicsQualityPreset defaultPreset = GraphicsQualityPreset.Medium;
+  public enum GraphicsQualityPreset { Low, Medium, High }
 
   [Header ("PostProcessing")]
   public PostProcessingBehaviour behaviour;
   public PostProcessingProfile low;
+  public PostProcessingProfile medium;
   public PostProcessingProfile high;
 
   private void Awake () {
@@ -33,12 +34,16 @@ public class GraphicsQualityController : MonoBehaviour {
   /// </summary>
   public void UpdateQuality () {
     switch ((int) defaultPreset) {
-      default : behaviour.profile = low;
-      QualitySettings.SetQualityLevel (0);
-      break;
-
-      case 1:
-          behaviour.profile = high;
+      case 0:
+        behaviour.profile = low;
+        QualitySettings.SetQualityLevel (0);
+        break;
+      case 1: 
+        behaviour.profile = medium;
+        QualitySettings.SetQualityLevel(5);
+        break;
+      default : 
+        behaviour.profile = high;
         QualitySettings.SetQualityLevel (5);
         break;
     }

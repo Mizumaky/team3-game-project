@@ -14,14 +14,26 @@ MonoBehaviour:
   objectName: Beer Keg
   icon: {fileID: 0}
   animationTrigger: 
-  maxChargeTime: 2
-  chargeSpeed: 1
+  maxChargeTime: 1
+  chargeSpeed: 0.5
   chargeStartDelay: 0.2
   dropDuringDelay: 1
-  currentChargeModifier: 0
+  startChargeFactor: 1
+  isStationary: 0
+  velocity: 5
+  destination: 1
+  travelHeight: 0.5
+  destinationHeight: 0
+  lifeTime: 2
+  baseHitRadius: 1
   damage: 10
-  instance: 1
+  stunDuration: 1
+  weaponTransform: {fileID: 0}
+  casterTransform: {fileID: 0}
+  isInstanced: 1
   abilityPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca,
     type: 2}
   chargingAbilityScript: {fileID: 114816315231105410, guid: 7f580c348441b4543bdda2413d1911ca,
     type: 2}
+  enhancesCharacter: 0
+  characterStats: {fileID: 0}

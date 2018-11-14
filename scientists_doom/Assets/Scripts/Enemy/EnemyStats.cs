@@ -28,7 +28,7 @@ public class EnemyStats : Stats {
 
       Destroy (gameObject, 3f);
     } else {
-      Debug.Log ("Enemy does not have animator component!");
+      Debug.Log ("Enemy does not have an animator component!");
       Destroy (gameObject);
     }
   }
