@@ -11,7 +11,7 @@ public class Weapon : MonoBehaviour {
 
   [Header ("Weapon Parameters")]
   [SerializeField] protected Transform weaponTransform;
-  [SerializeField] protected float damage;
+  [SerializeField] protected float weaponDamage;
   [SerializeField] protected float castSpeed;
   [Space]
 
@@ -23,9 +23,9 @@ public class Weapon : MonoBehaviour {
 
   [Header ("Current")]
   [SerializeField] protected CharacterAbility currentAbility;
-  [SerializeField] protected GameObject currentAbilityInstance;
+  [SerializeField] protected GameObject currentAbilityObject;
   [SerializeField] protected float chargeTime;
-  [SerializeField] protected float chargeScalingFactor = 0;
+  [SerializeField] protected float chargeFactor = 0;
   [SerializeField] protected bool releaseOnMaxCharge = true;
   protected Coroutine chargeUpdateRoutine;
 
@@ -69,20 +69,29 @@ public class Weapon : MonoBehaviour {
       // Ability 1
       if (Input.GetKeyDown (KeyCode.Q))
         PerformAbility (ability1);
+      // Ability 2
+      if (Input.GetKeyDown (KeyCode.E))
+        PerformAbility (ability2);
     }
     if (chargeUpdateRoutine != null) {
       // Regular
       if (Input.GetKeyUp (KeyCode.Space)) {
         ReleaseAbility (regularAttack);
+
       }
       // Ability 1
       if (Input.GetKeyUp (KeyCode.Q)) {
         ReleaseAbility (ability1);
       }
+      // Ability 2
+      if (Input.GetKeyUp (KeyCode.E))
+        ReleaseAbility (ability2);
     }
   }
 
   protected virtual void PerformAbility (CharacterAbility ability) {
+    ability.Cast (transform, weaponTransform);
+
     if (chargeUpdateRoutine != null) {
       ReleaseAbility (ability);
     }
@@ -90,13 +99,10 @@ public class Weapon : MonoBehaviour {
       characterAnimator.SetTrigger (ability.GetAnimationTrigger ());
     }
 
-#if DEBUG
-    Debug.Log ("Casting " + ability.GetName () + "!");
-#endif
-
     currentAbility = ability;
     if (ability.hasInstance ()) {
-      currentAbilityInstance = Instantiate (ability.GetAbilityPrefab (), weaponTransform.position, weaponTransform.rotation, weaponTransform) as GameObject;
+      currentAbilityObject = Instantiate (ability.GetAbilityPrefab (), weaponTransform.position, transform.rotation, weaponTransform) as GameObject;
+      currentAbilityObject.GetComponent<CharacterAbilityInstance> ().SetAbility (ability);
     }
 
     if (ability.GetMaxChargeTime () == 0) {
@@ -107,20 +113,19 @@ public class Weapon : MonoBehaviour {
   }
 
   protected virtual void ReleaseAbility (CharacterAbility ability) {
-    Vector3 velocity = transform.forward * 5f * (chargeScalingFactor + 1);
-    float damage = (GetCurrentStatPlusWeaponDamage () + ability.GetDamage ()) * (chargeScalingFactor + 1);
-    float impactRadius = currentAbilityInstance.GetComponent<CharacterAbilityInstance> ().GetImpactRadius () * (chargeScalingFactor + 1);
+    float statPlusWeaponDamage = GetCurrentStatPlusWeaponDamage () + ability.GetDamage ();
 
-    CharacterAbilityInstance instance = currentAbilityInstance.GetComponent<CharacterAbilityInstance> ();
-
-    if (chargeTime < ability.GetChargeStartDelay ()) {
-      if (ability.DropsDuringStartDelay ()) {
-        instance.Drop ();
+    if (ability.hasInstance ()) {
+      CharacterAbilityInstance instance = currentAbilityObject.GetComponent<CharacterAbilityInstance> ();
+      if (chargeTime < ability.GetChargeStartDelay ()) {
+        if (ability.DropsDuringStartDelay ()) {
+          instance.SetAndDrop ();
+        } else {
+          instance.Fade ();
+        }
       } else {
-        instance.Fade ();
+        instance.SetAndRelease (GetCurrentStatPlusWeaponDamage (), chargeFactor, ability);
       }
-    } else {
-      instance.SetAndRelease (transform, velocity, damage, impactRadius);
     }
 
     ResetCurrentlyCharged ();
@@ -132,8 +137,8 @@ public class Weapon : MonoBehaviour {
       chargeUpdateRoutine = null;
     }
 
-    currentAbilityInstance = null;
-    chargeScalingFactor = 0;
+    currentAbilityObject = null;
+    chargeFactor = 0;
     chargeTime = 0;
   }
 
@@ -141,16 +146,18 @@ public class Weapon : MonoBehaviour {
     float maxChargeTime = ability.GetMaxChargeTime ();
     float chargeSpeed = ability.GetChargeSpeed ();
     float chargeStartDelay = ability.GetChargeStartDelay ();
+    float startChargeFactor = ability.GetStartChargeFactor ();
+    chargeFactor = startChargeFactor;
 
     Vector3 scale = ability.GetAbilityPrefab ().transform.localScale;
 
     while (chargeTime < maxChargeTime + chargeStartDelay) {
       chargeTime += Time.deltaTime;
       if (chargeTime > chargeStartDelay) {
-        chargeScalingFactor = chargeScalingFactor + Time.deltaTime * chargeSpeed;
+        chargeFactor = chargeFactor + Time.deltaTime * chargeSpeed;
 
-        if (currentAbilityInstance != null) {
-          currentAbilityInstance.transform.localScale = scale * (chargeScalingFactor + 1);
+        if (currentAbilityObject != null) {
+          currentAbilityObject.transform.localScale = scale * chargeFactor;
         }
       }
       yield return null;
@@ -162,8 +169,7 @@ public class Weapon : MonoBehaviour {
   }
 
   public float GetCurrentStatPlusWeaponDamage () {
-    float currentTotalDamage = GetComponent<Stats> ().GetAttackDamage () + damage;
+    float currentTotalDamage = GetComponent<Stats> ().GetAttackDamage () + weaponDamage;
     return currentTotalDamage;
   }
-
 }
