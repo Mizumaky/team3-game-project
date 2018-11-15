@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-// TODO: Make the cloud hit continually in the whole area or smth
 public class StormCloud : MonoBehaviour {
 
   public Transform[] rayOrigins;

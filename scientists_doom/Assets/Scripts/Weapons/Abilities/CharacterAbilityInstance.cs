@@ -1,259 +1,248 @@
-#define DEBUG
-
 using System.Collections;
 using UnityEngine;
 
 public class CharacterAbilityInstance : MonoBehaviour {
 
-  private Transform casterTransform;
-  private float damage = 0f;
-  private float lifeTime = 2f;
-  private Vector3 destination;
-  private bool canHit;
+	private Transform casterTransform;
+	private float damage = 0f;
+	private float lifeTime = 2f;
+	private Vector3 destination;
+	private bool canHit;
 
-  [Header ("Physics")]
-  private new Rigidbody rigidbody;
-  private new Collider collider;
-  [SerializeField] private LayerMask collisionMask;
-  private float heightFromTerrain = 0.5f;
-  [Space]
+	[Header ("Physics")]
+	private new Rigidbody rigidbody;
+	private new Collider collider;
+	[SerializeField] private LayerMask collisionMask;
+	private float heightFromTerrain = 0.5f;
+	[Space]
 
-  [Header ("Light")]
-  [SerializeField] private new Light light;
-  private float initialLightIntensity;
-  [Space]
+	[Header ("Light")]
+	[SerializeField] private new Light light;
+	private float initialLightIntensity;
+	[Space]
 
-  [Header ("End Effect")]
-  [SerializeField] private bool hasEndEffect = false;
-  [SerializeField] private GameObject endEffectPrefab;
-  [SerializeField][Range (1f, 20f)] private float endEffectRadiusScale = 1f;
-  [SerializeField] private float baseEndEffectRadius;
-  [SerializeField] private float endEffectRadius;
-  [SerializeField] private bool hasLifeTimeCountdownAfterLaunch;
-  private CustomUpdateTimer endEffectLifeTimer;
-  private CharacterAbility ability;
+	[Header ("End Effect")]
+	[SerializeField] private bool hasEndEffect = false;
+	[SerializeField] private GameObject endEffectPrefab;
+	[SerializeField][Range (1f, 20f)] private float endEffectRadiusScale = 1f;
+	[SerializeField] private float baseEndEffectRadius;
+	[SerializeField] private float endEffectRadius;
+	[SerializeField] private bool hasLifeTimeCountdownAfterLaunch;
+	private CustomUpdateTimer endEffectLifeTimer;
+	private CharacterAbility ability;
 
-  #region GettersSetters
-  public void SetAbility (CharacterAbility ability) {
-    this.ability = ability;
-  }
-  public float GetImpactRadius () {
-    return endEffectRadius;
-  }
-  #endregion
+	#region GettersSetters
+	public void SetAbility (CharacterAbility ability) {
+		this.ability = ability;
+	}
+	public float GetImpactRadius () {
+		return endEffectRadius;
+	}
+	#endregion
 
-  private void Awake () {
-    Init ();
-    SetLight ();
-  }
+	private void Awake () {
+		Init ();
+		SetLight ();
+	}
 
-  private void Update () {
-    EndEffectUpdate ();
-    if (destination != Vector3.zero) {
-      if (Vector3.Distance (transform.position, destination) < 0.5f) {
-        DisableAndSpawnEndEffect (transform.position);
-        destination = Vector3.zero;
-      }
-    }
-  }
+	private void Update () {
+		EndEffectUpdate ();
+		if (destination != Vector3.zero) {
+			if (Vector3.Distance (transform.position, destination) < 0.5f) {
+				DisableAndSpawnEndEffect (transform.position);
+				destination = Vector3.zero;
+			}
+		}
+	}
 
-  private void Init () {
-    // Collider
-    rigidbody = GetComponent<Rigidbody> ();
-    if ((collider = GetComponent<Collider> ()) != null) {
-      collider.enabled = false;
-    }
+	private void Init () {
+		// Collider
+		rigidbody = GetComponent<Rigidbody> ();
+		if ((collider = GetComponent<Collider> ()) != null) {
+			collider.enabled = false;
+		}
 
-    light = GetComponent<Light> ();
-  }
+		light = GetComponent<Light> ();
+	}
 
-  private void SetLight () {
-    if (light != null) {
-      initialLightIntensity = light.intensity;
-    }
-  }
+	private void SetLight () {
+		if (light != null) {
+			initialLightIntensity = light.intensity;
+		}
+	}
 
-  private void EndEffectUpdate () {
-    // Destroy GO after impact timer has ended
-    if (endEffectLifeTimer != null) {
-      if (endEffectLifeTimer.isLastTick (Time.deltaTime)) {
-        Destroy (gameObject);
-      } else {
-        if (light != null) {
-          light.intensity = initialLightIntensity * endEffectLifeTimer.GetTimeLeftPercent ();
-        }
-      }
-    }
-  }
+	private void EndEffectUpdate () {
+		// Destroy GO after impact timer has ended
+		if (endEffectLifeTimer != null) {
+			if (endEffectLifeTimer.isLastTick (Time.deltaTime)) {
+				Destroy (gameObject);
+			} else {
+				if (light != null) {
+					light.intensity = initialLightIntensity * endEffectLifeTimer.GetTimeLeftPercent ();
+				}
+			}
+		}
+	}
 
-  private void SetParameters (float weaponPlusStatDamage, float chargeFactor) {
-    casterTransform = ability.GetCasterTransform ();
-    transform.parent = null;
+	private void SetParameters (float weaponPlusStatDamage, float chargeFactor) {
+		casterTransform = ability.GetCasterTransform ();
+		transform.parent = null;
 
-    if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.air) {
-      destination = GetScreenPointToRayHitPoint () + Vector3.up * ability.GetDestinationHeight () * chargeFactor;
-      rigidbody.velocity = (destination - transform.position).normalized * ability.GetVelocity () * chargeFactor;
-    } else if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.ground) {
-      rigidbody.velocity = ability.GetWeaponTransform ().up * ability.GetVelocity () * chargeFactor;
-    }
-    // only increase ability dmg by charge
-    damage = weaponPlusStatDamage + ability.GetDamage () * chargeFactor;
+		if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.air) {
+			destination = GetScreenPointToRayHitPoint () + Vector3.up * ability.GetDestinationHeight () * chargeFactor;
+			rigidbody.velocity = (destination - transform.position).normalized * ability.GetVelocity () * chargeFactor;
+		} else if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.ground) {
+			rigidbody.velocity = ability.GetWeaponTransform ().up * ability.GetVelocity () * chargeFactor;
+		}
+		// only increase ability dmg by charge
+		damage = weaponPlusStatDamage + ability.GetDamage () * chargeFactor;
 
-    baseEndEffectRadius = ability.GetBaseHitRadius ();
-    endEffectRadius = baseEndEffectRadius * chargeFactor;
+		baseEndEffectRadius = ability.GetBaseHitRadius ();
+		endEffectRadius = baseEndEffectRadius * chargeFactor;
 
-    lifeTime = ability.GetLifeTime ();
-  }
+		lifeTime = ability.GetLifeTime ();
+	}
 
-  public void SetAndRelease (float weaponPlusStatDamage, float chargeFactor, CharacterAbility ability) {
-    this.ability = ability;
-#if DEBUG
-    Debug.Log ("Releasing " + gameObject.name + "!");
-#endif
-    SetParameters (weaponPlusStatDamage, chargeFactor);
+	public void SetAndRelease (float weaponPlusStatDamage, float chargeFactor, CharacterAbility ability) {
+		this.ability = ability;
 
-    canHit = true;
-    if (collider != null)
-      collider.enabled = true;
+		SetParameters (weaponPlusStatDamage, chargeFactor);
 
-    if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.ground) {
-      if (!rigidbody.useGravity) {
-        StartCoroutine (UpdateHeight ());
-      }
-    } else if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.self) {
-      DisableAndSpawnEndEffect (transform.position);
-      return;
-    }
+		canHit = true;
+		if (collider != null)
+			collider.enabled = true;
 
-    if (hasLifeTimeCountdownAfterLaunch) {
-      StartCoroutine (FadeOutAfterLifeEnd ());
-    }
-  }
+		if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.ground) {
+			if (!rigidbody.useGravity) {
+				StartCoroutine (UpdateHeight ());
+			}
+		} else if (ability.GetTravelDestination () == CharacterAbility.TravelDestination.self) {
+			DisableAndSpawnEndEffect (transform.position);
+			return;
+		}
 
-  private IEnumerator UpdateHeight () {
-    int groundLayerIndex = LayerMask.NameToLayer ("Ground");
+		if (hasLifeTimeCountdownAfterLaunch) {
+			StartCoroutine (FadeOutAfterLifeEnd ());
+		}
+	}
 
-    while (true) {
-      Ray rayDown = new Ray (transform.position, Vector3.down);
-      RaycastHit hit;
-      if (Physics.Raycast (rayDown, out hit, 4f)) {
-        if (hit.collider.gameObject.layer == groundLayerIndex) {
-          transform.position = new Vector3 (transform.position.x, heightFromTerrain + hit.point.y, transform.position.z);
-        }
-      }
-      yield return null;
-    }
-  }
+	private IEnumerator UpdateHeight () {
+		int groundLayerIndex = LayerMask.NameToLayer ("Ground");
 
-  public void SetAndDrop () {
-    SetParameters (0, 0);
+		while (true) {
 
-#if DEBUG
-    Debug.Log ("Dropping " + gameObject.name + "!");
-#endif
+			Ray rayDown = new Ray (transform.position, Vector3.down);
+			RaycastHit hit;
 
-    canHit = false;
-    collider.enabled = true;
+			if (Physics.Raycast (rayDown, out hit, 4f)) {
+				if (hit.collider.gameObject.layer == groundLayerIndex) {
+					transform.position = new Vector3 (transform.position.x, heightFromTerrain + hit.point.y, transform.position.z);
+				}
+			}
+			yield return null;
+		}
+	}
 
-    int groundLayerIndex = LayerMask.NameToLayer ("Ground");
+	public void SetAndDrop () {
+		SetParameters (0, 0);
 
-    Ray rayDown = new Ray (transform.position, Vector3.down);
-    RaycastHit hit;
-    if (Physics.Raycast (rayDown, out hit, 2f)) {
-      if (hit.collider.gameObject.layer == groundLayerIndex) {
-        transform.position = hit.point;
-        transform.parent = null;
-      }
-    }
-  }
+		canHit = false;
+		collider.enabled = true;
 
-  private void OnTriggerStay (Collider other) {
-    int otherLayer = other.gameObject.layer;
+		int groundLayerIndex = LayerMask.NameToLayer ("Ground");
 
-    if (canHit) {
-      if (UnityExtensions.ContainsLayer (collisionMask, otherLayer)) {
-        DisableAndSpawnEndEffect (transform.position);
+		Ray rayDown = new Ray (transform.position, Vector3.down);
+		RaycastHit hit;
+		if (Physics.Raycast (rayDown, out hit, 2f)) {
+			if (hit.collider.gameObject.layer == groundLayerIndex) {
+				transform.position = hit.point;
+				transform.parent = null;
+			}
+		}
+	}
 
-        Explosive e = null;
-        if ((e = other.GetComponent<Explosive> ()) != null) {
-          e.Explode (casterTransform);
-        }
-      }
-    }
-  }
+	private void OnTriggerStay (Collider other) {
+		int otherLayer = other.gameObject.layer;
 
-  private IEnumerator FadeOutAfterLifeEnd () {
-    yield return new WaitForSeconds (lifeTime);
-    Fade ();
-  }
+		if (canHit) {
+			if (UnityExtensions.ContainsLayer (collisionMask, otherLayer)) {
+				DisableAndSpawnEndEffect (transform.position);
 
-  public void Fade () {
-    Disable ();
-    endEffectLifeTimer = new CustomUpdateTimer (0.9f);
-  }
+				Explosive e = null;
+				if ((e = other.GetComponent<Explosive> ()) != null) {
+					e.Explode (casterTransform);
+				}
+			}
+		}
+	}
 
-  private void Disable () {
-    canHit = false;
-    if (collider != null)
-      collider.enabled = false;
-    Destroy (GetComponent<Rigidbody> ());
-    GetComponent<ParticleSystem> ().Stop ();
-  }
+	private IEnumerator FadeOutAfterLifeEnd () {
+		yield return new WaitForSeconds (lifeTime);
+		Fade ();
+	}
 
-  private void DisableAndSpawnEndEffect (Vector3 impactPosition) {
-    Disable ();
+	public void Fade () {
+		Disable ();
+		endEffectLifeTimer = new CustomUpdateTimer (0.9f);
+	}
 
-    GameObject endEffectInstance = Instantiate (endEffectPrefab, impactPosition, transform.rotation, transform);
+	private void Disable () {
+		canHit = false;
+		if (collider != null)
+			collider.enabled = false;
+		Destroy (GetComponent<Rigidbody> ());
+		GetComponent<ParticleSystem> ().Stop ();
+	}
 
-    float hitScale = (float) endEffectRadius / (float) baseEndEffectRadius;
-#if DEBUG
-    Debug.Log ("End effect radius : " + endEffectRadius + "!");
-#endif
+	private void DisableAndSpawnEndEffect (Vector3 impactPosition) {
+		Disable ();
 
-    // TODO: WTF
-    Hit (endEffectRadius);
+		GameObject endEffectInstance = Instantiate (endEffectPrefab, impactPosition, transform.rotation, transform);
+		StormCloud sm;
+		if ((sm = endEffectInstance.GetComponent<StormCloud> ()) == null) {
 
-    endEffectInstance.transform.localScale = new Vector3 (hitScale, hitScale, hitScale);
-    foreach (Transform transform in endEffectInstance.transform.GetComponentsInChildren<Transform> ()) {
-      transform.localScale = new Vector3 (hitScale, hitScale, hitScale);
-    }
-    Debug.Log ("End effect: " + 0.9f * endEffectPrefab.GetComponent<ParticleSystem> ().main.duration);
-    endEffectLifeTimer = new CustomUpdateTimer (0.9f * endEffectPrefab.GetComponent<ParticleSystem> ().main.duration);
-  }
+		}
 
-  private void Hit (float hitRadius) {
-    Collider[] hits = Physics.OverlapSphere (transform.position, hitRadius, collisionMask);
+		float hitScale = (float) endEffectRadius / (float) baseEndEffectRadius;
 
-    int enemyLayer = LayerMask.NameToLayer ("Enemy");
-    foreach (Collider hit in hits) {
-#if DEBUG
-      Debug.Log ("Hitting!");
-#endif
+		Hit (endEffectRadius);
 
-      if (hit.gameObject.layer == enemyLayer) {
-        hit.GetComponent<EnemyControls> ().Aggro (casterTransform);
-        if (ability.GetStunDuration () > 0) {
-          hit.GetComponent<EnemyControls> ().StunFor (ability.GetStunDuration ());
-        }
-        hit.GetComponent<EnemyStats> ().TakeDamage (damage);
-      }
-    }
-  }
+		endEffectInstance.transform.localScale = new Vector3 (hitScale, hitScale, hitScale);
+		foreach (Transform transform in endEffectInstance.transform.GetComponentsInChildren<Transform> ()) {
+			transform.localScale = new Vector3 (hitScale, hitScale, hitScale);
+		}
+		endEffectLifeTimer = new CustomUpdateTimer (0.9f * endEffectPrefab.GetComponent<ParticleSystem> ().main.duration);
+	}
 
-  private void OnDrawGizmosSelected () {
-    Gizmos.color = Color.red;
-    Gizmos.DrawWireSphere (transform.position, endEffectRadius);
-  }
+	private void Hit (float hitRadius) {
+		Collider[] hits = Physics.OverlapSphere (transform.position, hitRadius, collisionMask);
 
-  private Vector3 GetScreenPointToRayHitPoint () {
-    Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
-    RaycastHit hit;
+		int enemyLayer = LayerMask.NameToLayer ("Enemy");
+		foreach (Collider hit in hits) {
+			if (hit.gameObject.layer == enemyLayer) {
+				hit.GetComponent<EnemyControls> ().Aggro (casterTransform);
+				if (ability.GetStunDuration () > 0) {
+					hit.GetComponent<EnemyControls> ().StunFor (ability.GetStunDuration ());
+				}
+				hit.GetComponent<EnemyStats> ().TakeDamage (damage);
+			}
+		}
+	}
 
-    int groundLayer = 1 << LayerMask.NameToLayer ("Ground");
+	private void OnDrawGizmosSelected () {
+		Gizmos.color = Color.red;
+		Gizmos.DrawWireSphere (transform.position, endEffectRadius);
+	}
 
-    if (Physics.Raycast (ray, out hit, 100f, groundLayer)) {
-      return hit.point;
-    }
-    return transform.position;
-  }
+	private Vector3 GetScreenPointToRayHitPoint () {
+		Ray ray = Camera.main.ScreenPointToRay (Input.mousePosition);
+		RaycastHit hit;
+
+		int groundLayer = 1 << LayerMask.NameToLayer ("Ground");
+
+		if (Physics.Raycast (ray, out hit, 100f, groundLayer)) {
+			return hit.point;
+		}
+		return transform.position;
+	}
 }

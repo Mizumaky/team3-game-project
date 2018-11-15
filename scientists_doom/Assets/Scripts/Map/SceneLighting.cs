@@ -107,6 +107,7 @@ public class SceneLighting : MonoBehaviour {
 		sunLight.color = sunlightGradient.Evaluate (progress);
 		moonLight.color = moonlightGradient.Evaluate (progress);
 		mycamera.backgroundColor = backgroundGradient.Evaluate (progress);
+		RenderSettings.fogColor = backgroundGradient.Evaluate (progress);
 
 		sunLight.transform.localRotation = Quaternion.Euler (new Vector3 (360f * progress, 0, 0));
 		moonLight.transform.localRotation = Quaternion.Euler (new Vector3 (180f + 360f * progress, 0, 0));

@@ -1,5 +1,3 @@
-//#define DEBUG
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -128,9 +126,5 @@ public class CharacterAbility : ScriptableObject {
   public virtual void Cast (Transform casterTransform, Transform weaponTransform) {
     this.weaponTransform = weaponTransform;
     this.casterTransform = casterTransform;
-
-#if DEBUG
-    Debug.Log ("Casting " + objectName + "!");
-#endif
   }
 }
