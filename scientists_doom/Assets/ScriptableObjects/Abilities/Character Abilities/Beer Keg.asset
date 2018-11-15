@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectName: Beer Keg
   icon: {fileID: 0}
-  animationTrigger: 
+  animationTrigger: attackTrigger
   maxChargeTime: 1
   chargeSpeed: 0.5
   chargeStartDelay: 0.2

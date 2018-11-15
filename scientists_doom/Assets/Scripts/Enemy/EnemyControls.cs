@@ -53,7 +53,7 @@ public class EnemyControls : MonoBehaviour {
     if (activeFollowCoroutine != null) {
       StopCoroutine (activeFollowCoroutine);
     }
-    Debug.Log ("Starting AttackPlayer coroutine");
+    //Debug.Log ("Starting AttackPlayer coroutine");
     activeFollowCoroutine = StartCoroutine (AttackPlayer ());
   }
 

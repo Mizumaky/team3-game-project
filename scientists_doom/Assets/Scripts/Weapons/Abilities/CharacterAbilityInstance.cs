@@ -199,8 +199,8 @@ public class CharacterAbilityInstance : MonoBehaviour {
 
 		GameObject endEffectInstance = Instantiate (endEffectPrefab, impactPosition, transform.rotation, transform);
 		StormCloud sm;
-		if ((sm = endEffectInstance.GetComponent<StormCloud> ()) == null) {
-
+		if ((sm = endEffectInstance.GetComponent<StormCloud> ()) != null) {
+			sm.SetCasterTransform (casterTransform);
 		}
 
 		float hitScale = (float) endEffectRadius / (float) baseEndEffectRadius;

@@ -49,7 +49,7 @@ public class StormCloud : MonoBehaviour {
     foreach (Collider hit in sphereHit) {
       if (hit.gameObject.layer == enemyLayer) {
         if (casterTransform == null) {
-          Debug.LogWarning ("Storm Cloud has no caster transform!");
+          //Debug.LogWarning ("Storm Cloud has no caster transform!");
         } else {
           hit.GetComponent<EnemyControls> ().Aggro (casterTransform);
         }
