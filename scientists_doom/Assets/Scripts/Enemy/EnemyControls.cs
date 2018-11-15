@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿#define DEBUG
+
+using System.Collections;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -45,10 +47,11 @@ public class EnemyControls : MonoBehaviour {
   }
 
   public void Aggro (Transform targetTransform) {
+#if DEBUG
     Debug.Log ("Aggroing to " + targetTransform.name);
+#endif
     target = targetTransform;
     if (activeFollowCoroutine == null) {
-      Debug.Log ("Starting routine");
       activeFollowCoroutine = StartCoroutine (CheckForTargetAndFollow ());
     }
   }
@@ -65,7 +68,6 @@ public class EnemyControls : MonoBehaviour {
           animator.SetTrigger ("attackTrigger");
         } else {
           SetPathToTarget (target);
-          Debug.Log ("Setting path");
         }
         yield return new WaitForSeconds (0.1f);
       }
@@ -85,7 +87,7 @@ public class EnemyControls : MonoBehaviour {
       if (navMeshAgent.enabled && NavMesh.CalculatePath (transform.position, hitNavmesh.position, NavMesh.AllAreas, path)) {
         navMeshAgent.SetPath (path);
       } else {
-        Debug.Log ("Enemy could not set path");
+        Debug.LogWarning ("Enemy could not set path");
       }
     }
   }

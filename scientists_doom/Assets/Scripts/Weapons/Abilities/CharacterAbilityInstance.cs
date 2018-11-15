@@ -1,4 +1,4 @@
-#define DEBUG
+//#define DEBUG
 
 using System.Collections;
 using UnityEngine;
@@ -134,8 +134,10 @@ public class CharacterAbilityInstance : MonoBehaviour {
     int groundLayerIndex = LayerMask.NameToLayer ("Ground");
 
     while (true) {
+
       Ray rayDown = new Ray (transform.position, Vector3.down);
       RaycastHit hit;
+
       if (Physics.Raycast (rayDown, out hit, 4f)) {
         if (hit.collider.gameObject.layer == groundLayerIndex) {
           transform.position = new Vector3 (transform.position.x, heightFromTerrain + hit.point.y, transform.position.z);
@@ -210,14 +212,12 @@ public class CharacterAbilityInstance : MonoBehaviour {
     Debug.Log ("End effect radius : " + endEffectRadius + "!");
 #endif
 
-    // TODO: WTF
     Hit (endEffectRadius);
 
     endEffectInstance.transform.localScale = new Vector3 (hitScale, hitScale, hitScale);
     foreach (Transform transform in endEffectInstance.transform.GetComponentsInChildren<Transform> ()) {
       transform.localScale = new Vector3 (hitScale, hitScale, hitScale);
     }
-    Debug.Log ("End effect: " + 0.9f * endEffectPrefab.GetComponent<ParticleSystem> ().main.duration);
     endEffectLifeTimer = new CustomUpdateTimer (0.9f * endEffectPrefab.GetComponent<ParticleSystem> ().main.duration);
   }
 
