@@ -65,7 +65,7 @@ public class EnemyControls : MonoBehaviour {
           animator.SetTrigger ("attackTrigger");
         } else {
           SetPathToTarget (target);
-          Debug.Log ("Setting path");
+          //Debug.Log ("Setting path");
         }
         yield return new WaitForSeconds (0.1f);
       }
