@@ -753,7 +753,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1818560360946456}
   m_LocalRotation: {x: 0.6427876, y: 0, z: 0, w: 0.7660445}
-  m_LocalPosition: {x: 0.01, y: 0.78, z: 1.58}
+  m_LocalPosition: {x: 0.01, y: 0.5, z: 1.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4834664488228922}
@@ -1134,7 +1134,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponTransform: {fileID: 4828322318558776}
-  weaponDamage: 20
+  weaponDamage: 10
   castSpeed: 0
   regularAttack: {fileID: 11400000, guid: d49c1dcdc5d6ecf44a9d855fcaa5e666, type: 2}
   ability1: {fileID: 11400000, guid: 8269c7f99a5a5db478914df80b899cc0, type: 2}

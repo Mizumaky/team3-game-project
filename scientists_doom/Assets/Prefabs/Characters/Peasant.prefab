@@ -924,7 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   castle: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
-  distanceToFollowPlayer: 7
+  distanceToFollowPlayer: 10
 --- !u!114 &114878431132016162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1034,7 +1034,7 @@ MonoBehaviour:
   ability1: {fileID: 0}
   ability2: {fileID: 0}
   currentAbility: {fileID: 0}
-  currentAbilityInstance: {fileID: 0}
+  currentAbilityObject: {fileID: 0}
   chargeTime: 0
   chargeFactor: 0
   releaseOnMaxCharge: 1

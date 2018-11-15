@@ -1,5 +1,7 @@
 //#define DEBUG
 
+// TODO: Fix abilities being able to trigger each other
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -75,16 +77,16 @@ public class Weapon : MonoBehaviour {
     }
     if (chargeUpdateRoutine != null) {
       // Regular
-      if (Input.GetKeyUp (KeyCode.Space)) {
+      if (Input.GetKeyUp (KeyCode.Space) && currentAbility == regularAttack) {
         ReleaseAbility (regularAttack);
 
       }
       // Ability 1
-      if (Input.GetKeyUp (KeyCode.Q)) {
+      if (Input.GetKeyUp (KeyCode.Q) && currentAbility == ability1) {
         ReleaseAbility (ability1);
       }
       // Ability 2
-      if (Input.GetKeyUp (KeyCode.E))
+      if (Input.GetKeyUp (KeyCode.E) && currentAbility == ability2)
         ReleaseAbility (ability2);
     }
   }
@@ -102,6 +104,7 @@ public class Weapon : MonoBehaviour {
     currentAbility = ability;
     if (ability.hasInstance ()) {
       currentAbilityObject = Instantiate (ability.GetAbilityPrefab (), weaponTransform.position, transform.rotation, weaponTransform) as GameObject;
+      currentAbilityObject.transform.localScale *= ability.GetStartChargeFactor ();
       currentAbilityObject.GetComponent<CharacterAbilityInstance> ().SetAbility (ability);
     }
 
