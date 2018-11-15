@@ -7,6 +7,9 @@ public class HUDScript : MonoBehaviour {
   [SerializeField] private Image healthSlider;
   [SerializeField] private Text healthText;
   [SerializeField] private Image xpSlider;
+  [SerializeField] private Text woodText;
+  [SerializeField] private Text stoneText;
+  [SerializeField] private Text soulsText;
   private PlayerStats playerStatsReference;
   private GameObject lastActiveCharObject = null;
 
@@ -35,5 +38,8 @@ public class HUDScript : MonoBehaviour {
     } else {
       lastActiveCharObject = null;
     }
+    woodText.text = ResourcesManager.wood.ToString();
+    stoneText.text = ResourcesManager.stone.ToString();
+    soulsText.text = ResourcesManager.souls.ToString();
   }
 }
