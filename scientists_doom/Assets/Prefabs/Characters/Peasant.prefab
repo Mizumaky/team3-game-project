@@ -874,6 +874,7 @@ MonoBehaviour:
   baseAttackDamage: 5
   totalAttackDamage: 0
   attackDamageIncrement: 1
+  lootPrefab: {fileID: 1414109511527648, guid: 41d48ecce97a9964c9f69b5fe219ef67, type: 2}
 --- !u!114 &114059231861312018
 MonoBehaviour:
   m_ObjectHideFlags: 1

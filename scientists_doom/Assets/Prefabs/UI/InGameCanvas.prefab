@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 222933733091524072}
   - component: {fileID: 114887765387925008}
   m_Layer: 0
-  m_Name: Text
+  m_Name: StoneText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -925,7 +925,7 @@ GameObject:
   - component: {fileID: 222468580992372752}
   - component: {fileID: 114812512067715748}
   m_Layer: 0
-  m_Name: Text
+  m_Name: SoulsText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1060,7 +1060,7 @@ GameObject:
   - component: {fileID: 222284473679538946}
   - component: {fileID: 114981263468669246}
   m_Layer: 0
-  m_Name: Text
+  m_Name: WoodText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2053,6 +2053,11 @@ MonoBehaviour:
   healthSlider: {fileID: 114474228201779356}
   healthText: {fileID: 114538783248538128}
   xpSlider: {fileID: 114196704972505424}
+  woodText: {fileID: 114981263468669246}
+  stoneText: {fileID: 114887765387925008}
+  soulsText: {fileID: 114812512067715748}
+  resourcesManager: {fileID: 114742583946031800, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+    type: 2}
 --- !u!114 &114536097998097402
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -40,7 +40,7 @@ public class SpawnEnemy : MonoBehaviour {
     }
     yield return null;
     wave = null;
-  }
+    }
 
   private void SpawnEnemyGroup (int count) {
     Vector3 center = transform.position;
