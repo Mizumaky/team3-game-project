@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731707, g: 0.13414726, b: 0.12107857, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -113,12 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!20 &805736035 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 20686830088881038, guid: 6008f6a9d9c8d4897951087be9850be5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1497193241}
---- !u!1001 &1102435171
+--- !u!1001 &134345152
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -223,6 +218,11 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2b001b62b99443858e3e2e37e13d371, type: 2}
   m_IsPrefabAsset: 0
+--- !u!20 &805736035 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 20686830088881038, guid: 6008f6a9d9c8d4897951087be9850be5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1497193241}
 --- !u!1001 &1497193241
 Prefab:
   m_ObjectHideFlags: 0
