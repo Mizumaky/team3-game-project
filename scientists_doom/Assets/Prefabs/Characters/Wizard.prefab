@@ -59,9 +59,10 @@ GameObject:
   - component: {fileID: 82109642158095170}
   - component: {fileID: 114328596421621058}
   - component: {fileID: 95946371184475358}
+  - component: {fileID: 114011375159697008}
   m_Layer: 14
   m_Name: Wizard
-  m_TagString: Untagged
+  m_TagString: Wizard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -788,6 +789,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &114011375159697008
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1106552325252950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961b0c3bf3bb8264ca4ba2ab4de669cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wood: 0
+  stone: 0
+  souls: 0
 --- !u!114 &114095940901312090
 MonoBehaviour:
   m_ObjectHideFlags: 1

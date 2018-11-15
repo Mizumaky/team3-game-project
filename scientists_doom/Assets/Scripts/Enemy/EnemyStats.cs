@@ -41,6 +41,6 @@ public class EnemyStats : Stats {
     //maybe add some empty game object that will store loot
     float OffsetY = 0.5f;
     Vector3 lootPosition = new Vector3(transform.position.x, transform.position.y + OffsetY, transform.position.z);
-    GameObject loot = Instantiate(lootPrefab, lootPosition, transform.rotation);
+    GameObject loot = Instantiate(lootPrefab, lootPosition, transform.rotation*Quaternion.Euler(-90,0,0));
   }
 }

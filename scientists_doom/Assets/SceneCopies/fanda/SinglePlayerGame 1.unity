@@ -113,7 +113,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 57461742121b8a5478f26628759358f4, type: 2}
---- !u!1001 &216957634
+--- !u!1001 &69656788
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -157,11 +157,6 @@ Prefab:
       propertyPath: cameraParentReference
       value: 
       objectReference: {fileID: 754034532}
-    - target: {fileID: 114106715919276896, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: spawnOnStart
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 2}
   m_IsPrefabAsset: 0
@@ -267,7 +262,7 @@ GameObject:
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114106715919276896, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
     type: 2}
-  m_PrefabInternal: {fileID: 216957634}
+  m_PrefabInternal: {fileID: 69656788}
   m_Script: {fileID: 11500000, guid: 2c90b2c896af670498a088973b463e39, type: 3}
 --- !u!1 &996991714
 GameObject:

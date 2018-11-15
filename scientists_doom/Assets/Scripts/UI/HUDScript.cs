@@ -22,6 +22,10 @@ public class HUDScript : MonoBehaviour {
       }
       lastActiveCharObject = CharacterManager.activeCharacterObject;
 
+      woodText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().wood.ToString();
+      stoneText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().stone.ToString();
+      soulsText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().souls.ToString();
+
       float maxPlayerHealth = playerStatsReference.GetTotalMaxHealth ();
       float playerHealth = playerStatsReference.GetCurrentHealth ();
 
@@ -38,8 +42,5 @@ public class HUDScript : MonoBehaviour {
     } else {
       lastActiveCharObject = null;
     }
-    woodText.text = ResourcesManager.wood.ToString();
-    stoneText.text = ResourcesManager.stone.ToString();
-    soulsText.text = ResourcesManager.souls.ToString();
   }
 }

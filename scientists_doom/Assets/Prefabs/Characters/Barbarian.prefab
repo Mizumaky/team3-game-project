@@ -93,9 +93,10 @@ GameObject:
   - component: {fileID: 114663166409397002}
   - component: {fileID: 114691283258660134}
   - component: {fileID: 82779544059597260}
+  - component: {fileID: 114627230455323210}
   m_Layer: 14
   m_Name: Barbarian
-  m_TagString: Untagged
+  m_TagString: Barbarian
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1181,6 +1182,20 @@ MonoBehaviour:
   baseEndEffectRadius: 0
   endEffectRadius: 0
   hasLifeTimeCountdownAfterLaunch: 0
+--- !u!114 &114627230455323210
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195421657766132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 961b0c3bf3bb8264ca4ba2ab4de669cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wood: 0
+  stone: 0
+  souls: 0
 --- !u!114 &114663166409397002
 MonoBehaviour:
   m_ObjectHideFlags: 1

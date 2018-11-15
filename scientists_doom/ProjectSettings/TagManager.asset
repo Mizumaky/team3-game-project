@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Weapon
   - enemy
+  - Barbarian
+  - Wizard
+  - Huntress
   layers:
   - Default
   - TransparentFX
@@ -22,7 +25,7 @@ TagManager:
   - Flammable
   - Explosive
   - Player
-  - 
+  - Loot
   - 
   - 
   - 
