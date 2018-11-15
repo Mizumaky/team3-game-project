@@ -38,13 +38,13 @@ public class GraphicsQualityController : MonoBehaviour {
         behaviour.profile = low;
         QualitySettings.SetQualityLevel (0);
         break;
-      case 1: 
+      case 1:
         behaviour.profile = medium;
-        QualitySettings.SetQualityLevel(5);
+        QualitySettings.SetQualityLevel (1);
         break;
-      default : 
+      default:
         behaviour.profile = high;
-        QualitySettings.SetQualityLevel (5);
+        QualitySettings.SetQualityLevel (2);
         break;
     }
   }

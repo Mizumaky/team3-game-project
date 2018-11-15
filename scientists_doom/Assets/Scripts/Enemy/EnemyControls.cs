@@ -14,19 +14,16 @@ public class EnemyControls : MonoBehaviour {
   private float speed;
   private Vector3 lastPosition;
   private EnemyStats enemyStats;
-  private Collider weponCollider;
 
   Coroutine activeFollowCoroutine;
 
   void Awake () {
-    navMeshAgent = GetComponent<NavMeshAgent> ();
-    path = new NavMeshPath ();
+    Init ();
+
     target = castle;
     SetPathToTarget (target);
-    animator = GetComponent<Animator> ();
-    speed = 0;
-    enemyStats = GetComponent<EnemyStats> ();
 
+    speed = 0;
   }
 
   private void Update () {
@@ -38,6 +35,13 @@ public class EnemyControls : MonoBehaviour {
         animator.SetFloat ("speedParam", speed);
       }
     }
+  }
+
+  private void Init () {
+    navMeshAgent = GetComponent<NavMeshAgent> ();
+    path = new NavMeshPath ();
+    animator = GetComponent<Animator> ();
+    enemyStats = GetComponent<EnemyStats> ();
   }
 
   public void Aggro (Transform targetTransform) {
@@ -91,15 +95,19 @@ public class EnemyControls : MonoBehaviour {
     return Quaternion.Slerp (transform.rotation, lookRotation, 0.3f);
   }
 
-  public IEnumerator StunFor (float time) {
+  public void StunFor (float time) {
     DisableMovement ();
+    StartCoroutine (StunCountdown (time));
+  }
+
+  public IEnumerator StunCountdown (float time) {
     yield return new WaitForSeconds (time);
     Aggro (target);
   }
 
   public void DisableMovement () {
-    Debug.LogWarning ("DISABLING MOVMENT");
     StopAllCoroutines ();
+    activeFollowCoroutine = null;
     navMeshAgent.ResetPath ();
   }
 

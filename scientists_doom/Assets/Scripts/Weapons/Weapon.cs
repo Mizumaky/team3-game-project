@@ -104,6 +104,7 @@ public class Weapon : MonoBehaviour {
     currentAbility = ability;
     if (ability.hasInstance ()) {
       currentAbilityObject = Instantiate (ability.GetAbilityPrefab (), weaponTransform.position, transform.rotation, weaponTransform) as GameObject;
+      currentAbilityObject.transform.localScale *= ability.GetStartChargeFactor ();
       currentAbilityObject.GetComponent<CharacterAbilityInstance> ().SetAbility (ability);
     }
 

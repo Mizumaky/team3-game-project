@@ -27,7 +27,7 @@ MonoBehaviour:
   lifeTime: 3
   baseHitRadius: 6
   damage: 10
-  stunDuration: 1
+  stunDuration: 2
   weaponTransform: {fileID: 0}
   casterTransform: {fileID: 0}
   isInstanced: 1

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.3
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.05413128, g: 0.06776929, b: 0.09210285, a: 0.3}
+  m_IndirectSpecularColor: {r: 0.05413102, g: 0.067769505, b: 0.092103034, a: 0.3}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -424,7 +424,7 @@ Prefab:
     - target: {fileID: 114476786925565022, guid: bf17adfb00b23ab40bb669f13b275dc1,
         type: 2}
       propertyPath: defaultPreset
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114476786925565022, guid: bf17adfb00b23ab40bb669f13b275dc1,
         type: 2}
@@ -771,19 +771,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0.9717395
+      value: -0.97367024
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0.025794275
+      value: -0.0245177
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0.19725741
+      value: -0.18749505
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.1270693
+      value: 0.12732176
       objectReference: {fileID: 0}
     - target: {fileID: 4246670649860676, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
       propertyPath: m_RootOrder
@@ -794,6 +794,36 @@ Prefab:
       propertyPath: mycamera
       value: 
       objectReference: {fileID: 1147556751}
+    - target: {fileID: 114704868668345056, guid: 44e8acd7dc8101c429aebfadc3867d61,
+        type: 2}
+      propertyPath: moonlightColor.r
+      value: 0.2269491
+      objectReference: {fileID: 0}
+    - target: {fileID: 114704868668345056, guid: 44e8acd7dc8101c429aebfadc3867d61,
+        type: 2}
+      propertyPath: moonlightColor.g
+      value: 0.4168593
+      objectReference: {fileID: 0}
+    - target: {fileID: 114704868668345056, guid: 44e8acd7dc8101c429aebfadc3867d61,
+        type: 2}
+      propertyPath: moonlightColor.b
+      value: 0.6415094
+      objectReference: {fileID: 0}
+    - target: {fileID: 108112154098788458, guid: 44e8acd7dc8101c429aebfadc3867d61,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.2269491
+      objectReference: {fileID: 0}
+    - target: {fileID: 108112154098788458, guid: 44e8acd7dc8101c429aebfadc3867d61,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.4168593
+      objectReference: {fileID: 0}
+    - target: {fileID: 108112154098788458, guid: 44e8acd7dc8101c429aebfadc3867d61,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.6415094
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44e8acd7dc8101c429aebfadc3867d61, type: 2}
   m_IsPrefabAsset: 0
