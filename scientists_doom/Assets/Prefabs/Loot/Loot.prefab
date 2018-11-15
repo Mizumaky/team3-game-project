@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65610891012585454}
   - component: {fileID: 114278687039120930}
   - component: {fileID: 54001205877868866}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Loot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1414109511527648}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 8.075221, y: -1.8830658, z: -6.8872333}
+  m_LocalPosition: {x: -6.67894, y: -1.114558, z: 2.6361992}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.05}
   m_Children: []
   m_Father: {fileID: 0}
@@ -100,7 +100,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 48
   m_CollisionDetection: 0
 --- !u!65 &65610891012585454
 BoxCollider:

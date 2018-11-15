@@ -86,22 +86,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1676595271153394
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4599941556497212}
-  - component: {fileID: 114742583946031800}
-  m_Layer: 0
-  m_Name: ResourcesManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1699203829377316
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,19 +158,6 @@ Transform:
   m_Father: {fileID: 4060693252022842}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4599941556497212
-Transform:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1676595271153394}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4921534854009732}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4607866385925282
 Transform:
   m_ObjectHideFlags: 1
@@ -225,7 +196,6 @@ Transform:
   m_Children:
   - {fileID: 4984386413319256}
   - {fileID: 4060693252022842}
-  - {fileID: 4599941556497212}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -258,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wizard: {fileID: 1106552325252950, guid: e9e4af9646be111458eaef36fa064098, type: 2}
   barbarian: {fileID: 1195421657766132, guid: 585ff51c34f98fa469b3816fceb9eb11, type: 2}
-  spawnOnStart: 1
+  spawnOnStart: 0
   characterOnStart: 1
   spawnPoint: {fileID: 4360926578144620}
   cameraParentReference: {fileID: 0}
@@ -282,18 +252,3 @@ MonoBehaviour:
   SpawnPoint1: {fileID: 4607866385925282}
   SpawnPoint2: {fileID: 4632578450867046}
   SpawnPoint3: {fileID: 4255647552292092}
---- !u!114 &114742583946031800
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1676595271153394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 961b0c3bf3bb8264ca4ba2ab4de669cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wood: 270
-  stone: 831
-  souls: 30
-  HUD: {fileID: 114522957771933610, guid: cee624a6a881de143ab97ae841a95789, type: 2}

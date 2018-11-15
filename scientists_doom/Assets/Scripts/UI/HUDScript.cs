@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class HUDScript : MonoBehaviour {
+
   [SerializeField] private Stats castleStats;
   [SerializeField] private Image castleHealthSlider;
   [SerializeField] private Image healthSlider;
@@ -16,7 +17,7 @@ public class HUDScript : MonoBehaviour {
 
   // TODO: This can be made much faster (e.g. listener on character stats)
   private void LateUpdate () {
-    if(castleStats){
+    if (castleStats) {
       float maxCastleHealth = castleStats.GetTotalMaxHealth();
       float castleHealth = castleStats.GetCurrentHealth();
 
@@ -29,6 +30,10 @@ public class HUDScript : MonoBehaviour {
         playerStatsReference = CharacterManager.activeCharacterObject.GetComponent<PlayerStats> ();
       }
       lastActiveCharObject = CharacterManager.activeCharacterObject;
+
+      woodText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().wood.ToString();
+      stoneText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().stone.ToString();
+      soulsText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().souls.ToString();
 
       float maxPlayerHealth = playerStatsReference.GetTotalMaxHealth ();
       float playerHealth = playerStatsReference.GetCurrentHealth ();
@@ -46,9 +51,5 @@ public class HUDScript : MonoBehaviour {
     } else {
       lastActiveCharObject = null;
     }
-
-    woodText.text = ResourcesManager.wood.ToString();
-    stoneText.text = ResourcesManager.stone.ToString();
-    soulsText.text = ResourcesManager.souls.ToString();
   }
 }
