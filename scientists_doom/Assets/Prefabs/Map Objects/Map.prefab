@@ -6748,8 +6748,9 @@ GameObject:
   - component: {fileID: 114597664797637796}
   - component: {fileID: 33390345064998234}
   - component: {fileID: 23331838927569848}
-  - component: {fileID: 64625635690444246}
   - component: {fileID: 114187999314783624}
+  - component: {fileID: 114989796907727594}
+  - component: {fileID: 136904626778836346}
   m_Layer: 11
   m_Name: Castle
   m_TagString: Untagged
@@ -8032,7 +8033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1937004481248512
 GameObject:
   m_ObjectHideFlags: 1
@@ -35669,20 +35670,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1348235315466064}
   m_Mesh: {fileID: 4300006, guid: 3e21b155980b54b16bdbe42d20586214, type: 3}
---- !u!64 &64625635690444246
-MeshCollider:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1788425263763888}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 7dd99d8c382fd2b4ab4615ac137acb00, type: 3}
 --- !u!64 &64769128228426362
 MeshCollider:
   m_ObjectHideFlags: 1
@@ -37855,9 +37842,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1719296003474282, guid: 63f1e9c360900924db488023340630c9,
     type: 2}
-  enemyCount: 10
+  enemyCount: 100
   radius: 25
-  timeBetweenWaves: 5
+  timeBetweenWaves: 1
   curve:
     serializedVersion: 2
     m_Curve:
@@ -37896,6 +37883,37 @@ MonoBehaviour:
   particleLower: {fileID: 1184744482289750}
   particleUpper: {fileID: 1812193477173404}
   isActive: 1
+--- !u!114 &114989796907727594
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788425263763888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09688fe7d68c445c6b924aabf446c3d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseMaxHealth: 5000
+  totalMaxHealth: 5000
+  currentHealth: 0
+  healthIncrement: 0
+  baseAttackDamage: 0
+  totalAttackDamage: 0
+  attackDamageIncrement: 0
+--- !u!136 &136904626778836346
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1788425263763888}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 2.3
+  m_Height: 8
+  m_Direction: 2
+  m_Center: {x: 0, y: 0, z: 2}
 --- !u!198 &198138675653032848
 ParticleSystem:
   m_ObjectHideFlags: 1
