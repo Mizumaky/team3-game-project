@@ -9,7 +9,6 @@ public class ResourcesManager : MonoBehaviour {
   public static int stone;
   [HideInInspector]
   public static int souls;
-  public HUDScript HUD;
 
 	void Start () {
     wood = 0;
