@@ -47,9 +47,6 @@ public class EnemyControls : MonoBehaviour {
   }
 
   public void Aggro (Transform targetTransform) {
-#if DEBUG
-    Debug.Log ("Aggroing to " + targetTransform.name);
-#endif
     target = targetTransform;
     if (activeFollowCoroutine == null) {
       activeFollowCoroutine = StartCoroutine (CheckForTargetAndFollow ());
