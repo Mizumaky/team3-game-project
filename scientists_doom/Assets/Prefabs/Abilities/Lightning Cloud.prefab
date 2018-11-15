@@ -70,6 +70,7 @@ GameObject:
   - component: {fileID: 4602081172905490}
   - component: {fileID: 199765935836858444}
   - component: {fileID: 198587652091643266}
+  - component: {fileID: 114079004933109752}
   m_Layer: 0
   m_Name: Lightning Cloud
   m_TagString: Untagged
@@ -366,6 +367,26 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &114079004933109752
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1565276060188188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b4e49c0e34c461891184b1935edba4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rayOrigins:
+  - {fileID: 4308469787492876}
+  - {fileID: 4676529343430678}
+  - {fileID: 4956527104619770}
+  hitRadius: 10
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 9216
+  lightningDamage: 10
 --- !u!198 &198153020276696968
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -552,7 +573,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 1, b: 1, a: 1}
+      maxColor: {r: 1, g: 1, b: 1, a: 0.53333336}
       maxGradient:
         serializedVersion: 2
         key0: {r: 0.4056604, g: 0.4056604, b: 0.4056604, a: 1}
@@ -4909,9 +4930,9 @@ ParticleSystem:
   lengthInSec: 2
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -9499,9 +9520,9 @@ ParticleSystem:
   lengthInSec: 1.7
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1
@@ -14089,9 +14110,9 @@ ParticleSystem:
   lengthInSec: 1.8
   simulationSpeed: 1
   stopAction: 0
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   useRigidbodyForVelocity: 1

@@ -18,8 +18,20 @@ MonoBehaviour:
   chargeSpeed: 0
   chargeStartDelay: 0
   dropDuringDelay: 0
-  currentChargeModifier: 0
-  damage: 50
-  instance: 0
+  startChargeFactor: 0
+  isStationary: 0
+  velocity: 0
+  destination: 1
+  travelHeight: 0.5
+  destinationHeight: 0
+  lifeTime: 1
+  baseHitRadius: 1
+  damage: 10
+  stunDuration: 0
+  weaponTransform: {fileID: 0}
+  casterTransform: {fileID: 0}
+  isInstanced: 0
   abilityPrefab: {fileID: 0}
   chargingAbilityScript: {fileID: 0}
+  enhancesCharacter: 0
+  characterStats: {fileID: 0}

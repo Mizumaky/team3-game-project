@@ -224,7 +224,7 @@ MonoBehaviour:
   explosionPrefab: {fileID: 1054286298192358, guid: 4c900ea1c7839404b91ff52377ef515d,
     type: 2}
   explosionRadius: 5
-  baseExplosionDamage: 100
+  baseExplosionDamage: 40
   enableCollision: 1
 --- !u!135 &135938621946931818
 SphereCollider:

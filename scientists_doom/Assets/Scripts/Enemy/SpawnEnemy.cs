@@ -13,9 +13,18 @@ public class SpawnEnemy : MonoBehaviour {
   private float ringAngleOffsetLimit = 180f;
   private float lastAngle = 0f;
 
-  void Start () {
-    StartCoroutine (SpawnWave ());
+  private Coroutine wave;
 
+  void Start () {
+    wave = StartCoroutine (SpawnWave ());
+  }
+
+  public void SpawnWaveIfNotInProgress () {
+    if (wave == null) {
+      wave = StartCoroutine (SpawnWave ());
+    } else {
+      Debug.Log ("Wave is already in progress!");
+    }
   }
 
   IEnumerator SpawnWave () {
@@ -30,11 +39,12 @@ public class SpawnEnemy : MonoBehaviour {
       yield return new WaitForSeconds (timeBetweenWaves);
     }
     yield return null;
+    wave = null;
   }
 
   private void SpawnEnemyGroup (int count) {
     Vector3 center = transform.position;
-    float nextAngle = (lastAngle + Random.Range(90f, 180f)) % 360f;
+    float nextAngle = (lastAngle + Random.Range (90f, 180f)) % 360f;
     lastAngle = nextAngle;
 
     // create a ray to find enemy y pos
@@ -47,15 +57,14 @@ public class SpawnEnemy : MonoBehaviour {
     // spawn enemy on the intersection of the ray and terrain
     RaycastHit hit;
     if (Physics.Raycast (rayDown, out hit, rayLength)) {
-    if (hit.collider.gameObject.layer == 9) {
+      if (hit.collider.gameObject.layer == 9) {
         Quaternion rot = Quaternion.LookRotation ((center - hit.point).normalized);
-        for (int i = 0; i < count; i++)
-        {
-            GameObject enemy = Instantiate(enemyPrefab, hit.point, rot);
-            enemy.transform.parent = gameObject.transform;
+        for (int i = 0; i < count; i++) {
+          GameObject enemy = Instantiate (enemyPrefab, hit.point, rot);
+          enemy.transform.parent = gameObject.transform;
         }
+      }
     }
-    }
-    
+
   }
 }
