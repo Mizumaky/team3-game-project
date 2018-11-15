@@ -3,17 +3,21 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor (typeof(SceneLighting))]
+[CustomEditor (typeof (SceneLighting))]
 public class LightingEditor : Editor {
 
-	public override void OnInspectorGUI() {
-		SceneLighting lighting = (SceneLighting)target;
+	public override void OnInspectorGUI () {
+		SceneLighting lighting = (SceneLighting) target;
 
-		if(DrawDefaultInspector()) {
-			lighting.UpdateLighting();
+		if (DrawDefaultInspector ()) {
+			if (lighting.lightMovement == SceneLighting.LightMovement.Stale) {
+				lighting.UpdateSceneLight ();
+			} else {
+				lighting.UpdateShiftingLight ();
+			}
+			lighting.UpdateLightType ();
 		}
 	}
 }
 
 #endif
-
