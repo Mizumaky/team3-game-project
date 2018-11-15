@@ -265,7 +265,7 @@ GameObject:
   m_IsActive: 1
 --- !u!1 &1808254471704974
 GameObject:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
@@ -279,7 +279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &1868409868052842
 GameObject:
   m_ObjectHideFlags: 1
@@ -380,7 +380,7 @@ Transform:
   m_LocalScale: {x: 1.1283497, y: 1.1283497, z: 1.1283497}
   m_Children: []
   m_Father: {fileID: 224474379691484024}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4992276321067028
 Transform:
@@ -393,7 +393,7 @@ Transform:
   m_LocalScale: {x: 1.1283497, y: 1.1283497, z: 1.1283497}
   m_Children: []
   m_Father: {fileID: 224474379691484024}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114008737296183732
 MonoBehaviour:
@@ -1444,11 +1444,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 224786819634667006}
+  - {fileID: 4992276321067028}
   - {fileID: 224616316699050126}
   - {fileID: 4575867070855988}
-  - {fileID: 4992276321067028}
   m_Father: {fileID: 224712989306730382}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -1491,7 +1492,7 @@ RectTransform:
   - {fileID: 224951391237058096}
   - {fileID: 224710931039103754}
   m_Father: {fileID: 224474379691484024}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
@@ -1527,7 +1528,6 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 224786819634667006}
   - {fileID: 224474379691484024}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -1618,11 +1618,11 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1808254471704974}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 224712989306730382}
+  m_Father: {fileID: 224474379691484024}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -1694,7 +1694,7 @@ VideoPlayer:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1411404439053148}
   m_Enabled: 1
-  m_VideoClip: {fileID: 32900000, guid: 4423dc05b348fed4085d12b9015f39d5, type: 3}
+  m_VideoClip: {fileID: 32900000, guid: 1283ee5777f1c8a41a5fadab6aa90ce2, type: 3}
   m_TargetCameraAlpha: 1
   m_TargetCamera3DLayout: 0
   m_TargetCamera: {fileID: 0}
@@ -1707,12 +1707,14 @@ VideoPlayer:
   m_DataSource: 0
   m_PlaybackSpeed: 1
   m_AudioOutputMode: 2
-  m_TargetAudioSources: []
-  m_DirectAudioVolumes: []
+  m_TargetAudioSources:
+  - {fileID: 0}
+  m_DirectAudioVolumes:
+  - 1
   m_Url: file://C:/Users/sph3r/Documents/Adobe/Premiere Pro/12.0/birdpersp_serpentines.mp4
-  m_EnabledAudioTracks: 
-  m_DirectAudioMutes: 
-  m_ControlledAudioTrackCount: 0
+  m_EnabledAudioTracks: 01
+  m_DirectAudioMutes: 00
+  m_ControlledAudioTrackCount: 1
   m_PlayOnAwake: 1
   m_SkipOnDrop: 1
   m_Looping: 1

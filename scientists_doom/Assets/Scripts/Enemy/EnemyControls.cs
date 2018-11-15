@@ -21,9 +21,9 @@ public class EnemyControls : MonoBehaviour {
     Init ();
   }
 
-  void Start(){
+  void Start () {
     target = castle;
-    activeFollowCoroutine = StartCoroutine (AttackCastle());
+    activeFollowCoroutine = StartCoroutine (AttackCastle ());
 
     speed = 0;
   }
@@ -49,12 +49,12 @@ public class EnemyControls : MonoBehaviour {
   public void Aggro (Transform targetTransform) {
     Debug.Log ("Aggroing to " + targetTransform.name);
     target = targetTransform;
+
     if(activeFollowCoroutine != null){
       StopCoroutine(activeFollowCoroutine);
     }
-    Debug.Log ("Starting AttackPlayer coroutine");
+    //Debug.Log ("Starting AttackPlayer coroutine");
     activeFollowCoroutine = StartCoroutine (AttackPlayer ());
-    
   }
 
   private IEnumerator AttackPlayer () {
@@ -75,11 +75,11 @@ public class EnemyControls : MonoBehaviour {
 
       // Reset to castle
       target = castle;
-      activeFollowCoroutine = StartCoroutine(AttackCastle());
+      activeFollowCoroutine = StartCoroutine (AttackCastle ());
     }
   }
 
-  private IEnumerator AttackCastle(){
+  private IEnumerator AttackCastle () {
     if (enemyStats.isAlive ()) {
       float distance = Vector3.Distance (target.position, transform.position);
       while (target != null && target.gameObject.activeSelf) {
@@ -134,7 +134,7 @@ public class EnemyControls : MonoBehaviour {
 
   public void DisableCollision () {
     GetComponent<CapsuleCollider> ().enabled = false;
-    GetComponent<Rigidbody>().isKinematic = true;
+    GetComponent<Rigidbody> ().isKinematic = true;
   }
 
 }

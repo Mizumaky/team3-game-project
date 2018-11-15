@@ -37842,7 +37842,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 1719296003474282, guid: 63f1e9c360900924db488023340630c9,
     type: 2}
-  enemyCount: 100
+  enemyCount: 5
   radius: 25
   timeBetweenWaves: 1
   curve:

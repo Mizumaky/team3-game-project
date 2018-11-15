@@ -930,7 +930,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1893720229191396
 GameObject:
   m_ObjectHideFlags: 1
@@ -3808,7 +3808,7 @@ RectTransform:
   m_Children:
   - {fileID: 224697934293144968}
   m_Father: {fileID: 224926690056238906}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -4605,7 +4605,7 @@ RectTransform:
   m_Children:
   - {fileID: 224905643492567792}
   m_Father: {fileID: 224926690056238906}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -4835,8 +4835,8 @@ RectTransform:
   m_Children:
   - {fileID: 224484027536779416}
   - {fileID: 224575435982146980}
-  - {fileID: 224699543436976584}
   - {fileID: 224075951035651370}
+  - {fileID: 224699543436976584}
   - {fileID: 224848224006287842}
   - {fileID: 4107232465021448}
   m_Father: {fileID: 0}
