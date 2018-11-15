@@ -50,7 +50,12 @@ public class Stats : MonoBehaviour {
   }
 
   protected virtual void Die () {
-    alive = false;
-    Debug.Log (gameObject.name + " died!");
+    if(alive){
+      alive = false;
+      Debug.Log (gameObject.name + " died!");
+    }else{
+      return;
+    }
+    
   }
 }

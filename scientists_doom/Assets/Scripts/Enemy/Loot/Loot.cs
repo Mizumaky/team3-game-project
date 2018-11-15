@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Loot : MonoBehaviour {
-  public float timeToDestroy = 0.1f;
+  public float timeToDestroy = 0.0f;
   public int resourcesCount;
   private float lootMultiplayer;
 
