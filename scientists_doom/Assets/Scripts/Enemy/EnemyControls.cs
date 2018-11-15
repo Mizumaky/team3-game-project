@@ -21,9 +21,11 @@ public class EnemyControls : MonoBehaviour {
 
   void Awake () {
     Init ();
+  }
 
+  void Start () {
     target = castle;
-    SetPathToTarget (target);
+    activeFollowCoroutine = StartCoroutine (AttackCastle ());
 
     speed = 0;
   }
@@ -48,13 +50,14 @@ public class EnemyControls : MonoBehaviour {
 
   public void Aggro (Transform targetTransform) {
     target = targetTransform;
-    if (activeFollowCoroutine == null) {
-      activeFollowCoroutine = StartCoroutine (CheckForTargetAndFollow ());
+    if (activeFollowCoroutine != null) {
+      StopCoroutine (activeFollowCoroutine);
     }
+    Debug.Log ("Starting AttackPlayer coroutine");
+    activeFollowCoroutine = StartCoroutine (AttackPlayer ());
   }
 
-  IEnumerator CheckForTargetAndFollow () {
-
+  private IEnumerator AttackPlayer () {
     if (enemyStats.isAlive ()) {
       float distance = Vector3.Distance (target.position, transform.position);
       while (target != null && target.gameObject.activeSelf && distance < distanceToFollowPlayer) {
@@ -71,7 +74,25 @@ public class EnemyControls : MonoBehaviour {
 
       // Reset to castle
       target = castle;
-      SetPathToTarget (target);
+      activeFollowCoroutine = StartCoroutine (AttackCastle ());
+    }
+  }
+
+  private IEnumerator AttackCastle () {
+    if (enemyStats.isAlive ()) {
+      float distance = Vector3.Distance (target.position, transform.position);
+      while (target != null && target.gameObject.activeSelf) {
+        distance = Vector3.Distance (target.position, transform.position);
+        // If target close enough, attack and face it
+        if (distance <= 4) {
+          transform.rotation = CountLookRotation ();
+          animator.SetTrigger ("attackTrigger");
+        } else {
+          SetPathToTarget (target);
+          //Debug.Log ("Setting path");
+        }
+        yield return new WaitForSeconds (0.1f);
+      }
     }
   }
 
@@ -112,6 +133,7 @@ public class EnemyControls : MonoBehaviour {
 
   public void DisableCollision () {
     GetComponent<CapsuleCollider> ().enabled = false;
+    GetComponent<Rigidbody> ().isKinematic = true;
   }
 
 }

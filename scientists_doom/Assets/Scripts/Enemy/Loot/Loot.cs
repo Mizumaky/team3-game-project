@@ -12,7 +12,7 @@ public class Loot : MonoBehaviour {
     lootMultiplayer = Random.Range(0.85f, 1.2f);
   }
 
-  private void OnTriggerEnter(Collider other) {
+  private void OnCollisionEnter(Collision other) {
     if (other.gameObject.layer == LayerMask.NameToLayer("Player")) {
       GiveLoot(other.gameObject.name);     
       DestroyLootObject();
