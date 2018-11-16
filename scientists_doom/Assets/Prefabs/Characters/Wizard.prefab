@@ -887,7 +887,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1106552325252950}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -3.3178945, y: -0.9509535, z: -5.5143485}
+  m_LocalPosition: {x: -4.850652, y: -1.2508621, z: -5.928404}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4028849457006998}
@@ -1463,8 +1463,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: 0.00007367134, y: 0.084332615, z: -0.022411823}
-    m_Extent: {x: 0.18461876, y: 0.2256909, z: 0.022412028}
+    m_Center: {x: 0.00007390976, y: 0.084332585, z: -0.022411823}
+    m_Extent: {x: 0.18461874, y: 0.22569093, z: 0.022412026}
   m_DirtyAABB: 0
 --- !u!183 &183274646200869140
 Cloth:
@@ -1477,7 +1477,7 @@ Cloth:
   m_BendingStiffness: 1
   m_UseTethers: 1
   m_UseGravity: 1
-  m_Damping: 0.2
+  m_Damping: 0.4
   m_ExternalAcceleration: {x: 0, y: 0, z: -2}
   m_RandomAcceleration: {x: 0, y: 0, z: 2}
   m_WorldVelocityScale: 0.5
@@ -1829,14 +1829,14 @@ Cloth:
   - maxDistance: 3.4028235e+38
     collisionSphereDistance: 3.4028235e+38
   m_CapsuleColliders:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 136077426614597040}
+  - {fileID: 136206114160918632}
+  - {fileID: 136760896511557876}
+  - {fileID: 136010457134310858}
+  - {fileID: 136971471438001912}
+  - {fileID: 136569961886359570}
+  - {fileID: 136759460513330922}
+  - {fileID: 136932427272086884}
   m_SphereColliders: []
   m_SelfCollisionDistance: 0
   m_SelfCollisionStiffness: 1
