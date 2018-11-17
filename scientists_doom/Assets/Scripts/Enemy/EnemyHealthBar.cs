@@ -29,7 +29,6 @@ public class EnemyHealthBar : MonoBehaviour {
         } else {
             time = timeToHideHealthBar;
         }
-
     }
 
     IEnumerator RotateCanvas () {

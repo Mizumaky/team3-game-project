@@ -181,6 +181,11 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 2126587212}
   m_Script: {fileID: 11500000, guid: f2e4c78b29a344e41ab10e009020ff8b, type: 3}
+--- !u!223 &432029255 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 223260242681948638, guid: 5e6478ab63b24ca45af803c52c78f554,
+    type: 2}
+  m_PrefabInternal: {fileID: 1645630292}
 --- !u!1 &754034532 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1731022128256686, guid: 3ca3e0b70f22ea440b2162b7a529983e,
@@ -379,11 +384,37 @@ Prefab:
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 2}
   m_IsPrefabAsset: 0
+--- !u!114 &1120044470 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114893367743256730, guid: 5e6478ab63b24ca45af803c52c78f554,
+    type: 2}
+  m_PrefabInternal: {fileID: 1645630292}
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
 --- !u!20 &1147556751 stripped
 Camera:
   m_CorrespondingSourceObject: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
     type: 2}
   m_PrefabInternal: {fileID: 1069893223}
+--- !u!1 &1250190558 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1521594718683322, guid: 5e6478ab63b24ca45af803c52c78f554,
+    type: 2}
+  m_PrefabInternal: {fileID: 1645630292}
+--- !u!114 &1250190560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1250190558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c54db6046b85394d87556b1b44e8f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consoleCanvas: {fileID: 432029255}
+  scrollRect: {fileID: 1829125077}
+  consoleText: {fileID: 2030077998}
+  inputText: {fileID: 1120044470}
 --- !u!114 &1260898372 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114989796907727594, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
@@ -667,12 +698,12 @@ Prefab:
     - target: {fileID: 224000486159068426, guid: 5e6478ab63b24ca45af803c52c78f554,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224000486159068426, guid: 5e6478ab63b24ca45af803c52c78f554,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 0.24163929
       objectReference: {fileID: 0}
     - target: {fileID: 114937447913371796, guid: 5e6478ab63b24ca45af803c52c78f554,
         type: 2}
@@ -697,16 +728,28 @@ Prefab:
     - target: {fileID: 224088928434242752, guid: 5e6478ab63b24ca45af803c52c78f554,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224088928434242752, guid: 5e6478ab63b24ca45af803c52c78f554,
         type: 2}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224088928434242752, guid: 5e6478ab63b24ca45af803c52c78f554,
         type: 2}
       propertyPath: m_SizeDelta.x
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1469604156188770, guid: 5e6478ab63b24ca45af803c52c78f554, type: 2}
+      propertyPath: m_Name
+      value: ScrollView
+      objectReference: {fileID: 0}
+    - target: {fileID: 1521594718683322, guid: 5e6478ab63b24ca45af803c52c78f554, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212259074259864, guid: 5e6478ab63b24ca45af803c52c78f554, type: 2}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -718,6 +761,18 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1069893223}
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
+--- !u!114 &1829125077 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114262550361303140, guid: 5e6478ab63b24ca45af803c52c78f554,
+    type: 2}
+  m_PrefabInternal: {fileID: 1645630292}
+  m_Script: {fileID: 1367256648, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+--- !u!114 &2030077998 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114347016789766380, guid: 5e6478ab63b24ca45af803c52c78f554,
+    type: 2}
+  m_PrefabInternal: {fileID: 1645630292}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
 --- !u!1001 &2126587212
 Prefab:
   m_ObjectHideFlags: 0
