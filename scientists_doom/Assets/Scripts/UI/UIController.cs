@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour {
 
 	public GameController gameController;
 	public CharacterManager characterManager;
-	public SpawnEnemy enemySpawner;
+	public EnemySpawner enemySpawner;
 
 	[Header ("Windows")]
 	public GameObject currentWindow;
@@ -89,7 +89,7 @@ public class UIController : MonoBehaviour {
 	}
 
 	public void SpawnNewEnemyWave () {
-		enemySpawner.SpawnWaveIfNotInProgress ();
+		enemySpawner.StartSpawnWaveIfInactive ();
 	}
 
 	/// <summary>

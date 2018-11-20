@@ -21,7 +21,7 @@ namespace Console
 
 		public override void RunCommand()
 		{
-			GameObject.FindObjectOfType<SpawnEnemy>().SpawnWaveIfNotInProgress();
+			GameObject.FindObjectOfType<EnemySpawner>().StartSpawnWaveIfInactive();
 			DeveloperConsole.AddStaticMessageToConsole("Spawning Enemy Wave");
 		}
 

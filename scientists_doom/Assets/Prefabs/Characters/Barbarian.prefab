@@ -988,7 +988,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.517
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1219,7 +1219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   footStep: {fileID: 8300000, guid: 93c933717a2277742af5c2ca3409655a, type: 3}
-  footStepVolume: 0.3
+  footStepVolume: 1
   audioSource: {fileID: 82779544059597260}
 --- !u!114 &114988507285818218
 MonoBehaviour:

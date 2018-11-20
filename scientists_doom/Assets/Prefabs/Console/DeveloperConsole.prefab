@@ -123,6 +123,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4425983352082782}
+  - component: {fileID: 114265699672747830}
   m_Layer: 0
   m_Name: DeveloperConsole
   m_TagString: Untagged
@@ -429,6 +430,21 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.ScrollRect+ScrollRectEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114265699672747830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1521594718683322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c54db6046b85394d87556b1b44e8f5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  consoleCanvas: {fileID: 223260242681948638}
+  scrollRect: {fileID: 114262550361303140}
+  consoleText: {fileID: 114347016789766380}
+  inputText: {fileID: 114893367743256730}
 --- !u!114 &114347016789766380
 MonoBehaviour:
   m_ObjectHideFlags: 1

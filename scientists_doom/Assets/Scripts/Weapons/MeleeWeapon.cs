@@ -50,12 +50,12 @@ public class MeleeWeapon : Weapon {
 
       // Any target
       int targetLayer = LayerMask.NameToLayer (isPlayerControlled ? "Enemy" : "Player");
-      if(isPlayerControlled){
-        if(otherLayer == LayerMask.NameToLayer("Enemy")){
+      if (isPlayerControlled) {
+        if (otherLayer == LayerMask.NameToLayer ("Enemy")) {
           other.GetComponent<Stats> ().TakeDamage (GetCurrentStatPlusWeaponDamage () + regularAttack.GetDamage ());
         }
-      }else{
-        if(otherLayer == LayerMask.NameToLayer("Player") || otherLayer == LayerMask.NameToLayer("Castle")){
+      } else {
+        if (otherLayer == LayerMask.NameToLayer ("Player") || otherLayer == LayerMask.NameToLayer ("Castle")) {
           other.GetComponent<Stats> ().TakeDamage (GetCurrentStatPlusWeaponDamage () + regularAttack.GetDamage ());
         }
       }
