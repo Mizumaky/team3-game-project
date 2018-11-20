@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent (typeof (AudioSource))]
 public class PlayerAudio : MonoBehaviour {
-    [Header("Audio Clips")]
+    [Header ("Audio Clips")]
     public AudioClip footStep;
-    [Range(0f, 1f)]
-    public float footStepVolume;
+    [Range (0f, 1f)]
+    public float footStepVolume = 0.35f;
     [Space]
     public AudioSource audioSource;
 
-    void Start () {
-        audioSource.volume = footStepVolume;
-	}
-
-    public void Step() {
+    private void Awake () {
+        audioSource = GetComponent<AudioSource> ();
         audioSource.clip = footStep;
-        audioSource.Play();
+    }
+    private void Start () {
+        audioSource.volume = footStepVolume;
+        audioSource.spatialBlend = 1;
+    }
+
+    public void Step () {
+        audioSource.pitch = Random.Range (0.9f, 1.1f);
+        audioSource.Play ();
     }
 }

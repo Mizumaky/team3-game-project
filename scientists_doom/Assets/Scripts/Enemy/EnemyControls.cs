@@ -14,6 +14,7 @@ public class EnemyControls : MonoBehaviour {
   private float speed;
   private Vector3 lastPosition;
   private EnemyStats enemyStats;
+  public float targetPositionUpdatePeriod;
 
   Coroutine activeFollowCoroutine;
 
@@ -50,14 +51,15 @@ public class EnemyControls : MonoBehaviour {
     Debug.Log ("Aggroing to " + targetTransform.name);
     target = targetTransform;
 
-    if(activeFollowCoroutine != null){
-      StopCoroutine(activeFollowCoroutine);
+    if (activeFollowCoroutine != null) {
+      StopCoroutine (activeFollowCoroutine);
     }
     //Debug.Log ("Starting AttackPlayer coroutine");
     activeFollowCoroutine = StartCoroutine (AttackPlayer ());
   }
 
   private IEnumerator AttackPlayer () {
+    WaitForSeconds updatePeriod = new WaitForSeconds (0.1f);
     if (enemyStats.isAlive ()) {
       float distance = Vector3.Distance (target.position, transform.position);
       while (target != null && target.gameObject.activeSelf && distance < distanceToFollowPlayer) {
@@ -70,7 +72,7 @@ public class EnemyControls : MonoBehaviour {
           SetPathToTarget (target);
           //Debug.Log ("Setting path");
         }
-        yield return new WaitForSeconds (0.1f);
+        yield return updatePeriod;
       }
 
       // Reset to castle
@@ -80,6 +82,7 @@ public class EnemyControls : MonoBehaviour {
   }
 
   private IEnumerator AttackCastle () {
+    WaitForSeconds updatePeriod = new WaitForSeconds (0.1f);
     if (enemyStats.isAlive ()) {
       float distance = Vector3.Distance (target.position, transform.position);
       while (target != null && target.gameObject.activeSelf) {
@@ -92,7 +95,7 @@ public class EnemyControls : MonoBehaviour {
           SetPathToTarget (target);
           //Debug.Log ("Setting path");
         }
-        yield return new WaitForSeconds (0.1f);
+        yield return updatePeriod;
       }
     }
   }

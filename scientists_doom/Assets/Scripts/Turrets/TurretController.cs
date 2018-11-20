@@ -46,9 +46,10 @@ public class TurretController : MonoBehaviour {
   }
 
   IEnumerator RepeatSearchTarget (float searchInterval) {
+    WaitForSeconds interval = new WaitForSeconds (searchInterval);
     while (searchingActive) {
       SearchTarget ();
-      yield return new WaitForSeconds (searchInterval);
+      yield return interval;
     }
     //if searching not active then coroutine ends and need to be started again
   }
