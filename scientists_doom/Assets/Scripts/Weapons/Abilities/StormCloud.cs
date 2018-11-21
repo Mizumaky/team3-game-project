@@ -20,10 +20,10 @@ public class StormCloud : MonoBehaviour {
   }
 
   private IEnumerator HitPeriodicly (int index) {
-    float hitPeriod = rayOrigins[index].GetComponent<ParticleSystem> ().main.duration;
+    WaitForSeconds hitPeriod = new WaitForSeconds (rayOrigins[index].GetComponent<ParticleSystem> ().main.duration);
     while (true) {
       Hit (index);
-      yield return new WaitForSeconds (hitPeriod);
+      yield return hitPeriod;
     }
   }
 

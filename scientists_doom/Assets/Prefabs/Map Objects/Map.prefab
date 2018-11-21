@@ -37835,36 +37835,40 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1590163329520516}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2e4c78b29a344e41ab10e009020ff8b, type: 3}
+  m_Script: {fileID: 11500000, guid: cb08a4d892db94f489ffe4169f9d6ae1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnOriginTransform: {fileID: 4457991134838014}
   enemyPrefab: {fileID: 1719296003474282, guid: 63f1e9c360900924db488023340630c9,
     type: 2}
-  enemyCount: 5
-  radius: 25
-  timeBetweenWaves: 1
-  curve:
+  spawnOnStart: 0
+  spawnCircleRadius: 25
+  totalEnemyCount: 50
+  numberOfWaves: 5
+  initialGroupDelay: 2
+  individualEnemySpawnDelay: 0.2
+  groupDelayDumpCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 1
-      outSlope: 1
+      value: 1
+      inSlope: -1
+      outSlope: -1
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
-      value: 1
-      inSlope: 1
-      outSlope: 1
+      value: 0
+      inSlope: -1
+      outSlope: -1
       tangentMode: 34
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.33333334
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2

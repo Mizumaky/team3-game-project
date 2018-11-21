@@ -35,8 +35,9 @@ public class Flammable : MonoBehaviour {
 
   private IEnumerator StageChangeTimer (float time) {
     int index = 0;
+    WaitForSeconds period = new WaitForSeconds (time);
     while (index < objectBurnStagePrefabs.Length) {
-      yield return new WaitForSeconds (time);
+      yield return period;
       SwapModels (index++);
     }
   }
