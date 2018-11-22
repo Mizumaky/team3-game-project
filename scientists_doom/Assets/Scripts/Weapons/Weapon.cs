@@ -37,7 +37,6 @@ public class Weapon : MonoBehaviour {
 
   private void Update () {
     if (isPlayerControlled) {
-
       // If state controller is present, prevent attacking while in a turret
       if (playerStateController != null) {
         if (playerStateController.currentState == PlayerStateController.PlayerState.movingState) {
@@ -79,7 +78,6 @@ public class Weapon : MonoBehaviour {
       // Regular
       if (Input.GetKeyUp (KeyCode.Space) && currentAbility == regularAttack) {
         ReleaseAbility (regularAttack);
-
       }
       // Ability 1
       if (Input.GetKeyUp (KeyCode.Q) && currentAbility == ability1) {
@@ -116,8 +114,12 @@ public class Weapon : MonoBehaviour {
   }
 
   protected virtual void ReleaseAbility (CharacterAbility ability) {
-    float statPlusWeaponDamage = GetCurrentStatPlusWeaponDamage () + ability.GetDamage ();
+    if (chargeUpdateRoutine != null) {
+      StopCoroutine (chargeUpdateRoutine);
+      chargeUpdateRoutine = null;
+    }
 
+    float statPlusWeaponDamage = GetCurrentStatPlusWeaponDamage () + ability.GetDamage ();
     if (ability.hasInstance ()) {
       CharacterAbilityInstance instance = currentAbilityObject.GetComponent<CharacterAbilityInstance> ();
       if (chargeTime < ability.GetChargeStartDelay ()) {
@@ -135,11 +137,6 @@ public class Weapon : MonoBehaviour {
   }
 
   protected void ResetCurrentlyCharged () {
-    if (chargeUpdateRoutine != null) {
-      StopCoroutine (chargeUpdateRoutine);
-      chargeUpdateRoutine = null;
-    }
-
     currentAbilityObject = null;
     chargeFactor = 0;
     chargeTime = 0;

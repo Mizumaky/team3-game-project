@@ -18,8 +18,8 @@ public class HUDScript : MonoBehaviour {
   // TODO: This can be made much faster (e.g. listener on character stats)
   private void LateUpdate () {
     if (castleStats) {
-      float maxCastleHealth = castleStats.GetTotalMaxHealth();
-      float castleHealth = castleStats.GetCurrentHealth();
+      float maxCastleHealth = castleStats.GetTotalMaxHealth ();
+      float castleHealth = castleStats.GetCurrentHealth ();
 
       castleHealthSlider.fillAmount = castleHealth / maxCastleHealth;
     }
@@ -31,9 +31,9 @@ public class HUDScript : MonoBehaviour {
       }
       lastActiveCharObject = CharacterManager.activeCharacterObject;
 
-      woodText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().wood.ToString();
-      stoneText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().stone.ToString();
-      soulsText.text = lastActiveCharObject.GetComponentInChildren<Inventory>().souls.ToString();
+      woodText.text = lastActiveCharObject.GetComponentInChildren<Inventory> ().wood.ToString ();
+      stoneText.text = lastActiveCharObject.GetComponentInChildren<Inventory> ().stone.ToString ();
+      soulsText.text = lastActiveCharObject.GetComponentInChildren<Inventory> ().souls.ToString ();
 
       float maxPlayerHealth = playerStatsReference.GetTotalMaxHealth ();
       float playerHealth = playerStatsReference.GetCurrentHealth ();
