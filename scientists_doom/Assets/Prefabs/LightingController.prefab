@@ -42,7 +42,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &1903209176144838
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,13 +124,13 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873816772811548}
-  m_LocalRotation: {x: 0.97864354, y: 0.027516315, z: 0.17579833, w: 0.10293052}
-  m_LocalPosition: {x: -0, y: -10.74, z: 2.86}
+  m_LocalRotation: {x: -0.45113578, y: 0.14107977, z: -0.041452795, w: -0.88025826}
+  m_LocalPosition: {x: -0, y: 30.4, z: 2.86}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children: []
   m_Father: {fileID: 4246670649860676}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: -179.9, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -306.3, y: -20.877014, z: -5.263977}
 --- !u!95 &95118197809757624
 Animator:
   serializedVersion: 3
@@ -155,10 +155,10 @@ Light:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1873816772811548}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.8196079, g: 0.5137255, b: 0.40000004, a: 1}
+  m_Color: {r: 0.2269491, g: 0.4168593, b: 0.6415094, a: 0}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 30
@@ -192,7 +192,7 @@ Light:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1735867416692666}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 0, g: 0, b: 0, a: 1}
@@ -229,10 +229,10 @@ Light:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1954175322216956}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.2588557, g: 0.4211734, b: 0.61730736, a: 1}
+  m_Color: {r: 0.279513, g: 0.4456828, b: 0.6464714, a: 1}
   m_Intensity: 5
   m_Range: 10
   m_SpotAngle: 30
@@ -276,8 +276,8 @@ MonoBehaviour:
   sunLight: {fileID: 108112154098788458}
   moonLight: {fileID: 108602721374677722}
   intensity: 5
-  timeOfday: 0
-  lightMovement: 0
+  timeOfday: 3
+  lightMovement: 1
   lightType: 0
   DLUpdateInterval: 0.2
   morningColor: {r: 0.8196079, g: 0.5137255, b: 0.40000004, a: 1}
@@ -286,7 +286,7 @@ MonoBehaviour:
   moonlightColor: {r: 0.2269491, g: 0.4168593, b: 0.6415094, a: 0}
   dayBackgroundColor: {r: 0.2509804, g: 0.6, b: 0.8196079, a: 0}
   nightBackgroundColor: {r: 0.07450981, g: 0.227451, b: 0.38823533, a: 0}
-  fogDensity: 0.016
+  fogDensity: 0.0164
   sunlightGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
@@ -374,5 +374,5 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 5
     m_NumAlphaKeys: 2
-  progress: 0.6264849
+  progress: 0
   progressSpeed: 0.1
