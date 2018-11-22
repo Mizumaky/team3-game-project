@@ -45,7 +45,7 @@ public class TurretController : MonoBehaviour {
     }
   }
 
-  IEnumerator RepeatSearchTarget (float searchInterval) {
+  private IEnumerator RepeatSearchTarget (float searchInterval) {
     WaitForSeconds interval = new WaitForSeconds (searchInterval);
     while (searchingActive) {
       SearchTarget ();
