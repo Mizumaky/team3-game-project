@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour {
 
-    public enum Character { Barbarian, Wizard, Ranger, noCharacter }
+    public enum Character { Barbarian, Wizard, Huntress, noCharacter }
 
     [Header ("Character Prefabs")]
     public GameObject wizard;
     public GameObject barbarian;
+    public GameObject huntress;
 
     [Header ("On Start")]
     public bool spawnOnStart = false;
@@ -41,6 +42,10 @@ public class CharacterManager : MonoBehaviour {
                 newCharacter = wizard;
                 activeCharacter = Character.Wizard;
                 break;
+            case Character.Huntress:
+                newCharacter = huntress;
+                activeCharacter = Character.Huntress;
+                break;
             default:
                 newCharacter = barbarian;
                 activeCharacter = Character.Barbarian;
@@ -67,6 +72,9 @@ public class CharacterManager : MonoBehaviour {
         switch (index) {
             case 1:
                 newCharacter = Character.Wizard;
+                break;
+            case 2:
+                newCharacter = Character.Huntress;
                 break;
             default:
                 newCharacter = Character.Barbarian;
