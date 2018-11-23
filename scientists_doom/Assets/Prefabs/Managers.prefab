@@ -253,7 +253,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085075780871924}
-  m_LocalRotation: {x: 0.18429439, y: 0, z: 0, w: -0.9828711}
+  m_LocalRotation: {x: -0.7071067, y: 0, z: 0, w: -0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -266,7 +266,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750165216881738}
-  m_LocalRotation: {x: 0.9828711, y: 0, z: 0, w: 0.18429445}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: -0.7071068}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children: []
@@ -424,7 +424,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.036467504, g: 0.06664751, b: 0.10311502, a: 1}
+  m_Color: {r: 0.0000012964194, g: 0.11320843, b: 0.10972499, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -461,7 +461,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.27149147, g: 0.1681396, b: 0.17430988, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -576,8 +576,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   wizard: {fileID: 1106552325252950, guid: e9e4af9646be111458eaef36fa064098, type: 2}
   barbarian: {fileID: 1195421657766132, guid: 585ff51c34f98fa469b3816fceb9eb11, type: 2}
+  huntress: {fileID: 1465694572464804, guid: a780d622def24c54a8da85e3c4265430, type: 2}
   spawnOnStart: 1
-  characterOnStart: 1
+  characterOnStart: 2
   spawnPoint: {fileID: 4360926578144620}
   cameraParentReference: {fileID: 0}
 --- !u!114 &114219062614291806
@@ -595,8 +596,8 @@ MonoBehaviour:
   sceneLight: {fileID: 108592867416019056}
   sunLight: {fileID: 108327538163355366}
   moonLight: {fileID: 108032755899516152}
-  intensity: 4
-  timeOfday: 1
+  intensity: 3
+  timeOfday: 0
   lightMovement: 0
   lightType: 0
   DLUpdateInterval: 0.2
@@ -606,21 +607,21 @@ MonoBehaviour:
   moonlightColor: {r: 0.2269491, g: 0.4168593, b: 0.6415094, a: 0}
   dayBackgroundColor: {r: 0.2509804, g: 0.6, b: 0.8196079, a: 0}
   nightBackgroundColor: {r: 0.07450981, g: 0.227451, b: 0.38823533, a: 0}
-  fogDensity: 0.016
+  fogDensity: 0.02
   sunlightGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
     key1: {r: 0.8196079, g: 0.5137255, b: 0.40000004, a: 1}
-    key2: {r: 0.8862746, g: 0.81568635, b: 0.54901963, a: 0}
-    key3: {r: 0.8867924, g: 0.81614566, b: 0.5479708, a: 0}
+    key2: {r: 0.9622642, g: 0.8310947, b: 0.34042364, a: 0}
+    key3: {r: 1, g: 0.8686924, b: 0.3726415, a: 0}
     key4: {r: 0.6901961, g: 0.427451, b: 0.4431373, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 6554
-    ctime2: 9830
-    ctime3: 19661
+    ctime2: 10601
+    ctime3: 18697
     ctime4: 22937
     ctime5: 32768
     ctime6: 32768
@@ -639,9 +640,9 @@ MonoBehaviour:
   moonlightGradient:
     serializedVersion: 2
     key0: {r: 0, g: 0, b: 0, a: 1}
-    key1: {r: 0.17789023, g: 0.32510972, b: 0.503, a: 1}
-    key2: {r: 0.050329305, g: 0.19551568, b: 0.3679245, a: 1}
-    key3: {r: 0.17576827, g: 0.32123166, b: 0.497, a: 0}
+    key1: {r: 0.064969726, g: 0.18867922, b: 0.17469655, a: 1}
+    key2: {r: 0, g: 0.11320752, b: 0.109724194, a: 1}
+    key3: {r: 0.050980397, g: 0.14901961, b: 0.14117648, a: 0}
     key4: {r: 0, g: 0, b: 0, a: 0}
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
@@ -668,20 +669,20 @@ MonoBehaviour:
   backgroundGradient:
     serializedVersion: 2
     key0: {r: 0.76470596, g: 0.7607844, b: 0.5372549, a: 1}
-    key1: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 0.41709682, g: 0.7754181, b: 0.9716981, a: 1}
     key2: {r: 0.764151, g: 0.76111776, b: 0.53706837, a: 0}
-    key3: {r: 0.17216271, g: 0.06768423, b: 0.3679245, a: 0}
-    key4: {r: 0.76470596, g: 0.7607844, b: 0.5372549, a: 0}
-    key5: {r: 1, g: 1, b: 1, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0.28862587, g: 0.4339623, b: 0.42078426, a: 0}
+    key4: {r: 0.20363119, g: 0.3018868, b: 0.29574582, a: 0}
+    key5: {r: 0.23137257, g: 0.34901962, b: 0.3372549, a: 0}
+    key6: {r: 0.76470596, g: 0.7607844, b: 0.5372549, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
     ctime1: 16577
-    ctime2: 32768
-    ctime3: 49151
-    ctime4: 65535
-    ctime5: 65535
-    ctime6: 0
+    ctime2: 28334
+    ctime3: 41249
+    ctime4: 49151
+    ctime5: 56861
+    ctime6: 65535
     ctime7: 0
     atime0: 0
     atime1: 65535
@@ -692,9 +693,9 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 5
+    m_NumColorKeys: 7
     m_NumAlphaKeys: 2
-  progress: 0.745
+  progress: 0.75
   progressSpeed: 0
 --- !u!114 &114626511057023918
 MonoBehaviour:
@@ -711,8 +712,7 @@ MonoBehaviour:
     type: 2}
   wizardTurretPrefab: {fileID: 1385296277460146, guid: 0ac70764598e32d48b56533ba47e1ca8,
     type: 2}
-  rangerTurretPrefab: {fileID: 1385296277460146, guid: 0ac70764598e32d48b56533ba47e1ca8,
-    type: 2}
+  huntressTurrentPrefab: {fileID: 0}
   SpawnPoint1: {fileID: 4607866385925282}
   SpawnPoint2: {fileID: 4632578450867046}
   SpawnPoint3: {fileID: 4255647552292092}
