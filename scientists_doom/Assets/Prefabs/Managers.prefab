@@ -253,7 +253,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085075780871924}
-  m_LocalRotation: {x: 0.99999607, y: 0, z: 0, w: -0.0027996702}
+  m_LocalRotation: {x: 0.3896175, y: 0, z: 0, w: -0.92097676}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -266,7 +266,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750165216881738}
-  m_LocalRotation: {x: 0.0027996583, y: 0, z: 0, w: 0.99999607}
+  m_LocalRotation: {x: 0.9209768, y: 0, z: 0, w: 0.38961744}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children: []
@@ -461,7 +461,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.2083441, g: 0.20409277, b: 0.20120674, a: 1}
+  m_Color: {r: 0.9516782, g: 0.66808003, b: 0.44303542, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -613,7 +613,7 @@ MonoBehaviour:
     key0: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
     key1: {r: 0.8396226, g: 0.57305074, b: 0.3920879, a: 1}
     key2: {r: 1, g: 0.79876816, b: 0.5707547, a: 0}
-    key3: {r: 1, g: 0.9258988, b: 0.6462264, a: 0}
+    key3: {r: 1, g: 0.8286991, b: 0.4575472, a: 0}
     key4: {r: 0.9433962, g: 0.64055115, b: 0.4405482, a: 0}
     key5: {r: 0.6901961, g: 0.427451, b: 0.4431373, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
@@ -669,16 +669,16 @@ MonoBehaviour:
   backgroundGradient:
     serializedVersion: 2
     key0: {r: 0.36862746, g: 0.32941177, b: 0.3019608, a: 1}
-    key1: {r: 0.41104764, g: 0.667792, b: 0.8056177, a: 1}
-    key2: {r: 0.42741936, g: 0.79838717, b: 1, a: 0}
+    key1: {r: 0.29515558, g: 0.5648794, b: 0.7074106, a: 1}
+    key2: {r: 0.32858822, g: 0.65492296, b: 0.8235294, a: 0}
     key3: {r: 0.2627451, g: 0.19215687, b: 0.19349812, a: 0}
     key4: {r: 0.20213726, g: 0.21449673, b: 0.23921569, a: 0}
     key5: {r: 0.14161962, g: 0.20218237, b: 0.2627451, a: 0}
     key6: {r: 0.25744265, g: 0.27229512, b: 0.30200002, a: 0}
     key7: {r: 0.3679245, g: 0.33006132, b: 0.30024028, a: 0}
     ctime0: 0
-    ctime1: 7325
-    ctime2: 15227
+    ctime1: 6168
+    ctime2: 14842
     ctime3: 29491
     ctime4: 36237
     ctime5: 49151
@@ -695,7 +695,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  progress: 0.00089116016
+  progress: 0.37260726
   progressSpeed: 0.05
 --- !u!114 &114626511057023918
 MonoBehaviour:
