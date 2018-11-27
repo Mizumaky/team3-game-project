@@ -253,7 +253,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085075780871924}
-  m_LocalRotation: {x: 0.84264046, y: 0, z: 0, w: -0.53847665}
+  m_LocalRotation: {x: 0.99999607, y: 0, z: 0, w: -0.0027996702}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -266,7 +266,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750165216881738}
-  m_LocalRotation: {x: 0.5384767, y: 0, z: 0, w: 0.84264046}
+  m_LocalRotation: {x: 0.0027996583, y: 0, z: 0, w: 0.99999607}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children: []
@@ -461,7 +461,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.96814096, g: 0.83695, b: 0.3454411, a: 1}
+  m_Color: {r: 0.2083441, g: 0.20409277, b: 0.20120674, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -498,7 +498,7 @@ Light:
   m_Enabled: 0
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.8773585, g: 0.6956976, b: 0.16140087, a: 0}
+  m_Color: {r: 0.2269491, g: 0.4168593, b: 0.6415094, a: 0}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -597,9 +597,9 @@ MonoBehaviour:
   sunLight: {fileID: 108327538163355366}
   moonLight: {fileID: 108032755899516152}
   intensity: 3
-  timeOfday: 0
+  timeOfday: 3
   lightMovement: 0
-  lightType: 0
+  lightType: 1
   DLUpdateInterval: 0.2
   morningColor: {r: 0.8196079, g: 0.5137255, b: 0.40000004, a: 1}
   daylightColor: {r: 0.8773585, g: 0.6956976, b: 0.16140087, a: 0}
@@ -611,21 +611,21 @@ MonoBehaviour:
   sunlightGradient:
     serializedVersion: 2
     key0: {r: 0.1981132, g: 0.1981132, b: 0.1981132, a: 1}
-    key1: {r: 0.8196079, g: 0.5137255, b: 0.40000004, a: 1}
-    key2: {r: 0.9622642, g: 0.8310947, b: 0.34042364, a: 0}
-    key3: {r: 1, g: 0.8686924, b: 0.3726415, a: 0}
-    key4: {r: 0.6901961, g: 0.427451, b: 0.4431373, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
+    key1: {r: 0.8396226, g: 0.57305074, b: 0.3920879, a: 1}
+    key2: {r: 1, g: 0.79876816, b: 0.5707547, a: 0}
+    key3: {r: 1, g: 0.9258988, b: 0.6462264, a: 0}
+    key4: {r: 0.9433962, g: 0.64055115, b: 0.4405482, a: 0}
+    key5: {r: 0.6901961, g: 0.427451, b: 0.4431373, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
     ctime0: 0
-    ctime1: 5590
-    ctime2: 10601
-    ctime3: 18697
-    ctime4: 24865
-    ctime5: 32768
+    ctime1: 3662
+    ctime2: 6939
+    ctime3: 16191
+    ctime4: 25829
+    ctime5: 29298
     ctime6: 32768
-    ctime7: 0
+    ctime7: 32768
     atime0: 0
     atime1: 65535
     atime2: 65535
@@ -635,7 +635,7 @@ MonoBehaviour:
     atime6: 0
     atime7: 0
     m_Mode: 0
-    m_NumColorKeys: 6
+    m_NumColorKeys: 7
     m_NumAlphaKeys: 2
   moonlightGradient:
     serializedVersion: 2
@@ -647,10 +647,10 @@ MonoBehaviour:
     key5: {r: 0, g: 0, b: 0, a: 0}
     key6: {r: 0, g: 0, b: 0, a: 0}
     key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 26214
-    ctime1: 39321
+    ctime0: 32768
+    ctime1: 36237
     ctime2: 49151
-    ctime3: 58982
+    ctime3: 62837
     ctime4: 65535
     ctime5: 65535
     ctime6: 0
@@ -668,21 +668,21 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   backgroundGradient:
     serializedVersion: 2
-    key0: {r: 0.5471698, g: 0.4771646, b: 0.38456747, a: 1}
-    key1: {r: 0.41709682, g: 0.7754181, b: 0.9716981, a: 1}
-    key2: {r: 0.5943396, g: 0.5928412, b: 0.50743145, a: 0}
-    key3: {r: 0.4339623, g: 0.3254717, b: 0.32980844, a: 0}
-    key4: {r: 0.19215687, g: 0.22745098, b: 0.2627451, a: 0}
-    key5: {r: 0.19063722, g: 0.22886434, b: 0.26415092, a: 0}
-    key6: {r: 0.41509432, g: 0.36008948, b: 0.33090067, a: 0}
-    key7: {r: 0.54901963, g: 0.47843137, b: 0.38431373, a: 0}
+    key0: {r: 0.36862746, g: 0.32941177, b: 0.3019608, a: 1}
+    key1: {r: 0.41104764, g: 0.667792, b: 0.8056177, a: 1}
+    key2: {r: 0.42741936, g: 0.79838717, b: 1, a: 0}
+    key3: {r: 0.2627451, g: 0.19215687, b: 0.19349812, a: 0}
+    key4: {r: 0.20213726, g: 0.21449673, b: 0.23921569, a: 0}
+    key5: {r: 0.14161962, g: 0.20218237, b: 0.2627451, a: 0}
+    key6: {r: 0.25744265, g: 0.27229512, b: 0.30200002, a: 0}
+    key7: {r: 0.3679245, g: 0.33006132, b: 0.30024028, a: 0}
     ctime0: 0
-    ctime1: 16577
-    ctime2: 28334
-    ctime3: 39707
-    ctime4: 47417
-    ctime5: 50693
-    ctime6: 56861
+    ctime1: 7325
+    ctime2: 15227
+    ctime3: 29491
+    ctime4: 36237
+    ctime5: 49151
+    ctime6: 62258
     ctime7: 65535
     atime0: 0
     atime1: 65535
@@ -695,8 +695,8 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  progress: 0.181
-  progressSpeed: 0
+  progress: 0.00089116016
+  progressSpeed: 0.05
 --- !u!114 &114626511057023918
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26af0306adac7ef40af8331cde1ef820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultPreset: 2
+  defaultPreset: 1
   behaviour: {fileID: 0}
   low: {fileID: 11400000, guid: 1375c1b3d9f4b844f96b3bb97eb68872, type: 2}
   medium: {fileID: 11400000, guid: 4607e8c3cedcbbc4db6e21e7c6b42933, type: 2}

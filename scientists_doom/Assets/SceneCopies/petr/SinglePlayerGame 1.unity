@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.07450981, g: 0.227451, b: 0.38823533, a: 0}
+  m_FogColor: {r: 0.3689657, g: 0.3321097, b: 0.30597645, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.016
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.3
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 1067631137}
-  m_IndirectSpecularColor: {r: 0.053044423, g: 0.066398725, b: 0.09108655, a: 0.3}
+  m_IndirectSpecularColor: {r: 0.053044487, g: 0.066398695, b: 0.0910863, a: 0.3}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -152,77 +152,21 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 114991823168143582, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: behaviour
-      value: 
-      objectReference: {fileID: 1669196918}
     - target: {fileID: 114219062614291806, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 2}
       propertyPath: mycamera
       value: 
       objectReference: {fileID: 1147556751}
+    - target: {fileID: 114991823168143582, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 2}
+      propertyPath: behaviour
+      value: 
+      objectReference: {fileID: 1669196918}
     - target: {fileID: 114106715919276896, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 2}
       propertyPath: cameraParentReference
       value: 
       objectReference: {fileID: 754034532}
-    - target: {fileID: 114219062614291806, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: lightMovement
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108032755899516152, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 108592867416019056, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114219062614291806, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: timeOfday
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 108592867416019056, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: m_Color.r
-      value: 0.2269491
-      objectReference: {fileID: 0}
-    - target: {fileID: 108592867416019056, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: m_Color.g
-      value: 0.4168593
-      objectReference: {fileID: 0}
-    - target: {fileID: 108592867416019056, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: m_Color.b
-      value: 0.6415094
-      objectReference: {fileID: 0}
-    - target: {fileID: 108592867416019056, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: m_Color.a
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114106715919276896, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: characterOnStart
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114106715919276896, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 2}
-      propertyPath: huntress
-      value: 
-      objectReference: {fileID: 1465694572464804, guid: a780d622def24c54a8da85e3c4265430,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 2}
   m_IsPrefabAsset: 0
@@ -269,7 +213,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4175797458501482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
@@ -327,77 +271,30 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4256388101895934, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 2}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 2}
       propertyPath: m_BackGroundColor.r
-      value: 0.07450981
+      value: 0.3689657
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 2}
       propertyPath: m_BackGroundColor.g
-      value: 0.227451
+      value: 0.3321097
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 2}
       propertyPath: m_BackGroundColor.b
-      value: 0.38823533
+      value: 0.30597645
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 2}
       propertyPath: m_BackGroundColor.a
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 2}
-  m_IsPrefabAsset: 0
---- !u!1001 &1143807412
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4808762702919344, guid: a780d622def24c54a8da85e3c4265430, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 51.297863
-      objectReference: {fileID: 0}
-    - target: {fileID: 4808762702919344, guid: a780d622def24c54a8da85e3c4265430, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -5.925554
-      objectReference: {fileID: 0}
-    - target: {fileID: 4808762702919344, guid: a780d622def24c54a8da85e3c4265430, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 21.989746
-      objectReference: {fileID: 0}
-    - target: {fileID: 4808762702919344, guid: a780d622def24c54a8da85e3c4265430, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4808762702919344, guid: a780d622def24c54a8da85e3c4265430, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4808762702919344, guid: a780d622def24c54a8da85e3c4265430, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4808762702919344, guid: a780d622def24c54a8da85e3c4265430, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4808762702919344, guid: a780d622def24c54a8da85e3c4265430, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 95994553263255192, guid: a780d622def24c54a8da85e3c4265430,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a780d622def24c54a8da85e3c4265430, type: 2}
   m_IsPrefabAsset: 0
 --- !u!20 &1147556751 stripped
 Camera:

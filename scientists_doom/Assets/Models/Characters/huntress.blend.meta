@@ -24,6 +24,17 @@ ModelImporter:
     100036: Upper_Arm_R
     100038: Upper_Leg_L
     100040: Upper_Leg_R
+    100042: Arrow
+    100044: Arrow_001
+    100046: Arrow_002
+    100048: Arrow_003
+    100050: Boots
+    100052: Bow
+    100054: Gloves
+    100056: Quiver
+    100058: Skirt
+    100060: Strap
+    100062: Torso
     400000: Armature
     400002: Body
     400004: Foot_L
@@ -45,12 +56,71 @@ ModelImporter:
     400036: Upper_Arm_R
     400038: Upper_Leg_L
     400040: Upper_Leg_R
+    400042: Arrow
+    400044: Arrow_001
+    400046: Arrow_002
+    400048: Arrow_003
+    400050: Boots
+    400052: Bow
+    400054: Gloves
+    400056: Quiver
+    400058: Skirt
+    400060: Strap
+    400062: Torso
     2100000: Material_002
     2100002: Leather
     2100004: Material_006
+    2100006: Red_Feather
+    2100008: Wood
+    2100010: Steel
+    2100012: Fiber
+    2100014: Leather_Dark
+    2100016: Cloth_Green
+    2100018: Hair
+    2100020: Hair_Dark
+    2100022: Skin
+    2300000: Arrow
+    2300002: Arrow_001
+    2300004: Arrow_002
+    2300006: Arrow_003
+    2300008: Body
+    2300010: Boots
+    2300012: Bow
+    2300014: Gloves
+    2300016: Hair
+    2300018: Head
+    2300020: Quiver
+    2300022: Skirt
+    2300024: Strap
+    2300026: Torso
+    3300000: Arrow
+    3300002: Arrow_001
+    3300004: Arrow_002
+    3300006: Arrow_003
+    3300008: Body
+    3300010: Boots
+    3300012: Bow
+    3300014: Gloves
+    3300016: Hair
+    3300018: Head
+    3300020: Quiver
+    3300022: Skirt
+    3300024: Strap
+    3300026: Torso
     4300000: Body
     4300002: Hair
     4300004: Head
+    4300006: Arrow_003
+    4300008: Arrow_002
+    4300010: Arrow_001
+    4300012: Bow
+    4300014: Strap
+    4300016: Arrow
+    4300018: Quiver
+    4300020: Gloves
+    4300022: Torso
+    4300024: Boots
+    4300026: Skirt
     7400000: Default Take
     7400002: Attack
     7400004: Idle
@@ -74,26 +144,11 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
-    rigImportErrors: 
+    rigImportErrors: "Avatar creation failed:\n\tTransform 'Hip' for human bone 'Hips'
+      not found\n"
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Default Take' has import animation warnings
-      that might lower retargeting quality:\nNote: Activate translation DOF on avatar
-      to improve retargeting quality.\n\t'Upper_Leg_L' has scale animation that will
-      be discarded.\n\t'Lower_Leg_L' has scale animation that will be discarded.\n\t'Foot_L'
-      has scale animation that will be discarded.\n\nClip 'Attack' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'Upper_Leg_L' has scale animation
-      that will be discarded.\n\t'Lower_Leg_L' has scale animation that will be discarded.\n\t'Foot_L'
-      has scale animation that will be discarded.\n\nClip 'TestWalk' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'Upper_Leg_L' has scale animation
-      that will be discarded.\n\t'Lower_Leg_L' has scale animation that will be discarded.\n\t'Foot_L'
-      has scale animation that will be discarded.\n\nClip 'Walk' has import animation
-      warnings that might lower retargeting quality:\nNote: Activate translation DOF
-      on avatar to improve retargeting quality.\n\t'Upper_Leg_L' has scale animation
-      that will be discarded.\n\t'Lower_Leg_L' has scale animation that will be discarded.\n\t'Foot_L'
-      has scale animation that will be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
