@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(BarbarianRageAbility))]
+[RequireComponent(typeof(BarbarianRagePassiveAbility))]
 public class BarbarianImmortalityAbility : MonoBehaviour
 {
   #region Variables
@@ -16,13 +16,13 @@ public class BarbarianImmortalityAbility : MonoBehaviour
 
   private Coroutine activeImmortalityRoutine;
   private WaitForSeconds updatePeriod;
-  private BarbarianRageAbility barbarianRageAbility;
+  private BarbarianRagePassiveAbility barbarianRageAbility;
   #endregion
 
   private void Init()
   {
     updatePeriod = new WaitForSeconds(updatePeriodFloat);
-    barbarianRageAbility = GetComponent<BarbarianRageAbility>();
+    barbarianRageAbility = GetComponent<BarbarianRagePassiveAbility>();
   }
 
   private void Update()

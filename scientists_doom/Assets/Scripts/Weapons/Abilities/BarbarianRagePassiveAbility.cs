@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Stats))]
-public class BarbarianRageAbility : MonoBehaviour
+public class BarbarianRagePassiveAbility : MonoBehaviour
 {
   #region Variables
   [Header("Refs")]
