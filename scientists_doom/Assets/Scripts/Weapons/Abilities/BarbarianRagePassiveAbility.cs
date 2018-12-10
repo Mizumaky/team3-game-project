@@ -2,12 +2,14 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Stats))]
-public class BarbarianRagePassiveAbility : MonoBehaviour
+public class BarbarianRagePassiveAbility : Ability
 {
   #region Variables
+  public new BarbarianRageAbilityData[] abilityData;
+  public new BarbarianRageAbilityData currentRankAbilityData;
+
   [Header("Refs")]
   public ParticleSystem ps;
-  public BarbarianRageAbilityData data; // TODO: Set data via ability manager
 
   [Header("Parameters")]
   public int stacks = 0;
@@ -28,11 +30,14 @@ public class BarbarianRagePassiveAbility : MonoBehaviour
   {
     stats = GetComponent<Stats>();
 
-    stackDecayStartDelay = new WaitForSeconds(data.rank.stackDecayStartDelay);
-    stackDecayPeriod = new WaitForSeconds(data.rank.stackDecayPeriod);
+    stackDecayStartDelay = new WaitForSeconds(currentRankAbilityData.stackDecayStartDelay);
+    stackDecayPeriod = new WaitForSeconds(currentRankAbilityData.stackDecayPeriod);
   }
 
-  public void UpdateRank(int n) { }
+  public override void UpdateAbilityData()
+  {
+    currentRankAbilityData = abilityData[rank - 1];
+  }
 
   public void IncreaseStacks()
   {
