@@ -7,12 +7,10 @@ public class BarbarianRagePassiveAbility : MonoBehaviour
   #region Variables
   [Header("Refs")]
   public ParticleSystem ps;
+  public BarbarianRageAbilityData data; // TODO: Set data via ability manager
 
   [Header("Parameters")]
   public int stacks = 0;
-  public int perStackDamageIncrement = 10;
-  public float stackDecayStartDelayFloat = 5f;
-  public float stackDecayPeriodFloat = 1f;
   public bool canStack = true;
 
   private Coroutine activeStackDecayRoutine;
@@ -30,9 +28,11 @@ public class BarbarianRagePassiveAbility : MonoBehaviour
   {
     stats = GetComponent<Stats>();
 
-    stackDecayStartDelay = new WaitForSeconds(stackDecayStartDelayFloat);
-    stackDecayPeriod = new WaitForSeconds(stackDecayPeriodFloat);
+    stackDecayStartDelay = new WaitForSeconds(data.rank.stackDecayStartDelay);
+    stackDecayPeriod = new WaitForSeconds(data.rank.stackDecayPeriod);
   }
+
+  public void UpdateRank(int n) { }
 
   public void IncreaseStacks()
   {
