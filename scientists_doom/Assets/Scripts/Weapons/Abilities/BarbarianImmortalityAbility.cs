@@ -1,14 +1,13 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(BarbarianRageAbility))]
-public class BarbarianImmortalityAbility : MonoBehaviour
-{
+[RequireComponent (typeof (BarbarianRageAbility))]
+public class BarbarianImmortalityAbility : MonoBehaviour {
   #region Variables
-  [Header("Key")]
+  [Header ("Key")]
   public KeyCode keyCode = KeyCode.E;
 
-  [Header("Parameters")]
+  [Header ("Parameters")]
   public int stackRequirement = 100;
   public float duration = 5f;
   public float updatePeriodFloat = 1f;
@@ -19,44 +18,34 @@ public class BarbarianImmortalityAbility : MonoBehaviour
   private BarbarianRageAbility barbarianRageAbility;
   #endregion
 
-  private void Init()
-  {
-    updatePeriod = new WaitForSeconds(updatePeriodFloat);
-    barbarianRageAbility = GetComponent<BarbarianRageAbility>();
+  private void Init () {
+    updatePeriod = new WaitForSeconds (updatePeriodFloat);
+    barbarianRageAbility = GetComponent<BarbarianRageAbility> ();
   }
 
-  private void Update()
-  {
-    if (Input.GetKeyDown(keyCode))
-    {
-      if (isAvailable)
-      {
-        Cast();
-      }
-      else
-      {
+  private void Update () {
+    if (Input.GetKeyDown (keyCode)) {
+      if (isAvailable) {
+        Cast ();
+      } else {
         // TODO: Display a message that spell is not available (make a static class for messages like theese)
       }
     }
   }
 
-  private void UpdateAvailability()
-  {
-    if (barbarianRageAbility.stacks >= stackRequirement)
-    {
+  private void UpdateAvailability () {
+    if (barbarianRageAbility.stacks >= stackRequirement) {
       isAvailable = true;
     }
   }
 
-  private IEnumerator Immortality()
-  {
+  private IEnumerator Immortality () {
     float durLeft = duration;
 
     barbarianRageAbility.canStack = false;
     // TODO: Prevent taking damage (probably somewhere in stats)
 
-    while (durLeft > 0)
-    {
+    while (durLeft > 0) {
       durLeft -= updatePeriodFloat;
       // TODO: Update some sort of a duration indicator
       yield return updatePeriod;
@@ -66,10 +55,9 @@ public class BarbarianImmortalityAbility : MonoBehaviour
     // TODO: Revert
   }
 
-  public void Cast()
-  {
-    barbarianRageAbility.ResetStacks();
-    activeImmortalityRoutine = StartCoroutine(Immortality());
+  public void Cast () {
+    barbarianRageAbility.ResetStacks ();
+    activeImmortalityRoutine = StartCoroutine (Immortality ());
   }
 
   // TODO: Add a listener for barb rage update
