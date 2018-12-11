@@ -30,6 +30,10 @@ public class EnemySpawner : MonoBehaviour {
     }
   }
 
+  public void StartSpawning(int totalEnemies){
+    //TODO this function is for enemy spawning during the whole level
+  }
+
   public void StartSpawnWaveIfInactive () {
     if (activeSpawnRoutine == null) {
       activeSpawnRoutine = StartCoroutine (SpawnWave (totalEnemyCount));
