@@ -4,22 +4,20 @@ using UnityEngine;
 [RequireComponent(typeof(Stats))]
 public class BarbarianRagePassiveAbility : Ability
 {
-  #region Variables
-  public new BarbarianRageAbilityData[] abilityData;
-  public new BarbarianRageAbilityData currentRankAbilityData;
-
-  [Header("Refs")]
-  public ParticleSystem ps;
+  [Header("Parameters From Ability Data")]
+  public int perStackDamageIncrement;
+  public float stackDecayStartDelay;
+  public float stackDecayPeriod;
+  public ParticleSystem rageParticleSystem;
 
   [Header("Parameters")]
   public int stacks = 0;
   public bool canStack = true;
 
   private Coroutine activeStackDecayRoutine;
-  private WaitForSeconds stackDecayStartDelay;
-  private WaitForSeconds stackDecayPeriod;
+  private WaitForSeconds stackDecayStartDelayWFS;
+  private WaitForSeconds stackDecayPeriodWFS;
   private Stats stats;
-  #endregion
 
   private void Awake()
   {
@@ -29,14 +27,24 @@ public class BarbarianRagePassiveAbility : Ability
   private void Init()
   {
     stats = GetComponent<Stats>();
-
-    stackDecayStartDelay = new WaitForSeconds(currentRankAbilityData.stackDecayStartDelay);
-    stackDecayPeriod = new WaitForSeconds(currentRankAbilityData.stackDecayPeriod);
   }
 
   public override void UpdateAbilityData()
   {
-    currentRankAbilityData = abilityData[rank - 1];
+    if (abilityRankData[(int)rank] is BarbarianRageAbilityRankData)
+    {
+      BarbarianRageAbilityRankData data = ((BarbarianRageAbilityRankData)abilityRankData[(int)rank]);
+      perStackDamageIncrement = data.perStackDamageIncrement;
+      stackDecayStartDelay = data.stackDecayStartDelay;
+      stackDecayPeriod = data.stackDecayPeriod;
+
+      stackDecayStartDelayWFS = new WaitForSeconds(stackDecayStartDelay);
+      stackDecayStartDelayWFS = new WaitForSeconds(stackDecayPeriod);
+    }
+    else
+    {
+      Debug.LogWarning("BarbarianRagePassiveAbility: Invalid ability data!");
+    }
   }
 
   public void IncreaseStacks()
@@ -70,7 +78,7 @@ public class BarbarianRagePassiveAbility : Ability
 
   public void UpdatePS()
   {
-    if (ps != null)
+    if (rageParticleSystem != null)
     {
       // TODO: Update ps
     }

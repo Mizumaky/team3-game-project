@@ -1,26 +1,28 @@
 using UnityEngine;
 
+[RequireComponent(typeof(AbilityManager))]
 public class Ability : MonoBehaviour
 {
-  public AbilityData[] abilityData;
-  public AbilityData currentRankAbilityData;
-  [Range(1, 3)]
-  public int rank;
+  public enum Rank { Basic, Apprentice, Master }
 
-  public virtual void IncreaseRank()
+  public string abilityName;
+  public AbilityRankData[] abilityRankData;
+  protected Rank rank = Rank.Basic;
+
+  public virtual void SetRank(Rank newRank)
   {
-    if (rank < 3)
-    {
-      rank++;
-    }
-    else
-    {
-      Debug.LogWarning("Ability: Cannot upgrade " + currentRankAbilityData.name + " anymore!");
-    }
+    rank = newRank;
+    UpdateAbilityData();
+  }
+
+  public void IncreaseRank()
+  {
+    rank++;
+    UpdateAbilityData();
   }
 
   public virtual void UpdateAbilityData()
   {
-    currentRankAbilityData = abilityData[rank - 1];
+    abilityName = abilityRankData[(int)rank].abilityName;
   }
 }
