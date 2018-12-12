@@ -119,12 +119,13 @@ public class EnemyControls : MonoBehaviour {
     return Quaternion.Slerp (transform.rotation, lookRotation, 0.3f);
   }
 
+  // FIXME: Could be optimized maybe
   public void StunFor (float time) {
     DisableMovement ();
     StartCoroutine (StunCountdown (time));
   }
 
-  public IEnumerator StunCountdown (float time) {
+  private IEnumerator StunCountdown (float time) {
     yield return new WaitForSeconds (time);
     Aggro (target);
   }
