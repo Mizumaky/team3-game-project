@@ -7,12 +7,13 @@ public class BarbarianRagePassiveAbility : Ability
   [Header("Parameters From Ability Data")]
   public int perStackDamageIncrement;
   public float stackDecayStartDelay;
-  public float stackDecayPeriod;
+
   public ParticleSystem rageParticleSystem;
 
   [Header("Parameters")]
   public int stacks = 0;
   public bool canStack = true;
+  public float stackDecayPeriod = 1f;
 
   private Coroutine activeStackDecayRoutine;
   private WaitForSeconds stackDecayStartDelayWFS;
@@ -27,19 +28,18 @@ public class BarbarianRagePassiveAbility : Ability
   private void Init()
   {
     stats = GetComponent<Stats>();
+    stackDecayStartDelayWFS = new WaitForSeconds(stackDecayPeriod);
   }
 
   public override void UpdateAbilityData()
   {
-    if (abilityRankData[(int)rank] is BarbarianRageAbilityRankData)
+    if (abilityRankData[(int)rank] is BarbRageRankData)
     {
-      BarbarianRageAbilityRankData data = ((BarbarianRageAbilityRankData)abilityRankData[(int)rank]);
+      BarbRageRankData data = ((BarbRageRankData)abilityRankData[(int)rank]);
       perStackDamageIncrement = data.perStackDamageIncrement;
       stackDecayStartDelay = data.stackDecayStartDelay;
-      stackDecayPeriod = data.stackDecayPeriod;
 
       stackDecayStartDelayWFS = new WaitForSeconds(stackDecayStartDelay);
-      stackDecayStartDelayWFS = new WaitForSeconds(stackDecayPeriod);
     }
     else
     {

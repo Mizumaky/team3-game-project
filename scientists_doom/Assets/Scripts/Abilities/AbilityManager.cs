@@ -33,6 +33,7 @@ public class AbilityManager : MonoBehaviour
     {
       abilityRanks[(int)type]++;
       abilities[(int)type].IncreaseRank();
+      Debug.Log("Upgraded ability " + abilities[(int)type] + " to rank " + abilityRanks[(int)type]);
       return true;
     }
     else

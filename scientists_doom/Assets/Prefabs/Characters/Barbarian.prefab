@@ -94,9 +94,9 @@ GameObject:
   - component: {fileID: 114691283258660134}
   - component: {fileID: 82779544059597260}
   - component: {fileID: 114627230455323210}
-  - component: {fileID: 114473235784073966}
-  - component: {fileID: 114746241566137472}
   - component: {fileID: 114282198932504814}
+  - component: {fileID: 114229640784623656}
+  - component: {fileID: 114771612900400474}
   m_Layer: 14
   m_Name: Barbarian
   m_TagString: Barbarian
@@ -1195,6 +1195,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentState: 0
+--- !u!114 &114229640784623656
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1195421657766132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c01a2502c745cd144a95903b356b10a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityName: 
+  abilityRankData:
+  - {fileID: 11400000, guid: 462595506c75df04493c7aff5f4c4d6a, type: 2}
+  - {fileID: 11400000, guid: 9f3519b02017aa445a17aa0cdaeca218, type: 2}
+  - {fileID: 11400000, guid: b40d7474c5110dc418ce5ecd7bad6e91, type: 2}
+  keyCode: 101
+  stackRequirement: 0
+  duration: 0
+  isAvailable: 0
+  updatePeriodFloat: 1
 --- !u!114 &114282198932504814
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1207,33 +1228,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities:
-  - {fileID: 114473235784073966}
+  - {fileID: 114771612900400474}
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  abilityRanks: 00000000000000000000000000000000
---- !u!114 &114473235784073966
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1195421657766132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 807b161d84e9efc49803e942447620a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  abilityName: 
-  abilityRankData:
-  - {fileID: 11400000, guid: 77917e416fd351844a8c2962a2872403, type: 2}
-  - {fileID: 11400000, guid: d5065de85ab21544caa82303045fc58d, type: 2}
-  - {fileID: 11400000, guid: 7ba4343b3b1f2f84783b00ab8bed4b6f, type: 2}
-  perStackDamageIncrement: 0
-  stackDecayStartDelay: 0
-  stackDecayPeriod: 0
-  rageParticleSystem: {fileID: 0}
-  stacks: 0
-  canStack: 1
+  - {fileID: 114229640784623656}
+  abilityRanks: 01000000000000000000000002000000
 --- !u!114 &114551689713803172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1294,7 +1293,7 @@ MonoBehaviour:
   footStep: {fileID: 8300000, guid: 93c933717a2277742af5c2ca3409655a, type: 3}
   footStepVolume: 1
   audioSource: {fileID: 82779544059597260}
---- !u!114 &114746241566137472
+--- !u!114 &114771612900400474
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1302,14 +1301,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 1195421657766132}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: edf0bbfb3d512dd4f8d2c7cf6e3569eb, type: 3}
+  m_Script: {fileID: 11500000, guid: fe02dca3184c41e499985c30a18974ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 101
-  stackRequirement: 10
-  duration: 5
-  updatePeriodFloat: 1
-  isAvailable: 0
+  abilityName: 
+  abilityRankData:
+  - {fileID: 11400000, guid: 21e43c713e35b6f4083596b33750fca3, type: 2}
+  - {fileID: 11400000, guid: d5065de85ab21544caa82303045fc58d, type: 2}
+  - {fileID: 11400000, guid: 9576f2345d764f447aa4f8a81e505123, type: 2}
+  perStackDamageIncrement: 0
+  stackDecayStartDelay: 0
+  rageParticleSystem: {fileID: 0}
+  stacks: 0
+  canStack: 1
+  stackDecayPeriod: 0
 --- !u!114 &114988507285818218
 MonoBehaviour:
   m_ObjectHideFlags: 1

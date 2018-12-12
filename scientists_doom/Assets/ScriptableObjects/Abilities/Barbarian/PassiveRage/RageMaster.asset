@@ -8,14 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99a9c87c494694f4491dd96a74811d5a, type: 3}
-  m_Name: BarbRageMaster
+  m_Script: {fileID: 11500000, guid: da45fcae7e7d8cf4ea2373ea3f00f348, type: 3}
+  m_Name: RageMaster
   m_EditorClassIdentifier: 
   abilityName: Rage - Master
   icon: {fileID: 0}
   rank: 2
   perStackDamageIncrement: 20
-  stackDecayStartDelay: 5
-  stackDecayPeriod: 1
-  ragePSPrefab: {fileID: 1289259855473666, guid: 67c5d09378643b748987d980de9a096a,
-    type: 2}
+  stackDecayStartDelay: 7
+  ragePSPrefab: {fileID: 0}
