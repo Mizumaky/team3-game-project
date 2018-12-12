@@ -2,24 +2,23 @@ using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Stats))]
-public class BarbarianRageAbility : MonoBehaviour
+public class BarbarianRagePassiveAbility : Ability
 {
-  #region Variables
-  [Header("Refs")]
-  public ParticleSystem ps;
+  [Header("Parameters From Ability Data")]
+  public int perStackDamageIncrement;
+  public float stackDecayStartDelay;
+
+  public ParticleSystem rageParticleSystem;
 
   [Header("Parameters")]
   public int stacks = 0;
-  public int perStackDamageIncrement = 10;
-  public float stackDecayStartDelayFloat = 5f;
-  public float stackDecayPeriodFloat = 1f;
   public bool canStack = true;
+  public float stackDecayPeriod = 1f;
 
   private Coroutine activeStackDecayRoutine;
-  private WaitForSeconds stackDecayStartDelay;
-  private WaitForSeconds stackDecayPeriod;
+  private WaitForSeconds stackDecayStartDelayWFS;
+  private WaitForSeconds stackDecayPeriodWFS;
   private Stats stats;
-  #endregion
 
   private void Awake()
   {
@@ -29,9 +28,23 @@ public class BarbarianRageAbility : MonoBehaviour
   private void Init()
   {
     stats = GetComponent<Stats>();
+    stackDecayStartDelayWFS = new WaitForSeconds(stackDecayPeriod);
+  }
 
-    stackDecayStartDelay = new WaitForSeconds(stackDecayStartDelayFloat);
-    stackDecayPeriod = new WaitForSeconds(stackDecayPeriodFloat);
+  public override void UpdateAbilityData()
+  {
+    if (abilityRankData[(int)rank] is BarbRageRankData)
+    {
+      BarbRageRankData data = ((BarbRageRankData)abilityRankData[(int)rank]);
+      perStackDamageIncrement = data.perStackDamageIncrement;
+      stackDecayStartDelay = data.stackDecayStartDelay;
+
+      stackDecayStartDelayWFS = new WaitForSeconds(stackDecayStartDelay);
+    }
+    else
+    {
+      Debug.LogWarning("BarbarianRagePassiveAbility: Invalid ability data!");
+    }
   }
 
   public void IncreaseStacks()
@@ -65,7 +78,7 @@ public class BarbarianRageAbility : MonoBehaviour
 
   public void UpdatePS()
   {
-    if (ps != null)
+    if (rageParticleSystem != null)
     {
       // TODO: Update ps
     }

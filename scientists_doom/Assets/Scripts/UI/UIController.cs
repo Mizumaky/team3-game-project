@@ -7,99 +7,142 @@ using UnityEngine.UI;
 /// <summary>
 /// Manages UI windows
 /// </summary>
-public class UIController : MonoBehaviour {
+public class UIController : MonoBehaviour
+{
 
-	public GameController gameController;
-	public CharacterManager characterManager;
-	public EnemySpawner enemySpawner;
+  public GameController gameController;
+  public CharacterManager characterManager;
+  public EnemySpawner enemySpawner;
 
-	[Header ("Windows")]
-	public GameObject currentWindow;
-	[Space]
-	public GameObject settingsWindow;
-	public GameObject characterWindow;
+  [Header("Windows")]
+  public GameObject currentWindow;
+  [Space]
+  public GameObject settingsWindow;
+  public GameObject characterWindow;
+  public GameObject shopWindow;
 
-	[Header ("UI Elements")]
-	[Header ("Settings Window")]
-	public Dropdown settingsQualityDropdown;
+  [Header("UI Elements")]
+  [Header("Settings Window")]
+  public Dropdown settingsQualityDropdown;
 
-	private void Awake () {
-		if (characterWindow.activeSelf) {
-			currentWindow = characterWindow;
-		}
-	}
+  private void Awake()
+  {
+    if (characterWindow.activeSelf)
+    {
+      currentWindow = characterWindow;
+    }
+  }
 
-	private void Update () {
-		GetUIInput ();
-	}
+  private void Update()
+  {
+    GetUIInput();
+  }
 
-	private void GetUIInput () {
-		// ESC
-		if (Input.GetKeyDown (KeyCode.Escape)) { // close any window or open settings
-			if (currentWindow == null) {
-				ToggleWindow (settingsWindow);
-			} else {
-				ToggleWindow (currentWindow);
-			}
-		}
+  private void GetUIInput()
+  {
+    // ESC
+    if (Input.GetKeyDown(KeyCode.Escape))
+    { // close any window or open settings
+      if (currentWindow == null)
+      {
+        ToggleWindow(settingsWindow);
+      }
+      else
+      {
+        ToggleWindow(currentWindow);
+      }
+    }
 
-		// C
-		if (Input.GetKeyDown (KeyCode.C)) {
-			ToggleWindow (characterWindow);
-		}
-	}
+    // C
+    if (Input.GetKeyDown(KeyCode.C))
+    {
+      ToggleWindow(characterWindow);
+    }
 
-	/// <summary>
-	/// Toggles a UI window, only one can be enabled at a time
-	/// </summary>
-	/// <param name="window">Window to toggle</param>
-	public void ToggleWindow (GameObject window) {
-		if (currentWindow == null) { // no window active
-			GameController.currentFocusLayer = GameController.FocusLayer.UI;
-			currentWindow = window;
-			currentWindow.SetActive (true);
-		} else {
-			if (window == currentWindow) { // closing an active window
-				GameController.currentFocusLayer = GameController.FocusLayer.Game;
-				currentWindow.SetActive (false);
-				currentWindow = null;
-			} else { // closing one and opening another
-				currentWindow.SetActive (false);
-				currentWindow = window;
-				currentWindow.SetActive (true);
-			}
-		}
-	}
+    // S
+    if (Input.GetKeyDown(KeyCode.S))
+    {
+      ToggleWindow(shopWindow);
+    }
+  }
 
-	/// <summary>
-	/// Changes quality via GraphicsQualityController
-	/// </summary>
-	public void ChangeQualitySettings () {
-		gameController.GetComponent<GraphicsQualityController> ().SetQualityPresetIndex (settingsQualityDropdown.value);
-		gameController.GetComponent<GraphicsQualityController> ().UpdateQuality ();
-	}
+  /// <summary>
+  /// Toggles a UI window, only one can be enabled at a time
+  /// </summary>
+  /// <param name="window">Window to toggle</param>
+  public void ToggleWindow(GameObject window)
+  {
+    if (currentWindow == null)
+    { // no window active
+      GameController.currentFocusLayer = GameController.FocusLayer.UI;
+      currentWindow = window;
+      currentWindow.SetActive(true);
+    }
+    else
+    {
+      if (window == currentWindow)
+      { // closing an active window
+        GameController.currentFocusLayer = GameController.FocusLayer.Game;
+        currentWindow.SetActive(false);
+        currentWindow = null;
+      }
+      else
+      { // closing one and opening another
+        currentWindow.SetActive(false);
+        currentWindow = window;
+        currentWindow.SetActive(true);
+      }
+    }
+  }
 
-	/// <summary>
-	/// Changes active character via CharacterManager
-	/// </summary>
-	/// <param name="index"></param>
-	public void ChangeActiveCharacter (int index) {
-		characterManager.ChangeActiveCharacter (index);
-		ToggleWindow (characterWindow);
-	}
+  /// <summary>
+  /// Changes quality via GraphicsQualityController
+  /// </summary>
+  public void ChangeQualitySettings()
+  {
+    gameController.GetComponent<GraphicsQualityController>().SetQualityPresetIndex(settingsQualityDropdown.value);
+    gameController.GetComponent<GraphicsQualityController>().UpdateQuality();
+  }
 
-	public void SpawnNewEnemyWave () {
-		enemySpawner.StartSpawnWaveIfInactive ();
-	}
+  /// <summary>
+  /// Changes active character via CharacterManager
+  /// </summary>
+  /// <param name="index"></param>
+  public void ChangeActiveCharacter(int index)
+  {
+    characterManager.ChangeActiveCharacter(index);
+    ToggleWindow(characterWindow);
+  }
 
-	/// <summary>
-	/// Opens scarcegames website in the default web browser
-	/// </summary>
-	public void OpenSGWebsite () {
-		Application.OpenURL ("http://scarcegames.com/");
-	}
+  public void SpawnNewEnemyWave()
+  {
+    enemySpawner.StartSpawnWaveIfInactive();
+  }
 
-	public void LoadMainMenu () {
-		SceneManager.LoadScene (0);
-	}
+  /// <summary>
+  /// Opens scarcegames website in the default web browser
+  /// </summary>
+  public void OpenSGWebsite()
+  {
+    Application.OpenURL("http://scarcegames.com/");
+  }
+
+  public void LoadMainMenu()
+  {
+    SceneManager.LoadScene(0);
+  }
+
+  public void IncreasePassiveRank()
+  {
+    AbilityManager manager = CharacterManager.activeCharacterObject.GetComponent<AbilityManager>();
+
+    if (manager != null)
+    {
+      manager.IncreaseAbilityRank(AbilityManager.AbilityTypes.Passive);
+    }
+    else
+    {
+      Debug.LogWarning("UIController: No ability manager found on active character!");
+    }
+  }
 }

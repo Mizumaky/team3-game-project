@@ -113,7 +113,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.16150588, g: 0.41327056, b: 0.605647, a: 1}
+  m_BackGroundColor: {r: 0.31007957, g: 0.51705, b: 0.6250536, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 01104620f2a0a492caac99317c71147a, type: 2}
+  profile: {fileID: 11400000, guid: 4607e8c3cedcbbc4db6e21e7c6b42933, type: 2}
 --- !u!114 &114259350857119338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -185,8 +185,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e39a83aa94d8e41807b74b7bc1894f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  captureWidth: 3840
-  captureHeight: 2160
+  captureWidth: 1080
+  captureHeight: 1920
   hideGameObject: {fileID: 0}
   optimizeForManyScreenshots: 0
   format: 2

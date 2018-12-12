@@ -1,28 +1,30 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(BarbarianRageAbility))]
-public class BarbarianImmortalityAbility : MonoBehaviour
+[RequireComponent(typeof(BarbarianRagePassiveAbility))]
+public class BarbarianImmortalityAbility : Ability
 {
   #region Variables
   [Header("Key")]
   public KeyCode keyCode = KeyCode.E;
 
+  [Header("Parameters From Ability Data")]
+  public int stackRequirement;
+  public float duration;
+
   [Header("Parameters")]
-  public int stackRequirement = 100;
-  public float duration = 5f;
-  public float updatePeriodFloat = 1f;
   public bool isAvailable = false;
+  public float updatePeriodFloat = 1f;
 
   private Coroutine activeImmortalityRoutine;
   private WaitForSeconds updatePeriod;
-  private BarbarianRageAbility barbarianRageAbility;
+  private BarbarianRagePassiveAbility barbarianRageAbility;
   #endregion
 
   private void Init()
   {
+    barbarianRageAbility = GetComponent<BarbarianRagePassiveAbility>();
     updatePeriod = new WaitForSeconds(updatePeriodFloat);
-    barbarianRageAbility = GetComponent<BarbarianRageAbility>();
   }
 
   private void Update()
@@ -40,6 +42,20 @@ public class BarbarianImmortalityAbility : MonoBehaviour
     }
   }
 
+  public override void UpdateAbilityData()
+  {
+    if (abilityRankData[(int)rank] is BarbImmortalityRankData)
+    {
+      BarbImmortalityRankData data = ((BarbImmortalityRankData)abilityRankData[(int)rank]);
+      stackRequirement = data.stackRequirement;
+      duration = data.duration;
+    }
+    else
+    {
+      Debug.LogWarning("BarbarianImmortalityAbility: Invalid ability data!");
+    }
+  }
+
   private void UpdateAvailability()
   {
     if (barbarianRageAbility.stacks >= stackRequirement)
@@ -51,6 +67,7 @@ public class BarbarianImmortalityAbility : MonoBehaviour
   private IEnumerator Immortality()
   {
     float durLeft = duration;
+    Debug.Log("Immortal!");
 
     barbarianRageAbility.canStack = false;
     // TODO: Prevent taking damage (probably somewhere in stats)
@@ -64,6 +81,7 @@ public class BarbarianImmortalityAbility : MonoBehaviour
 
     barbarianRageAbility.canStack = true;
     // TODO: Revert
+    Debug.Log("Not immortal!");
   }
 
   public void Cast()
