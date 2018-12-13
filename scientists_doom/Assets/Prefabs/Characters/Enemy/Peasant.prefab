@@ -225,9 +225,9 @@ GameObject:
   - component: {fileID: 114109120915041818}
   - component: {fileID: 114059231861312018}
   - component: {fileID: 114003812736959210}
-  - component: {fileID: 114348526360201128}
   - component: {fileID: 114165247036519690}
   - component: {fileID: 82135154014665754}
+  - component: {fileID: 114322990565184406}
   m_Layer: 10
   m_Name: Peasant
   m_TagString: enemy
@@ -985,7 +985,7 @@ MonoBehaviour:
   footStep: {fileID: 8300000, guid: 93c933717a2277742af5c2ca3409655a, type: 3}
   footStepVolume: 1
   audioSource: {fileID: 82135154014665754}
---- !u!114 &114348526360201128
+--- !u!114 &114322990565184406
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -993,11 +993,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1719296003474282}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9d0b56f882e89f42a7e30a2cdac64df, type: 3}
+  m_Script: {fileID: 11500000, guid: 9862b01ab5669af45a8848f0f067ce7d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castle: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
   distanceToFollowPlayer: 10
+  playerAttackReach: 1
   targetPositionUpdatePeriod: 0
 --- !u!114 &114878431132016162
 MonoBehaviour:

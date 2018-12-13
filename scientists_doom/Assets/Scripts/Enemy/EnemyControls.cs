@@ -4,32 +4,35 @@ using UnityEngine.AI;
 
 public class EnemyControls : MonoBehaviour {
 
-  private NavMeshAgent navMeshAgent;
+  protected NavMeshAgent navMeshAgent;
   public Transform castle;
-  private Transform target;
-  private NavMeshPath path;
-  [Range (5f, 10f)]
+  protected Transform target;
+  protected NavMeshPath path;
+  [Range (5f, 20f)]
   public float distanceToFollowPlayer = 7f;
-  private Animator animator;
-  private float speed;
-  private Vector3 lastPosition;
-  private EnemyStats enemyStats;
+  public float playerAttackReach;
+  protected float castleAttackReach;
+  protected Animator animator;
+  protected float speed;
+  protected Vector3 lastPosition;
+  protected EnemyStats enemyStats;
   public float targetPositionUpdatePeriod;
 
-  Coroutine activeFollowCoroutine;
+  protected Coroutine activeFollowCoroutine;
 
   void Awake () {
     Init ();
   }
 
   void Start () {
+    castleAttackReach = playerAttackReach +  2; //castle transform center offset
     target = castle;
     activeFollowCoroutine = StartCoroutine (AttackCastle ());
 
     speed = 0;
   }
 
-  private void Update () {
+  protected void Update () {
     if (enemyStats.isAlive ()) {
       if (animator != null) {
         speed = Mathf.Lerp (speed, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
@@ -58,17 +61,19 @@ public class EnemyControls : MonoBehaviour {
     activeFollowCoroutine = StartCoroutine (AttackPlayer ());
   }
 
-  private IEnumerator AttackPlayer () {
+  protected virtual IEnumerator AttackPlayer () {
     WaitForSeconds updatePeriod = new WaitForSeconds (0.1f);
     if (enemyStats.isAlive ()) {
       float distance = Vector3.Distance (target.position, transform.position);
       while (target != null && target.gameObject.activeSelf && distance < distanceToFollowPlayer) {
         distance = Vector3.Distance (target.position, transform.position);
         // If taraget close enough, attack and face it
-        if (distance <= 1) {
+        if (distance <= playerAttackReach) {
+          navMeshAgent.isStopped = true;
           transform.rotation = CountLookRotation ();
           animator.SetTrigger ("attackTrigger");
         } else {
+          navMeshAgent.isStopped = false;
           SetPathToTarget (target);
           //Debug.Log ("Setting path");
         }
@@ -81,17 +86,19 @@ public class EnemyControls : MonoBehaviour {
     }
   }
 
-  private IEnumerator AttackCastle () {
+  protected virtual IEnumerator AttackCastle () {
     WaitForSeconds updatePeriod = new WaitForSeconds (0.1f);
     if (enemyStats.isAlive ()) {
       float distance = Vector3.Distance (target.position, transform.position);
       while (target != null && target.gameObject.activeSelf) {
         distance = Vector3.Distance (target.position, transform.position);
         // If target close enough, attack and face it
-        if (distance <= 4) {
+        if (distance <= castleAttackReach) {
+          navMeshAgent.isStopped = true;
           transform.rotation = CountLookRotation ();
           animator.SetTrigger ("attackTrigger");
         } else {
+          navMeshAgent.isStopped = false;
           SetPathToTarget (target);
           //Debug.Log ("Setting path");
         }
@@ -100,7 +107,7 @@ public class EnemyControls : MonoBehaviour {
     }
   }
 
-  private void SetPathToTarget (Transform target) {
+  protected void SetPathToTarget (Transform target) {
     if (target != null && gameObject != null) {
 
       NavMeshHit hitNavmesh;
@@ -114,7 +121,7 @@ public class EnemyControls : MonoBehaviour {
     }
   }
 
-  private Quaternion CountLookRotation () {
+  protected Quaternion CountLookRotation () {
     Quaternion lookRotation = Quaternion.LookRotation (new Vector3 (target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
     return Quaternion.Slerp (transform.rotation, lookRotation, 0.3f);
   }
@@ -139,5 +146,4 @@ public class EnemyControls : MonoBehaviour {
     GetComponent<CapsuleCollider> ().enabled = false;
     GetComponent<Rigidbody> ().isKinematic = true;
   }
-
 }
