@@ -253,7 +253,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1085075780871924}
-  m_LocalRotation: {x: 0.3896175, y: 0, z: 0, w: -0.92097676}
+  m_LocalRotation: {x: 0.9723699, y: 0, z: 0, w: -0.23344539}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -266,7 +266,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1750165216881738}
-  m_LocalRotation: {x: 0.9209768, y: 0, z: 0, w: 0.38961744}
+  m_LocalRotation: {x: 0.23344539, y: 0, z: 0, w: 0.9723699}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children: []
@@ -461,7 +461,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.9516782, g: 0.66808003, b: 0.44303542, a: 1}
+  m_Color: {r: 0.9009509, g: 0.6593651, b: 0.46041012, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -578,7 +578,7 @@ MonoBehaviour:
   barbarian: {fileID: 1195421657766132, guid: 585ff51c34f98fa469b3816fceb9eb11, type: 2}
   huntress: {fileID: 1465694572464804, guid: a780d622def24c54a8da85e3c4265430, type: 2}
   spawnOnStart: 1
-  characterOnStart: 2
+  characterOnStart: 0
   spawnPoint: {fileID: 4360926578144620}
   cameraParentReference: {fileID: 0}
 --- !u!114 &114219062614291806
@@ -695,7 +695,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  progress: 0.37260726
+  progress: 0.075
   progressSpeed: 0.05
 --- !u!114 &114626511057023918
 MonoBehaviour:
@@ -738,8 +738,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26af0306adac7ef40af8331cde1ef820, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultPreset: 1
+  defaultPreset: 2
   behaviour: {fileID: 0}
-  low: {fileID: 11400000, guid: 1375c1b3d9f4b844f96b3bb97eb68872, type: 2}
+  low: {fileID: 11400000, guid: c85ebbde337d6644799001923ae4ab08, type: 2}
   medium: {fileID: 11400000, guid: 4607e8c3cedcbbc4db6e21e7c6b42933, type: 2}
-  high: {fileID: 11400000, guid: 01104620f2a0a492caac99317c71147a, type: 2}
+  high: {fileID: 11400000, guid: 2330c5d9625f7e243979df162fb7de66, type: 2}
