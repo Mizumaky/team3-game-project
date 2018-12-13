@@ -39,6 +39,10 @@ ModelImporter:
     100066: Bone_001
     100068: Bone_002
     100070: Bone_003
+    100072: Boot_L
+    100074: Boot_R
+    100076: Glove_L
+    100078: Glove_R
     400000: Armature
     400002: Body
     400004: Foot_L
@@ -75,6 +79,10 @@ ModelImporter:
     400066: Bone_001
     400068: Bone_002
     400070: Bone_003
+    400072: Boot_L
+    400074: Boot_R
+    400076: Glove_L
+    400078: Glove_R
     2100000: Material_002
     2100002: Leather
     2100004: Material_006
@@ -129,6 +137,10 @@ ModelImporter:
     4300022: Torso
     4300024: Boots
     4300026: Skirt
+    4300028: Boot_R
+    4300030: Glove_R
+    4300032: Glove_L
+    4300034: Boot_L
     7400000: Default Take
     7400002: Attack
     7400004: Idle
@@ -148,6 +160,11 @@ ModelImporter:
     13700018: Quiver
     13700020: Strap
     13700022: Torso
+    13700024: Boot_L
+    13700026: Boot_R
+    13700028: Glove_L
+    13700030: Glove_R
+    13700032: Skirt
     2186277476908879412: ImportLogs
   externalObjects: {}
   materials:
@@ -162,7 +179,12 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'Upper_Leg_L' : position error
+      = 64.779816 mm\n\t'Lower_Leg_L' : position error = 45.343254 mm\n\t'Foot_L'
+      : position error = 4.926844 mm\n\t'Upper_Leg_R' : position error = 64.779800
+      mm\n\t'Lower_Leg_R' : position error = 45.343098 mm\n\t'Foot_R' : position error
+      = 4.926875 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
