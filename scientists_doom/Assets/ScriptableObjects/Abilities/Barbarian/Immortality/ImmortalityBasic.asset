@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d274ceb160531184bb36031a3660ca91, type: 3}
-  m_Name: ImmortalityApprentice
+  m_Name: ImmortalityBasic
   m_EditorClassIdentifier: 
-  abilityName: Immortality - Apprentice
+  abilityName: Immortality - Basic
   icon: {fileID: 0}
-  rank: 1
-  stackRequirement: 75
-  duration: 7
+  rank: 0
+  stackCost: 100
+  duration: 5

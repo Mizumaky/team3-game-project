@@ -9,22 +9,25 @@ public class BarbarianImmortalityAbility : Ability
   public KeyCode keyCode = KeyCode.E;
 
   [Header("Parameters From Ability Data")]
-  public int stackRequirement;
+  public int stackCost;
   public float duration;
 
   [Header("Parameters")]
-  public bool isAvailable = false;
+  public bool isAvailable = true;
   public float updatePeriodFloat = 1f;
+
+  public SkinnedMeshRenderer modelRenderer;
 
   private Coroutine activeImmortalityRoutine;
   private WaitForSeconds updatePeriod;
   private BarbarianRagePassiveAbility barbarianRageAbility;
+  private Stats stats;
   #endregion
 
-  private void Init()
+  private void Awake()
   {
-    barbarianRageAbility = GetComponent<BarbarianRagePassiveAbility>();
-    updatePeriod = new WaitForSeconds(updatePeriodFloat);
+    Init();
+    EventManager.StartListening("updateImmortalityAv", UpdateAvailability);
   }
 
   private void Update()
@@ -37,17 +40,25 @@ public class BarbarianImmortalityAbility : Ability
       }
       else
       {
-        // TODO: Display a message that spell is not available (make a static class for messages like theese)
+        Debug.LogWarning("BarbImmortalityAbility: Not available!");
       }
     }
   }
 
+  private void Init()
+  {
+    barbarianRageAbility = GetComponent<BarbarianRagePassiveAbility>();
+    stats = GetComponent<Stats>();
+    updatePeriod = new WaitForSeconds(updatePeriodFloat);
+  }
+
   public override void UpdateAbilityData()
   {
+    base.UpdateAbilityData();
     if (abilityRankData[(int)rank] is BarbImmortalityRankData)
     {
       BarbImmortalityRankData data = ((BarbImmortalityRankData)abilityRankData[(int)rank]);
-      stackRequirement = data.stackRequirement;
+      stackCost = data.stackCost;
       duration = data.duration;
     }
     else
@@ -58,7 +69,7 @@ public class BarbarianImmortalityAbility : Ability
 
   private void UpdateAvailability()
   {
-    if (barbarianRageAbility.stacks >= stackRequirement)
+    if (barbarianRageAbility.stacks >= stackCost)
     {
       isAvailable = true;
     }
@@ -70,6 +81,13 @@ public class BarbarianImmortalityAbility : Ability
     Debug.Log("Immortal!");
 
     barbarianRageAbility.canStack = false;
+
+    Color temp = modelRenderer.materials[0].color;
+    modelRenderer.materials[0].color = Color.black;
+
+    stats.isInvulnerable = true;
+
+
     // TODO: Prevent taking damage (probably somewhere in stats)
 
     while (durLeft > 0)
@@ -80,15 +98,17 @@ public class BarbarianImmortalityAbility : Ability
     }
 
     barbarianRageAbility.canStack = true;
+    modelRenderer.materials[0].color = temp;
+    stats.isInvulnerable = false;
+
     // TODO: Revert
     Debug.Log("Not immortal!");
   }
 
   public void Cast()
   {
-    barbarianRageAbility.ResetStacks();
+    barbarianRageAbility.UseStacks(stackCost);
+    UpdateAvailability();
     activeImmortalityRoutine = StartCoroutine(Immortality());
   }
-
-  // TODO: Add a listener for barb rage update
 }

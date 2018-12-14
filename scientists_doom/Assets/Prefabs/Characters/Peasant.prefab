@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 224852147246164086}
   - component: {fileID: 222293440485883946}
   - component: {fileID: 114927888566448064}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: HealthPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -221,13 +221,14 @@ GameObject:
   - component: {fileID: 54303019990992746}
   - component: {fileID: 136515996610482496}
   - component: {fileID: 195138733104681796}
-  - component: {fileID: 114977275681553660}
-  - component: {fileID: 114109120915041818}
   - component: {fileID: 114059231861312018}
   - component: {fileID: 114003812736959210}
   - component: {fileID: 114348526360201128}
   - component: {fileID: 114165247036519690}
   - component: {fileID: 82135154014665754}
+  - component: {fileID: 114654747455779430}
+  - component: {fileID: 114023148560999444}
+  - component: {fileID: 114596931426344402}
   m_Layer: 10
   m_Name: Peasant
   m_TagString: enemy
@@ -275,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4405211292183366}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -293,7 +294,7 @@ GameObject:
   - component: {fileID: 223174482714389264}
   - component: {fileID: 114950519019664662}
   - component: {fileID: 114878431132016162}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -401,7 +402,7 @@ GameObject:
   - component: {fileID: 224985250555743004}
   - component: {fileID: 222899133105351256}
   - component: {fileID: 114953102944041306}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Fill
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -946,7 +947,19 @@ MonoBehaviour:
   baseAttackDamage: 5
   totalAttackDamage: 0
   attackDamageIncrement: 1
+  isInvulnerable: 0
   lootPrefab: {fileID: 1414109511527648, guid: 41d48ecce97a9964c9f69b5fe219ef67, type: 2}
+--- !u!114 &114023148560999444
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719296003474282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f228e72bb8f3bea438aaeb5a078eedca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114059231861312018
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -960,17 +973,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSlider: {fileID: 114953102944041306}
   timeToHideHealthBar: 2
---- !u!114 &114109120915041818
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1719296003474282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86fd4b2ef0019ac4681ba5c64e7c219e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &114165247036519690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -998,7 +1000,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castle: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
   distanceToFollowPlayer: 10
-  targetPositionUpdatePeriod: 0
+  targetPositionUpdatePeriod: 0.2
+--- !u!114 &114596931426344402
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719296003474282}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 239b355c75649c94fa106310526b8456, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities: []
+  abilityRanks: 
+--- !u!114 &114654747455779430
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1719296003474282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 695652aea2b3c004e97bc4acaee8906b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityRankData: []
+  weaponHand: 0
+  enableCollision: 0
+  damage: 5
 --- !u!114 &114878431132016162
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1090,32 +1120,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 1
---- !u!114 &114977275681553660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1719296003474282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 619c2b63a21ea4b5fac990430be26052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponTransform: {fileID: 0}
-  weaponDamage: 0
-  castSpeed: 0
-  regularAttack: {fileID: 11400000, guid: 3e669beb269d84ad195de68ba937a6a4, type: 2}
-  ability1: {fileID: 0}
-  ability2: {fileID: 0}
-  currentAbility: {fileID: 0}
-  currentAbilityObject: {fileID: 0}
-  chargeTime: 0
-  chargeFactor: 0
-  releaseOnMaxCharge: 1
-  weaponHand: 0
-  animator: {fileID: 0}
-  collider: {fileID: 0}
-  enableCollision: 0
 --- !u!136 &136515996610482496
 CapsuleCollider:
   m_ObjectHideFlags: 1

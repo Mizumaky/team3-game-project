@@ -14,6 +14,7 @@ MonoBehaviour:
   abilityName: Rage - Basic
   icon: {fileID: 0}
   rank: 0
+  stacksCap: 100
   perStackDamageIncrement: 10
+  stackDecrement: 10
   stackDecayStartDelay: 3
-  ragePSPrefab: {fileID: 0}

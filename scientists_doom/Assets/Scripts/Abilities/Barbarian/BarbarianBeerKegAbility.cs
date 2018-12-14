@@ -4,9 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(BarbarianRagePassiveAbility))]
 public class BarbarianBeerKegAbility : Ability
 {
-  public string animationTrigger = "attackTrigger";
-
-  [Header("Charging")]
   [SerializeField] [Range(0f, 5f)] private float maxChargeTime = 0f;
   [SerializeField] [Range(0.5f, 5f)] private float chargeSpeed = 0f;
   [SerializeField] [Range(0f, 0.5f)] private float chargeStartDelay = 0f;
@@ -73,7 +70,7 @@ public class BarbarianBeerKegAbility : Ability
     if (abilityRankData[(int)rank] is BarbImmortalityRankData)
     {
       BarbImmortalityRankData data = ((BarbImmortalityRankData)abilityRankData[(int)rank]);
-      stackRequirement = data.stackRequirement;
+      stackRequirement = data.stackCost;
       duration = data.duration;
     }
     else

@@ -3,9 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(AbilityManager))]
 public class Ability : MonoBehaviour
 {
-  public enum Rank { Basic, Apprentice, Master }
+  public enum Rank { Basic, Apprentice, Master, FourTwentyBLAZEIT_XXX_PUSSYSLAYER_MLG_NOSCOPE_XXX }
 
-  public string abilityName;
+  protected string abilityName;
   public AbilityRankData[] abilityRankData;
   protected Rank rank = Rank.Basic;
 
