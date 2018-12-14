@@ -24,7 +24,6 @@ public class PeasantStabAbility : MeleeAbility
   protected override void Collide(Collider other)
   {
     float totalDamage = damage + stats.GetAttackDamage();
-    Stats otherStats = other.GetComponent<Stats>();
 
     if (enableCollision == true)
     {
@@ -32,7 +31,8 @@ public class PeasantStabAbility : MeleeAbility
 
       if (otherLayer == LayerMask.NameToLayer("Player") || otherLayer == LayerMask.NameToLayer("Castle"))
       {
-        otherStats.TakeDamage(totalDamage);
+        Debug.Log("Hitting " + other.name);
+        other.GetComponent<Stats>().TakeDamage(totalDamage);
         EventManager.TriggerEvent("updateHUD");
       }
     }

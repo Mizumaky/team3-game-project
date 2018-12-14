@@ -37,7 +37,6 @@ public class BarbarianSlashAbility : MeleeAbility
   protected override void Collide(Collider other)
   {
     float totalDamage = damage + stats.GetAttackDamage();
-    Stats otherStats = other.GetComponent<Stats>();
 
     if (enableCollision == true)
     {
@@ -51,7 +50,7 @@ public class BarbarianSlashAbility : MeleeAbility
       if (otherLayer == LayerMask.NameToLayer("Enemy"))
       {
         other.GetComponent<EnemyControls>().Aggro(transform);
-        otherStats.TakeDamage(totalDamage);
+        other.GetComponent<Stats>().TakeDamage(totalDamage);
       }
       else if (otherLayer == LayerMask.NameToLayer("Explosive"))
       {
