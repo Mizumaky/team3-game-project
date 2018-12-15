@@ -1,10 +1,9 @@
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
 public class ColliderBridge : MonoBehaviour
 {
-  MeleeWeapon _listener;
-  public void Initialize(MeleeWeapon l)
+  MeleeAbility _listener;
+  public void Initialize(MeleeAbility l)
   {
     _listener = l;
   }

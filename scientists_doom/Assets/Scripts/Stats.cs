@@ -1,39 +1,47 @@
 using UnityEngine;
 using UnityEngine.UI;
-public class Stats : MonoBehaviour {
+public class Stats : MonoBehaviour
+{
 
   protected bool alive;
-  [Header ("Health")]
+  [Header("Health")]
   public float baseMaxHealth = 100f; // To keep health cap, so that hero cannot be overhealed 
   [SerializeField] protected float totalMaxHealth;
   [SerializeField] protected float currentHealth;
   public float healthIncrement = 10f;
 
-  [Header ("Attack")]
+  [Header("Attack")]
   public float baseAttackDamage = 10f;
   [SerializeField] protected float totalAttackDamage;
   public float attackDamageIncrement = 1f;
+  public bool isInvulnerable = false;
 
-  public bool isAlive () {
+  public bool isAlive()
+  {
     return alive;
   }
 
-  public float GetTotalMaxHealth () {
+  public float GetTotalMaxHealth()
+  {
     return totalMaxHealth;
   }
-  public float GetCurrentHealth () {
+  public float GetCurrentHealth()
+  {
     return currentHealth;
   }
 
-  public float GetAttackDamage () {
+  public float GetAttackDamage()
+  {
     return totalAttackDamage;
   }
 
-  private void Start () {
-    Init ();
+  private void Start()
+  {
+    Init();
   }
 
-  protected virtual void Init () {
+  protected virtual void Init()
+  {
     alive = true;
 
     totalMaxHealth = baseMaxHealth;
@@ -42,20 +50,28 @@ public class Stats : MonoBehaviour {
     currentHealth = totalMaxHealth;
   }
 
-  public virtual void TakeDamage (float damage) {
-    currentHealth -= damage;
-    if (currentHealth <= 0) {
-      Die ();
+  public virtual void TakeDamage(float damage)
+  {
+    if (!isInvulnerable)
+    {
+      currentHealth -= damage;
+      if (currentHealth <= 0)
+      {
+        Die();
+      }
     }
   }
 
-  protected virtual void Die () {
-    if(alive){
+  protected virtual void Die()
+  {
+    if (alive)
+    {
       alive = false;
-      Debug.Log (gameObject.name + " died!");
-    }else{
-      return;
+      Debug.Log(gameObject.name + " died!");
     }
-    
+    else
+    {
+      Debug.Log(gameObject.name + " is dead already!");
+    }
   }
 }

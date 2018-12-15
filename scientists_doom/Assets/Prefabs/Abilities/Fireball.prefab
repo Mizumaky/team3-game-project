@@ -206,7 +206,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collisionMask:
     serializedVersion: 2
-    m_Bits: 15360
+    m_Bits: 146432
   light: {fileID: 108677907858239518}
   hasEndEffect: 1
   endEffectPrefab: {fileID: 1054286298192358, guid: 4c900ea1c7839404b91ff52377ef515d,
