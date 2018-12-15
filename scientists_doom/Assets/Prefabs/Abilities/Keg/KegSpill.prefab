@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 199263984455313952}
   - component: {fileID: 198189617628069312}
   - component: {fileID: 135961513834372498}
-  - component: {fileID: 114324762676058270}
+  - component: {fileID: 114024954819659932}
   m_Layer: 0
   m_Name: KegSpill
   m_TagString: Untagged
@@ -43,7 +43,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114324762676058270
+--- !u!114 &114024954819659932
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,7 +51,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1669881619591404}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cec75f55c9da22444bf36afcdad021d6, type: 3}
+  m_Script: {fileID: 11500000, guid: faf0130e1856c274b87ae6f824a6e160, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!135 &135961513834372498
@@ -695,7 +695,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0, y: 0, z: 0.5}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 1, y: 1, z: 1}
     placementMode: 0
@@ -4615,7 +4615,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f7148fffa5eee2c4cb191baeda1d09d3, type: 2}
+  - {fileID: 2100000, guid: 924cfe3b0740a5849bbf7085b7902301, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

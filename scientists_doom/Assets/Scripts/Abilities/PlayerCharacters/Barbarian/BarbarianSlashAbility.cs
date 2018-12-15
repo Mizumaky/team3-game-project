@@ -61,7 +61,7 @@ public class BarbarianSlashAbility : MeleeAbility
 
   public override void UpdateAbilityData()
   {
-    if (abilityRankData[(int)rank] is BarbRageRankData)
+    if (abilityRankData[(int)rank] is BarbSlashRankData)
     {
       BarbSlashRankData data = ((BarbSlashRankData)abilityRankData[(int)rank]);
       damage = data.damage;

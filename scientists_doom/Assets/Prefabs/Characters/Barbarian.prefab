@@ -1260,7 +1260,7 @@ MonoBehaviour:
   kegPrefab: {fileID: 0}
   spillPrefab: {fileID: 0}
   noFlightDist: 3
-  launchAngle: 45
+  launchAngle: 30
   travelHeightPerc:
     serializedVersion: 2
     m_Curve: []

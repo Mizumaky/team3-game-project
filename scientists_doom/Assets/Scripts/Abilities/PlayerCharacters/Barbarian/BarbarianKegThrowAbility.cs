@@ -40,7 +40,7 @@ public class BarbarianKegThrowAbility : Ability
   private GameObject NewKegProjectile()
   {
     GameObject newKeg = Instantiate(kegPrefab, spawnPtTS.position, Quaternion.identity, null);
-    BeerKegProjectile proj = newKeg.GetComponent<BeerKegProjectile>();
+    KegProjectile proj = newKeg.GetComponent<KegProjectile>();
 
     if (proj == null)
     {
@@ -96,6 +96,7 @@ public class BarbarianKegThrowAbility : Ability
 
     // launch the object by setting its initial velocity and flipping its state
     kegBody.velocity = globalVelocity;
+    kegBody.GetComponent<KegProjectile>().Fly();
   }
 
   public override void UpdateAbilityData()

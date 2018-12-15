@@ -115,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1400509269778666}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.7755923, y: -1.3002591, z: 7.2639704}
+  m_LocalPosition: {x: 10.345538, y: -2.0475364, z: -4.211822}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4557258777122958}
@@ -232,6 +232,7 @@ MonoBehaviour:
   explosionRadius: 5
   baseExplosionDamage: 40
   enableCollision: 1
+  model: {fileID: 0}
 --- !u!114 &114994475382896150
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1400509269778666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 799c7e405cd2ce44594437b202a6f07d, type: 3}
+  m_Script: {fileID: 11500000, guid: 1f9ca06d52499e64caec9df05bbdabb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   damageOnSplash: 0
@@ -262,9 +263,9 @@ CapsuleCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.35797542
-  m_Height: 1.0658455
+  m_Height: 0.9079387
   m_Direction: 1
-  m_Center: {x: -0.009505987, y: 0.37052345, z: -0.0011873245}
+  m_Center: {x: -0.009505987, y: 0.38309133, z: -0.0011873245}
 --- !u!198 &198496442996429136
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -9404,7 +9405,7 @@ ParticleSystemRenderer:
   m_ReflectionProbeUsage: 0
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: f7148fffa5eee2c4cb191baeda1d09d3, type: 2}
+  - {fileID: 2100000, guid: 924cfe3b0740a5849bbf7085b7902301, type: 2}
   - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0

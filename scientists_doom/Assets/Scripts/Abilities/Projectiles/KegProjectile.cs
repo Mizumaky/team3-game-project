@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BeerKegProjectile : MonoBehaviour
+public class KegProjectile : MonoBehaviour
 {
   [Header("Travel")]
   public int damageOnSplash;
@@ -20,7 +20,7 @@ public class BeerKegProjectile : MonoBehaviour
   private Vector3 randomRotVect;
   private bool inFlight;
 
-  private void Start()
+  public void Fly()
   {
     randomRotVect = new Vector3(2, 1, 0);
     inFlight = true;
@@ -49,6 +49,7 @@ public class BeerKegProjectile : MonoBehaviour
     if (UnityExtensions.ContainsLayer(collisionMask, other.gameObject.layer))
     {
       inFlight = false;
+
       Destroy(GetComponent<Rigidbody>());
       model.SetActive(false);
 
@@ -59,17 +60,17 @@ public class BeerKegProjectile : MonoBehaviour
 
   private void Spill()
   {
-    Ray rayDown = new Ray(transform.position, Vector3.down);
+    Ray rayDown = new Ray(transform.position + Vector3.up, Vector3.down);
     RaycastHit hit;
 
     Vector3 groundNormal = Vector3.up;
+    Vector3 spillPosition = transform.position;
     int groundMask = 1 << LayerMask.NameToLayer("Ground");
     if (Physics.Raycast(rayDown, out hit, 3f, groundMask))
     {
-      groundNormal = hit.normal;
+      GameObject spillObj = Instantiate(spillPrefab, hit.point, Quaternion.LookRotation(hit.normal), transform);
     }
 
-    GameObject spillObj = Instantiate(spillPrefab, transform.position, Quaternion.LookRotation(groundNormal), transform);
     HitEnemies();
 
     Destroy(gameObject, spillDecayTime);
