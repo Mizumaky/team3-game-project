@@ -230,7 +230,7 @@ GameObject:
   - component: {fileID: 114023148560999444}
   - component: {fileID: 114596931426344402}
   m_Layer: 10
-  m_Name: Peasant
+  m_Name: Villager
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

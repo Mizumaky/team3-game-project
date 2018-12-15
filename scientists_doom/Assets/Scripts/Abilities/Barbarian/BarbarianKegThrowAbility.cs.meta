@@ -3,7 +3,11 @@ guid: 8ba198887b5ce074781f880122feb61b
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - kegPrefab: {instanceID: 0}
+  - spillPrefab: {fileID: 1669881619591404, guid: 626df950451b9854d9c7d6a5a494f721,
+      type: 2}
+  - spawnPtTS: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

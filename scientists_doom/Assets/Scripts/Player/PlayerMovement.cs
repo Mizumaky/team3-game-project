@@ -5,7 +5,6 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
-
   private NavMeshAgent navMeshAgent;
   public float distance = 50f;
   public float rotationSpeed = 10f;
@@ -13,13 +12,11 @@ public class PlayerMovement : MonoBehaviour
   protected Animator animator;
   private float speed;
   private Vector3 lastPosition;
-  private int groundLayer;
 
   private void Awake()
   {
     navMeshAgent = GetComponent<NavMeshAgent>();
     animator = GetComponentInChildren<Animator>();
-    groundLayer = 1 << LayerMask.NameToLayer("Ground");
   }
 
   void Start()
@@ -47,8 +44,11 @@ public class PlayerMovement : MonoBehaviour
 
   public void Move()
   {
-
-    Vector3 groundPositionVector = GetGroundPosition();
+    Vector3 groundPositionVector = GetGroundPosAtMouse();
+    if (groundPositionVector == Vector3.zero)
+    {
+      groundPositionVector = transform.position;
+    }
 
     Vector3 direction = (groundPositionVector - transform.position).normalized;
     if (direction != new Vector3(0, 0, 0))
@@ -89,18 +89,20 @@ public class PlayerMovement : MonoBehaviour
     }
   }
 
-  protected Vector3 GetGroundPosition()
+  public static Vector3 GetGroundPosAtMouse()
   {
     Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
     RaycastHit hit;
 
-    if (Physics.Raycast(ray, out hit, distance, groundLayer))
+    int groundLayer = 1 << LayerMask.NameToLayer("Ground");
+    if (Physics.Raycast(ray, out hit, 150f, groundLayer))
     {
       NavMeshHit hitNavmesh;
       NavMesh.SamplePosition(hit.point, out hitNavmesh, 50f, 5);
       return hitNavmesh.position;
     }
-    return GetComponent<Transform>().position;
+
+    return Vector3.zero;
   }
 
   private bool IsPointerOverRaycastBlockingUIObject()

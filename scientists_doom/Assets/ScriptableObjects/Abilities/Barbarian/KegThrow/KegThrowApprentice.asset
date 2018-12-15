@@ -9,12 +9,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1d3a0fc3ea24825479194314205773ff, type: 3}
-  m_Name: KegThrowPUSSYSLAYER
+  m_Name: KegThrowApprentice
   m_EditorClassIdentifier: 
-  abilityName: Keg ThrowXXXX
+  abilityName: Stong Keg Throw
   icon: {fileID: 0}
-  rank: 3
-  perStackDamageIncrement: 999
-  stackDecayStartDelay: 666
-  ragePSPrefab: {fileID: 1289259855473666, guid: 67c5d09378643b748987d980de9a096a,
+  rank: 1
+  dmgOnSplash: 35
+  spillDecayTime: 5
+  kegPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca, type: 2}
+  spillPrefab: {fileID: 1669881619591404, guid: 626df950451b9854d9c7d6a5a494f721,
     type: 2}

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d3a0fc3ea24825479194314205773ff, type: 3}
+  m_Name: KegThrowMaster
+  m_EditorClassIdentifier: 
+  abilityName: Powerful Keg Throw
+  icon: {fileID: 0}
+  rank: 2
+  dmgOnSplash: 50
+  spillDecayTime: 10
+  kegPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca, type: 2}
+  spillPrefab: {fileID: 1669881619591404, guid: 626df950451b9854d9c7d6a5a494f721,
+    type: 2}

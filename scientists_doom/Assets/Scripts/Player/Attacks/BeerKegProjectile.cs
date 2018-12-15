@@ -5,44 +5,87 @@ using UnityEngine;
 public class BeerKegProjectile : MonoBehaviour
 {
   [Header("Travel")]
-  public Vector3 destination;
-  public float timeToLive;
-  public float speed;
-  public AnimationCurve travelHeightPercentage;
-
-  private Vector3 direction;
-  private float overcomeDistance;
-  private float totalDistance;
-
-  [Header("Hit")]
   public int damageOnSplash;
   public float spillDecayTime;
+  public LayerMask collisionMask;
   public GameObject spillPrefab;
 
   [Header("Carry")]
   public Transform casterTransform;
 
+  [Header("Other")]
+  public GameObject model;
+  public ParticleSystem splashPS;
+
+  private Vector3 randomRotVect;
+  private bool inFlight;
+
   private void Start()
   {
-    totalDistance = Vector3.Distance(transform.position, destination);
-    overcomeDistance = 0;
-
-    direction = (destination - transform.position).normalized;
-
-    Destroy(gameObject, timeToLive);
+    randomRotVect = new Vector3(2, 1, 0);
+    inFlight = true;
+    StartCoroutine(Rotation());
   }
 
-  private void Update()
+  private IEnumerator Rotation()
   {
-    Vector3 targetPositionBase = transform.position + direction * Time.deltaTime * speed;
-    float curveX = totalDistance / Vector3.Distance(targetPositionBase, transform.position);
-    Debug.Log(curveX);
-    if (curveX <= 1)
+    while (inFlight)
     {
-      float y = targetPositionBase.y + travelHeightPercentage.Evaluate(curveX);
-      Vector3 targetPosition = new Vector3(targetPositionBase.x, y, targetPositionBase.z);
-
-      transform.Translate(targetPosition);
+      transform.Rotate(randomRotVect);
+      yield return null;
     }
   }
+
+  public void Set(int dmg, float time, GameObject pfb, Transform ct)
+  {
+    damageOnSplash = dmg;
+    spillDecayTime = time;
+    spillPrefab = pfb;
+    casterTransform = ct;
+  }
+
+  private void OnTriggerEnter(Collider other)
+  {
+    if (UnityExtensions.ContainsLayer(collisionMask, other.gameObject.layer))
+    {
+      inFlight = false;
+      Destroy(GetComponent<Rigidbody>());
+      model.SetActive(false);
+
+      splashPS.Play();
+      Spill();
+    }
+  }
+
+  private void Spill()
+  {
+    Ray rayDown = new Ray(transform.position, Vector3.down);
+    RaycastHit hit;
+
+    Vector3 groundNormal = Vector3.up;
+    int groundMask = 1 << LayerMask.NameToLayer("Ground");
+    if (Physics.Raycast(rayDown, out hit, 3f, groundMask))
+    {
+      groundNormal = hit.normal;
+    }
+
+    GameObject spillObj = Instantiate(spillPrefab, transform.position, Quaternion.LookRotation(groundNormal), transform);
+    HitEnemies();
+
+    Destroy(gameObject, spillDecayTime);
+  }
+
+  private void HitEnemies()
+  {
+    float radius = 3;
+    int enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
+    Collider[] hits = Physics.OverlapSphere(transform.position, radius, enemyLayer);
+
+    foreach (Collider hit in hits)
+    {
+      hit.GetComponent<Stats>().TakeDamage(damageOnSplash);
+      hit.GetComponent<EnemyControls>().Aggro(casterTransform);
+    }
+  }
+
 }

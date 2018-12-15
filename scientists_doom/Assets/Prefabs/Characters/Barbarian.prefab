@@ -1154,6 +1154,7 @@ MonoBehaviour:
   baseAttackDamage: 30
   totalAttackDamage: 0
   attackDamageIncrement: 1
+  isInvulnerable: 0
   maxHeroLevel: 60
   heroLevel: 0
   experience: 0
@@ -1244,34 +1245,29 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1195421657766132}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3fafc0c9038e74fbf50221048aa18a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ba198887b5ce074781f880122feb61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   abilityRankData:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  maxChargeTime: 0
-  chargeSpeed: 0
-  chargeStartDelay: 0
-  dropDuringDelay: 1
-  startChargeFactor: 0
-  velocity: 0
-  travelHeight: 0.5
-  lifeTime: 1
-  baseHitRadius: 1
-  damage: 10
-  weaponTransform: {fileID: 0}
-  casterTransform: {fileID: 0}
-  abilityPrefab: {fileID: 0}
-  chargingAbilityScript: {fileID: 0}
+  - {fileID: 11400000, guid: f3e38fb56324d214fa2cc0c1d193b3a0, type: 2}
+  - {fileID: 11400000, guid: 4bc25eedaa715b74fa536b1cfbb0fd54, type: 2}
+  - {fileID: 11400000, guid: a68e235533331cf43a2df5acfecc13a2, type: 2}
   keyCode: 113
-  stackRequirement: 0
-  duration: 0
-  isAvailable: 0
-  updatePeriodFloat: 1
+  dmgOnSplash: 0
+  spillDecayTime: 0
+  kegPrefab: {fileID: 0}
+  spillPrefab: {fileID: 0}
+  noFlightDist: 3
+  launchAngle: 45
+  travelHeightPerc:
+    serializedVersion: 2
+    m_Curve: []
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spawnPtTS: {fileID: 4828322318558776}
 --- !u!114 &114551689713803172
 MonoBehaviour:
   m_ObjectHideFlags: 1
