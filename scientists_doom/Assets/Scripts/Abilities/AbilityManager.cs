@@ -2,9 +2,12 @@ using UnityEngine;
 
 public class AbilityManager : MonoBehaviour
 {
+  #region Variables
   public enum AbilityTypes { Passive, Basic, First, Second }
+
   public Ability[] abilities;
   public Ability.Rank[] abilityRanks;
+  #endregion
 
   private void Start()
   {
@@ -16,14 +19,12 @@ public class AbilityManager : MonoBehaviour
   {
     for (int i = 0; i < abilityRanks.Length; i++)
     {
-      if (abilities[i] != null)
+      if (abilities[i] == null)
       {
-        abilities[i].SetRank(abilityRanks[i]);
+        Debug.LogWarning("Invalid or missing ability script!");
+        continue;
       }
-      else
-      {
-        Debug.LogWarning("AbilityManager: Invalid ability at " + i);
-      }
+      abilities[i].SetRank(abilityRanks[i]);
     }
   }
 
@@ -33,14 +34,13 @@ public class AbilityManager : MonoBehaviour
     {
       abilityRanks[(int)type]++;
       abilities[(int)type].IncreaseRank();
+
       Debug.Log("Upgraded ability " + abilities[(int)type] + " to rank " + abilityRanks[(int)type]);
       return true;
     }
-    else
-    {
-      Debug.LogWarning("Ability: Cannot upgrade " + abilities[(int)type] + " anymore!");
-      return false;
-    }
+
+    Debug.LogWarning("Ability: Cannot upgrade " + abilities[(int)type] + " anymore!");
+    return false;
   }
 
 }

@@ -49,7 +49,7 @@ public class Explosive : MonoBehaviour
     {
       if (hit.gameObject.layer == enemyLayer)
       {
-        hit.GetComponent<EnemyControls>().Aggro(casterTransform);
+        hit.GetComponent<EnemyControls>().AggroTo(casterTransform);
         hit.GetComponent<EnemyStats>().TakeDamage(baseExplosionDamage);
       }
 

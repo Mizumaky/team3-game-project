@@ -14,7 +14,7 @@ MonoBehaviour:
   abilityName: Rage - Master
   icon: {fileID: 0}
   rank: 2
-  stacksCap: 200
-  perStackDamageIncrement: 20
-  stackDecrement: 3
+  stacksCap: 100
+  perStackDamageIncrement: 3
+  stackDecrement: 2
   stackDecayStartDelay: 7

@@ -14,7 +14,7 @@ MonoBehaviour:
   abilityName: Rage - Apprentice
   icon: {fileID: 0}
   rank: 1
-  stacksCap: 150
-  perStackDamageIncrement: 15
-  stackDecrement: 5
+  stacksCap: 100
+  perStackDamageIncrement: 2
+  stackDecrement: 3
   stackDecayStartDelay: 5

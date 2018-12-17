@@ -267,7 +267,7 @@ public class CharacterAbilityInstance : MonoBehaviour
     {
       if (hit.gameObject.layer == enemyLayer)
       {
-        hit.GetComponent<EnemyControls>().Aggro(casterTransform);
+        hit.GetComponent<EnemyControls>().AggroTo(casterTransform);
         if (ability.GetStunDuration() > 0)
         {
           hit.GetComponent<EnemyControls>().StunFor(ability.GetStunDuration());

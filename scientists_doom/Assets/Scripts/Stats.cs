@@ -40,6 +40,21 @@ public class Stats : MonoBehaviour
     Init();
   }
 
+  public void AddBonusDamage(int amount)
+  {
+    totalAttackDamage += amount;
+  }
+
+  public void RemoveBonusDamage(int amount)
+  {
+    totalAttackDamage -= amount;
+  }
+
+  public void ResetBonusDamage()
+  {
+    totalAttackDamage = baseAttackDamage;
+  }
+
   protected virtual void Init()
   {
     alive = true;
@@ -68,10 +83,6 @@ public class Stats : MonoBehaviour
     {
       alive = false;
       Debug.Log(gameObject.name + " died!");
-    }
-    else
-    {
-      Debug.Log(gameObject.name + " is dead already!");
     }
   }
 }

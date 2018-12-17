@@ -14,7 +14,7 @@ MonoBehaviour:
   abilityName: Powerful Keg Throw
   icon: {fileID: 0}
   rank: 2
-  dmgOnSplash: 50
+  dmgOnSplash: 100
   spillDecayTime: 10
   kegPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca, type: 2}
   spillPrefab: {fileID: 1669881619591404, guid: 626df950451b9854d9c7d6a5a494f721,

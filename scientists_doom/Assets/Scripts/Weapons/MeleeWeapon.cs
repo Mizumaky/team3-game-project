@@ -50,7 +50,7 @@ public class MeleeWeapon : Weapon
       {
         if (otherLayer == LayerMask.NameToLayer("Enemy"))
         {
-          other.GetComponent<EnemyControls>().Aggro(transform);
+          other.GetComponent<EnemyControls>().AggroTo(transform);
         }
 
         if (otherLayer == LayerMask.NameToLayer("Explosive"))

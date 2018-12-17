@@ -6,8 +6,8 @@ public class EnemyControls : MonoBehaviour
 {
 
   private NavMeshAgent navMeshAgent;
-  public Transform castle;
-  private Transform target;
+  public Transform castleTransform;
+  private Transform targetTransform;
   private NavMeshPath path;
   [Range(5f, 10f)]
   public float distanceToFollowPlayer = 7f;
@@ -28,10 +28,8 @@ public class EnemyControls : MonoBehaviour
 
   void Start()
   {
-    target = castle;
+    targetTransform = castleTransform;
     StartCoroutine(AttackCastle());
-
-    speed = 0;
   }
 
   private void Update()
@@ -56,18 +54,21 @@ public class EnemyControls : MonoBehaviour
     enemyStats = GetComponent<EnemyStats>();
   }
 
-  public void Aggro(Transform targetTransform)
+  /// <summary>
+  /// Sets the enemy's target and makes it follow 
+  /// </summary>
+  /// <param name="targetTransform"></param>
+  public void AggroTo(Transform targetTransform)
   {
-    target = targetTransform;
-
-    // Interrupt previous follow
-    if (isFollowing)
+    if (this.targetTransform != targetTransform)
     {
-      isFollowing = false;
+      this.targetTransform = targetTransform;
     }
 
-    // Start a new one
-    StartCoroutine(AttackPlayer());
+    if (!isFollowing)
+    {
+      StartCoroutine(AttackPlayer());
+    }
   }
 
   private IEnumerator AttackPlayer()
@@ -76,10 +77,10 @@ public class EnemyControls : MonoBehaviour
     WaitForSeconds updatePeriod = new WaitForSeconds(0.1f);
     if (enemyStats.isAlive())
     {
-      float distance = Vector3.Distance(target.position, transform.position);
-      while (target != null && target.gameObject.activeSelf && distance < distanceToFollowPlayer && isFollowing)
+      float distance = Vector3.Distance(targetTransform.position, transform.position);
+      while (targetTransform != null && targetTransform.gameObject.activeSelf && distance < distanceToFollowPlayer && isFollowing)
       {
-        distance = Vector3.Distance(target.position, transform.position);
+        distance = Vector3.Distance(targetTransform.position, transform.position);
         // If taraget close enough, attack and face it
         if (distance <= 1)
         {
@@ -88,13 +89,13 @@ public class EnemyControls : MonoBehaviour
         }
         else
         {
-          SetPathToTarget(target);
+          SetPathToTarget(targetTransform);
         }
         yield return updatePeriod;
       }
 
       // Reset to castle
-      target = castle;
+      targetTransform = castleTransform;
       StartCoroutine(AttackCastle());
     }
     isFollowing = false;
@@ -106,10 +107,10 @@ public class EnemyControls : MonoBehaviour
     WaitForSeconds updatePeriod = new WaitForSeconds(0.1f);
     if (enemyStats.isAlive())
     {
-      float distance = Vector3.Distance(target.position, transform.position);
-      while (target != null && target.gameObject.activeSelf && isFollowing)
+      float distance = Vector3.Distance(targetTransform.position, transform.position);
+      while (targetTransform != null && targetTransform.gameObject.activeSelf && isFollowing)
       {
-        distance = Vector3.Distance(target.position, transform.position);
+        distance = Vector3.Distance(targetTransform.position, transform.position);
         // If target close enough, attack and face it
         if (distance <= 4)
         {
@@ -118,7 +119,7 @@ public class EnemyControls : MonoBehaviour
         }
         else
         {
-          SetPathToTarget(target);
+          SetPathToTarget(targetTransform);
         }
         yield return updatePeriod;
       }
@@ -147,7 +148,7 @@ public class EnemyControls : MonoBehaviour
 
   private Quaternion CountLookRotation()
   {
-    Quaternion lookRotation = Quaternion.LookRotation(new Vector3(target.position.x - transform.position.x, 0, target.position.z - transform.position.z));
+    Quaternion lookRotation = Quaternion.LookRotation(new Vector3(targetTransform.position.x - transform.position.x, 0, targetTransform.position.z - transform.position.z));
     return Quaternion.Slerp(transform.rotation, lookRotation, 0.3f);
   }
 
@@ -161,12 +162,9 @@ public class EnemyControls : MonoBehaviour
     }
   }
 
-  public void SlowFor(float time)
+  public void Slow()
   {
-    if (!isSlowed)
-    {
-      StartCoroutine(SlowCountdown(time));
-    }
+    StartCoroutine(SlowRoutine());
   }
 
   private IEnumerator StunCountdown(float time)
@@ -174,17 +172,19 @@ public class EnemyControls : MonoBehaviour
     isStunned = true;
     yield return new WaitForSeconds(time);
     isStunned = false;
-    Aggro(target);
+    AggroTo(targetTransform);
   }
 
-  private IEnumerator SlowCountdown(float time)
+  private IEnumerator SlowRoutine()
   {
     float speed = navMeshAgent.speed;
     navMeshAgent.speed = speed / 3f;
 
     isSlowed = true;
-    yield return new WaitForSeconds(time);
-    isSlowed = false;
+    while (isSlowed)
+    {
+      yield return null;
+    }
 
     navMeshAgent.speed = speed;
   }
