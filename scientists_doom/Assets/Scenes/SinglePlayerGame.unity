@@ -457,7 +457,7 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 1929552497}
   m_Script: {fileID: 11500000, guid: 09688fe7d68c445c6b924aabf446c3d0, type: 3}
---- !u!1001 &1465120775
+--- !u!1001 &1355784569
 Prefab:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -554,6 +554,16 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114522957771933610, guid: cee624a6a881de143ab97ae841a95789,
+        type: 2}
+      propertyPath: castleStats
+      value: 
+      objectReference: {fileID: 1260898372}
+    - target: {fileID: 223912951565944748, guid: cee624a6a881de143ab97ae841a95789,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1147556751}
     - target: {fileID: 114870714632496926, guid: cee624a6a881de143ab97ae841a95789,
         type: 2}
       propertyPath: gameController
@@ -569,16 +579,6 @@ Prefab:
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 258481281}
-    - target: {fileID: 223912951565944748, guid: cee624a6a881de143ab97ae841a95789,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1147556751}
-    - target: {fileID: 114522957771933610, guid: cee624a6a881de143ab97ae841a95789,
-        type: 2}
-      propertyPath: castleStats
-      value: 
-      objectReference: {fileID: 1260898372}
     - target: {fileID: 1515567185274046, guid: cee624a6a881de143ab97ae841a95789, type: 2}
       propertyPath: m_Name
       value: UI

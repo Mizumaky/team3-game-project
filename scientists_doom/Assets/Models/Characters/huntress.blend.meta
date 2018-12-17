@@ -179,7 +179,12 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
-    rigImportWarnings: 
+    rigImportWarnings: "Avatar Rig Configuration mis-match. Bone length in configuration
+      does not match position in animation file:\n\t'Upper_Leg_L' : position error
+      = 64.779816 mm\n\t'Lower_Leg_L' : position error = 45.343254 mm\n\t'Foot_L'
+      : position error = 4.926844 mm\n\t'Upper_Leg_R' : position error = 64.779800
+      mm\n\t'Lower_Leg_R' : position error = 45.343098 mm\n\t'Foot_R' : position error
+      = 4.926875 mm\n"
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
