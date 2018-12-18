@@ -14,5 +14,6 @@ MonoBehaviour:
   abilityName: Powerful Quick Shot
   icon: {fileID: 0}
   rank: 2
-  dmg: 60
-  empoweredDmg: 120
+  damage: 90
+  damageEmpowered: 180
+  enemiesToHit: 5

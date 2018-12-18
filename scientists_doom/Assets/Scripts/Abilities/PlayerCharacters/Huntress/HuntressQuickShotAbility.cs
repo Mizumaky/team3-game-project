@@ -31,7 +31,7 @@ public class HuntressQuickShotAbility : Ability
   [Header("Passive")]
   private int _stacks = 1;
   public int stacks { get { return _stacks; } }
-  private int stacksRequirement;
+  private int stacksRequirement = 3;
 
   #endregion
 
@@ -78,6 +78,7 @@ public class HuntressQuickShotAbility : Ability
       QuickShotRankData data = ((QuickShotRankData)abilityRankData[(int)rank]);
       _damage = data.damage;
       _damageEmpowered = data.damageEmpowered;
+      _enemiesToHit = data.enemiesToHit;
     }
     else
     {

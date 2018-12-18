@@ -8,9 +8,10 @@ public class HuntressDistractAbility : Ability
   public KeyCode keyCode = KeyCode.E;
 
   [Header("Object")]
-  public GameObject owlPrefab;
-  public Transform owlSpawnTransform;
-  public float owlDestinationHeight;
+  public GameObject eaglePrefab;
+  public Transform eagleSpawnTransform;
+  public float eagleVelocity;
+  public float eagleDestinationHeight;
 
   [Header("Visuals")]
   public GameObject areaOutlinePrefab;
@@ -33,12 +34,26 @@ public class HuntressDistractAbility : Ability
 
   private void SendAtMousePosition()
   {
-    GameObject newOwl = Instantiate(owlPrefab, owlSpawnTransform.position, Quaternion.identity, null);
+    GameObject newOwl = Instantiate(eaglePrefab, eagleSpawnTransform.position, Quaternion.identity, null);
 
     Vector3 groundPosAtMouse = PlayerMovement.GetGroundPosAtMouse();
-    Vector3 destination = groundPosAtMouse + Vector3.up * owlDestinationHeight;
+    Vector3 destination = groundPosAtMouse + Vector3.up * eagleDestinationHeight;
 
-    OwlProjectile proj = newOwl.GetComponent<OwlProjectile>();
-    proj.SetAndRelease(destination, groundPosAtMouse, duration, transform, areaOutlinePrefab);
+    EagleProjectile proj = newOwl.GetComponent<EagleProjectile>();
+    proj.SetAndRelease(destination, groundPosAtMouse, eagleVelocity, radius, duration, transform, areaOutlinePrefab);
+  }
+
+  public override void UpdateAbilityData()
+  {
+    if (abilityRankData[(int)rank] is DistractRankData)
+    {
+      DistractRankData data = ((DistractRankData)abilityRankData[(int)rank]);
+      _radius = data.radius;
+      _duration = data.duration;
+    }
+    else
+    {
+      Debug.LogWarning("HuntressQuickShotAbility: Invalid ability data!");
+    }
   }
 }

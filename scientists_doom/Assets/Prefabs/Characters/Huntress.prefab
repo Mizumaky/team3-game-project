@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 114635549016687628}
   - component: {fileID: 114269541643194780}
   - component: {fileID: 114201074502855828}
+  - component: {fileID: 114689673893674452}
   m_Layer: 14
   m_Name: Huntress
   m_TagString: Huntress
@@ -1215,17 +1216,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ade8d3781fe36284c8e37d751af629e8, type: 2}
   - {fileID: 11400000, guid: d714e6eac68473b46ab924180ba26233, type: 2}
   keyCode: 32
-  dmg: 0
-  empoweredDmg: 0
   arrowPrefab: {fileID: 1180320206294934, guid: 8adbab1fc54a3c5449578fd3b52979a4,
     type: 2}
-  empArrowPrefab: {fileID: 1146329335169676, guid: fb935193fd33e744db22d203200bbb90,
+  empoweredArrowPrefab: {fileID: 1146329335169676, guid: fb935193fd33e744db22d203200bbb90,
     type: 2}
-  stacks: 0
-  empStacksReq: 3
-  launchAngle: 60
-  velocityMagnitude: 30
-  spawnPtTS: {fileID: 4922013344986260}
+  collisionMask:
+    serializedVersion: 2
+    m_Bits: 134656
+  velocityMagnitude: 40
+  travelHeight: 0.5
+  arrowSpawnTransform: {fileID: 4922013344986260}
 --- !u!114 &114239786977244888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1266,8 +1266,8 @@ MonoBehaviour:
   - {fileID: 114201074502855828}
   - {fileID: 114201074502855828}
   - {fileID: 114201074502855828}
-  - {fileID: 114201074502855828}
-  abilityRanks: 00000000000000000000000000000000
+  - {fileID: 114689673893674452}
+  abilityRanks: 00000000020000000000000000000000
 --- !u!114 &114341606732128242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1319,6 +1319,29 @@ MonoBehaviour:
   wood: 0
   stone: 0
   souls: 0
+--- !u!114 &114689673893674452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1465694572464804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b6f55e4db51ff449e14c91ee85eff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityRankData:
+  - {fileID: 11400000, guid: 4766a2a6401e3e840b5fea57c80b78d8, type: 2}
+  - {fileID: 11400000, guid: 8f32d49f704937d419fd972d1363586c, type: 2}
+  - {fileID: 11400000, guid: 642fe87c3d68bdb4ea4b6135fffdc9d8, type: 2}
+  keyCode: 101
+  eaglePrefab: {fileID: 1727019830729638, guid: c95850030315f134cba892b47a5e505e,
+    type: 2}
+  eagleSpawnTransform: {fileID: 4922013344986260}
+  eagleVelocity: 5
+  eagleDestinationHeight: 5
+  areaOutlinePrefab: {fileID: 1788745233935808, guid: 246c3b7aacd75d44b815e31de47f75b7,
+    type: 2}
 --- !u!136 &136626130037754824
 CapsuleCollider:
   m_ObjectHideFlags: 1

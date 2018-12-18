@@ -6,9 +6,6 @@ public class KegProjectile : MonoBehaviour
 {
   #region Variables
 
-  [Header("Collision")]
-  public LayerMask collisionMask;
-
   [Header("Scriptable Parameters")]
   private int _damage;
   public int damage { get { return _damage; } }
@@ -18,6 +15,7 @@ public class KegProjectile : MonoBehaviour
   private GameObject spillPrefab;
   private Transform casterTransform;
   private bool isTraveling;
+  private LayerMask collisionMask;
 
   #endregion
 
@@ -57,9 +55,6 @@ public class KegProjectile : MonoBehaviour
     {
       isTraveling = false;
 
-      Destroy(GetComponent<Rigidbody>());
-      transform.GetChild(0).gameObject.SetActive(false);
-      GetComponent<Explosive>().enabled = false;
       GetComponent<ParticleSystem>().Play();
 
       SpawnSpill();
@@ -76,10 +71,9 @@ public class KegProjectile : MonoBehaviour
 
     if (Physics.Raycast(rayDown, out hit, 3f, 1 << LayerMask.NameToLayer("Ground")))
     {
-      Instantiate(spillPrefab, hit.point, Quaternion.LookRotation(hit.normal), null);
+      GameObject newSpill = Instantiate(spillPrefab, hit.point, Quaternion.LookRotation(hit.normal), null);
+      Destroy(newSpill, spillDuration);
     }
-
-    Destroy(gameObject, spillDuration);
   }
 
   private void HitEnemies()

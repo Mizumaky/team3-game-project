@@ -14,5 +14,6 @@ MonoBehaviour:
   abilityName: Weak Quick Shot
   icon: {fileID: 0}
   rank: 0
-  dmg: 20
-  empoweredDmg: 40
+  damage: 30
+  damageEmpowered: 60
+  enemiesToHit: 3

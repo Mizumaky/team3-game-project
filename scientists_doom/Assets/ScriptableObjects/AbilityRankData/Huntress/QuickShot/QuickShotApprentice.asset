@@ -14,5 +14,6 @@ MonoBehaviour:
   abilityName: Strong Quick Shot
   icon: {fileID: 0}
   rank: 1
-  dmg: 40
-  empoweredDmg: 80
+  damage: 60
+  damageEmpowered: 120
+  enemiesToHit: 4

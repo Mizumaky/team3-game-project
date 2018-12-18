@@ -2,24 +2,20 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Stats : MonoBehaviour
 {
-
-  protected bool alive;
   [Header("Health")]
   public float baseMaxHealth = 100f; // To keep health cap, so that hero cannot be overhealed 
   [SerializeField] protected float totalMaxHealth;
   [SerializeField] protected float currentHealth;
   public float healthIncrement = 10f;
 
+  protected bool _isAlive;
+  public bool isAlive { get { return _isAlive; } }
+
   [Header("Attack")]
   public float baseAttackDamage = 10f;
   [SerializeField] protected float totalAttackDamage;
   public float attackDamageIncrement = 1f;
   public bool isInvulnerable = false;
-
-  public bool isAlive()
-  {
-    return alive;
-  }
 
   public float GetTotalMaxHealth()
   {
@@ -57,7 +53,7 @@ public class Stats : MonoBehaviour
 
   protected virtual void Init()
   {
-    alive = true;
+    _isAlive = true;
 
     totalMaxHealth = baseMaxHealth;
     totalAttackDamage = baseAttackDamage;
@@ -79,9 +75,9 @@ public class Stats : MonoBehaviour
 
   protected virtual void Die()
   {
-    if (alive)
+    if (_isAlive)
     {
-      alive = false;
+      _isAlive = false;
       Debug.Log(gameObject.name + " died!");
     }
   }

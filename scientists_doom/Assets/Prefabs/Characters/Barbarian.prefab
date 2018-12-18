@@ -1255,19 +1255,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4bc25eedaa715b74fa536b1cfbb0fd54, type: 2}
   - {fileID: 11400000, guid: a68e235533331cf43a2df5acfecc13a2, type: 2}
   keyCode: 113
-  dmgOnSplash: 0
-  spillDecayTime: 0
-  kegPrefab: {fileID: 0}
-  spillPrefab: {fileID: 0}
-  noFlightDist: 3
-  launchAngle: 45
-  travelHeightPerc:
+  kegPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca, type: 2}
+  spillPrefab: {fileID: 1669881619591404, guid: 626df950451b9854d9c7d6a5a494f721,
+    type: 2}
+  collisionMask:
     serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spawnPtTS: {fileID: 4828322318558776}
+    m_Bits: 133632
+  launchAngle: 45
+  noFlightDist: 3
+  kegSpawnTransform: {fileID: 4828322318558776}
 --- !u!114 &114551689713803172
 MonoBehaviour:
   m_ObjectHideFlags: 1

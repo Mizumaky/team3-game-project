@@ -270,7 +270,7 @@ public class CharacterAbilityInstance : MonoBehaviour
         hit.GetComponent<EnemyControls>().AggroTo(casterTransform);
         if (ability.GetStunDuration() > 0)
         {
-          hit.GetComponent<EnemyControls>().StunFor(ability.GetStunDuration());
+          hit.GetComponent<EnemyControls>().Stun();
         }
         hit.GetComponent<EnemyStats>().TakeDamage(damage);
       }

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OwlProjectile : MonoBehaviour
+public class EagleProjectile : MonoBehaviour
 {
   #region Variables
 
@@ -18,6 +18,7 @@ public class OwlProjectile : MonoBehaviour
   private float destinationDistanceThreshold = 1f;
 
   private Vector3 direction;
+  private float velocity;
   private bool isTraveling;
 
   private float updateInterval = 0.5f;
@@ -35,10 +36,12 @@ public class OwlProjectile : MonoBehaviour
   /// <param name="destinationGround"></param>
   /// <param name="duration"></param>
   /// <param name="casterTransform"></param>
-  public void SetAndRelease(Vector3 destination, Vector3 destinationGround, float duration, Transform casterTransform, GameObject areaOutlinePrefab)
+  public void SetAndRelease(Vector3 destination, Vector3 destinationGround, float velocity, float radius, float duration, Transform casterTransform, GameObject areaOutlinePrefab)
   {
     this.destination = destination;
     this.destinationGround = destinationGround;
+    this.velocity = velocity;
+    this._radius = radius;
     this._duration = duration;
     this.casterTransform = casterTransform;
     this.areaOutlinePrefab = areaOutlinePrefab;
@@ -50,16 +53,17 @@ public class OwlProjectile : MonoBehaviour
   private IEnumerator TranslateTowardsDestination()
   {
     direction = (destination - transform.position).normalized;
+    transform.GetChild(0).rotation = Quaternion.LookRotation(direction);
     while (isTraveling)
     {
-      transform.Translate(direction);
+      transform.Translate(direction * Time.deltaTime * velocity);
 
       distanceToDestination = Vector3.Distance(transform.position, destination);
       // Stop when close to the destination
       if (distanceToDestination < destinationDistanceThreshold)
       {
         isTraveling = false;
-        Hover();
+        StartCoroutine(Hover());
       }
 
       yield return null;
@@ -82,7 +86,7 @@ public class OwlProjectile : MonoBehaviour
     {
       remainingDuration -= updateInterval;
       // Set aggro to the caster on the last check
-      if (remainingDuration <= 0)
+      if (remainingDuration <= updateInterval)
       {
         transformToAggroTo = casterTransform;
       }
@@ -90,7 +94,7 @@ public class OwlProjectile : MonoBehaviour
       hits = Physics.OverlapSphere(destinationGround, radius, enemyLayerMask);
       foreach (Collider hit in hits)
       {
-        hit.GetComponent<EnemyControls>().AggroTo(transform);
+        hit.GetComponent<EnemyControls>().AggroTo(transformToAggroTo);
       }
 
       // TODO: Hover around in circles
@@ -99,7 +103,8 @@ public class OwlProjectile : MonoBehaviour
     }
 
     Destroy(areaOutline);
-    // TODO: Destroy owl or send back
+    Destroy(gameObject);
+    // TODO: Make the eagle work like a boomerang
   }
 
   private GameObject SpawnAreaOutline()
@@ -108,11 +113,13 @@ public class OwlProjectile : MonoBehaviour
 
     Ray rayDown = new Ray(destinationGround + Vector3.up, Vector3.down);
     RaycastHit hit;
-    if (Physics.Raycast(rayDown, out hit, 3f, 1 << LayerMask.NameToLayer("Ground")))
+    if (Physics.Raycast(rayDown, out hit, 5f, 1 << LayerMask.NameToLayer("Ground")))
     {
       outlineRotation = Quaternion.LookRotation(hit.normal);
     }
 
+    var shape = areaOutlinePrefab.GetComponent<ParticleSystem>().shape;
+    shape.radius = radius;
     GameObject areaOutline = Instantiate(areaOutlinePrefab, destinationGround, outlineRotation, transform);
     return areaOutline;
   }
