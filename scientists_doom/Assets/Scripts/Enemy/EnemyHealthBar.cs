@@ -3,41 +3,55 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyHealthBar : MonoBehaviour {
+public class EnemyHealthBar : MonoBehaviour
+{
 
   private Canvas canvas;
   [SerializeField] private Image healthSlider;
+  public Text dmgText;
   private new Transform camera;
   public int timeToHideHealthBar;
   private float time;
   private bool rotatingCanvas;
 
   // Use this for initialization
-  void Start () {
-    canvas = GetComponentInChildren<Canvas> ();
+  void Start()
+  {
+    canvas = GetComponentInChildren<Canvas>();
     canvas.enabled = false;
     camera = Camera.main.transform;
     rotatingCanvas = false;
   }
 
-  public void AdjustHealthBar (float fillAmount) {
+  public void AdjustHealthBar(float fillAmount)
+  {
     canvas.enabled = true;
     healthSlider.fillAmount = fillAmount;
-    if (!rotatingCanvas) {
+    if (!rotatingCanvas)
+    {
       time = timeToHideHealthBar;
-      StartCoroutine (RotateCanvas ());
-    } else {
+      StartCoroutine(RotateCanvas());
+    }
+    else
+    {
       time = timeToHideHealthBar;
     }
-
   }
 
-  IEnumerator RotateCanvas () {
+  public void ShowDmgText(float dmg)
+  {
+    dmgText.text = ((int)dmg).ToString();
+    dmgText.GetComponent<Animator>().SetTrigger("pop");
+  }
+
+  IEnumerator RotateCanvas()
+  {
     float divide = 0.1f;
-    while (time >= 0) {
+    while (time >= 0)
+    {
       time -= divide;
       canvas.transform.rotation = camera.rotation;
-      yield return new WaitForSeconds (divide);
+      yield return new WaitForSeconds(divide);
     }
     canvas.enabled = false;
   }

@@ -7,6 +7,7 @@ public class EnemyStats : Stats
   {
     base.TakeDamage(damage);
     GetComponent<EnemyHealthBar>().AdjustHealthBar(currentHealth / totalMaxHealth);
+    GetComponent<EnemyHealthBar>().ShowDmgText(damage);
   }
 
   protected override void Die()

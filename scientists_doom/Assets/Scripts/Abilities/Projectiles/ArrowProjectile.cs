@@ -12,8 +12,6 @@ public class ArrowProjectile : MonoBehaviour
   public int damage { get { return _damage; } }
   private int _damageEmpowered;
   public int damageEmpowered { get { return _damageEmpowered; } }
-  private int _enemiesToHit;
-  public int enemiesToHit { get { return _enemiesToHit; } }
 
   private Transform casterTransform;
   private bool isEmpowered;
@@ -30,11 +28,10 @@ public class ArrowProjectile : MonoBehaviour
   /// <param name="destinationGround"></param>
   /// <param name="duration"></param>
   /// <param name="casterTransform"></param>
-  public void SetAndRelease(int damage, int damageEmpowered, int enemiesToHit, Transform casterTransform, float travelHeight, bool isEmpowered, LayerMask collisionMask)
+  public void SetAndRelease(int damage, int damageEmpowered, Transform casterTransform, float travelHeight, bool isEmpowered, LayerMask collisionMask)
   {
     this._damage = damage;
     this._damageEmpowered = damageEmpowered;
-    this._enemiesToHit = enemiesToHit;
     this.casterTransform = casterTransform;
     this.travelHeight = travelHeight;
     this.isEmpowered = isEmpowered;
@@ -49,17 +46,21 @@ public class ArrowProjectile : MonoBehaviour
     Rigidbody rigidbody = GetComponent<Rigidbody>();
     Ray rayDown;
     RaycastHit hit;
-    float rayLength = 5f;
+    float rayLength = 10f;
     int layerMask = 1 << LayerMask.NameToLayer("Ground");
 
+    Vector3 lastPosition;
+
+    transform.rotation = Quaternion.LookRotation(rigidbody.velocity);
     while (isTraveling)
     {
-      transform.rotation = Quaternion.LookRotation(rigidbody.velocity);
+      lastPosition = transform.position;
 
-      rayDown = new Ray(transform.position, Vector3.down);
+      rayDown = new Ray(transform.position + Vector3.up * 5f, Vector3.down);
       if (Physics.Raycast(rayDown, out hit, rayLength, layerMask))
       {
         transform.position = new Vector3(transform.position.x, travelHeight + hit.point.y, transform.position.z);
+        //transform.rotation = Quaternion.LookRotation((transform.position - lastPosition).normalized);
       }
 
       yield return null;
@@ -71,31 +72,33 @@ public class ArrowProjectile : MonoBehaviour
     if (isTraveling && UnityExtensions.ContainsLayer(collisionMask, other.gameObject.layer))
     {
       // FIXME: NameToLayer can be optimized
-      if (enemiesToHit > 0 && other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
+      if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
       {
-        _enemiesToHit--;
-
         other.GetComponent<EnemyControls>().AggroTo(casterTransform);
 
         float shotDmg = (isEmpowered ? _damageEmpowered : _damage);
         other.GetComponent<EnemyStats>().TakeDamage(shotDmg);
-      }
-      else
-      {
-        isTraveling = false;
 
-        Rigidbody rigidbody = GetComponent<Rigidbody>();
-        if (rigidbody != null)
+        if (isEmpowered)
         {
-          rigidbody.useGravity = false;
-          rigidbody.velocity = Vector3.zero;
+          return;
         }
-
-        GetComponent<Collider>().enabled = false;
-
-        transform.parent = other.transform;
-        Destroy(gameObject, 3);
       }
+
+      isTraveling = false;
+
+      Rigidbody rigidbody = GetComponent<Rigidbody>();
+      if (rigidbody != null)
+      {
+        rigidbody.useGravity = false;
+        rigidbody.velocity = Vector3.zero;
+      }
+
+      GetComponent<Collider>().enabled = false;
+
+      transform.parent = other.transform;
+      Destroy(gameObject, 3);
+
     }
   }
 }
