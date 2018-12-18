@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
 
-  public enum Character { Barbarian, Wizard, Huntress, noCharacter }
+  public enum Character { Barbarian, Wizard, Huntress }
 
   [Header("Character Prefabs")]
   public GameObject wizard;
@@ -20,7 +20,7 @@ public class CharacterManager : MonoBehaviour
 
   [Space]
   public static GameObject activeCharacterObject = null; //BTW statics OK even when multi - static variables are not shared between clients
-  public static Character activeCharacter = Character.noCharacter;
+  public static Character activeCharacter = Character.Barbarian;
 
   private DoubleFocusCamera dfcameraReference;
   private TurretManager turretManagerScript;

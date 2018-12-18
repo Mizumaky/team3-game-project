@@ -16,9 +16,7 @@ public class MenuController : MonoBehaviour {
 
     public struct SceneNames {
         public string mainMenu;
-        public string lobby;
         public string single;
-        public string multi;
 
         /// <summary>
         /// Default scene names for different users
@@ -27,14 +25,10 @@ public class MenuController : MonoBehaviour {
         public SceneNames(User currentUser) {
             if(currentUser == User.Master) {
                 mainMenu = "MainMenu.unity";
-                lobby = "lobby.unity";
                 single = "SinglePlayerGame.unity";
-                multi = "MultiPlayerGame.unity";
             } else {
                 mainMenu = "MainMenu 1.unity";
-                lobby = "lobby 1.unity";
                 single = "SinglePlayerGame 1.unity";
-                multi = "MultiPlayerGame 1.unity";
             }
         }
     }
@@ -49,10 +43,6 @@ public class MenuController : MonoBehaviour {
     }
 
     public void StartSinglePlayer() {
-        SceneManager.LoadScene(2);
-    }
-
-    public void GoToLobby() {
         SceneManager.LoadScene(1);
     }
 
@@ -82,9 +72,7 @@ public class MenuController : MonoBehaviour {
         SceneNames names = new SceneNames(currentUser);
         EditorBuildSettingsScene[] newScenes = { 
             new EditorBuildSettingsScene(GetCurrentUserPath() + names.mainMenu, true),
-            new EditorBuildSettingsScene(GetCurrentUserPath() + names.lobby, true),
             new EditorBuildSettingsScene(GetCurrentUserPath() + names.single, true),
-            new EditorBuildSettingsScene(GetCurrentUserPath() + names.multi, true)
             };
         EditorBuildSettings.scenes = newScenes;
     }

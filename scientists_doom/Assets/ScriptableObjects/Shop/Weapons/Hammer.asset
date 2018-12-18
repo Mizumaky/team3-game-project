@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e7d2dd8786f38b4586155d0d851624b, type: 3}
+  m_Name: Hammer
+  m_EditorClassIdentifier: 
+  weaponName: Hammer
+  icon: {fileID: 21300000, guid: 19ff356a3686e8d48bb312d209501115, type: 3}
+  description: A blunt weapon. Effective, but not very stylish.
+  price: 100
