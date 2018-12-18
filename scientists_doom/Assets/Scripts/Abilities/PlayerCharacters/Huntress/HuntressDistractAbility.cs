@@ -53,7 +53,7 @@ public class HuntressDistractAbility : Ability
     }
     else
     {
-      Debug.LogWarning("HuntressQuickShotAbility: Invalid ability data!");
+      Debug.LogWarning("HuntressDistractAbility: Invalid ability data!");
     }
   }
 }

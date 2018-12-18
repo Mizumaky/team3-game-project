@@ -18,7 +18,7 @@ public class KegSpill : MonoBehaviour
 
     foreach (Collider hit in hits)
     {
-      hit.GetComponent<EnemyControls>().Slow();
+      hit.GetComponent<EnemyControls>().RemoveSlow();
     }
   }
 

@@ -16,7 +16,7 @@ public class HuntressQuickShotAbility : Ability
 
   [Header("Travel")]
   public float velocityMagnitude;
-  public float travelHeight = 0.5f;
+  public float travelHeight = 1f;
   public Transform arrowSpawnTransform;
 
   [Header("Scriptable Parameters")]
@@ -24,8 +24,6 @@ public class HuntressQuickShotAbility : Ability
   public int damage { get { return _damage; } }
   private int _damageEmpowered;
   public int damageEmpowered { get { return _damageEmpowered; } }
-  private int _enemiesToHit;
-  public int enemiesToHit { get { return _enemiesToHit; } }
   [Space]
 
   [Header("Passive")]
@@ -68,7 +66,7 @@ public class HuntressQuickShotAbility : Ability
     ArrowProjectile proj = newArrow.GetComponent<ArrowProjectile>();
 
     newArrow.GetComponent<Rigidbody>().velocity = transform.forward * velocityMagnitude;
-    proj.SetAndRelease(damage, damageEmpowered, enemiesToHit, transform, travelHeight, isEmpoweredShot, collisionMask);
+    proj.SetAndRelease(damage, damageEmpowered, transform, travelHeight, isEmpoweredShot, collisionMask);
   }
 
   public override void UpdateAbilityData()
@@ -78,7 +76,6 @@ public class HuntressQuickShotAbility : Ability
       QuickShotRankData data = ((QuickShotRankData)abilityRankData[(int)rank]);
       _damage = data.damage;
       _damageEmpowered = data.damageEmpowered;
-      _enemiesToHit = data.enemiesToHit;
     }
     else
     {

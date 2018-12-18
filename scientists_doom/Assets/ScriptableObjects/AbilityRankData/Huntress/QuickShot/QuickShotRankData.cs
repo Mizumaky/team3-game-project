@@ -5,5 +5,4 @@ public class QuickShotRankData : AbilityRankData
 {
   public int damage;
   public int damageEmpowered;
-  public int enemiesToHit;
 }

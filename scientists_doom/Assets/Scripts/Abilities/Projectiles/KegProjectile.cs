@@ -88,5 +88,4 @@ public class KegProjectile : MonoBehaviour
       hit.GetComponent<EnemyControls>().AggroTo(casterTransform);
     }
   }
-
 }
