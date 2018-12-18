@@ -13,5 +13,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Strong Slash
   icon: {fileID: 0}
-  rank: 0
+  rank: 1
   damage: 20

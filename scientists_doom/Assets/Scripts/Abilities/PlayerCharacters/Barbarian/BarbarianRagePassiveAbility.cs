@@ -70,6 +70,7 @@ public class BarbarianRagePassiveAbility : Ability
       if (stacks < stacksCap)
       {
         stacks++;
+        stats.AddBonusDamage(perStackDamageIncrement);
         UpdatePS();
         UpdateHUD();
         EventManager.TriggerEvent("updateImmortalityAv");
@@ -84,6 +85,7 @@ public class BarbarianRagePassiveAbility : Ability
   public void ResetStacks()
   {
     stacks = 0;
+    stats.ResetBonusDamage();
     UpdatePS();
     UpdateHUD();
     EventManager.TriggerEvent("updateImmortalityAv");
@@ -92,6 +94,7 @@ public class BarbarianRagePassiveAbility : Ability
   public void UseStacks(int amount)
   {
     stacks -= amount;
+    stats.RemoveBonusDamage(amount * perStackDamageIncrement);
     UpdatePS();
     UpdateHUD();
     EventManager.TriggerEvent("updateImmortalityAv");
@@ -108,6 +111,7 @@ public class BarbarianRagePassiveAbility : Ability
     while (stacks > 0)
     {
       stacks -= stackDecrement;
+      stats.RemoveBonusDamage(perStackDamageIncrement * stackDecrement);
       UpdatePS();
       UpdateHUD();
       yield return stackDecayPeriodWFS;

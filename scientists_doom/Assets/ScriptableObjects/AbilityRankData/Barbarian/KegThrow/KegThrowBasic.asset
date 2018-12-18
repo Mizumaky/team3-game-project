@@ -14,8 +14,5 @@ MonoBehaviour:
   abilityName: Weak Keg Throw
   icon: {fileID: 0}
   rank: 0
-  dmgOnSplash: 20
-  spillDecayTime: 3
-  kegPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca, type: 2}
-  spillPrefab: {fileID: 1669881619591404, guid: 626df950451b9854d9c7d6a5a494f721,
-    type: 2}
+  damage: 25
+  spillDuration: 3

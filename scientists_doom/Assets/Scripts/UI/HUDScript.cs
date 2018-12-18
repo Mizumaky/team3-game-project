@@ -131,9 +131,15 @@ public class HUDScript : MonoBehaviour
         }
       case CharacterManager.Character.Huntress:
         {
-          barbarianRageBar.SetActive(false);
-          wizardCastBar.SetActive(false);
-          huntressStackBar.SetActive(true);
+          HuntressQuickShotAbility ability = CharacterManager.activeCharacterObject.GetComponent<HuntressQuickShotAbility>();
+          if (ability == null)
+          {
+            Debug.LogWarning("Huntress quick shot ability not found on active character!");
+          }
+
+          Animator anim = huntressStackBar.GetComponent<Animator>();
+          anim.SetInteger("stacks", ability.stacks - 1);
+
           break;
         }
     }

@@ -4,76 +4,76 @@ using UnityEngine;
 
 public class KegProjectile : MonoBehaviour
 {
-  [Header("Travel")]
-  public int damageOnSplash;
-  public float spillDecayTime;
-  public LayerMask collisionMask;
-  public GameObject spillPrefab;
+  #region Variables
 
-  [Header("Carry")]
-  public Transform casterTransform;
+  [Header("Scriptable Parameters")]
+  private int _damage;
+  public int damage { get { return _damage; } }
+  private float _spillDuration;
+  public float spillDuration { get { return _spillDuration; } }
 
-  [Header("Other")]
-  public GameObject model;
-  public ParticleSystem splashPS;
+  private GameObject spillPrefab;
+  private Transform casterTransform;
+  private bool isTraveling;
+  private LayerMask collisionMask;
 
-  private Vector3 randomRotVect;
-  private bool inFlight;
+  #endregion
 
-  public void Fly()
+  /// <summary>
+  /// Sets the projectile's parameters and sends it towards destination
+  /// </summary>
+  /// <param name="destination"></param>
+  /// <param name="destinationGround"></param>
+  /// <param name="duration"></param>
+  /// <param name="casterTransform"></param>
+  public void SetAndRelease(int damage, float spillDuration, GameObject spillPrefab, Transform casterTransform, LayerMask collisionMask)
   {
-    randomRotVect = new Vector3(2, 1, 0);
-    inFlight = true;
+    this._damage = damage;
+    this._spillDuration = spillDuration;
+    this.spillPrefab = spillPrefab;
+    this.casterTransform = casterTransform;
+    this.collisionMask = collisionMask;
+
+    isTraveling = true;
     StartCoroutine(Rotation());
   }
 
   private IEnumerator Rotation()
   {
-    while (inFlight)
+    Vector3 rotationVector = new Vector3(2, 1, 0);
+
+    while (isTraveling)
     {
-      transform.Rotate(randomRotVect);
+      transform.Rotate(rotationVector);
       yield return null;
     }
-  }
-
-  public void Set(int dmg, float time, GameObject pfb, Transform ct)
-  {
-    damageOnSplash = dmg;
-    spillDecayTime = time;
-    spillPrefab = pfb;
-    casterTransform = ct;
   }
 
   private void OnTriggerEnter(Collider other)
   {
     if (UnityExtensions.ContainsLayer(collisionMask, other.gameObject.layer))
     {
-      inFlight = false;
+      isTraveling = false;
 
-      Destroy(GetComponent<Rigidbody>());
-      model.SetActive(false);
+      GetComponent<ParticleSystem>().Play();
 
-      splashPS.Play();
-      Spill();
+      SpawnSpill();
+      Destroy(gameObject, GetComponent<ParticleSystem>().main.duration);
     }
   }
 
-  private void Spill()
+  private void SpawnSpill()
   {
     Ray rayDown = new Ray(transform.position + Vector3.up, Vector3.down);
     RaycastHit hit;
 
-    Vector3 groundNormal = Vector3.up;
-    Vector3 spillPosition = transform.position;
-    int groundMask = 1 << LayerMask.NameToLayer("Ground");
-    if (Physics.Raycast(rayDown, out hit, 3f, groundMask))
-    {
-      GameObject spillObj = Instantiate(spillPrefab, hit.point, Quaternion.LookRotation(hit.normal), transform);
-    }
-
     HitEnemies();
 
-    Destroy(gameObject, spillDecayTime);
+    if (Physics.Raycast(rayDown, out hit, 3f, 1 << LayerMask.NameToLayer("Ground")))
+    {
+      GameObject newSpill = Instantiate(spillPrefab, hit.point, Quaternion.LookRotation(hit.normal), null);
+      Destroy(newSpill, spillDuration);
+    }
   }
 
   private void HitEnemies()
@@ -84,8 +84,8 @@ public class KegProjectile : MonoBehaviour
 
     foreach (Collider hit in hits)
     {
-      hit.GetComponent<Stats>().TakeDamage(damageOnSplash);
-      hit.GetComponent<EnemyControls>().Aggro(casterTransform);
+      hit.GetComponent<Stats>().TakeDamage(damage);
+      hit.GetComponent<EnemyControls>().AggroTo(casterTransform);
     }
   }
 

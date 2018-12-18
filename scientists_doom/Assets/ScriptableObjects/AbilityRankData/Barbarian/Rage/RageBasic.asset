@@ -15,6 +15,6 @@ MonoBehaviour:
   icon: {fileID: 0}
   rank: 0
   stacksCap: 100
-  perStackDamageIncrement: 10
-  stackDecrement: 10
+  perStackDamageIncrement: 1
+  stackDecrement: 5
   stackDecayStartDelay: 3

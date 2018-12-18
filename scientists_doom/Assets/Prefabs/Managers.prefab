@@ -578,7 +578,7 @@ MonoBehaviour:
   barbarian: {fileID: 1195421657766132, guid: 585ff51c34f98fa469b3816fceb9eb11, type: 2}
   huntress: {fileID: 1465694572464804, guid: a780d622def24c54a8da85e3c4265430, type: 2}
   spawnOnStart: 1
-  characterOnStart: 0
+  characterOnStart: 2
   spawnPoint: {fileID: 4360926578144620}
   cameraParentReference: {fileID: 0}
 --- !u!114 &114219062614291806

@@ -31,7 +31,6 @@ public class PeasantStabAbility : MeleeAbility
 
       if (otherLayer == LayerMask.NameToLayer("Player") || otherLayer == LayerMask.NameToLayer("Castle"))
       {
-        Debug.Log("Hitting " + other.name);
         other.GetComponent<Stats>().TakeDamage(totalDamage);
         EventManager.TriggerEvent("updateHUD");
       }

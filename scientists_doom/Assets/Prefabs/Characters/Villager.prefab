@@ -948,7 +948,6 @@ MonoBehaviour:
   totalAttackDamage: 0
   attackDamageIncrement: 1
   isInvulnerable: 0
-  lootPrefab: {fileID: 1414109511527648, guid: 41d48ecce97a9964c9f69b5fe219ef67, type: 2}
 --- !u!114 &114023148560999444
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -998,9 +997,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d0b56f882e89f42a7e30a2cdac64df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castle: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 2}
-  distanceToFollowPlayer: 10
-  targetPositionUpdatePeriod: 0.2
+  castleTransform: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+    type: 2}
+  state: 0
+  aggroDistance: 10
+  attackPlayerDistance: 1
+  attackCastleDistance: 4
+  behaviourUpdatePeriod: 0.1
+  lootPrefab: {fileID: 1414109511527648, guid: 41d48ecce97a9964c9f69b5fe219ef67, type: 2}
 --- !u!114 &114596931426344402
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -18,6 +18,7 @@ public class BarbarianImmortalityAbility : Ability
 
   public SkinnedMeshRenderer modelRenderer;
 
+  private bool isImmortal;
   private Coroutine activeImmortalityRoutine;
   private WaitForSeconds updatePeriod;
   private BarbarianRagePassiveAbility barbarianRageAbility;
@@ -30,11 +31,16 @@ public class BarbarianImmortalityAbility : Ability
     EventManager.StartListening("updateImmortalityAv", UpdateAvailability);
   }
 
+  private void Start()
+  {
+    isImmortal = false;
+  }
+
   private void Update()
   {
     if (Input.GetKeyDown(keyCode))
     {
-      if (isAvailable)
+      if (isAvailable && !isImmortal)
       {
         Cast();
       }
@@ -73,22 +79,22 @@ public class BarbarianImmortalityAbility : Ability
     {
       isAvailable = true;
     }
+    else
+    {
+      isAvailable = false;
+    }
   }
 
   private IEnumerator Immortality()
   {
     float durLeft = duration;
-    Debug.Log("Immortal!");
-
+    isImmortal = true;
     barbarianRageAbility.canStack = false;
 
     Color temp = modelRenderer.materials[0].color;
     modelRenderer.materials[0].color = Color.black;
 
     stats.isInvulnerable = true;
-
-
-    // TODO: Prevent taking damage (probably somewhere in stats)
 
     while (durLeft > 0)
     {
@@ -101,8 +107,7 @@ public class BarbarianImmortalityAbility : Ability
     modelRenderer.materials[0].color = temp;
     stats.isInvulnerable = false;
 
-    // TODO: Revert
-    Debug.Log("Not immortal!");
+    isImmortal = false;
   }
 
   public void Cast()
