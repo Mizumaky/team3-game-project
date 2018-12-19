@@ -11,7 +11,7 @@ public class DoubleFocusCamera : MonoBehaviour
   [SerializeField] private float defaultRadius = 20f;
   [SerializeField] private float fovSmoothTime = .5f;
   [SerializeField] private float posSmoothTime = .5f;
-  [SerializeField] private float rotSmoothTime = .3f;
+  [SerializeField] private float rotSlerpParam = .3f;
   [SerializeField] private int minFOV = 35;
   [SerializeField] private int maxFOV = 60;
   [SerializeField] private AnimationCurve heightCurve;
@@ -27,7 +27,7 @@ public class DoubleFocusCamera : MonoBehaviour
 
   //for smoothDaping
   private Vector3 velocity;
-  private Vector3 rotVelocity;
+  private float rotVelocity;
   private float FOVvelocity;
 
   private float lerpTime = 0;
@@ -83,8 +83,6 @@ public class DoubleFocusCamera : MonoBehaviour
 
     Vector3 direction = (focus.position - transform.position).normalized;
     Quaternion newRotation = Quaternion.LookRotation(direction);
-    Vector3 cameraRot = Vector3.SmoothDamp(transform.rotation.eulerAngles, newRotation.eulerAngles, ref rotVelocity, rotSmoothTime);
-    transform.rotation = Quaternion.Euler(cameraRot);
-    //transform.LookAt(focus);
+    transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * rotSlerpParam);
   }
 }

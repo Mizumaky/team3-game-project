@@ -113,7 +113,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.31007957, g: 0.51705, b: 0.6250536, a: 1}
+  m_BackGroundColor: {r: 0.45409483, g: 0.6905828, b: 0.80469453, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -216,7 +216,9 @@ MonoBehaviour:
   focus: {fileID: 0}
   secondaryFocus: {fileID: 4765262381422898}
   defaultRadius: 20
-  smoothTime: 0.35
+  fovSmoothTime: 0.5
+  posSmoothTime: 0.5
+  rotSlerpParam: 5
   minFOV: 35
   maxFOV: 65
   heightCurve:

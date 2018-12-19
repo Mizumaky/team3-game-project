@@ -428,21 +428,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
-        type: 2}
-      propertyPath: m_BackGroundColor.r
-      value: 0.45409483
-      objectReference: {fileID: 0}
-    - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
-        type: 2}
-      propertyPath: m_BackGroundColor.g
-      value: 0.6905828
-      objectReference: {fileID: 0}
-    - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
-        type: 2}
-      propertyPath: m_BackGroundColor.b
-      value: 0.80469453
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 2}
   m_IsPrefabAsset: 0
@@ -464,6 +449,11 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114987015931512208, guid: cee624a6a881de143ab97ae841a95789,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 224926690056238906, guid: cee624a6a881de143ab97ae841a95789,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -554,16 +544,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114522957771933610, guid: cee624a6a881de143ab97ae841a95789,
-        type: 2}
-      propertyPath: castleStats
-      value: 
-      objectReference: {fileID: 1260898372}
-    - target: {fileID: 223912951565944748, guid: cee624a6a881de143ab97ae841a95789,
-        type: 2}
-      propertyPath: m_Camera
-      value: 
-      objectReference: {fileID: 1147556751}
     - target: {fileID: 114870714632496926, guid: cee624a6a881de143ab97ae841a95789,
         type: 2}
       propertyPath: gameController
@@ -579,9 +559,34 @@ Prefab:
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 258481281}
+    - target: {fileID: 223912951565944748, guid: cee624a6a881de143ab97ae841a95789,
+        type: 2}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1147556751}
+    - target: {fileID: 114522957771933610, guid: cee624a6a881de143ab97ae841a95789,
+        type: 2}
+      propertyPath: castleStats
+      value: 
+      objectReference: {fileID: 1260898372}
     - target: {fileID: 1515567185274046, guid: cee624a6a881de143ab97ae841a95789, type: 2}
       propertyPath: m_Name
       value: UI
+      objectReference: {fileID: 0}
+    - target: {fileID: 114987015931512208, guid: cee624a6a881de143ab97ae841a95789,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114987015931512208, guid: cee624a6a881de143ab97ae841a95789,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114987015931512208, guid: cee624a6a881de143ab97ae841a95789,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee624a6a881de143ab97ae841a95789, type: 2}

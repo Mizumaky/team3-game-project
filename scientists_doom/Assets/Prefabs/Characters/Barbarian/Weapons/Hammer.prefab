@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4412530927840000}
   - component: {fileID: 33586728351498474}
   - component: {fileID: 23878602405508564}
-  - component: {fileID: 95173901001610922}
+  - component: {fileID: 65510758147099788}
   m_Layer: 0
   m_Name: Hammer
-  m_TagString: Untagged
+  m_TagString: Weapon
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738905357413482}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -9.236816, y: -1.4929467, z: 2.1787925}
+  m_LocalPosition: {x: 6.8340416, y: -1.065, z: -8.788155}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -85,21 +85,15 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738905357413482}
   m_Mesh: {fileID: 4300010, guid: b2bda15d4507f674d8ddc390b1663f99, type: 3}
---- !u!95 &95173901001610922
-Animator:
-  serializedVersion: 3
+--- !u!65 &65510758147099788
+BoxCollider:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1738905357413482}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: b2bda15d4507f674d8ddc390b1663f99, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  serializedVersion: 2
+  m_Size: {x: 0.519707, y: 0.27342606, z: 1.3366324}
+  m_Center: {x: -0.0015375018, y: -0.0001460016, z: 0.50514615}
