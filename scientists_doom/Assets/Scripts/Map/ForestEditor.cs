@@ -3,20 +3,24 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor (typeof(ForestGenerator))]
-public class ForestEditor : Editor {
+[CustomEditor(typeof(ForestGenerator))]
+public class ForestEditor : Editor
+{
 
-	public override void OnInspectorGUI() {
-		ForestGenerator generator = (ForestGenerator)target;
+  public override void OnInspectorGUI()
+  {
+    ForestGenerator generator = (ForestGenerator)target;
 
-		if(DrawDefaultInspector()) {
+    if (DrawDefaultInspector())
+    {
 
-		}
+    }
 
-		if(GUILayout.Button("Generate")) {
-			generator.GenerateForest();
-		}
-	}
+    if (GUILayout.Button("Generate"))
+    {
+      generator.GenerateForest();
+    }
+  }
 }
 
 #endif
