@@ -61,7 +61,7 @@ public class EnemySpawner : MonoBehaviour {
     float x, z, lastAngle = 0, nextAngle, progress, delay;
     Ray rayDown;
     RaycastHit hit;
-    float rayLength = 25f;
+    float rayLength = 30f;
     int groundLayer = 1 << LayerMask.NameToLayer ("Ground");
 
     while (enemiesLeft > 0) {
@@ -79,7 +79,8 @@ public class EnemySpawner : MonoBehaviour {
       }
 
       if (spawnPosition == Vector3.zero) {
-        Debug.LogWarning ("EnemySpawner: Can't find group spawn via raycast! Spawning at " + spawnPosition);
+        Debug.LogWarning("EnemySpawner: Can't find group spawn via raycast! Picking new location!");
+        continue;
       }
       StartCoroutine (SpawnEnemyGroup (groupSize, hit.point));
 

@@ -17,7 +17,7 @@ public class RangeEnemyControls : EnemyControls {
         if (distance <= playerAttackReach) {
           navMeshAgent.isStopped = true;
           transform.rotation = CountLookRotation();
-          animator.SetTrigger("attackTrigger");
+          //animator.SetTrigger("attackTrigger");
           ShootProjectile(); //TODO: do shooting by animation
         } else {
           navMeshAgent.isStopped = false;
@@ -41,9 +41,10 @@ public class RangeEnemyControls : EnemyControls {
         distance = Vector3.Distance(target.position, transform.position);
         // If target close enough, attack and face it
         if (distance <= castleAttackReach) {
+          //TODO: checkViewToTarget if false make a few steps and than check again
           navMeshAgent.isStopped = true;
           transform.rotation = CountLookRotation();
-          animator.SetTrigger("attackTrigger");
+          //animator.SetTrigger("attackTrigger");
           ShootProjectile(); //TODO: do shooting by animation
         } else {
           navMeshAgent.isStopped = false;
@@ -59,8 +60,12 @@ public class RangeEnemyControls : EnemyControls {
     GameObject pr = Instantiate(projectile);
     pr.transform.position = attackSpawnPoint.transform.position;
     pr.transform.rotation = attackSpawnPoint.transform.rotation;
-    pr.GetComponent<Rigidbody>().velocity = pr.transform.forward * 5;
+    pr.GetComponent<Rigidbody>().velocity = target.position - transform.position;
     Destroy(pr, 2);
   }
 
+  private bool checkFreeViewToTarget() { //Raycast to target
+
+    return true;
+  }
 }
