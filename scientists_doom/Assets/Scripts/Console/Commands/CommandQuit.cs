@@ -33,6 +33,11 @@ namespace Console
 		public static CommandQuit CreateCommand(){
 			return new CommandQuit();
 		}
+
+        public override void RunCommandInt(int k)
+        {
+            DeveloperConsole.AddStaticMessageToConsole("Wrong usage, this method does not take any parameter!");
+        }
     }
 }
 

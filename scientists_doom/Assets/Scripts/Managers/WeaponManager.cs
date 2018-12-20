@@ -4,10 +4,8 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour {
 	public GameObject[] weapons;
-
 	private GameObject activeWeapon;
 	private Transform hand;
-
 	public Vector3 attachPosition;
 
 	void Awake(){
@@ -19,15 +17,20 @@ public class WeaponManager : MonoBehaviour {
 		}
 	}
 	///<summary>
-	///Equip weapon by tier (0 - starting, 1 - advanced, 2 - master)
+	///Equip weapon of tier weaponIndex(0 - starting, 1 - advanced, 2 - master)
 	///</summary>
-	public void EquipWeapon(int weaponIndex){
+	public bool EquipWeapon(int weaponIndex){
+		if(hand.childCount > 0){
+			Destroy(hand.GetChild(0).gameObject);
+		}
 		Debug.Log("Spawning barbarian weapon("+ weapons[weaponIndex].name +")");
 		activeWeapon = Instantiate(weapons[weaponIndex]);
 
 		activeWeapon.transform.parent = hand;
 		activeWeapon.transform.localPosition = attachPosition;
 		activeWeapon.transform.localEulerAngles = new Vector3(0,0,0);
+
+		return true;
 	}
 
 	public void GetActiveWeapon(){

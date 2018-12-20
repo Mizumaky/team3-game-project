@@ -889,7 +889,7 @@ GameObject:
   - component: {fileID: 222074662988377106}
   - component: {fileID: 114463328951573846}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: WeaponImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1354,7 +1354,7 @@ GameObject:
   - component: {fileID: 222779172663529242}
   - component: {fileID: 114563718271426412}
   m_Layer: 0
-  m_Name: Weapon_3
+  m_Name: Weapon_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1488,7 +1488,7 @@ GameObject:
   - component: {fileID: 222822650197962928}
   - component: {fileID: 114921574760879196}
   m_Layer: 0
-  m_Name: Weapon_2
+  m_Name: Weapon_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1590,7 +1590,7 @@ GameObject:
   - component: {fileID: 222276116224873246}
   - component: {fileID: 114116567703898048}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: WeaponImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1640,7 +1640,7 @@ GameObject:
   - component: {fileID: 222439837078082548}
   - component: {fileID: 114227205801904694}
   m_Layer: 0
-  m_Name: Weapon_1
+  m_Name: Weapon_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1693,7 +1693,7 @@ GameObject:
   - component: {fileID: 222562702344116760}
   - component: {fileID: 114285197600633586}
   m_Layer: 0
-  m_Name: Weapon
+  m_Name: WeaponImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2863,7 +2863,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114172616841309470}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114656123069984072}
+        m_MethodName: BuyWeapon
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114364005005557118
@@ -3268,7 +3279,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114902027868292432}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114656123069984072}
+        m_MethodName: BuyWeapon
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114496429807401296
@@ -3993,14 +4015,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   customers:
   - {fileID: 11400000, guid: ed187ce44a772014eba1bfae1505a4a9, type: 2}
-  weaponImages:
-  - {fileID: 114285197600633586}
-  - {fileID: 114116567703898048}
-  - {fileID: 114463328951573846}
-  weaponPrices:
-  - {fileID: 114646151825793764}
-  - {fileID: 114432833222557250}
-  - {fileID: 114547054204832854}
+  weaponButtons:
+  - {fileID: 114987015931512208}
+  - {fileID: 114485638929682724}
+  - {fileID: 114363914712013868}
   firstSkillSlots: []
   secondSkillSlots: []
 --- !u!114 &114674420139350494
@@ -5161,7 +5179,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 114021727878781144}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 114656123069984072}
+        m_MethodName: BuyWeapon
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114992669334071844

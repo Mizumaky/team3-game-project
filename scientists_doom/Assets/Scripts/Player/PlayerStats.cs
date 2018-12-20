@@ -18,6 +18,20 @@ public class PlayerStats : Stats {
     return heroLevel;
   }
 
+  public void LevelUp(int levels){
+    heroLevel += levels;
+    if(heroLevel > 60){
+      heroLevel = 60;
+    }
+  }
+
+  public void LevelDown(int levels){
+    heroLevel -= levels;
+    if(heroLevel < 0){
+      heroLevel = 0;
+    }
+  }
+
   public float GetCurrentHeroExperience () {
     return experience;
   }

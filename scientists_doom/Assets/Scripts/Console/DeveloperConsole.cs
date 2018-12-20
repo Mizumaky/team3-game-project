@@ -20,6 +20,7 @@ namespace Console
         }
 
         public abstract void RunCommand();
+        public abstract void RunCommandInt(int k);
     }
     public class DeveloperConsole : MonoBehaviour{
 
@@ -65,6 +66,8 @@ namespace Console
         private void CreateCommands(){
             CommandQuit commandQuit = CommandQuit.CreateCommand();
             CommandSpawnWave commandSpawnWave = CommandSpawnWave.CreateCommand();
+            CommandIncreaseHeroLevel commandIncreaseHeroLevel = CommandIncreaseHeroLevel.CreateCommand();
+            CommandAddSouls commandAddSouls = CommandAddSouls.CreateCommand();
         }
 
         public static void AddCommandsToConsole(string _name, ConsoleCommand _command){
@@ -75,7 +78,7 @@ namespace Console
         }
 
         public void AddMessageToConsole(string msg){
-            consoleText.text += "\n" + msg;
+            consoleText.text +=  msg + "\n";
             scrollRect.verticalNormalizedPosition = 0f;
         }
 
@@ -95,7 +98,14 @@ namespace Console
             if(!Commands.ContainsKey(_input[0])){
                 AddMessageToConsole("Command not recognized!");
             }else{
-                Commands[_input[0]].RunCommand();
+                int param;
+                if(_input.Length == 2 && int.TryParse(_input[1], out param)){
+                    Commands[_input[0]].RunCommandInt(param);
+                }else if(_input.Length == 1){
+                    Commands[_input[0]].RunCommand();
+                }else{
+                    AddMessageToConsole("This version of console does not support multiple parameters, sorry!");
+                }
             }
         }
     }

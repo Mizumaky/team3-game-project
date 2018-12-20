@@ -28,6 +28,11 @@ namespace Console
 		public static CommandSpawnWave CreateCommand(){
 			return new CommandSpawnWave();
 		}
+
+        public override void RunCommandInt(int k)
+        {
+            DeveloperConsole.AddStaticMessageToConsole("Wrong usage, this method does not take any parameter!");
+        }
     }
 }
 
