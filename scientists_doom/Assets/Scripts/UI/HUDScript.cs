@@ -124,9 +124,12 @@ public class HUDScript : MonoBehaviour
         }
       case CharacterManager.Character.Wizard:
         {
-          barbarianRageBar.SetActive(false);
-          wizardCastBar.SetActive(true);
-          huntressStackBar.SetActive(false);
+          WizardChargePassiveAbility ability = CharacterManager.activeCharacterObject.GetComponent<WizardChargePassiveAbility>();
+          if (ability == null)
+          {
+            Debug.LogWarning("Wizard charge passive not found on active character!");
+          }
+          wizardCastBar.GetComponent<Image>().fillAmount = ability.chargeProgress;
           break;
         }
       case CharacterManager.Character.Huntress:
