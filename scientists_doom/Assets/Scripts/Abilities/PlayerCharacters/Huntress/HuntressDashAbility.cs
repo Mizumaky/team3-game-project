@@ -6,9 +6,6 @@ public class HuntressDashAbility : Ability
 {
   #region Variables
 
-  [Header("Key")]
-  public KeyCode keyCode = KeyCode.Q;
-
   [Header("Visuals")]
   public ParticleSystem dashPS;
 

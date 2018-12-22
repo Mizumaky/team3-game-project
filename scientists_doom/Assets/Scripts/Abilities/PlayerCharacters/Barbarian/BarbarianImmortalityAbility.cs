@@ -5,9 +5,6 @@ using UnityEngine;
 public class BarbarianImmortalityAbility : Ability
 {
   #region Variables
-  [Header("Key")]
-  public KeyCode keyCode = KeyCode.E;
-
   [Header("Parameters From Ability Data")]
   public int stackCost;
   public float duration;

@@ -28,7 +28,7 @@ public class ArrowProjectile : MonoBehaviour
   /// <param name="destinationGround"></param>
   /// <param name="duration"></param>
   /// <param name="casterTransform"></param>
-  public void SetAndRelease(int damage, int damageEmpowered, Transform casterTransform, float travelHeight, bool isEmpowered, LayerMask collisionMask)
+  public void Set(int damage, int damageEmpowered, Transform casterTransform, float travelHeight, bool isEmpowered, LayerMask collisionMask)
   {
     this._damage = damage;
     this._damageEmpowered = damageEmpowered;
@@ -60,7 +60,6 @@ public class ArrowProjectile : MonoBehaviour
       if (Physics.Raycast(rayDown, out hit, rayLength, layerMask))
       {
         transform.position = new Vector3(transform.position.x, travelHeight + hit.point.y, transform.position.z);
-        //transform.rotation = Quaternion.LookRotation((transform.position - lastPosition).normalized);
       }
 
       yield return null;

@@ -6,6 +6,10 @@ public class Ability : MonoBehaviour
   public enum Rank { Basic, Apprentice, Master }
 
   protected string abilityName;
+  [Header("Key")]
+  public KeyCode keyCode;
+
+  [Header("Rank Data")]
   public AbilityRankData[] abilityRankData;
   protected Rank rank = Rank.Basic;
 

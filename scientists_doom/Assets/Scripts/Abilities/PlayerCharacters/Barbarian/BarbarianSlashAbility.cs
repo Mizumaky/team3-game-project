@@ -4,9 +4,6 @@ using UnityEngine;
 [RequireComponent(typeof(Stats))]
 public class BarbarianSlashAbility : MeleeAbility
 {
-  [Header("Key")]
-  public KeyCode keyCode = KeyCode.Space;
-
   [Header("Parameters From Ability Data")]
   public int damage;
 

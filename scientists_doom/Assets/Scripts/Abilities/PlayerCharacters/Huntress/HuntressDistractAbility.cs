@@ -4,9 +4,6 @@ public class HuntressDistractAbility : Ability
 {
   #region Variables
 
-  [Header("Key")]
-  public KeyCode keyCode = KeyCode.E;
-
   [Header("Object")]
   public GameObject eaglePrefab;
   public Transform eagleSpawnTransform;
