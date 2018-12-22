@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.31864366, g: 0.6281395, b: 0.78898984, a: 1}
+  m_FogColor: {r: 0.25921464, g: 0.19345818, b: 0.19616121, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.016
   m_LinearFogStart: 0
@@ -315,11 +315,47 @@ PrefabInstance:
       propertyPath: mycamera
       value: 
       objectReference: {fileID: 1147556751}
+    - target: {fileID: 114219062614291806, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: progress
+      value: 0.456
+      objectReference: {fileID: 0}
     - target: {fileID: 114106715919276896, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
       propertyPath: cameraParentReference
       value: 
       objectReference: {fileID: 754034532}
+    - target: {fileID: 4107925407924824, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.13779023
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107925407924824, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.99046147
+      objectReference: {fileID: 0}
+    - target: {fileID: 4144756542169316, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.99046147
+      objectReference: {fileID: 0}
+    - target: {fileID: 4144756542169316, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.13779028
+      objectReference: {fileID: 0}
+    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.35526958
+      objectReference: {fileID: 0}
+    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.368307
+      objectReference: {fileID: 0}
+    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.57364625
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
 --- !u!114 &258481281 stripped
@@ -469,6 +505,29 @@ PrefabInstance:
     - target: {fileID: 4256388101895934, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.25921464
+      objectReference: {fileID: 0}
+    - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.19345818
+      objectReference: {fileID: 0}
+    - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.19616121
+      objectReference: {fileID: 0}
+    - target: {fileID: 236513804, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
+      propertyPath: antialiasingMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 236513804, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
+      propertyPath: temporalAntialiasing.jitterSpread
+      value: 0.575
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
