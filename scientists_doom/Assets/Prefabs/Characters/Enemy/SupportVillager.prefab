@@ -959,9 +959,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f903c7c15c4efaf4d972d42f6f8330d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castleTransform: {fileID: 5363304298104492400, guid: ef90d9462fb6061499e1eb6eac91bf90,
+  castleTransform: {fileID: 1690068986228302191, guid: ef90d9462fb6061499e1eb6eac91bf90,
     type: 3}
-  state: 0
   aggroDistance: 15
   attackPlayerDistance: 10
   attackCastleDistance: 10

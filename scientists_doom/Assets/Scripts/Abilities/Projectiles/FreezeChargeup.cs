@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class FreezeChargeup : MonoBehaviour
@@ -59,20 +60,39 @@ public class FreezeChargeup : MonoBehaviour
       GetComponent<ParticleSystem>().Stop();
       Destroy(newBurst, 1);
     }
-    Destroy(gameObject, 1);
   }
 
   private void HitEnemies()
   {
     int enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
     Collider[] hits = Physics.OverlapSphere(transform.position, _radius, enemyLayer);
-
+    Vector3 directionToHit;
+    float angle;
     foreach (Collider hit in hits)
     {
-      hit.GetComponent<Stats>().TakeDamage(_damage);
-      hit.GetComponent<EnemyControls>().AggroTo(_casterTransform);
+      directionToHit = hit.transform.position - transform.position;
+      angle = Vector3.Angle(transform.forward, directionToHit);
+      if (angle < _angle / 2)
+      {
+        hit.GetComponent<Stats>().TakeDamage(_damage);
+        hit.GetComponent<EnemyControls>().AggroTo(_casterTransform);
+        hit.GetComponent<EnemyControls>().Stun();
+      }
     }
 
-    EventManager.StartListening("thing", delegate { Set(1, 2, 3, 4, transform); });
+    StartCoroutine(RemoveStun(hits));
+  }
+
+  private IEnumerator RemoveStun(Collider[] hits)
+  {
+    yield return new WaitForSeconds(_stunDuration);
+    foreach (Collider hit in hits)
+    {
+      if (hit != null)
+      {
+        hit.GetComponent<EnemyControls>().RemoveStun();
+      }
+    }
+    Destroy(gameObject);
   }
 }
