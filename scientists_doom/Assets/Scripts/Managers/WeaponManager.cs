@@ -11,7 +11,7 @@ public class WeaponManager : MonoBehaviour {
 	void Awake(){
 		hand = transform.FindDeepChild("Hand_L");
 		if(hand){
-			EquipWeapon(2);
+			EquipWeapon(0);
 		}else{
 			Debug.Log("Could not find the characters hand!!!");
 		}
@@ -23,7 +23,7 @@ public class WeaponManager : MonoBehaviour {
 		if(hand.childCount > 0){
 			Destroy(hand.GetChild(0).gameObject);
 		}
-		Debug.Log("Spawning barbarian weapon("+ weapons[weaponIndex].name +")");
+		Debug.Log("Spawning weapon("+ weapons[weaponIndex].name +")");
 		activeWeapon = Instantiate(weapons[weaponIndex]);
 
 		activeWeapon.transform.parent = hand;

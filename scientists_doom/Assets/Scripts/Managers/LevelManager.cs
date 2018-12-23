@@ -16,14 +16,19 @@ public class LevelManager : MonoBehaviour{
     }
 
     public void StartLevel(){
-        Debug.Log("Function Call");
         if(curLevel >= storyLevelCount){
             Debug.LogWarning("Level "+(curLevel+1)+" does not exist! Canceling StoryMode");
             EventManager.StopListening("waveDone", StartLevel);
             return;
         }
         Debug.Log("Starting StoryLevel "+storyLevels[curLevel]);
-        enemySpawner.StartSpawnWaveIfInactive(storyLevels[curLevel].enemyCount);
+        Announcer.Announce(("Level "+(curLevel+1)+" begins"), "Defend the castle!");
+        enemySpawner.StartSpawnWaveIfInactive(storyLevels[curLevel].peasantCount);
         curLevel++;
+    }
+
+    void OnDestroy()
+    {
+        EventManager.StopListening("waveDone", StartLevel);
     }
 }

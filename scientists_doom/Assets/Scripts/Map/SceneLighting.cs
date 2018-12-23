@@ -4,34 +4,13 @@ using UnityEngine;
 
 public class SceneLighting : MonoBehaviour {
 
-	public enum TimeOfDay { Morning, Midday, Evening, Midnight }
-	public enum LightMovement { Shifting, Stale }
-	public enum LightType { Static, Rotating }
-
 	public Camera mycamera;
 
 	[Header ("Light Settings")]
-	public Light sceneLight;
 	public Light sunLight;
 	public Light moonLight;
 	public float intensity;
-	public TimeOfDay timeOfday = TimeOfDay.Midday;
-	public LightMovement lightMovement = LightMovement.Stale;
-	public LightType lightType = LightType.Rotating;
 
-	[Range (0.001f, 0.2f)]
-	public float DLUpdateInterval = 0.2f;
-
-	[Header ("Scene Light Colors")]
-	public Color morningColor = new Color (0.81f, 0.41f, 0.44f);
-	public Color daylightColor = new Color (0.26f, 0.55f, 0.76f);
-	public Color eveningColor = new Color (0.81f, 0.41f, 0.44f);
-	public Color moonlightColor = new Color (0.11f, 0.43f, 0.81f);
-
-	[Header ("Fog and Background")]
-	public Color dayBackgroundColor;
-	public Color nightBackgroundColor;
-	[Range (0, 0.03f)]
 	public float fogDensity = 0.02f;
 
 	[Header ("Progressive Light")]
@@ -45,61 +24,12 @@ public class SceneLighting : MonoBehaviour {
 		RenderSettings.fog = true;
 	}
 
-	public void UpdateLightType () {
-		if (lightMovement == LightMovement.Shifting) {
-			sceneLight.enabled = false;
-			sunLight.enabled = true;
-			moonLight.enabled = true;
-		} else {
-			sceneLight.enabled = true;
-			sunLight.enabled = false;
-			moonLight.enabled = false;
-		}
-	}
-
 	private void Update () {
-		sceneLight.intensity = intensity;
 		sunLight.intensity = intensity;
 		moonLight.intensity = intensity;
 		RenderSettings.fogDensity = fogDensity;
 
-		if (lightType == LightType.Rotating) {
-			transform.Rotate (new Vector3 (0, 0.5f * Time.deltaTime, 0));
-		}
-
-		if (lightMovement == LightMovement.Stale) {
-			UpdateSceneLight ();
-		} else {
-			UpdateShiftingLight ();
-		}
-	}
-
-	public void UpdateSceneLight () {
-		if (sceneLight)
-			switch (timeOfday) {
-				case TimeOfDay.Morning:
-					sceneLight.color = morningColor;
-					mycamera.backgroundColor = dayBackgroundColor;
-					RenderSettings.fogColor = dayBackgroundColor;
-					break;
-				case TimeOfDay.Midday:
-					sceneLight.color = daylightColor;
-					mycamera.backgroundColor = dayBackgroundColor;
-					RenderSettings.fogColor = dayBackgroundColor;
-					break;
-				case TimeOfDay.Evening:
-					sceneLight.color = eveningColor;
-					mycamera.backgroundColor = nightBackgroundColor;
-					RenderSettings.fogColor = nightBackgroundColor;
-					break;
-				case TimeOfDay.Midnight:
-					sceneLight.color = moonlightColor;
-					mycamera.backgroundColor = nightBackgroundColor;
-					RenderSettings.fogColor = nightBackgroundColor;
-					break;
-				default:
-					break;
-			}
+		UpdateShiftingLight ();
 	}
 
 	public void UpdateShiftingLight () {

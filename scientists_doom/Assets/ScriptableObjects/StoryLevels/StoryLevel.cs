@@ -4,5 +4,7 @@
 public class StoryLevel : ScriptableObject {
 	[Range(0, 10)]
 	public int levelNo;
-	public int enemyCount;	
+	public int peasantCount;	
+	public int supportCount;	
+	public int siegeCount;	
 }

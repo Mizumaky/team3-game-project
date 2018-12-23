@@ -10,6 +10,7 @@ public class WizardFireballAbility : WizardChargedAbility
   [Header("Travel")]
   public float velocityMagnitude;
   public float travelHeight = 0.5f;
+  public float timeToLive = 2;
 
   [Header("Scriptable Parameters")]
   private int _damage;
@@ -30,7 +31,7 @@ public class WizardFireballAbility : WizardChargedAbility
     float finalVelocityMagnitude = velocityMagnitude * chargePassive.chargeFactor;
 
     chargePassive.chargedObject.GetComponent<Rigidbody>().velocity = transform.forward * finalVelocityMagnitude;
-    proj.Set(totalDamage, transform, travelHeight, collisionMask);
+    proj.Set(totalDamage, transform, travelHeight, timeToLive, collisionMask);
   }
 
   public override void UpdateAbilityData()

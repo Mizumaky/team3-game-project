@@ -100,7 +100,9 @@ public class EnemySpawner : MonoBehaviour
       StartCoroutine(SpawnEnemyGroup(groupSize, hit.point));
 
       enemiesLeft -= groupSize;
-      progress = enemiesLeft / enemyCount;
+      progress = 1f - (float)enemiesLeft / (float)enemyCount;
+
+      Debug.Log("Level Progress: "+progress);
 
       delay = initialGroupDelay * groupDelayDumpCurve.Evaluate(progress);
       yield return new WaitForSeconds(initialGroupDelay * groupDelayDumpCurve.Evaluate(progress));

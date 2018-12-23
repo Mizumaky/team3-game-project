@@ -23,6 +23,8 @@ public class ShopController : MonoBehaviour {
             Debug.Log("Shop Opened, Customer: "+activeCustomer+", Level: " + playerStats.GetCurrentHeroLevel());
             ShowWeapons(activeCustomer);
             ShowSkills(activeCustomer);
+        }else{
+            Debug.Log("Could not get customer!");
         }
     }
 

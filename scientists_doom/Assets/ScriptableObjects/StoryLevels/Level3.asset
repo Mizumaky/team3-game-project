@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 776e0d4751f23ae42855992392c21400, type: 3}
+  m_Script: {fileID: 11500000, guid: d6710b8e853ff584fb65005fc9a912f1, type: 3}
   m_Name: Level3
   m_EditorClassIdentifier: 
   levelNo: 3
-  enemyCount: 4
+  peasantCount: 35
+  supportCount: 15
+  siegeCount: 0
