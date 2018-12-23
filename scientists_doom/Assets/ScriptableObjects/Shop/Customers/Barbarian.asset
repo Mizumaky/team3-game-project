@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -12,14 +13,14 @@ MonoBehaviour:
   m_Name: Barbarian
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 11400000, guid: 7d2775e136b4f7c44ba103afb92bb559, type: 2}
-  - {fileID: 11400000, guid: aee79224da80ed8478cde78b8f21557c, type: 2}
-  - {fileID: 11400000, guid: 795b05e7462945d4e8d962074d9d9310, type: 2}
+  - {fileID: 11400000, guid: c7a8ccfed69d75b4cb8c3e24ef94b356, type: 2}
+  - {fileID: 11400000, guid: b29df11296147ac46b3b6b6fcee0f7c6, type: 2}
+  - {fileID: 11400000, guid: 79472e53afaaba5498ddd6e11d8dd146, type: 2}
   firstSkill:
-  - {fileID: 11400000, guid: f3e38fb56324d214fa2cc0c1d193b3a0, type: 2}
-  - {fileID: 11400000, guid: 4bc25eedaa715b74fa536b1cfbb0fd54, type: 2}
-  - {fileID: 11400000, guid: a68e235533331cf43a2df5acfecc13a2, type: 2}
+  - {fileID: 11400000, guid: c851e9e6f49d4a641b65d3b6e7c14baa, type: 2}
+  - {fileID: 11400000, guid: ab19b033392d40f48a1b104ab2bb227a, type: 2}
+  - {fileID: 11400000, guid: 68f9c0b7b4757414eae93188198c587a, type: 2}
   secondSkill:
-  - {fileID: 11400000, guid: 462595506c75df04493c7aff5f4c4d6a, type: 2}
-  - {fileID: 11400000, guid: 9f3519b02017aa445a17aa0cdaeca218, type: 2}
-  - {fileID: 11400000, guid: b40d7474c5110dc418ce5ecd7bad6e91, type: 2}
+  - {fileID: 11400000, guid: d12f7f5544f852e4bbc8507d0ed52ea7, type: 2}
+  - {fileID: 11400000, guid: 12657a1d90939e942a217c892010f2b0, type: 2}
+  - {fileID: 11400000, guid: 2f3c209a1bdd3ec4dbd365071e0272cc, type: 2}

@@ -4,15 +4,16 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e7d2dd8786f38b4586155d0d851624b, type: 3}
+  m_Script: {fileID: 11500000, guid: b5855965619431b4a982a7c070985ce4, type: 3}
   m_Name: DoubleAxe
   m_EditorClassIdentifier: 
-  weaponName: DoubleAxe
+  weaponName: Double Axe
   icon: {fileID: 21300000, guid: a7bf1aa269182164a889458eadee9e10, type: 3}
-  description: A mighty weapon with blades on both sides. Slices through enemies like
-    a knife through butter.
-  price: 450
+  description: A godly weapon, forged by the Barbarian himself. Empowered with his
+    sweat and fierceness, this weapon slices through enemies with ease and precision.
+  price: 400
