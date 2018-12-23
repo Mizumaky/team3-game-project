@@ -21,18 +21,18 @@ public class EnemyControls : MonoBehaviour
   [Header("Drop After Death")]
   public GameObject lootPrefab;
 
-  private NavMeshAgent navMeshAgent;
+  protected NavMeshAgent navMeshAgent;
   private Animator animator;
   private EnemyStats stats;
 
-  private Transform targetTransform;
+  protected Transform targetTransform;
   private float distanceToTarget;
 
   private float speed;
   private int slowedTimes = 0;
   private int stunnedTimes = 0;
 
-  private void Awake()
+  protected virtual void Awake()
   {
     Init();
   }
@@ -88,11 +88,6 @@ public class EnemyControls : MonoBehaviour
         // ATTACK
         if (distanceToTarget < attackDistance)
         {
-          // FIXME: Remove or opt the rotation?
-          Quaternion lookRotation = Quaternion.LookRotation(new Vector3(targetTransform.position.x - transform.position.x, 0, targetTransform.position.z - transform.position.z));
-          transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.3f);
-
-          navMeshAgent.isStopped = true;
           Attack();
         }
         // MOVE TOWARDS TARGET
@@ -115,6 +110,11 @@ public class EnemyControls : MonoBehaviour
 
   protected virtual void Attack()
   {
+    // FIXME: Remove or opt the rotation?
+    Quaternion lookRotation = Quaternion.LookRotation(new Vector3(targetTransform.position.x - transform.position.x, 0, targetTransform.position.z - transform.position.z));
+    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.3f);
+
+    navMeshAgent.isStopped = true;
     animator.SetTrigger("attackTrigger");
   }
 
@@ -127,7 +127,7 @@ public class EnemyControls : MonoBehaviour
     this.targetTransform = targetTransform;
   }
 
-  private void SetPathToTargetPosition(Vector3 targetPosition)
+  protected void SetPathToTargetPosition(Vector3 targetPosition)
   {
     NavMeshHit hit;
     NavMeshPath path = new NavMeshPath();

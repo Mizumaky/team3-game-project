@@ -17,17 +17,10 @@ public class ArrowProjectile : MonoBehaviour
   private bool isEmpowered;
   private LayerMask collisionMask;
 
-  private float travelHeight;
   private bool isTraveling;
+  private float travelHeight;
   #endregion
 
-  /// <summary>
-  /// Sets the projectile's parameters and sends it towards destination
-  /// </summary>
-  /// <param name="destination"></param>
-  /// <param name="destinationGround"></param>
-  /// <param name="duration"></param>
-  /// <param name="casterTransform"></param>
   public void Set(int damage, int damageEmpowered, Transform casterTransform, float travelHeight, bool isEmpowered, LayerMask collisionMask)
   {
     this._damage = damage;
