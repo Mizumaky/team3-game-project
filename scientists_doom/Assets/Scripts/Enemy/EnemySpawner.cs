@@ -62,7 +62,7 @@ public class EnemySpawner : MonoBehaviour
   private IEnumerator SpawnWave(int enemyCount)
   {
     int enemiesLeft = enemyCount;
-    int groupSize = totalEnemyCount / numberOfWaves;
+    int groupSize = enemyCount / numberOfWaves;
     if (groupSize == 0)
     {
       groupSize = 1;
@@ -100,13 +100,14 @@ public class EnemySpawner : MonoBehaviour
       StartCoroutine(SpawnEnemyGroup(groupSize, hit.point));
 
       enemiesLeft -= groupSize;
-      progress = enemiesLeft / totalEnemyCount;
+      progress = enemiesLeft / enemyCount;
 
       delay = initialGroupDelay * groupDelayDumpCurve.Evaluate(progress);
       yield return new WaitForSeconds(initialGroupDelay * groupDelayDumpCurve.Evaluate(progress));
     }
 
     activeSpawnRoutine = null;
+    EventManager.TriggerEvent("waveDone");
     yield return null;
   }
 
