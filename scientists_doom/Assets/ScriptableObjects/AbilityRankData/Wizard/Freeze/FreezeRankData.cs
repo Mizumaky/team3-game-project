@@ -4,6 +4,6 @@ using UnityEngine;
 public class FreezeRankData : AbilityRankData
 {
   public int damage;
-  public float angle;
+  public int angle;
   public int stunDuration;
 }
