@@ -23,7 +23,7 @@ public class WizardChargePassiveAbility : Ability
     }
 
     hasReleased = false;
-    chargedObject = Instantiate(ability.chargedObjectPrefab, chargedObjectSpawnTransform.position, transform.rotation, chargedObjectSpawnTransform) as GameObject;
+    chargedObject = Instantiate(ability.chargedObjectPrefab, chargedObjectSpawnTransform.position, Quaternion.LookRotation(transform.forward), chargedObjectSpawnTransform) as GameObject;
     StartCoroutine(ChargeUpdateRoutine());
   }
 

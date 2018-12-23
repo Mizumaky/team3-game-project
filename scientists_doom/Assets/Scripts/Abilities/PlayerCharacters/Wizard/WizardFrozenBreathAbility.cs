@@ -3,9 +3,6 @@ using UnityEngine;
 public class WizardFrozenBreathAbility : WizardChargedAbility
 {
   #region Variables
-  [Header("Collision")]
-  public LayerMask collisionMask;
-
   [Header("Area")]
   public float radius;
 
@@ -31,7 +28,7 @@ public class WizardFrozenBreathAbility : WizardChargedAbility
     float totalDamage = damage * chargePassive.chargeFactor;
     float finalRadius = radius * chargePassive.chargeFactor;
 
-    proj.Set(totalDamage, finalRadius, angle, stunDuration, transform, collisionMask);
+    proj.Set(totalDamage, finalRadius, angle, stunDuration, transform);
   }
 
   public override void UpdateAbilityData()

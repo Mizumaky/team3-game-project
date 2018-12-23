@@ -6,6 +6,7 @@ using UnityEngine;
 public class FireballProjectile : MonoBehaviour
 {
   #region Variables
+  public GameObject explosionPrefab;
 
   [Header("Scriptable Parameters")]
   private float _damage;
@@ -14,15 +15,20 @@ public class FireballProjectile : MonoBehaviour
   private Transform casterTransform;
   private LayerMask collisionMask;
 
+  private float timeToLive;
   private float travelHeight;
   private bool isTraveling;
+
+  private GameObject explosion;
+
   #endregion
 
-  public void Set(float damage, Transform casterTransform, float travelHeight, LayerMask collisionMask)
+  public void Set(float damage, Transform casterTransform, float travelHeight, float timeToLive, LayerMask collisionMask)
   {
     this._damage = damage;
     this.casterTransform = casterTransform;
     this.travelHeight = travelHeight;
+    this.timeToLive = timeToLive;
     this.collisionMask = collisionMask;
 
     isTraveling = true;
@@ -31,27 +37,34 @@ public class FireballProjectile : MonoBehaviour
 
   private IEnumerator FollowTerrain()
   {
+    float updateInterval = 0.05f;
+    WaitForSeconds ws = new WaitForSeconds(updateInterval);
     Rigidbody rigidbody = GetComponent<Rigidbody>();
+
     Ray rayDown;
     RaycastHit hit;
     float rayLength = 10f;
     int layerMask = 1 << LayerMask.NameToLayer("Ground");
-
-    Vector3 lastPosition;
+    Vector3 newPos;
 
     transform.rotation = Quaternion.LookRotation(rigidbody.velocity);
-    while (isTraveling)
+    while (isTraveling && timeToLive > 0)
     {
-      lastPosition = transform.position;
-
       rayDown = new Ray(transform.position + Vector3.up * 5f, Vector3.down);
       if (Physics.Raycast(rayDown, out hit, rayLength, layerMask))
       {
-        transform.position = new Vector3(transform.position.x, travelHeight + hit.point.y, transform.position.z);
+        newPos.x = transform.position.x;
+        newPos.y = travelHeight + hit.point.y;
+        newPos.z = transform.position.z;
+
+        transform.position = newPos;
       }
 
-      yield return null;
+      timeToLive -= updateInterval;
+      yield return ws;
     }
+
+    Disable();
   }
 
   private void OnTriggerStay(Collider other)
@@ -66,8 +79,9 @@ public class FireballProjectile : MonoBehaviour
 
       isTraveling = false;
 
-      transform.GetChild(0).gameObject.SetActive(true);
-      transform.GetChild(0).localScale = transform.localScale;
+      explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, null);
+      explosion.transform.localScale = transform.localScale;
+
       HitEnemies();
 
       Disable();
@@ -83,9 +97,18 @@ public class FireballProjectile : MonoBehaviour
       rigidbody.velocity = Vector3.zero;
     }
 
+    GetComponent<ParticleSystem>().Stop();
     GetComponent<Collider>().enabled = false;
+    GetComponent<Animator>().SetTrigger("Fade");
+  }
 
-    Destroy(gameObject, 3);
+  private void Die()
+  {
+    if (explosion != null)
+    {
+      Destroy(explosion);
+    }
+    Destroy(gameObject);
   }
 
   private void HitEnemies()

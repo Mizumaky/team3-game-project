@@ -131,8 +131,9 @@ GameObject:
   - component: {fileID: 95946371184475358}
   - component: {fileID: 114011375159697008}
   - component: {fileID: 114746121720830358}
-  - component: {fileID: 114172169419938550}
   - component: {fileID: 114172167284345232}
+  - component: {fileID: 114172169419938550}
+  - component: {fileID: 4073537816114711947}
   m_Layer: 14
   m_Name: Wizard
   m_TagString: Wizard
@@ -418,7 +419,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - {fileID: 114172169419938550}
-  abilityRanks: 00000000
+  - {fileID: 4073537816114711947}
+  abilityRanks: 0200000002000000
+--- !u!114 &114172167284345232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106552325252950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d14b3ba8f9bb06241928b0da85335c17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCode: 0
+  abilityRankData: []
+  chargedObjectSpawnTransform: {fileID: 4028849457006998}
+  chargedObject: {fileID: 0}
+  chargeProgress: 0
+  chargeFactor: 0
+  hasReleased: 1
 --- !u!114 &114172169419938550
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -444,7 +465,8 @@ MonoBehaviour:
     m_Bits: 142336
   velocityMagnitude: 10
   travelHeight: 0.5
---- !u!114 &114172167284345232
+  timeToLive: 2
+--- !u!114 &4073537816114711947
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -453,16 +475,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1106552325252950}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14b3ba8f9bb06241928b0da85335c17, type: 3}
+  m_Script: {fileID: 11500000, guid: 4dc9e3044f69e4e47b2492061c1baaac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 0
-  abilityRankData: []
-  chargedObjectSpawnTransform: {fileID: 4028849457006998}
-  chargedObject: {fileID: 0}
-  chargeProgress: 0
-  chargeFactor: 0
-  hasReleased: 1
+  keyCode: 101
+  abilityRankData:
+  - {fileID: 11400000, guid: dce27b962d2619445b76128601ef9b6c, type: 2}
+  - {fileID: 11400000, guid: 348585536efb1384dbee70181fcc0c60, type: 2}
+  - {fileID: 11400000, guid: e42f2d9bcf02d9d46824b8ba77e3f942, type: 2}
+  minChargeForRelease: 0.2
+  chargedObjectPrefab: {fileID: 1889657904026068, guid: f310d88a288a8e44ba64ef661a47af65,
+    type: 3}
+  radius: 3.5
 --- !u!1 &1127153644535120
 GameObject:
   m_ObjectHideFlags: 0
@@ -1456,8 +1480,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.0047006607, y: -0.020230532, z: 0.06972504}
-    m_Extent: {x: 0.19127369, y: 0.020283666, z: 0.2675031}
+    m_Center: {x: -0.0051431656, y: 0.011287212, z: 0.07291135}
+    m_Extent: {x: 0.19001621, y: 0.05180124, z: 0.2643168}
   m_DirtyAABB: 0
 --- !u!114 &114721940810443888
 MonoBehaviour:

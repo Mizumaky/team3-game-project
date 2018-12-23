@@ -42,5 +42,4 @@ public class AbilityManager : MonoBehaviour
     Debug.LogWarning("Ability: Cannot upgrade " + abilities[(int)type] + " anymore!");
     return false;
   }
-
 }
