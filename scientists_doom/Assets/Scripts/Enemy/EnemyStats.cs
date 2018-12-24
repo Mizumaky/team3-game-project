@@ -12,8 +12,10 @@ public class EnemyStats : Stats
 
   protected override void Die()
   {
+    if (_isAlive)
+    {
+      GetComponent<EnemyControls>().Disable();
+    }
     base.Die();
-
-    GetComponent<EnemyControls>().Disable();
   }
 }
