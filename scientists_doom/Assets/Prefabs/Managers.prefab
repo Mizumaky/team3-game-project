@@ -398,7 +398,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 1, g: 0.8159882, b: 0.50562346, a: 1}
+  m_Color: {r: 0.998868, g: 0.82493633, b: 0.45720723, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -634,7 +634,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  progress: 0.18710484
+  progress: 0.25
   progressSpeed: 0.05
 --- !u!1 &6533399397057474911
 GameObject:

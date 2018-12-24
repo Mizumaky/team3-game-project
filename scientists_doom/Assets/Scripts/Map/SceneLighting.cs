@@ -33,7 +33,7 @@ public class SceneLighting : MonoBehaviour {
 	}
 
 	public void UpdateShiftingLight () {
-		progress = (progress + progressSpeed * Time.deltaTime) % 1;
+		//progress = (progress + progressSpeed * Time.deltaTime) % 1;
 		sunLight.color = sunlightGradient.Evaluate (progress);
 		moonLight.color = moonlightGradient.Evaluate (progress);
 		mycamera.backgroundColor = backgroundGradient.Evaluate (progress);

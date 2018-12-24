@@ -7,8 +7,6 @@ public class EnemySpawner : MonoBehaviour
   public Transform spawnOriginTransform;
   public GameObject enemyPrefab;
 
-  [Space]
-  public bool spawnOnStart = false;
   public float spawnCircleRadius;
   [Range(1, 1000)] public int totalEnemyCount;
   [Range(1, 16)] public int numberOfWaves;
@@ -25,13 +23,6 @@ public class EnemySpawner : MonoBehaviour
     {
       Debug.LogWarning("EnemySpawner: No spawn origin set! Setting default value!");
       spawnOriginTransform = transform;
-    }
-  }
-  private void Start()
-  {
-    if (spawnOnStart)
-    {
-      activeSpawnRoutine = StartCoroutine(SpawnWave(totalEnemyCount));
     }
   }
 
@@ -109,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     activeSpawnRoutine = null;
-    EventManager.TriggerEvent("waveDone");
+    EventManager.TriggerEvent(LevelManager.EVENT_PLAYER_READY);
     yield return null;
   }
 
