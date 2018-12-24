@@ -100,7 +100,7 @@ public class EnemySpawner : MonoBehaviour
     }
 
     activeSpawnRoutine = null;
-    EventManager.TriggerEvent(LevelManager.EVENT_PLAYER_READY);
+    EventManager.TriggerEvent(LevelManager.EVENT_LEVEL_ENDED);
     yield return null;
   }
 
