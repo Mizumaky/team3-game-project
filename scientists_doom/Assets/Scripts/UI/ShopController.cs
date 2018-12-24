@@ -100,6 +100,7 @@ public class ShopController : MonoBehaviour {
         int curRank = abilityManager.GetAbilityRank(AbilityManager.AbilityTypes.First);
         if(playerInventory.souls >= activeCustomer.firstSkill[curRank+1].price){
                 abilityManager.IncreaseAbilityRank(AbilityManager.AbilityTypes.First);
+                playerInventory.TakeSouls(activeCustomer.firstSkill[curRank+1].price);
                 Debug.Log("FirstAbility increased to "+(int)abilityManager.GetAbilityRank(AbilityManager.AbilityTypes.First));
         }else{
             Debug.Log("Not enough souls!");
@@ -111,6 +112,7 @@ public class ShopController : MonoBehaviour {
         int curRank = abilityManager.GetAbilityRank(AbilityManager.AbilityTypes.Second);
         if(playerInventory.souls >= activeCustomer.secondSkill[curRank+1].price){
                 abilityManager.IncreaseAbilityRank(AbilityManager.AbilityTypes.Second);
+                playerInventory.TakeSouls(activeCustomer.secondSkill[curRank+1].price);
                 Debug.Log("SecondAbility increased to "+(int)abilityManager.GetAbilityRank(AbilityManager.AbilityTypes.Second));
         }else{
             Debug.Log("Not enough souls!");

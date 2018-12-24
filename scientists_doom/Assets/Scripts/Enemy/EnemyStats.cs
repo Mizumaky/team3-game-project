@@ -13,7 +13,11 @@ public class EnemyStats : Stats
   protected override void Die()
   {
     base.Die();
-
+    EnemySpawner.enemiesAlive--;
+    Debug.Log("Enemies alive: "+EnemySpawner.enemiesAlive);
+    if(EnemySpawner.enemiesAlive == 0){
+      EventManager.TriggerEvent(LevelManager.EVENT_LEVEL_ENDED);
+    }
     GetComponent<EnemyControls>().Disable();
   }
 }
