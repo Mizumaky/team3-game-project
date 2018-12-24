@@ -69,7 +69,7 @@ public class EnemyControls : MonoBehaviour
   private IEnumerator UpdateBehaviourRoutine()
   {
     WaitForSeconds waitForUpdate = new WaitForSeconds(behaviourUpdatePeriod);
-
+    float attackDistance;
     while (stats.isAlive)
     {
       if (stunnedTimes <= 0)
@@ -80,7 +80,7 @@ public class EnemyControls : MonoBehaviour
         }
 
         distanceToTarget = Vector3.Distance(transform.position, targetTransform.position);
-        float attackDistance = (targetTransform == castleTransform ? attackCastleDistance : attackPlayerDistance);
+        attackDistance = (targetTransform == castleTransform ? attackCastleDistance : attackPlayerDistance);
 
         // ATTACK
         if (distanceToTarget < attackDistance)

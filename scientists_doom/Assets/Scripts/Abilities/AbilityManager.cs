@@ -42,4 +42,13 @@ public class AbilityManager : MonoBehaviour
     Debug.LogWarning("Ability: Cannot upgrade " + abilities[(int)type] + " anymore!");
     return false;
   }
+
+  public int GetAbilityRank(AbilityTypes abilityType){
+    if((int)abilityType > -1 && (int)abilityType < 4){
+      return (int)abilityRanks[(int)abilityType];
+    }else{
+      Debug.Log("Ability on index "+(int)abilityType+" does not exist!");
+      return -1;
+    }
+  }
 }

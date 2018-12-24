@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnOriginTransform: {fileID: 2997731948725700193}
-  enemyPrefab: {fileID: 1719296003474282, guid: 5ba095872f96a3c42813afad30bfaff2,
+  enemyPrefab: {fileID: 1719296003474282, guid: 63f1e9c360900924db488023340630c9,
     type: 3}
   spawnOnStart: 0
   spawnCircleRadius: 25

@@ -7,8 +7,6 @@ public class EnemySpawner : MonoBehaviour
   public Transform spawnOriginTransform;
   public GameObject enemyPrefab;
 
-  [Space]
-  public bool spawnOnStart = false;
   public float spawnCircleRadius;
   [Range(1, 1000)] public int totalEnemyCount;
   [Range(1, 16)] public int numberOfWaves;
@@ -25,13 +23,6 @@ public class EnemySpawner : MonoBehaviour
     {
       Debug.LogWarning("EnemySpawner: No spawn origin set! Setting default value!");
       spawnOriginTransform = transform;
-    }
-  }
-  private void Start()
-  {
-    if (spawnOnStart)
-    {
-      activeSpawnRoutine = StartCoroutine(SpawnWave(totalEnemyCount));
     }
   }
 
@@ -62,7 +53,7 @@ public class EnemySpawner : MonoBehaviour
   private IEnumerator SpawnWave(int enemyCount)
   {
     int enemiesLeft = enemyCount;
-    int groupSize = totalEnemyCount / numberOfWaves;
+    int groupSize = enemyCount / numberOfWaves;
     if (groupSize == 0)
     {
       groupSize = 1;
@@ -100,13 +91,16 @@ public class EnemySpawner : MonoBehaviour
       StartCoroutine(SpawnEnemyGroup(groupSize, hit.point));
 
       enemiesLeft -= groupSize;
-      progress = enemiesLeft / totalEnemyCount;
+      progress = 1f - (float)enemiesLeft / (float)enemyCount;
+
+      Debug.Log("Level Progress: "+progress);
 
       delay = initialGroupDelay * groupDelayDumpCurve.Evaluate(progress);
       yield return new WaitForSeconds(initialGroupDelay * groupDelayDumpCurve.Evaluate(progress));
     }
 
     activeSpawnRoutine = null;
+    EventManager.TriggerEvent(LevelManager.EVENT_LEVEL_ENDED);
     yield return null;
   }
 
