@@ -3,7 +3,7 @@ using UnityEngine;
 public class AbilityManager : MonoBehaviour
 {
   #region Variables
-  public enum AbilityTypes { Passive, Basic, First, Second }
+  public enum AbilityTypes { Basic, First, Second }
 
   public Ability[] abilities;
   public Ability.Rank[] abilityRanks;
@@ -43,11 +43,15 @@ public class AbilityManager : MonoBehaviour
     return false;
   }
 
-  public int GetAbilityRank(AbilityTypes abilityType){
-    if((int)abilityType > -1 && (int)abilityType < 4){
+  public int GetAbilityRank(AbilityTypes abilityType)
+  {
+    if ((int)abilityType > -1 && (int)abilityType < 4)
+    {
       return (int)abilityRanks[(int)abilityType];
-    }else{
-      Debug.Log("Ability on index "+(int)abilityType+" does not exist!");
+    }
+    else
+    {
+      Debug.Log("Ability on index " + (int)abilityType + " does not exist!");
       return -1;
     }
   }

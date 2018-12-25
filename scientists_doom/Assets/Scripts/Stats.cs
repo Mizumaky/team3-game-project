@@ -33,7 +33,7 @@ public class Stats : MonoBehaviour
 
   private void Start()
   {
-    Init();
+    UpdateStats();
   }
 
   public void AddBonusDamage(int amount)
@@ -51,7 +51,7 @@ public class Stats : MonoBehaviour
     totalAttackDamage = baseAttackDamage;
   }
 
-  protected virtual void Init()
+  protected virtual void UpdateStats()
   {
     _isAlive = true;
 

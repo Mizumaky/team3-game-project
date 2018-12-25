@@ -26,6 +26,8 @@ public class HUDScript : MonoBehaviour
     EventManager.StartListening("updateHUD", UpdateHUD);
     EventManager.StartListening("changeCharSpec", ChangeCharSpecUI);
     EventManager.StartListening("updateCharSpec", UpdateCharSpecUI);
+
+    UpdateHUD();
   }
 
   // TODO: This can be made much faster (e.g. listener on character stats)

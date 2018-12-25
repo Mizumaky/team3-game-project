@@ -133,8 +133,9 @@ GameObject:
   - component: {fileID: 114746121720830358}
   - component: {fileID: 114172167284345232}
   - component: {fileID: 114172169419938550}
-  - component: {fileID: 4073537816114711947}
   - component: {fileID: 3142856982282911872}
+  - component: {fileID: 4073537816114711947}
+  - component: {fileID: 5959028619980497673}
   m_Layer: 14
   m_Name: Wizard
   m_TagString: Wizard
@@ -422,8 +423,7 @@ MonoBehaviour:
   - {fileID: 114172169419938550}
   - {fileID: 3142856982282911872}
   - {fileID: 4073537816114711947}
-  - {fileID: 4073537816114711947}
-  abilityRanks: 02000000020000000000000000000000
+  abilityRanks: 000000000000000000000000
 --- !u!114 &114172167284345232
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -469,27 +469,6 @@ MonoBehaviour:
   velocityMagnitude: 10
   travelHeight: 0.5
   timeToLive: 2
---- !u!114 &4073537816114711947
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106552325252950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dc9e3044f69e4e47b2492061c1baaac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 101
-  abilityRankData:
-  - {fileID: 11400000, guid: dce27b962d2619445b76128601ef9b6c, type: 2}
-  - {fileID: 11400000, guid: 348585536efb1384dbee70181fcc0c60, type: 2}
-  - {fileID: 11400000, guid: e42f2d9bcf02d9d46824b8ba77e3f942, type: 2}
-  minChargeForRelease: 0.2
-  chargedObjectPrefab: {fileID: 1889657904026068, guid: f310d88a288a8e44ba64ef661a47af65,
-    type: 3}
-  radius: 3.5
 --- !u!114 &3142856982282911872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +494,41 @@ MonoBehaviour:
   cloudDestinationHeight: 8
   areaOutlinePrefab: {fileID: 1788745233935808, guid: 057c7766a767e4a46b6a9cdec90a268f,
     type: 3}
+--- !u!114 &4073537816114711947
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106552325252950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dc9e3044f69e4e47b2492061c1baaac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCode: 101
+  abilityRankData:
+  - {fileID: 11400000, guid: dce27b962d2619445b76128601ef9b6c, type: 2}
+  - {fileID: 11400000, guid: 348585536efb1384dbee70181fcc0c60, type: 2}
+  - {fileID: 11400000, guid: e42f2d9bcf02d9d46824b8ba77e3f942, type: 2}
+  minChargeForRelease: 0.2
+  chargedObjectPrefab: {fileID: 1889657904026068, guid: f310d88a288a8e44ba64ef661a47af65,
+    type: 3}
+  radius: 3.5
+--- !u!114 &5959028619980497673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106552325252950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b830d78c4ac8547bde8779f6e4ee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons: []
+  attachPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1127153644535120
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Stats))]
 public class WizardStormCloudAbility : WizardChargedAbility
 {
   #region Variables
@@ -30,7 +31,7 @@ public class WizardStormCloudAbility : WizardChargedAbility
       return;
     }
 
-    float totalDamagePerTick = damagePerTick * chargePassive.chargeFactor;
+    float totalDamagePerTick = (GetComponent<Stats>().GetAttackDamage() / (duration / 0.5f) + damagePerTick) * chargePassive.chargeFactor;
     float finalRadius = radius * chargePassive.chargeFactor;
 
     Vector3 groundPosAtMouse = PlayerMovement.GetGroundPosAtMouse();

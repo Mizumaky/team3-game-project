@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Stats))]
 public class HuntressQuickShotAbility : Ability
 {
   #region Variables
@@ -14,6 +15,7 @@ public class HuntressQuickShotAbility : Ability
   [Header("Travel")]
   public float velocityMagnitude;
   public float travelHeight = 1f;
+  public float timeToLive = 2;
   public Transform arrowSpawnTransform;
 
   [Header("Scriptable Parameters")]
@@ -62,8 +64,11 @@ public class HuntressQuickShotAbility : Ability
     GameObject newArrow = Instantiate(prefab, arrowSpawnTransform.position, Quaternion.identity, null);
     ArrowProjectile proj = newArrow.GetComponent<ArrowProjectile>();
 
+    float statDamage = GetComponent<Stats>().GetAttackDamage();
+    float totalDamage = statDamage + (isEmpoweredShot ? damageEmpowered : damage);
+
     newArrow.GetComponent<Rigidbody>().velocity = transform.forward * velocityMagnitude;
-    proj.Set(damage, damageEmpowered, transform, travelHeight, isEmpoweredShot, collisionMask);
+    proj.Set(totalDamage, isEmpoweredShot, timeToLive, transform, travelHeight, collisionMask);
   }
 
   public override void UpdateAbilityData()

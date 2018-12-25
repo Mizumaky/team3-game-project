@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Stats))]
 public class BarbarianKegThrowAbility : Ability
 {
   #region Variables
@@ -69,7 +70,9 @@ public class BarbarianKegThrowAbility : Ability
 
     SetVelocityTowardsTargetPosition(newKeg, targetPosition);
 
-    proj.SetAndRelease(damage, spillDuration, spillPrefab, transform, collisionMask);
+    float totalDamage = GetComponent<Stats>().GetAttackDamage() + damage;
+
+    proj.SetAndRelease(totalDamage, spillDuration, spillPrefab, transform, collisionMask);
   }
 
   private void SetVelocityTowardsTargetPosition(GameObject newKeg, Vector3 targetPosition)

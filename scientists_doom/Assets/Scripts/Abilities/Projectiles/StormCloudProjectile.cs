@@ -56,11 +56,8 @@ public class StormCloudProjectile : MonoBehaviour
   private IEnumerator TranslateTowardsDestination()
   {
     direction = (destination - transform.position).normalized;
-    //transform.LookAt(destination);
-    //Instantiate(thing, transform.position + direction * 5f, Quaternion.identity, null);
     while (isTraveling)
     {
-      //transform.Translate(transform.forward * Time.deltaTime * velocity);
       transform.position += direction * Time.deltaTime * velocity;
 
       distanceToDestination = Vector3.Distance(transform.position, destination);
