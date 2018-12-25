@@ -27,6 +27,8 @@ public class StormCloudProjectile : MonoBehaviour
   private GameObject areaOutlinePrefab;
   private Transform casterTransform;
 
+  public GameObject thing;
+
   #endregion
 
   /// <summary>
@@ -53,12 +55,13 @@ public class StormCloudProjectile : MonoBehaviour
 
   private IEnumerator TranslateTowardsDestination()
   {
-    Debug.Log(transform.position);
     direction = (destination - transform.position).normalized;
-    transform.GetChild(0).rotation = Quaternion.LookRotation(direction);
+    //transform.LookAt(destination);
+    //Instantiate(thing, transform.position + direction * 5f, Quaternion.identity, null);
     while (isTraveling)
     {
-      transform.Translate(direction * Time.deltaTime * velocity);
+      //transform.Translate(transform.forward * Time.deltaTime * velocity);
+      transform.position += direction * Time.deltaTime * velocity;
 
       distanceToDestination = Vector3.Distance(transform.position, destination);
       // Stop when close to the destination

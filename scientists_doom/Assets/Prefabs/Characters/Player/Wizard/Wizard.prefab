@@ -510,10 +510,9 @@ MonoBehaviour:
   minChargeForRelease: 0.2
   chargedObjectPrefab: {fileID: 1565276060188188, guid: ef6679cab961944418a93c7b135ce4ee,
     type: 3}
-  radius: 2
-  thing: {fileID: 3246736146723088567, guid: 40d00e1a4c5b10b4b9c65eedbc55c111, type: 3}
+  radius: 3
   cloudVelocity: 10
-  cloudDestinationHeight: 5
+  cloudDestinationHeight: 8
   areaOutlinePrefab: {fileID: 1788745233935808, guid: 057c7766a767e4a46b6a9cdec90a268f,
     type: 3}
 --- !u!1 &1127153644535120

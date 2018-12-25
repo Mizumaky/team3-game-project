@@ -5,7 +5,6 @@ public class WizardStormCloudAbility : WizardChargedAbility
   #region Variables
   [Header("HIT")]
   public float radius;
-  public GameObject thing;
 
   [Header("Object")]
   public float cloudVelocity;
@@ -36,7 +35,6 @@ public class WizardStormCloudAbility : WizardChargedAbility
 
     Vector3 groundPosAtMouse = PlayerMovement.GetGroundPosAtMouse();
     Vector3 destination = groundPosAtMouse + Vector3.up * cloudDestinationHeight;
-    Instantiate(thing, destination, Quaternion.identity, null);
 
     proj.SetAndRelease(destination, groundPosAtMouse, damagePerTick, finalRadius, cloudVelocity, duration, transform, areaOutlinePrefab);
   }
