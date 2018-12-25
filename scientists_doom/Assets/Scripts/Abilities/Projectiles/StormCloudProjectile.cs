@@ -26,9 +26,6 @@ public class StormCloudProjectile : MonoBehaviour
 
   private GameObject areaOutlinePrefab;
   private Transform casterTransform;
-
-  public GameObject thing;
-
   #endregion
 
   /// <summary>
