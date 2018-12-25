@@ -961,7 +961,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castleTransform: {fileID: 1690068986228302191, guid: ef90d9462fb6061499e1eb6eac91bf90,
     type: 3}
-  state: 0
   aggroDistance: 15
   attackPlayerDistance: 10
   attackCastleDistance: 10

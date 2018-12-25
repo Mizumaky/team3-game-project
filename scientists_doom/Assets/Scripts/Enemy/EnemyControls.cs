@@ -5,13 +5,10 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent), typeof(Animator), typeof(EnemyStats))]
 public class EnemyControls : MonoBehaviour
 {
-  public enum State { Normal, Stunned, Taunted }
-
   [Header("Refs")]
   public Transform castleTransform;
 
   [Header("Parameters")]
-  public State state = State.Normal;
   [Range(5f, 15f)]
   public float aggroDistance = 10f;
   public float attackPlayerDistance = 1f;
@@ -93,7 +90,8 @@ public class EnemyControls : MonoBehaviour
         // MOVE TOWARDS TARGET
         else
         {
-          navMeshAgent.isStopped = false;
+          if (navMeshAgent.isOnNavMesh)
+            navMeshAgent.isStopped = false;
           // TARGET TOO FAR, RETARGET TO CASTLE
           if (distanceToTarget > aggroDistance)
           {
@@ -113,8 +111,8 @@ public class EnemyControls : MonoBehaviour
     // FIXME: Remove or opt the rotation?
     Quaternion lookRotation = Quaternion.LookRotation(new Vector3(targetTransform.position.x - transform.position.x, 0, targetTransform.position.z - transform.position.z));
     transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.3f);
-
-    navMeshAgent.isStopped = true;
+    if (navMeshAgent.isOnNavMesh)
+      navMeshAgent.isStopped = true;
     animator.SetTrigger("attackTrigger");
   }
 
@@ -152,7 +150,11 @@ public class EnemyControls : MonoBehaviour
     StopAllCoroutines();
 
     Destroy(GetComponent<Rigidbody>());
-    GetComponent<Collider>().enabled = false;
+    Collider col = GetComponent<Collider>();
+    if (col != null)
+    {
+      col.enabled = false;
+    }
     navMeshAgent.enabled = false;
 
     animator.SetTrigger("dieTrigger");
@@ -163,9 +165,14 @@ public class EnemyControls : MonoBehaviour
 
   public void Stun()
   {
-    state = State.Stunned;
     stunnedTimes++;
-    navMeshAgent.isStopped = true;
+    if (navMeshAgent.isOnNavMesh)
+      navMeshAgent.isStopped = true;
+  }
+
+  public void RemoveStun()
+  {
+    stunnedTimes--;
   }
 
   public void Slow()
