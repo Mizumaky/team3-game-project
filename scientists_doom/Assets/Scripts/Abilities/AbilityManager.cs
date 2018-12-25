@@ -45,7 +45,7 @@ public class AbilityManager : MonoBehaviour
 
   public int GetAbilityRank(AbilityTypes abilityType)
   {
-    if ((int)abilityType > -1 && (int)abilityType < 4)
+    if ((int)abilityType > -1 && (int)abilityType < 3)
     {
       return (int)abilityRanks[(int)abilityType];
     }

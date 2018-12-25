@@ -7,7 +7,7 @@ public class Customer : ScriptableObject
   public ShopWeapon[] weapons;
   public ShopAbility[] firstSkill;
   public ShopAbility[] secondSkill;
-  
+
   /*
     TODO: Add turrets, when implemented
    */

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5855965619431b4a982a7c070985ce4, type: 3}
   m_Name: Stick
   m_EditorClassIdentifier: 
-  weaponName: 
-  icon: {fileID: 0}
+  weaponName: sdfasdf
+  icon: {fileID: 21300000, guid: 2a9857f42873e9441bf932635abf31f7, type: 3}
   description: 
-  price: 999
+  price: 50

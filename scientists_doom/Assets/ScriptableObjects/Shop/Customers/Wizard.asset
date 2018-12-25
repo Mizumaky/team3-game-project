@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3ac8504058592242a920f66fabc37cf, type: 3}
   m_Name: Wizard
   m_EditorClassIdentifier: 
-  weapons: []
+  weapons:
+  - {fileID: 11400000, guid: 5cb872364eda2f94d8e8eff45860b9ed, type: 2}
+  - {fileID: 11400000, guid: 6b8ef7c2de0018447adee1eeb8b9b4a7, type: 2}
+  - {fileID: 11400000, guid: 6b8ef7c2de0018447adee1eeb8b9b4a7, type: 2}
   firstSkill:
   - {fileID: 11400000, guid: ceb8a70a4ce762c4b9aa8010d0b22c44, type: 2}
   - {fileID: 11400000, guid: 69c63d26b7fe3244a8ace10edb9c032b, type: 2}
