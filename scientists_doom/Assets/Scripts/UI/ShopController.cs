@@ -21,7 +21,7 @@ public class ShopController : MonoBehaviour {
             playerStats = CharacterManager.activeCharacterObject.GetComponent<PlayerStats>();
             playerInventory = CharacterManager.activeCharacterObject.GetComponent<Inventory>();
             Debug.Log("Shop Opened, Customer: "+activeCustomer+", Level: " + playerStats.GetCurrentHeroLevel());
-            //ShowWeapons(activeCustomer);
+            ShowWeapons(activeCustomer);
             ShowSkills(activeCustomer);
         }else{
             Debug.Log("Could not get customer!");
