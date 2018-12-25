@@ -133,8 +133,8 @@ GameObject:
   - component: {fileID: 114746121720830358}
   - component: {fileID: 114172167284345232}
   - component: {fileID: 114172169419938550}
-  - component: {fileID: 3142856982282911872}
   - component: {fileID: 4073537816114711947}
+  - component: {fileID: 8911146034285055448}
   - component: {fileID: 5959028619980497673}
   m_Layer: 14
   m_Name: Wizard
@@ -421,7 +421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - {fileID: 114172169419938550}
-  - {fileID: 3142856982282911872}
+  - {fileID: 8911146034285055448}
   - {fileID: 4073537816114711947}
   abilityRanks: 000000000000000000000000
 --- !u!114 &114172167284345232
@@ -469,31 +469,6 @@ MonoBehaviour:
   velocityMagnitude: 10
   travelHeight: 0.5
   timeToLive: 2
---- !u!114 &3142856982282911872
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1106552325252950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a30d8ab70349b9446850de360f07e5a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 113
-  abilityRankData:
-  - {fileID: 11400000, guid: dc4afcc652c409440b37dcf7801d2f3c, type: 2}
-  - {fileID: 11400000, guid: 77823864dcb272a4fa9f04d0a7c48518, type: 2}
-  - {fileID: 11400000, guid: acc6cfc571b8b9c47ac26b59d1a25507, type: 2}
-  minChargeForRelease: 0.2
-  chargedObjectPrefab: {fileID: 1565276060188188, guid: ef6679cab961944418a93c7b135ce4ee,
-    type: 3}
-  radius: 3
-  cloudVelocity: 10
-  cloudDestinationHeight: 8
-  areaOutlinePrefab: {fileID: 1788745233935808, guid: 057c7766a767e4a46b6a9cdec90a268f,
-    type: 3}
 --- !u!114 &4073537816114711947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -515,6 +490,31 @@ MonoBehaviour:
   chargedObjectPrefab: {fileID: 1889657904026068, guid: f310d88a288a8e44ba64ef661a47af65,
     type: 3}
   radius: 3.5
+--- !u!114 &8911146034285055448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1106552325252950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a30d8ab70349b9446850de360f07e5a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCode: 113
+  abilityRankData:
+  - {fileID: 11400000, guid: dc4afcc652c409440b37dcf7801d2f3c, type: 2}
+  - {fileID: 11400000, guid: 77823864dcb272a4fa9f04d0a7c48518, type: 2}
+  - {fileID: 11400000, guid: acc6cfc571b8b9c47ac26b59d1a25507, type: 2}
+  minChargeForRelease: 0.2
+  chargedObjectPrefab: {fileID: 1565276060188188, guid: e0cf95fc33026424b8a21b05caf5fa70,
+    type: 3}
+  radius: 3
+  cloudVelocity: 10
+  cloudDestinationHeight: 8
+  areaOutlinePrefab: {fileID: 1788745233935808, guid: 057c7766a767e4a46b6a9cdec90a268f,
+    type: 3}
 --- !u!114 &5959028619980497673
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1430,8 +1430,8 @@ SkinnedMeshRenderer:
   m_BlendShapeWeights: []
   m_RootBone: {fileID: 0}
   m_AABB:
-    m_Center: {x: -0.0047006607, y: -0.020230532, z: 0.06972501}
-    m_Extent: {x: 0.19127367, y: 0.020283664, z: 0.26750308}
+    m_Center: {x: -0.0052719116, y: 0.014328241, z: 0.07347953}
+    m_Extent: {x: 0.18997668, y: 0.054842435, z: 0.26374856}
   m_DirtyAABB: 0
 --- !u!114 &114721940810443888
 MonoBehaviour:
