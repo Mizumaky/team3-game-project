@@ -57,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
   private IEnumerator SpawnWave(int enemyCount)
   {
     int enemiesLeft = enemyCount;
+    enemiesAlive = enemyCount;
     int groupSize = enemyCount / numberOfWaves;
     if (groupSize == 0)
     {
@@ -94,7 +95,6 @@ public class EnemySpawner : MonoBehaviour
       }
       StartCoroutine(SpawnEnemyGroup(groupSize, hit.point));
 
-      enemiesAlive += groupSize;
       enemiesLeft -= groupSize;
       progress = 1f - (float)enemiesLeft / (float)enemyCount;
 
@@ -105,7 +105,6 @@ public class EnemySpawner : MonoBehaviour
     }
 
     activeSpawnRoutine = null;
-    //EventManager.TriggerEvent(LevelManager.EVENT_LEVEL_ENDED);
     yield return null;
   }
 
