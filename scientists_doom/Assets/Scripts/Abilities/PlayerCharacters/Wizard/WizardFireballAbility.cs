@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Stats))]
 public class WizardFireballAbility : WizardChargedAbility
 {
   #region Variables
@@ -27,7 +28,7 @@ public class WizardFireballAbility : WizardChargedAbility
       return;
     }
 
-    float totalDamage = damage * chargePassive.chargeFactor;
+    float totalDamage = (GetComponent<Stats>().GetAttackDamage() + damage) * chargePassive.chargeFactor;
     float finalVelocityMagnitude = velocityMagnitude * chargePassive.chargeFactor;
 
     chargePassive.chargedObject.GetComponent<Rigidbody>().velocity = transform.forward * finalVelocityMagnitude;

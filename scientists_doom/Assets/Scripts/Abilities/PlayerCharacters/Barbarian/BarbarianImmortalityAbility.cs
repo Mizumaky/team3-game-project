@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent(typeof(BarbarianRagePassiveAbility))]
+[RequireComponent(typeof(BarbarianRagePassiveAbility), typeof(Stats))]
 public class BarbarianImmortalityAbility : Ability
 {
   #region Variables

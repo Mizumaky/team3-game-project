@@ -8,8 +8,8 @@ public class ArrowProjectile : MonoBehaviour
   #region Variables
 
   [Header("Scriptable Parameters")]
-  private int _damage;
-  public int damage { get { return _damage; } }
+  private float _damage;
+  public float damage { get { return _damage; } }
   private int _damageEmpowered;
   public int damageEmpowered { get { return _damageEmpowered; } }
 
@@ -19,15 +19,16 @@ public class ArrowProjectile : MonoBehaviour
 
   private bool isTraveling;
   private float travelHeight;
+  public float timeToLive = 2;
   #endregion
 
-  public void Set(int damage, int damageEmpowered, Transform casterTransform, float travelHeight, bool isEmpowered, LayerMask collisionMask)
+  public void Set(float damage, bool isEmpowered, float timeToLive, Transform casterTransform, float travelHeight, LayerMask collisionMask)
   {
     this._damage = damage;
-    this._damageEmpowered = damageEmpowered;
+    this.isEmpowered = isEmpowered;
+    this.timeToLive = timeToLive;
     this.casterTransform = casterTransform;
     this.travelHeight = travelHeight;
-    this.isEmpowered = isEmpowered;
     this.collisionMask = collisionMask;
 
     isTraveling = true;
@@ -68,8 +69,7 @@ public class ArrowProjectile : MonoBehaviour
       {
         other.GetComponent<EnemyControls>().AggroTo(casterTransform);
 
-        float shotDmg = (isEmpowered ? _damageEmpowered : _damage);
-        other.GetComponent<EnemyStats>().TakeDamage(shotDmg);
+        other.GetComponent<EnemyStats>().TakeDamage(damage);
 
         if (isEmpowered)
         {

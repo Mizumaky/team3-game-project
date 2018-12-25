@@ -373,11 +373,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities:
-  - {fileID: 114771612900400474}
   - {fileID: 114052020169413120}
   - {fileID: 114508637614604888}
   - {fileID: 114229640784623656}
-  abilityRanks: 00000000000000000000000000000000
+  abilityRanks: 000000000000000000000000
 --- !u!114 &114771612900400474
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,7 +421,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 897d007d99070d543a551a918130e6b5, type: 2}
   weaponHand: 1
   enableCollision: 0
-  keyCode: 32
   damage: 0
 --- !u!114 &114460700769417648
 MonoBehaviour:
@@ -453,7 +451,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f3e38fb56324d214fa2cc0c1d193b3a0, type: 2}
   - {fileID: 11400000, guid: 4bc25eedaa715b74fa536b1cfbb0fd54, type: 2}
   - {fileID: 11400000, guid: a68e235533331cf43a2df5acfecc13a2, type: 2}
-  keyCode: 113
   kegPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca, type: 3}
   spillPrefab: {fileID: 1669881619591404, guid: 626df950451b9854d9c7d6a5a494f721,
     type: 3}
@@ -480,7 +477,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 462595506c75df04493c7aff5f4c4d6a, type: 2}
   - {fileID: 11400000, guid: 9f3519b02017aa445a17aa0cdaeca218, type: 2}
   - {fileID: 11400000, guid: b40d7474c5110dc418ce5ecd7bad6e91, type: 2}
-  keyCode: 101
   stackCost: 0
   duration: 0
   isAvailable: 0

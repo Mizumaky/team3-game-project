@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Stats))]
 public class WizardFrozenBreathAbility : WizardChargedAbility
 {
   #region Variables
@@ -25,7 +26,7 @@ public class WizardFrozenBreathAbility : WizardChargedAbility
       return;
     }
 
-    float totalDamage = damage * chargePassive.chargeFactor;
+    float totalDamage = (GetComponent<Stats>().GetAttackDamage() + damage) * chargePassive.chargeFactor;
     float finalRadius = radius * chargePassive.chargeFactor;
 
     proj.Set(totalDamage, finalRadius, angle, stunDuration, transform);

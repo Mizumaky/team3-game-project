@@ -558,8 +558,8 @@ GameObject:
   - component: {fileID: 114635549016687628}
   - component: {fileID: 114269541643194780}
   - component: {fileID: 114201074502855828}
-  - component: {fileID: 114689673893674452}
   - component: {fileID: 114570753321723344}
+  - component: {fileID: 114689673893674452}
   m_Layer: 14
   m_Name: Huntress
   m_TagString: Huntress
@@ -845,10 +845,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - {fileID: 114201074502855828}
-  - {fileID: 114201074502855828}
   - {fileID: 114570753321723344}
   - {fileID: 114689673893674452}
-  abilityRanks: 00000000000000000000000000000000
+  abilityRanks: 000000000000000000000000
 --- !u!114 &114201074502855828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -876,31 +875,6 @@ MonoBehaviour:
   velocityMagnitude: 80
   travelHeight: 0.5
   arrowSpawnTransform: {fileID: 4922013344986260}
---- !u!114 &114689673893674452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465694572464804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1b6f55e4db51ff449e14c91ee85eff4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 101
-  abilityRankData:
-  - {fileID: 11400000, guid: 4766a2a6401e3e840b5fea57c80b78d8, type: 2}
-  - {fileID: 11400000, guid: 8f32d49f704937d419fd972d1363586c, type: 2}
-  - {fileID: 11400000, guid: 642fe87c3d68bdb4ea4b6135fffdc9d8, type: 2}
-  keyCode: 101
-  eaglePrefab: {fileID: 1727019830729638, guid: c95850030315f134cba892b47a5e505e,
-    type: 3}
-  eagleSpawnTransform: {fileID: 4922013344986260}
-  eagleVelocity: 5
-  eagleDestinationHeight: 5
-  areaOutlinePrefab: {fileID: 1788745233935808, guid: 246c3b7aacd75d44b815e31de47f75b7,
-    type: 3}
 --- !u!114 &114570753321723344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -918,8 +892,31 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 92f60e0a4495b694b9cda4d0791da0af, type: 2}
   - {fileID: 11400000, guid: 8483647ac6b0f8f47a855f4aaa30f99c, type: 2}
   - {fileID: 11400000, guid: 3a2e74c12bf5d5c4aa46ee679222cef3, type: 2}
-  keyCode: 113
   dashPS: {fileID: 0}
+--- !u!114 &114689673893674452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465694572464804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b6f55e4db51ff449e14c91ee85eff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyCode: 101
+  abilityRankData:
+  - {fileID: 11400000, guid: 4766a2a6401e3e840b5fea57c80b78d8, type: 2}
+  - {fileID: 11400000, guid: 8f32d49f704937d419fd972d1363586c, type: 2}
+  - {fileID: 11400000, guid: 642fe87c3d68bdb4ea4b6135fffdc9d8, type: 2}
+  eaglePrefab: {fileID: 1727019830729638, guid: c95850030315f134cba892b47a5e505e,
+    type: 3}
+  eagleSpawnTransform: {fileID: 4922013344986260}
+  eagleVelocity: 5
+  eagleDestinationHeight: 5
+  areaOutlinePrefab: {fileID: 1788745233935808, guid: 246c3b7aacd75d44b815e31de47f75b7,
+    type: 3}
 --- !u!1 &1493028866261492
 GameObject:
   m_ObjectHideFlags: 0

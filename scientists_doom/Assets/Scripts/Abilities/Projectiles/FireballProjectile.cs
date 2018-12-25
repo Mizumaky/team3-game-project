@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(Collider))]
-public class FireballProjectile : MonoBehaviour
-{
+[RequireComponent (typeof (Rigidbody), typeof (Collider))]
+public class FireballProjectile : MonoBehaviour {
   #region Variables
   public GameObject explosionPrefab;
 
-  [Header("Scriptable Parameters")]
+  [Header ("Scriptable Parameters")]
   private float _damage;
   public float damage { get { return _damage; } }
 
@@ -23,8 +22,7 @@ public class FireballProjectile : MonoBehaviour
 
   #endregion
 
-  public void Set(float damage, Transform casterTransform, float travelHeight, float timeToLive, LayerMask collisionMask)
-  {
+  public void Set (float damage, Transform casterTransform, float travelHeight, float timeToLive, LayerMask collisionMask) {
     this._damage = damage;
     this.casterTransform = casterTransform;
     this.travelHeight = travelHeight;
@@ -32,27 +30,24 @@ public class FireballProjectile : MonoBehaviour
     this.collisionMask = collisionMask;
 
     isTraveling = true;
-    StartCoroutine(FollowTerrain());
+    StartCoroutine (FollowTerrain ());
   }
 
-  private IEnumerator FollowTerrain()
-  {
+  private IEnumerator FollowTerrain () {
     float updateInterval = 0.05f;
-    WaitForSeconds ws = new WaitForSeconds(updateInterval);
-    Rigidbody rigidbody = GetComponent<Rigidbody>();
+    WaitForSeconds ws = new WaitForSeconds (updateInterval);
+    Rigidbody rigidbody = GetComponent<Rigidbody> ();
 
     Ray rayDown;
     RaycastHit hit;
     float rayLength = 10f;
-    int layerMask = 1 << LayerMask.NameToLayer("Ground");
+    int layerMask = 1 << LayerMask.NameToLayer ("Ground");
     Vector3 newPos;
 
-    transform.rotation = Quaternion.LookRotation(rigidbody.velocity);
-    while (isTraveling && timeToLive > 0)
-    {
-      rayDown = new Ray(transform.position + Vector3.up * 5f, Vector3.down);
-      if (Physics.Raycast(rayDown, out hit, rayLength, layerMask))
-      {
+    transform.rotation = Quaternion.LookRotation (rigidbody.velocity);
+    while (isTraveling && timeToLive > 0) {
+      rayDown = new Ray (transform.position + Vector3.up * 5f, Vector3.down);
+      if (Physics.Raycast (rayDown, out hit, rayLength, layerMask)) {
         newPos.x = transform.position.x;
         newPos.y = travelHeight + hit.point.y;
         newPos.z = transform.position.z;
@@ -64,62 +59,53 @@ public class FireballProjectile : MonoBehaviour
       yield return ws;
     }
 
-    Disable();
+    Disable ();
   }
 
-  private void OnTriggerStay(Collider other)
-  {
-    if (isTraveling && UnityExtensions.ContainsLayer(collisionMask, other.gameObject.layer))
-    {
-      if (other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
-      {
-        other.GetComponent<EnemyControls>().AggroTo(casterTransform);
-        other.GetComponent<EnemyStats>().TakeDamage(damage);
+  private void OnTriggerStay (Collider other) {
+    if (isTraveling && UnityExtensions.ContainsLayer (collisionMask, other.gameObject.layer)) {
+      if (other.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
+        other.GetComponent<EnemyControls> ().AggroTo (casterTransform);
+        other.GetComponent<EnemyStats> ().TakeDamage (damage);
       }
 
       isTraveling = false;
 
-      explosion = Instantiate(explosionPrefab, transform.position, Quaternion.identity, null);
+      explosion = Instantiate (explosionPrefab, transform.position, Quaternion.identity, null);
       explosion.transform.localScale = transform.localScale;
 
-      HitEnemies();
+      HitEnemies ();
 
-      Disable();
+      Disable ();
     }
   }
 
-  private void Disable()
-  {
-    Rigidbody rigidbody = GetComponent<Rigidbody>();
-    if (rigidbody != null)
-    {
+  private void Disable () {
+    Rigidbody rigidbody = GetComponent<Rigidbody> ();
+    if (rigidbody != null) {
       rigidbody.useGravity = false;
       rigidbody.velocity = Vector3.zero;
     }
 
-    GetComponent<ParticleSystem>().Stop();
-    GetComponent<Collider>().enabled = false;
-    GetComponent<Animator>().SetTrigger("Fade");
+    GetComponent<ParticleSystem> ().Stop ();
+    GetComponent<Collider> ().enabled = false;
+    GetComponent<Animator> ().SetTrigger ("Fade");
   }
 
-  private void Die()
-  {
-    if (explosion != null)
-    {
-      Destroy(explosion);
+  private void Die () {
+    if (explosion != null) {
+      Destroy (explosion);
     }
-    Destroy(gameObject);
+    Destroy (gameObject, 1f);
   }
 
-  private void HitEnemies()
-  {
-    int enemyLayer = 1 << LayerMask.NameToLayer("Enemy");
-    Collider[] hits = Physics.OverlapSphere(transform.position, transform.localScale.x, enemyLayer);
+  private void HitEnemies () {
+    int enemyLayer = 1 << LayerMask.NameToLayer ("Enemy");
+    Collider[] hits = Physics.OverlapSphere (transform.position, transform.localScale.x, enemyLayer);
 
-    foreach (Collider hit in hits)
-    {
-      hit.GetComponent<Stats>().TakeDamage(damage);
-      hit.GetComponent<EnemyControls>().AggroTo(casterTransform);
+    foreach (Collider hit in hits) {
+      hit.GetComponent<Stats> ().TakeDamage (damage);
+      hit.GetComponent<EnemyControls> ().AggroTo (casterTransform);
     }
   }
 }
