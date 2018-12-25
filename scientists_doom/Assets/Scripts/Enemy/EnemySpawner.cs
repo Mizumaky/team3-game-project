@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+  public static int enemiesAlive;
+
   public Transform spawnOriginTransform;
   public GameObject enemyPrefab;
 
@@ -23,6 +25,7 @@ public class EnemySpawner : MonoBehaviour
     {
       Debug.LogWarning("EnemySpawner: No spawn origin set! Setting default value!");
       spawnOriginTransform = transform;
+      enemiesAlive = 0;
     }
   }
 
@@ -42,6 +45,7 @@ public class EnemySpawner : MonoBehaviour
   {
     if (activeSpawnRoutine == null)
     {
+      enemiesAlive = 0;
       activeSpawnRoutine = StartCoroutine(SpawnWave(enemyCount));
     }
     else
@@ -53,6 +57,7 @@ public class EnemySpawner : MonoBehaviour
   private IEnumerator SpawnWave(int enemyCount)
   {
     int enemiesLeft = enemyCount;
+    enemiesAlive = enemyCount;
     int groupSize = enemyCount / numberOfWaves;
     if (groupSize == 0)
     {
@@ -100,7 +105,6 @@ public class EnemySpawner : MonoBehaviour
     }
 
     activeSpawnRoutine = null;
-    EventManager.TriggerEvent(LevelManager.EVENT_LEVEL_ENDED);
     yield return null;
   }
 

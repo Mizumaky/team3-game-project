@@ -15,7 +15,13 @@ public class EnemyStats : Stats
     if (_isAlive)
     {
       GetComponent<EnemyControls>().Disable();
+      EnemySpawner.enemiesAlive--;
+      Debug.Log("Enemies alive: "+EnemySpawner.enemiesAlive);
+      if(EnemySpawner.enemiesAlive == 0){
+        EventManager.TriggerEvent(LevelManager.EVENT_LEVEL_ENDED);
+      }
     }
     base.Die();
+    
   }
 }

@@ -60,7 +60,6 @@ public class LevelManager : MonoBehaviour{
         Debug.Log("Starting StoryLevel "+storyLevels[curLevel]);
         Announcer.Announce(("Level "+(curLevel)+" begins"), "Defend the castle!");
         enemySpawner.StartSpawnWaveIfInactive(storyLevels[curLevel-1].peasantCount);
-        curLevel++;
     }
 
     private void EndLevel(){
@@ -68,9 +67,10 @@ public class LevelManager : MonoBehaviour{
     }
 
     private IEnumerator EndLevelCor(){
-        yield return new WaitForSeconds(10);
+        yield return new WaitForSeconds(2);
         lightAnimator.SetTrigger("TriggerDay");
         Announcer.Announce(("Level "+(curLevel)+" ended"), "You can rest for while");
+        curLevel++;
         StartLevel();
         yield return null;
     }
