@@ -27,6 +27,7 @@ public class WeaponManager : MonoBehaviour {
 		activeWeapon = Instantiate(weapons[weaponIndex]);
 
 		activeWeapon.transform.parent = hand;
+		//activeWeapon.transform.localScale = Vector3.one;
 		activeWeapon.transform.localPosition = attachPosition;
 		activeWeapon.transform.localEulerAngles = new Vector3(0,0,0);
 

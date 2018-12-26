@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1738905357413482
+--- !u!1 &1702160029146168
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,47 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4412530927840000}
-  - component: {fileID: 33586728351498474}
-  - component: {fileID: 23878602405508564}
-  - component: {fileID: 65510758147099788}
+  - component: {fileID: 4399490183582754}
+  - component: {fileID: 33607919810700626}
+  - component: {fileID: 23640029047733620}
+  - component: {fileID: 95882605089020404}
+  - component: {fileID: 1926411186073677184}
   m_Layer: 0
-  m_Name: Hammer
-  m_TagString: Weapon
+  m_Name: LavaRock
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4412530927840000
+--- !u!4 &4399490183582754
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738905357413482}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 6.8340416, y: -1.065, z: -8.788155}
-  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_GameObject: {fileID: 1702160029146168}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.08, y: 0.08, z: 0.08}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
---- !u!33 &33586728351498474
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &33607919810700626
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738905357413482}
-  m_Mesh: {fileID: 4300010, guid: b2bda15d4507f674d8ddc390b1663f99, type: 3}
---- !u!23 &23878602405508564
+  m_GameObject: {fileID: 1702160029146168}
+  m_Mesh: {fileID: 4300000, guid: c1147ecac86f34047a7fd43900a3ebcb, type: 3}
+--- !u!23 &23640029047733620
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738905357413482}
+  m_GameObject: {fileID: 1702160029146168}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -58,8 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a59802663e6dfb5488180866c5caad16, type: 2}
-  - {fileID: 2100000, guid: a941f2410acb6df4fb4db5b27d38a828, type: 2}
+  - {fileID: 2100000, guid: e256f59adb28b284d95ac86e25ceffce, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,16 +79,38 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &65510758147099788
-BoxCollider:
+--- !u!95 &95882605089020404
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1738905357413482}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_GameObject: {fileID: 1702160029146168}
   m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: c1147ecac86f34047a7fd43900a3ebcb, type: 3}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!54 &1926411186073677184
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1702160029146168}
   serializedVersion: 2
-  m_Size: {x: 0.5197071, y: 0.48086905, z: 0.9998172}
-  m_Center: {x: -0.0015375018, y: -0.0048408904, z: 0.7658734}
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

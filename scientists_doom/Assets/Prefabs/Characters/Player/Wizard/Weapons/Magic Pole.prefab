@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8833686595481342893}
   - component: {fileID: 2317919177188398001}
   - component: {fileID: 3479335198223482802}
+  - component: {fileID: 7104986281340310054}
   m_Layer: 0
   m_Name: Gem
   m_TagString: Untagged
@@ -26,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 814846363667811756}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.00000003576078, y: 0.00000010365038, z: 0.27705657}
+  m_LocalPosition: {x: 0, y: 0, z: 0.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4442360027250476161}
@@ -77,6 +78,24 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7104986281340310054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814846363667811756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8218dbf10d6304695bbc740576efcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotatingGems:
+  - {fileID: 1702160029146168, guid: 273ea8745d8c5ef4aa2fefd1b70893a1, type: 3}
+  - {fileID: 1702160029146168, guid: e883d2bc2361d5c4687d11f837713846, type: 3}
+  - {fileID: 1702160029146168, guid: 4ea2d3a085896bb498cf1f49f95e408c, type: 3}
+  - {fileID: 1702160029146168, guid: 1fb71d209fc2ad745a2193b4d3b02869, type: 3}
+  rotatingSpeed: 180
 --- !u!1 &4910896440388290889
 GameObject:
   m_ObjectHideFlags: 0
@@ -90,7 +109,7 @@ GameObject:
   - component: {fileID: 3935642605698054545}
   - component: {fileID: 143347401227115071}
   m_Layer: 0
-  m_Name: wizard_magic_pole
+  m_Name: Magic Pole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,14 +122,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4910896440388290889}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -3.6588616, y: -0.55257463, z: -2.3923814}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 4442360027250476161}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &1842393382617510975
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -202,9 +221,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8572563321199098197}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0.30516517}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.752}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8833686595481342893}
   m_Father: {fileID: 90783889371962559}
