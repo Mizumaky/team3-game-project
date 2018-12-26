@@ -5,4 +5,8 @@ public class BarbImmortalityRankData : AbilityRankData
 {
   public int stackCost = 100;
   public float duration = 5f;
+  public int stacksCap;
+  public int perStackDamageIncrement;
+  public int stackDecrement;
+  public float stackDecayStartDelay;
 }

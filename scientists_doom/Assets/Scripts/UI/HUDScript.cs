@@ -18,6 +18,9 @@ public class HUDScript : MonoBehaviour
   public GameObject wizardCastBar;
   public GameObject huntressStackBar;
 
+  public Image[] cooldownImages;
+
+  private AbilityManager abilityManager;
   private PlayerStats playerStatsReference;
   private GameObject lastActiveCharObject = null;
 
@@ -28,6 +31,15 @@ public class HUDScript : MonoBehaviour
     EventManager.StartListening("updateCharSpec", UpdateCharSpecUI);
 
     UpdateHUD();
+  }
+
+  private void LateUpdate()
+  {
+    abilityManager = CharacterManager.activeCharacterObject.GetComponent<AbilityManager>();
+    for (int i = 0; i < abilityManager.abilities.Length; i++)
+    {
+      cooldownImages[i].fillAmount = abilityManager.abilities[i].cooldownCountdown / abilityManager.abilities[i].cooldown;
+    }
   }
 
   // TODO: This can be made much faster (e.g. listener on character stats)
@@ -111,7 +123,7 @@ public class HUDScript : MonoBehaviour
     {
       case CharacterManager.Character.Barbarian:
         {
-          BarbarianRagePassiveAbility ability = CharacterManager.activeCharacterObject.GetComponent<BarbarianRagePassiveAbility>();
+          BarbarianImmortalityAbility ability = CharacterManager.activeCharacterObject.GetComponent<BarbarianImmortalityAbility>();
           if (ability == null)
           {
             Debug.LogWarning("Barbarian rage passive now found on active character!");
@@ -148,5 +160,10 @@ public class HUDScript : MonoBehaviour
           break;
         }
     }
+  }
+
+  public void UpdateCooldowns()
+  {
+
   }
 }

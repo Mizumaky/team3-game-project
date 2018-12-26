@@ -21,6 +21,7 @@ public class WizardFireballAbility : WizardChargedAbility
 
   public override void SetAndRelease()
   {
+    base.SetAndRelease();
     FireballProjectile proj = chargePassive.chargedObject.GetComponent<FireballProjectile>();
     if (proj == null)
     {

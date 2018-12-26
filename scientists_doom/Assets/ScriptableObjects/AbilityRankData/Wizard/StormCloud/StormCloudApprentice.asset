@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Strong Storm Cloud
   icon: {fileID: 0}
   rank: 1
+  cooldown: 5
   maxCharge: 0.5
   damagePerTick: 8
-  radius: 7
   duration: 6

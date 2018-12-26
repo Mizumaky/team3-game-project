@@ -6,4 +6,5 @@ public class AbilityRankData : ScriptableObject
   public string abilityName = "New Ability";
   public Sprite icon;
   public Ability.Rank rank = Ability.Rank.Basic;
+  public float cooldown;
 }

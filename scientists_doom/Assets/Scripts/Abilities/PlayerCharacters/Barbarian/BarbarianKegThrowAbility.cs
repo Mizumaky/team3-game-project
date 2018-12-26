@@ -28,7 +28,7 @@ public class BarbarianKegThrowAbility : Ability
 
   private void Update()
   {
-    if (Input.GetKeyDown(keyCode))
+    if (Input.GetKeyDown(keyCode) && !onCooldown)
     {
       Vector3 targetPosition = PlayerMovement.GetGroundPosAtMouse();
 
@@ -41,6 +41,8 @@ public class BarbarianKegThrowAbility : Ability
       {
         Throw(targetPosition);
       }
+
+      StartCoroutine(CooldownRoutine());
     }
   }
 
@@ -104,6 +106,7 @@ public class BarbarianKegThrowAbility : Ability
 
   public override void UpdateAbilityData()
   {
+    base.UpdateAbilityData();
     if (abilityRankData[(int)rank] is KegThrowRankData)
     {
       KegThrowRankData data = ((KegThrowRankData)abilityRankData[(int)rank]);

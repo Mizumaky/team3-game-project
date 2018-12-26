@@ -15,6 +15,7 @@ MonoBehaviour:
   abilityName: Powerful Freeze
   icon: {fileID: 0}
   rank: 2
+  cooldown: 5
   maxCharge: 1
   damage: 50
   angle: 360

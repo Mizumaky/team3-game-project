@@ -23,7 +23,7 @@ public class HuntressDistractAbility : Ability
 
   private void Update()
   {
-    if (Input.GetKeyDown(keyCode))
+    if (Input.GetKeyDown(keyCode) && !onCooldown)
     {
       SendAtMousePosition();
     }
@@ -38,10 +38,13 @@ public class HuntressDistractAbility : Ability
 
     EagleProjectile proj = newOwl.GetComponent<EagleProjectile>();
     proj.SetAndRelease(destination, groundPosAtMouse, eagleVelocity, radius, duration, transform, areaOutlinePrefab);
+
+    StartCoroutine(CooldownRoutine());
   }
 
   public override void UpdateAbilityData()
   {
+    base.UpdateAbilityData();
     if (abilityRankData[(int)rank] is DistractRankData)
     {
       DistractRankData data = ((DistractRankData)abilityRankData[(int)rank]);
