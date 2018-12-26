@@ -253,36 +253,6 @@ PrefabInstance:
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 258481281}
-    - target: {fileID: 224124411115472332, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224124411115472332, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224124411115472332, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224124411115472332, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224124411115472332, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224124411115472332, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 224192192331019446, guid: cee624a6a881de143ab97ae841a95789,
         type: 3}
       propertyPath: m_AnchorMin.y
@@ -372,16 +342,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114557785720127502, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114557785720127502, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_ConstraintCount
-      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee624a6a881de143ab97ae841a95789, type: 3}
@@ -682,6 +642,11 @@ PrefabInstance:
     - target: {fileID: 236513804, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: temporalAntialiasing.jitterSpread
       value: 0.575
+      objectReference: {fileID: 0}
+    - target: {fileID: 114700509174181696, guid: 3ca3e0b70f22ea440b2162b7a529983e,
+        type: 3}
+      propertyPath: minFOV
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
