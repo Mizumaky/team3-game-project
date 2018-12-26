@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1085075780871924}
-  m_LocalRotation: {x: 0.83215874, y: 0, z: 0, w: -0.55453753}
+  m_LocalRotation: {x: 0.69138706, y: 0, z: 0, w: -0.7224845}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -357,7 +357,7 @@ MonoBehaviour:
   isGlobal: 1
   blendDistance: 0
   weight: 1
-  priority: 0
+  priority: 50
 --- !u!1 &1750165216881738
 GameObject:
   m_ObjectHideFlags: 0
@@ -382,7 +382,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750165216881738}
-  m_LocalRotation: {x: 0.5545376, y: 0, z: 0, w: 0.8321587}
+  m_LocalRotation: {x: 0.7224846, y: 0, z: 0, w: 0.691387}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_Children: []
@@ -399,7 +399,7 @@ Light:
   m_Enabled: 1
   serializedVersion: 8
   m_Type: 1
-  m_Color: {r: 0.998868, g: 0.82493633, b: 0.45720723, a: 1}
+  m_Color: {r: 0.9961738, g: 0.815981, b: 0.45639813, a: 1}
   m_Intensity: 4
   m_Range: 10
   m_SpotAngle: 30
@@ -635,7 +635,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 8
     m_NumAlphaKeys: 2
-  progress: 0.15601364
+  progress: 0.257
   progressSpeed: 0.0001
 --- !u!1 &4945946939812668892
 GameObject:

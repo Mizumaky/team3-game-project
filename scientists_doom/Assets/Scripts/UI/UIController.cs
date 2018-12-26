@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
   public GameObject settingsWindow;
   public GameObject characterWindow;
   public GameObject shopWindow;
+  public GameObject retryWindow;
 
   [Header("UI Elements")]
   [Header("Settings Window")]

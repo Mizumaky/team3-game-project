@@ -78,7 +78,13 @@ public class Stats : MonoBehaviour
     if (_isAlive)
     {
       _isAlive = false;
-      Debug.Log(gameObject.name + " died!");
+      if(gameObject.name == "Castle"){
+        EventManager.TriggerEvent(LevelManager.EVENT_CASTLE_DESTROYED);
+      }else if(gameObject.GetComponent<PlayerStats>()){
+        EventManager.TriggerEvent(LevelManager.EVENT_PLAYER_DEAD);
+      }else{
+        Debug.Log(gameObject.name + " died!");
+      }
     }
   }
 }
