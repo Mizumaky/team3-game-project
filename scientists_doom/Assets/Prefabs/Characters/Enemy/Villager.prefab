@@ -730,7 +730,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 0
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &114059231861312018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -780,7 +780,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castleTransform: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
     type: 3}
-  state: 0
   aggroDistance: 10
   attackPlayerDistance: 1
   attackCastleDistance: 4
@@ -981,8 +980,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695652aea2b3c004e97bc4acaee8906b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 0
   abilityRankData: []
+  keyCode: 0
   weaponHand: 0
   enableCollision: 0
   damage: 5
