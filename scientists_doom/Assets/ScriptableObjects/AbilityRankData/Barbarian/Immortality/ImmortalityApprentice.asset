@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -14,5 +15,10 @@ MonoBehaviour:
   abilityName: Immortality - Apprentice
   icon: {fileID: 0}
   rank: 1
-  stackCost: 75
-  duration: 7
+  cooldown: 10
+  stackCost: 50
+  duration: 6
+  stacksCap: 50
+  perStackDamageIncrement: 2
+  stackDecrement: 2
+  stackDecayStartDelay: 7

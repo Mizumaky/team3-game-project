@@ -19,6 +19,7 @@ public class WizardFrozenBreathAbility : WizardChargedAbility
 
   public override void SetAndRelease()
   {
+    base.SetAndRelease();
     FreezeChargeup proj = chargePassive.chargedObject.GetComponent<FreezeChargeup>();
     if (proj == null)
     {

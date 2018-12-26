@@ -29,7 +29,7 @@ public class HuntressDashAbility : Ability
 
   private void Update()
   {
-    if (Input.GetKeyDown(keyCode))
+    if (Input.GetKeyDown(keyCode) && !onCooldown)
     {
       Dash();
     }
@@ -49,6 +49,7 @@ public class HuntressDashAbility : Ability
     if (Physics.Raycast(rayDown, out hit, rayLength, groundMask))
     {
       agent.Warp(hit.point);
+      StartCoroutine(CooldownRoutine());
     }
     else
     {
@@ -58,6 +59,7 @@ public class HuntressDashAbility : Ability
 
   public override void UpdateAbilityData()
   {
+    base.UpdateAbilityData();
     if (abilityRankData[(int)rank] is DashRankData)
     {
       DashRankData data = ((DashRankData)abilityRankData[(int)rank]);

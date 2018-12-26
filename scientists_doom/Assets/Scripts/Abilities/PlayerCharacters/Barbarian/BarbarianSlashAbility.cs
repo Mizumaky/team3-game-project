@@ -8,7 +8,7 @@ public class BarbarianSlashAbility : MeleeAbility
   public int damage;
 
   private Stats stats;
-  private BarbarianRagePassiveAbility barbarianRageAbility;
+  private BarbarianImmortalityAbility barbarianImmortalityAbility;
 
   private void Awake()
   {
@@ -17,16 +17,17 @@ public class BarbarianSlashAbility : MeleeAbility
 
   private void Update()
   {
-    if (Input.GetKeyDown(keyCode))
+    if (Input.GetKeyDown(keyCode) && !onCooldown)
     {
       anim.SetTrigger("attackTrigger");
+      StartCoroutine(CooldownRoutine());
     }
   }
 
   protected override void Init()
   {
     base.Init();
-    if ((barbarianRageAbility = GetComponent<BarbarianRagePassiveAbility>()) == null) Debug.LogWarning("No barbarian rage passive found!");
+    if ((barbarianImmortalityAbility = GetComponent<BarbarianImmortalityAbility>()) == null) Debug.LogWarning("No barbarian rage passive found!");
 
     stats = GetComponent<Stats>();
   }
@@ -41,7 +42,7 @@ public class BarbarianSlashAbility : MeleeAbility
 
       if (otherLayer == LayerMask.NameToLayer("Enemy") || otherLayer == LayerMask.NameToLayer("Explosive"))
       {
-        barbarianRageAbility.IncreaseStacks();
+        barbarianImmortalityAbility.IncreaseStacks();
       }
 
       if (otherLayer == LayerMask.NameToLayer("Enemy"))
@@ -58,6 +59,7 @@ public class BarbarianSlashAbility : MeleeAbility
 
   public override void UpdateAbilityData()
   {
+    base.UpdateAbilityData();
     if (abilityRankData[(int)rank] is BarbSlashRankData)
     {
       BarbSlashRankData data = ((BarbSlashRankData)abilityRankData[(int)rank]);

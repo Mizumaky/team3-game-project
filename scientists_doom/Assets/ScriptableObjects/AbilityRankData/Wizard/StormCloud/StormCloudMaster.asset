@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Powerful Storm Cloud
   icon: {fileID: 0}
   rank: 2
+  cooldown: 4
   maxCharge: 1
   damagePerTick: 10
-  radius: 10
   duration: 8

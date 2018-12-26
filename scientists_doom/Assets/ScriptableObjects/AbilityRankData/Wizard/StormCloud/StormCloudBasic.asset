@@ -15,7 +15,7 @@ MonoBehaviour:
   abilityName: Weak Storm Cloud
   icon: {fileID: 0}
   rank: 0
+  cooldown: 6
   maxCharge: 0
   damagePerTick: 5
-  radius: 5
   duration: 5

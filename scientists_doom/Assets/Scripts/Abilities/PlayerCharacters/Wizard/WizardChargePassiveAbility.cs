@@ -74,10 +74,22 @@ public class WizardChargePassiveAbility : Ability
 
   private void Reset()
   {
+    ability = null;
     chargeProgress = 0;
     chargeFactor = 0;
     chargedObject = null;
 
     EventManager.TriggerEvent("updateCharSpec");
+  }
+
+  private void OnApplicationFocus(bool focusStatus)
+  {
+    if (!focusStatus)
+    {
+      if (chargeProgress > 0 && ability != null)
+      {
+        Release(ability);
+      }
+    }
   }
 }

@@ -24,6 +24,7 @@ public class WizardStormCloudAbility : WizardChargedAbility
 
   public override void SetAndRelease()
   {
+    base.SetAndRelease();
     StormCloudProjectile proj = chargePassive.chargedObject.GetComponent<StormCloudProjectile>();
     if (proj == null)
     {
@@ -37,11 +38,12 @@ public class WizardStormCloudAbility : WizardChargedAbility
     Vector3 groundPosAtMouse = PlayerMovement.GetGroundPosAtMouse();
     Vector3 destination = groundPosAtMouse + Vector3.up * cloudDestinationHeight;
 
-    proj.SetAndRelease(destination, groundPosAtMouse, damagePerTick, finalRadius, cloudVelocity, duration, transform, areaOutlinePrefab);
+    proj.SetAndRelease(destination, groundPosAtMouse, totalDamagePerTick, finalRadius, cloudVelocity, duration, transform, areaOutlinePrefab);
   }
 
   public override void UpdateAbilityData()
   {
+    base.UpdateAbilityData();
     if (abilityRankData[(int)rank] is StormCloudRankData)
     {
       StormCloudRankData data = ((StormCloudRankData)abilityRankData[(int)rank]);

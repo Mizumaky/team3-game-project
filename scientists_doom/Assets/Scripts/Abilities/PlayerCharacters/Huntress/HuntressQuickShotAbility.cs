@@ -39,7 +39,7 @@ public class HuntressQuickShotAbility : Ability
 
   private void Update()
   {
-    if (Input.GetKeyDown(keyCode))
+    if (Input.GetKeyDown(keyCode) && !onCooldown)
     {
       Fire();
     }
@@ -69,10 +69,13 @@ public class HuntressQuickShotAbility : Ability
 
     newArrow.GetComponent<Rigidbody>().velocity = transform.forward * velocityMagnitude;
     proj.Set(totalDamage, isEmpoweredShot, timeToLive, transform, travelHeight, collisionMask);
+
+    StartCoroutine(CooldownRoutine());
   }
 
   public override void UpdateAbilityData()
   {
+    base.UpdateAbilityData();
     if (abilityRankData[(int)rank] is QuickShotRankData)
     {
       QuickShotRankData data = ((QuickShotRankData)abilityRankData[(int)rank]);

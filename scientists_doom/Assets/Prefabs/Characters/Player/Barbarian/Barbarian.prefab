@@ -82,7 +82,6 @@ GameObject:
   - component: {fileID: 82779544059597260}
   - component: {fileID: 114627230455323210}
   - component: {fileID: 114282198932504814}
-  - component: {fileID: 114771612900400474}
   - component: {fileID: 114052020169413120}
   - component: {fileID: 114460700769417648}
   - component: {fileID: 114508637614604888}
@@ -376,32 +375,7 @@ MonoBehaviour:
   - {fileID: 114052020169413120}
   - {fileID: 114508637614604888}
   - {fileID: 114229640784623656}
-  abilityRanks: 000000000000000000000000
---- !u!114 &114771612900400474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195421657766132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe02dca3184c41e499985c30a18974ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 0
-  abilityRankData:
-  - {fileID: 11400000, guid: 21e43c713e35b6f4083596b33750fca3, type: 2}
-  - {fileID: 11400000, guid: d5065de85ab21544caa82303045fc58d, type: 2}
-  - {fileID: 11400000, guid: 9576f2345d764f447aa4f8a81e505123, type: 2}
-  perStackDamageIncrement: 0
-  stackDecayStartDelay: 0
-  rageParticleSystem: {fileID: 198256024540029150}
-  stacks: 0
-  stacksCap: 100
-  canStack: 1
-  stackDecrement: 0
-  stackDecayPeriod: 1
+  abilityRanks: 020000000000000000000000
 --- !u!114 &114052020169413120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,11 +388,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acf815fe4bd09742859c06c688ce617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 32
   abilityRankData:
   - {fileID: 11400000, guid: b6fd309989499c24d838218bb95cac53, type: 2}
   - {fileID: 11400000, guid: 5bd26fe693869724da15c106105a707d, type: 2}
   - {fileID: 11400000, guid: 897d007d99070d543a551a918130e6b5, type: 2}
+  keyCode: 32
   weaponHand: 1
   enableCollision: 0
   damage: 0
@@ -446,11 +420,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba198887b5ce074781f880122feb61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 113
   abilityRankData:
   - {fileID: 11400000, guid: f3e38fb56324d214fa2cc0c1d193b3a0, type: 2}
   - {fileID: 11400000, guid: 4bc25eedaa715b74fa536b1cfbb0fd54, type: 2}
   - {fileID: 11400000, guid: a68e235533331cf43a2df5acfecc13a2, type: 2}
+  keyCode: 113
   kegPrefab: {fileID: 1400509269778666, guid: 7f580c348441b4543bdda2413d1911ca, type: 3}
   spillPrefab: {fileID: 1669881619591404, guid: 626df950451b9854d9c7d6a5a494f721,
     type: 3}
@@ -472,16 +446,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01a2502c745cd144a95903b356b10a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 101
   abilityRankData:
   - {fileID: 11400000, guid: 462595506c75df04493c7aff5f4c4d6a, type: 2}
   - {fileID: 11400000, guid: 9f3519b02017aa445a17aa0cdaeca218, type: 2}
   - {fileID: 11400000, guid: b40d7474c5110dc418ce5ecd7bad6e91, type: 2}
+  keyCode: 101
+  rageParticleSystem: {fileID: 198256024540029150}
   stackCost: 0
   duration: 0
+  perStackDamageIncrement: 0
+  stackDecayStartDelay: 0
   isAvailable: 0
   updatePeriodFloat: 1
   modelRenderer: {fileID: 137324606348254724}
+  stacks: 0
+  stacksCap: 100
+  canStack: 1
+  stackDecrement: 0
+  stackDecayPeriod: 1
 --- !u!114 &114184735269996266
 MonoBehaviour:
   m_ObjectHideFlags: 0

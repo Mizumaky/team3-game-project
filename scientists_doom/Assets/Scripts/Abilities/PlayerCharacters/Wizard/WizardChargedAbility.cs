@@ -22,7 +22,7 @@ public abstract class WizardChargedAbility : Ability
 
   private void Update()
   {
-    if (chargePassive.hasReleased)
+    if (chargePassive.hasReleased && !onCooldown)
     {
       if (Input.GetKeyDown(keyCode))
       {
@@ -41,10 +41,12 @@ public abstract class WizardChargedAbility : Ability
   public virtual void SetAndRelease()
   {
     Debug.Log("Releasing " + abilityName + "!");
+    StartCoroutine(CooldownRoutine());
   }
 
   public override void UpdateAbilityData()
   {
+    base.UpdateAbilityData();
     if (abilityRankData[(int)rank] is ChargedAbilityRankData)
     {
       ChargedAbilityRankData data = ((ChargedAbilityRankData)abilityRankData[(int)rank]);

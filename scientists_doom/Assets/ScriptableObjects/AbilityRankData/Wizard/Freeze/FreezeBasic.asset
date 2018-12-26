@@ -15,6 +15,7 @@ MonoBehaviour:
   abilityName: Weak Freeze
   icon: {fileID: 0}
   rank: 0
+  cooldown: 7
   maxCharge: 0.5
   damage: 10
   angle: 90

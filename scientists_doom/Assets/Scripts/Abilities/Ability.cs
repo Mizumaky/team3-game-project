@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AbilityManager))]
@@ -5,13 +6,21 @@ public class Ability : MonoBehaviour
 {
   public enum Rank { Basic, Apprentice, Master }
 
-  protected string abilityName;
+  [Header("Rank Data Refs")]
+  public AbilityRankData[] abilityRankData;
   [Header("Key")]
   public KeyCode keyCode;
 
   [Header("Rank Data")]
-  public AbilityRankData[] abilityRankData;
+  protected string abilityName;
+  protected Sprite icon;
   protected Rank rank = Rank.Basic;
+  protected float _cooldown;
+  public float cooldown { get { return _cooldown; } }
+  protected float _cooldownCountdown;
+  public float cooldownCountdown { get { return _cooldownCountdown; } }
+
+  protected bool onCooldown = false;
 
   public virtual void SetRank(Rank newRank)
   {
@@ -28,5 +37,19 @@ public class Ability : MonoBehaviour
   public virtual void UpdateAbilityData()
   {
     abilityName = abilityRankData[(int)rank].abilityName;
+    icon = abilityRankData[(int)rank].icon;
+    _cooldown = abilityRankData[(int)rank].cooldown;
+  }
+
+  protected IEnumerator CooldownRoutine()
+  {
+    _cooldownCountdown = cooldown;
+    onCooldown = true;
+    while (cooldownCountdown > 0)
+    {
+      yield return null;
+      _cooldownCountdown -= Time.deltaTime;
+    }
+    onCooldown = false;
   }
 }
