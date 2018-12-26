@@ -132,7 +132,7 @@ public class HUDScript : MonoBehaviour
           else
           {
             float fillAmout = (float)ability.stacks / (float)ability.stacksCap;
-            barbarianRageBar.GetComponent<Image>().fillAmount = fillAmout;
+            barbarianRageBar.transform.GetChild(0).GetComponent<Image>().fillAmount = fillAmout;
           }
           break;
         }
@@ -143,7 +143,7 @@ public class HUDScript : MonoBehaviour
           {
             Debug.LogWarning("Wizard charge passive not found on active character!");
           }
-          wizardCastBar.GetComponent<Image>().fillAmount = ability.chargeProgress;
+          wizardCastBar.transform.GetChild(0).GetComponent<Image>().fillAmount = ability.chargeProgress;
           break;
         }
       case CharacterManager.Character.Huntress:

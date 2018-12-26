@@ -233,6 +233,16 @@ PrefabInstance:
       propertyPath: castleStats
       value: 
       objectReference: {fileID: 1851449925}
+    - target: {fileID: 114522957771933610, guid: cee624a6a881de143ab97ae841a95789,
+        type: 3}
+      propertyPath: barbarianRageBar
+      value: 
+      objectReference: {fileID: 1667704713}
+    - target: {fileID: 114522957771933610, guid: cee624a6a881de143ab97ae841a95789,
+        type: 3}
+      propertyPath: wizardCastBar
+      value: 
+      objectReference: {fileID: 1041811765}
     - target: {fileID: 223912951565944748, guid: cee624a6a881de143ab97ae841a95789,
         type: 3}
       propertyPath: m_Camera
@@ -341,6 +351,10 @@ PrefabInstance:
     - target: {fileID: 224860481802214340, guid: cee624a6a881de143ab97ae841a95789,
         type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1428032054900708, guid: cee624a6a881de143ab97ae841a95789, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -565,6 +579,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c90b2c896af670498a088973b463e39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1041811765 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1797368174251672, guid: cee624a6a881de143ab97ae841a95789,
+    type: 3}
+  m_PrefabInstance: {fileID: 69556084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1069893223
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -725,6 +745,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 718d29bbc0c0c9c48a55196685bfd108, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1667704713 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1428032054900708, guid: cee624a6a881de143ab97ae841a95789,
+    type: 3}
+  m_PrefabInstance: {fileID: 69556084}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1851449925 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114989796907727594, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
