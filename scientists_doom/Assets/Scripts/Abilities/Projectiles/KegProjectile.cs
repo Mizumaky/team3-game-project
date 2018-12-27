@@ -55,9 +55,13 @@ public class KegProjectile : MonoBehaviour
     {
       isTraveling = false;
 
+      GetComponent<Collider>().enabled = false;
+      transform.GetChild(0).gameObject.SetActive(false);
+
       GetComponent<ParticleSystem>().Play();
 
       SpawnSpill();
+
       Destroy(gameObject, GetComponent<ParticleSystem>().main.duration);
     }
   }

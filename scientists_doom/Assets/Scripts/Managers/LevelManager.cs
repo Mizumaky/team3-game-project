@@ -69,12 +69,12 @@ public class LevelManager : MonoBehaviour{
 
     private IEnumerator StartLevelCor(int levelNumber)
     {
-        levelActive = true;
         if(levelNumber > storyLevelCount){
             Debug.LogWarning("Level "+(levelNumber)+" does not exist! Canceling StoryMode");
             OnDestroy();
             yield return null;
         }
+        levelActive = true;
         Debug.Log("Starting level "+levelNumber);
         curLevel = levelNumber;
 

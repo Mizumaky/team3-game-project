@@ -82,6 +82,7 @@ public class Stats : MonoBehaviour
         EventManager.TriggerEvent(LevelManager.EVENT_CASTLE_DESTROYED);
       }else if(gameObject.GetComponent<PlayerStats>()){
         EventManager.TriggerEvent(LevelManager.EVENT_PLAYER_DEAD);
+        GetComponent<Animator>().SetTrigger("dieTrigger");
       }else{
         Debug.Log(gameObject.name + " died!");
       }

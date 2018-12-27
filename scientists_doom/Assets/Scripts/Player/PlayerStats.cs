@@ -77,7 +77,7 @@ public class PlayerStats : Stats
 
   protected override void UpdateStats()
   {
-    base.UpdateStats();
+    _isAlive = true;
     totalMaxHealth = baseMaxHealth + heroLevel * healthIncrement;
     totalAttackDamage = baseAttackDamage + heroLevel * attackDamageIncrement;
 
