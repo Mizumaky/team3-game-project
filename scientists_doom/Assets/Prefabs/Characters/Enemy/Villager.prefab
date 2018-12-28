@@ -780,11 +780,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castleTransform: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
     type: 3}
-  state: 0
   aggroDistance: 10
   attackPlayerDistance: 1
   attackCastleDistance: 4
   behaviourUpdatePeriod: 0.1
+  soulPrefab: {fileID: 2277853177391363982, guid: 92787489c11cb9803a118155557cdce3,
+    type: 3}
   lootPrefab: {fileID: 1414109511527648, guid: 41d48ecce97a9964c9f69b5fe219ef67, type: 3}
 --- !u!114 &114165247036519690
 MonoBehaviour:
@@ -981,8 +982,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695652aea2b3c004e97bc4acaee8906b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 0
   abilityRankData: []
+  keyCode: 0
   weaponHand: 0
   enableCollision: 0
   damage: 5
