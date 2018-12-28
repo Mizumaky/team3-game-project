@@ -933,8 +933,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   weapons:
   - {fileID: 631719987206057495, guid: 77cdce28816761e4a8fd672fe1e55ba0, type: 3}
-  - {fileID: 631719987206057495, guid: 77cdce28816761e4a8fd672fe1e55ba0, type: 3}
-  - {fileID: 631719987206057495, guid: 77cdce28816761e4a8fd672fe1e55ba0, type: 3}
+  - {fileID: 645133702192305001, guid: 9b88f64b5148c3c4b85054323fbdfb4d, type: 3}
+  - {fileID: 4478221369370334120, guid: 31767fc57ff6f3a4d9a0600c8b64a3be, type: 3}
   attachPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1493028866261492
 GameObject:

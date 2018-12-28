@@ -5366,6 +5366,7 @@ MonoBehaviour:
   customers:
   - {fileID: 11400000, guid: ed187ce44a772014eba1bfae1505a4a9, type: 2}
   - {fileID: 11400000, guid: 0d7d246ee108dcf4fbb401802e77e938, type: 2}
+  - {fileID: 11400000, guid: a5472b28974a5fc49bc2c0191fc650be, type: 2}
   weaponButtons:
   - {fileID: 9113863961941502586}
   - {fileID: 9112131136215662286}
