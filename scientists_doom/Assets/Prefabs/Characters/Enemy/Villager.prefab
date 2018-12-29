@@ -784,6 +784,8 @@ MonoBehaviour:
   attackPlayerDistance: 1
   attackCastleDistance: 4
   behaviourUpdatePeriod: 0.1
+  soulPrefab: {fileID: 2277853177391363982, guid: 92787489c11cb9803a118155557cdce3,
+    type: 3}
   lootPrefab: {fileID: 1414109511527648, guid: 41d48ecce97a9964c9f69b5fe219ef67, type: 3}
 --- !u!114 &114165247036519690
 MonoBehaviour:
