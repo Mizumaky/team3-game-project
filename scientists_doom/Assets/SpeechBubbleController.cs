@@ -41,4 +41,9 @@ public class SpeechBubbleController : MonoBehaviour
             SetActiveFor(time);
         }
     }
+
+    public void Hide(){
+        StopAllCoroutines();
+        SetActive(false);
+    }
 }

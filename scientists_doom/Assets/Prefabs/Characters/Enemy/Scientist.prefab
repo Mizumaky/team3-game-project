@@ -98,6 +98,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 652552461872457760, guid: a4aed3d73197bf940a876868fa5479be,
     type: 3}
+  speeches:
+  - {fileID: 11400000, guid: 7a90975d4fba36647b919644fe7fd30c, type: 2}
 --- !u!82 &7797331964649962074
 AudioSource:
   m_ObjectHideFlags: 0
