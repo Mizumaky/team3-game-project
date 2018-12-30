@@ -5,7 +5,7 @@ using UnityEngine.AI;
 [RequireComponent (typeof (NavMeshAgent), typeof (Animator), typeof (EnemyStats))]
 public class EnemyControls : MonoBehaviour {
   [Header ("Refs")]
-  public Transform castleTransform;
+  private Transform castleTransform;
 
   [Header ("Parameters")]
   [Range (5f, 15f)]
@@ -34,6 +34,7 @@ public class EnemyControls : MonoBehaviour {
   }
 
   private void Start () {
+    castleTransform = GameObject.Find("Castle").transform;
     StartCoroutine (UpdateBehaviourRoutine ());
     StartCoroutine (UpdateAnimatorRoutine ());
   }
@@ -167,6 +168,6 @@ public class EnemyControls : MonoBehaviour {
     Vector3 lootPosition = new Vector3 (transform.position.x, transform.position.y + OffsetY, transform.position.z);
     GameObject loot = Instantiate (lootPrefab, lootPosition, transform.rotation * Quaternion.Euler (-90, 0, 0));
     GameObject soul = Instantiate (soulPrefab, lootPosition, Quaternion.identity, null);
-    soul.GetComponent<SoulTransfer> ().targetTransform = castleTransform;
+    soul.GetComponent<SoulTransfer>().castle = castleTransform;
   }
 }

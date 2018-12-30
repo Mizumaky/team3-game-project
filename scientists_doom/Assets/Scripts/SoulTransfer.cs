@@ -4,7 +4,9 @@ public class SoulTransfer : MonoBehaviour {
   public AnimationCurve travelHeightCurve;
   public float travelTime, travelHeightMultiplier, travelProgress;
 
-  public Transform targetTransform;
+  public Transform castle;
+
+  private GameObject soulCollector;
   private Vector3 originPosition, targetPosition;
   private float totalDistance;
   private Vector3 direction;
@@ -12,7 +14,8 @@ public class SoulTransfer : MonoBehaviour {
 
   private void Start () {
     originPosition = transform.position;
-    targetPosition = targetTransform.position;
+    soulCollector = castle.FindDeepChild("SoulCollector").gameObject;
+    targetPosition = castle.FindDeepChild("SoulCollector").transform.position;
 
     totalDistance = Vector3.Distance (originPosition, targetPosition);
     direction = (targetPosition - originPosition).normalized;
@@ -20,7 +23,13 @@ public class SoulTransfer : MonoBehaviour {
   }
 
   private void Update () {
-    transform.position += step * direction;
-    travelProgress += step / totalDistance;
+    if(travelProgress <= 1){
+      transform.position += step * direction;
+      travelProgress += step / totalDistance;
+    }else{
+      Debug.Log("Soul Gone");
+      soulCollector.GetComponent<SoulCollectorController>().AcquireSoul();
+      Destroy(gameObject);
+    }
   }
 }

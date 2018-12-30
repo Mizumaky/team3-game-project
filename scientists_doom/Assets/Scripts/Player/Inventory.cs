@@ -45,7 +45,6 @@ public class Inventory : MonoBehaviour
         stn = resourcesCnt / 4;
       }
       AddResources(wd, stn);
-      AddSouls(1);
       loot.DestroyLootObject();
     }
   }

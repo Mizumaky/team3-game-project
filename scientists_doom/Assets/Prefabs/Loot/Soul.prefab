@@ -71,7 +71,7 @@ MonoBehaviour:
   travelTime: 2
   travelHeightMultiplier: 0
   travelProgress: 0
-  targetTransform: {fileID: 0}
+  castle: {fileID: 0}
 --- !u!1001 &8148969218539177717
 PrefabInstance:
   m_ObjectHideFlags: 0
