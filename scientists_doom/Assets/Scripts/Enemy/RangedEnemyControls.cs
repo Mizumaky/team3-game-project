@@ -41,9 +41,10 @@ public class RangedEnemyControls : EnemyControls
   private void ShootProjectile()
   {
     GameObject pr = Instantiate(projectile);
+    pr.GetComponent<RockProjectile>().SetDamage(gameObject.GetComponent<Stats>().GetAttackDamage());
     pr.transform.position = attackSpawnPoint.transform.position;
     pr.transform.rotation = attackSpawnPoint.transform.rotation;
-    pr.GetComponent<Rigidbody>().velocity = targetTransform.position - transform.position;
+    pr.GetComponent<RockProjectile>().SetTargetPos(targetTransform.position);
     Destroy(pr, 2);
   }
 
