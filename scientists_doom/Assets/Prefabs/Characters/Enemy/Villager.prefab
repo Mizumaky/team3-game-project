@@ -637,6 +637,7 @@ GameObject:
   - component: {fileID: 114654747455779430}
   - component: {fileID: 114023148560999444}
   - component: {fileID: 114596931426344402}
+  - component: {fileID: 2955302091794847649}
   m_Layer: 10
   m_Name: Villager
   m_TagString: enemy
@@ -778,8 +779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d0b56f882e89f42a7e30a2cdac64df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castleTransform: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-    type: 3}
   aggroDistance: 10
   attackPlayerDistance: 1
   attackCastleDistance: 4
@@ -1013,6 +1012,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   abilityRanks: 
+--- !u!114 &2955302091794847649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719296003474282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389fd136583f1784fb52b220386eb11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubblePrefab: {fileID: 652552461872457760, guid: a4aed3d73197bf940a876868fa5479be,
+    type: 3}
 --- !u!1 &1729846742366300
 GameObject:
   m_ObjectHideFlags: 0
