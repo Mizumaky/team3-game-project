@@ -1,23 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
-public class RangeEnemyControls : EnemyControls {
-
+public class CatapultContols : EnemyControls {
   public GameObject projectile;
   public GameObject attackSpawnPoint;
   private int mask;
-  int direction;
+  private int direction;
+  private Animator anim;
 
   protected override void Awake() {
     base.Awake();
     //count LayerMask for Raycast
-    mask = (1 << LayerMask.NameToLayer("Player")) 
-      | (1 << LayerMask.NameToLayer("Castle")) 
-      | (1 << LayerMask.NameToLayer("Enemy")) 
-      | (1 << LayerMask.NameToLayer("Obstacle")); //in case that unity changes numbers of leyers
+    mask = (1 << LayerMask.NameToLayer("Player"))
+      | (1 << LayerMask.NameToLayer("Castle"))
+      | (1 << LayerMask.NameToLayer("Enemy"))
+      | (1 << LayerMask.NameToLayer("Obstacle"));
     direction = Random.Range(0, 2);
+    anim = GetComponent<Animator>();
   }
 
   protected override void Attack() {
@@ -35,9 +35,10 @@ public class RangeEnemyControls : EnemyControls {
 
   private void ShootProjectile() {
     GameObject pr = Instantiate(projectile);
+    pr.GetComponent<RockProjectile>().SetDamage(gameObject.GetComponent<Stats>().GetAttackDamage());
     pr.transform.position = attackSpawnPoint.transform.position;
     pr.transform.rotation = attackSpawnPoint.transform.rotation;
-    pr.GetComponent<Rigidbody>().velocity = targetTransform.position - transform.position;
+    pr.GetComponent<RockProjectile>().SetTargetPos(targetTransform.position);
     Destroy(pr, 2);
   }
 
@@ -57,6 +58,6 @@ public class RangeEnemyControls : EnemyControls {
     Vector3 dir = (targetTransform.position - transform.position).normalized;
     Vector3 cross = (direction == 0) ? new Vector3(-dir.z, 0, dir.x) : new Vector3(dir.z, 0, -dir.x);
     navMeshAgent.isStopped = false;
-    SetPathToTargetPosition(transform.position + 2 * cross.normalized);    
+    SetPathToTargetPosition(transform.position + 2 * cross.normalized);
   }
 }
