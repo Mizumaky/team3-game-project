@@ -8,7 +8,9 @@ public class EnemyStats : Stats
     base.TakeDamage(damage);
     GetComponent<EnemyHealthBar>().AdjustHealthBar(currentHealth / totalMaxHealth);
     GetComponent<EnemyHealthBar>().ShowDmgText(damage);
-    GetComponent<SpeechBubbleInterface>().SaySomething(SpeechContainer.Mood.Angry, 3f, 0.01f);
+    if(GetComponent<SpeechBubbleInterface>() != null)
+      GetComponent<SpeechBubbleInterface>().SaySomething(SpeechContainer.Mood.Angry, 3f, 0.01f);
+
   }
 
   protected override void Die()

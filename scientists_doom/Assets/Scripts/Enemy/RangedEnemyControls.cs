@@ -38,12 +38,11 @@ public class RangedEnemyControls : EnemyControls
     }
   }
 
-  private void ShootProjectile()
+  private void ShootProjectile() //to the animation event
   {
-    GameObject pr = Instantiate(projectile);
-    pr.transform.position = attackSpawnPoint.transform.position;
-    pr.transform.rotation = attackSpawnPoint.transform.rotation;
-    pr.GetComponent<Rigidbody>().velocity = targetTransform.position - transform.position;
+    GameObject pr = Instantiate(projectile, attackSpawnPoint.transform.position, attackSpawnPoint.transform.rotation);
+    pr.GetComponent<RangedEnemyProjectiles>().SetDamage(gameObject.GetComponent<Stats>().GetAttackDamage());
+    pr.GetComponent<RangedEnemyProjectiles>().Fire(targetTransform.position);
     Destroy(pr, 2);
   }
 
