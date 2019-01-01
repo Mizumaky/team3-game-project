@@ -15,14 +15,14 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.3254878, g: 0.63313216, b: 0.7938624, a: 1}
+  m_FogColor: {r: 0.2580371, g: 0.19389224, b: 0.19704947, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.016
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
   m_AmbientSkyColor: {r: 0.29803923, g: 0.2764706, b: 0.2784314, a: 1}
-  m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
-  m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
+  m_AmbientEquatorColor: {r: 0.22745098, g: 0.2509804, b: 0.26666668, a: 1}
+  m_AmbientGroundColor: {r: 0.49411765, g: 0.49411765, b: 0.49411765, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
@@ -173,11 +173,67 @@ PrefabInstance:
       propertyPath: mycamera
       value: 
       objectReference: {fileID: 1147556751}
+    - target: {fileID: 114219062614291806, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: progress
+      value: 0.458
+      objectReference: {fileID: 0}
+    - target: {fileID: 114219062614291806, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 114106715919276896, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
       propertyPath: cameraParentReference
       value: 
       objectReference: {fileID: 754034532}
+    - target: {fileID: 4107925407924824, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.13156442
+      objectReference: {fileID: 0}
+    - target: {fileID: 4107925407924824, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.9913076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4144756542169316, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.9913076
+      objectReference: {fileID: 0}
+    - target: {fileID: 4144756542169316, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.13156435
+      objectReference: {fileID: 0}
+    - target: {fileID: 108032755899516152, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.5475759
+      objectReference: {fileID: 0}
+    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.33912373
+      objectReference: {fileID: 0}
+    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.3515686
+      objectReference: {fileID: 0}
+    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
 --- !u!114 &208525668 stripped
@@ -333,6 +389,104 @@ PrefabInstance:
       objectReference: {fileID: 1627984305}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 791027200f5ebcd458cf0b07b2c53a03, type: 3}
+--- !u!1 &398892621 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1335610351868658, guid: 3ca3e0b70f22ea440b2162b7a529983e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1069893223}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &398892629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398892621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 199311a1781af854fb1334c3c195468a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_outputDir:
+    m_root: 1
+    m_leaf: Capture
+    m_readOnly: 0
+  m_resolution: 0
+  m_resolutionPercent: 100
+  m_resolutionWidth: 1920
+  m_framerateMode: 1
+  m_targetFramerate: 60
+  m_fixDeltaTime: 1
+  m_waitDeltaTime: 1
+  m_captureEveryNthFrame: 1
+  m_captureControl: 0
+  m_startFrame: 0
+  m_endFrame: 100
+  m_startTime: 0
+  m_endTime: 10
+  m_recordOnStart: 0
+  m_encoderConfigs:
+    format: 4
+    pngEncoderSettings:
+      pixelFormat: 0
+      maxTasks: 2
+      width: 0
+      height: 0
+      channels: 0
+    exrEncoderSettings:
+      pixelFormat: 0
+      compression: 3
+      maxTasks: 2
+      width: 0
+      height: 0
+      channels: 0
+    gifEncoderSettings:
+      width: 0
+      height: 0
+      numColors: 256
+      keyframeInterval: 30
+      maxTasks: 8
+    webmEncoderSettings:
+      video:
+        v: 1
+      videoEncoder: 0
+      videoWidth: 0
+      videoHeight: 0
+      videoTargetFramerate: 60
+      videoBitrateMode: 1
+      videoTargetBitrate: 1024000
+      videoMaxTasks: 4
+      audio:
+        v: 1
+      audioEncoder: 0
+      audioSampleRate: 48000
+      audioNumChannels: 2
+      audioBitrateMode: 1
+      audioTargetBitrate: 128000
+      audioMaxTasks: 4
+    mp4EncoderSettings:
+      video:
+        v: 1
+      videoWidth: 0
+      videoHeight: 0
+      videoTargetFramerate: 30
+      videoBitrateMode: 1
+      videoTargetBitrate: 64000000
+      videoFlags: 62
+      videoMaxTasks: 4
+      audio:
+        v: 1
+      audioSampleRate: 48000
+      audioNumChannels: 2
+      audioBitrateMode: 1
+      audioTargetBitrate: 128000
+      audioFlags: 6
+      audioMaxTasks: 4
+  m_captureTarget: 0
+  m_targetRT: {fileID: 0}
+  m_captureVideo: 1
+  m_captureAudio: 0
+  m_shCopy: {fileID: 4800000, guid: 2283fb92223c7914c9096670e29202c8, type: 3}
 --- !u!1 &754034532 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1731022128256686, guid: 3ca3e0b70f22ea440b2162b7a529983e,
@@ -543,17 +697,17 @@ PrefabInstance:
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.3254878
+      value: 0.2580371
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.63313216
+      value: 0.19389224
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.7938624
+      value: 0.19704947
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}

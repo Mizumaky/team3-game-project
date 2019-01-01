@@ -30,18 +30,21 @@ public class HuntressQuickShotAbility : Ability
   public int stacks { get { return _stacks; } }
   private int stacksRequirement = 3;
 
+  private Animator animator;
+
   #endregion
 
   private void Start()
   {
     _stacks = 1;
+    animator = GetComponent<Animator>();
   }
 
   private void Update()
   {
     if (Input.GetKeyDown(keyCode) && !onCooldown)
     {
-      Fire();
+      animator.SetTrigger("attackTrigger");
     }
   }
 
