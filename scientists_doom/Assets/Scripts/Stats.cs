@@ -54,7 +54,6 @@ public class Stats : MonoBehaviour
   protected virtual void UpdateStats()
   {
     _isAlive = true;
-
     totalMaxHealth = baseMaxHealth;
     totalAttackDamage = baseAttackDamage;
 
@@ -66,6 +65,7 @@ public class Stats : MonoBehaviour
     if (!isInvulnerable)
     {
       currentHealth -= damage;
+
       if (currentHealth <= 0)
       {
         Die();

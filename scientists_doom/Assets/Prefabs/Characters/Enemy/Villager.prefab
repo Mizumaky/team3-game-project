@@ -1026,6 +1026,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bubblePrefab: {fileID: 652552461872457760, guid: a4aed3d73197bf940a876868fa5479be,
     type: 3}
+  speeches:
+  - {fileID: 11400000, guid: 9c8130bab70b3714b9a743064076dd7d, type: 2}
 --- !u!1 &1729846742366300
 GameObject:
   m_ObjectHideFlags: 0

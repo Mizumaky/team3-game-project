@@ -24,21 +24,22 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 3
+  m_AmbientMode: 1
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 0
+  m_DefaultReflectionMode: 1
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 0.2
-  m_CustomReflection: {fileID: 0}
+  m_CustomReflection: {fileID: 1683134517039983843, guid: 0000000000000000d000000000000000,
+    type: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.03458125, g: 0.043216344, b: 0.05960941, a: 0.2}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -821,6 +822,10 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 1566380676124794, guid: cee624a6a881de143ab97ae841a95789, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee624a6a881de143ab97ae841a95789, type: 3}
 --- !u!114 &1624543154 stripped
@@ -848,84 +853,29 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: spawnOriginTransform
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: enemyPrefab
-      value: 
-      objectReference: {fileID: 4032784957492300945, guid: 3cdd2d319aff7a04eab29e46854e965e,
-        type: 3}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
       propertyPath: spawnCircleRadius
       value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
+      propertyPath: enemyPrefab
+      value: 
+      objectReference: {fileID: 3009806672164203340, guid: 791027200f5ebcd458cf0b07b2c53a03,
+        type: 3}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
       propertyPath: totalEnemyCount
-      value: 50
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
       propertyPath: numberOfWaves
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
       propertyPath: initialGroupDelay
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: individualEnemySpawnDelay
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.data[0].inSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.data[0].outSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.data[0].outWeight
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.data[1].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.data[1].inSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.data[1].outSlope
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: groupDelayDumpCurve.m_Curve.Array.data[1].inWeight
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4175797458501482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 3}
       propertyPath: m_LocalPosition.x
@@ -984,36 +934,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1521505924030090657, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.7309788
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521505924030090657, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.049760442
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521505924030090657, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.12669307
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521505924030090657, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.6686875
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521505924030090657, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.5660014
-      objectReference: {fileID: 0}
-    - target: {fileID: 1521505924030090657, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.6103007
-      objectReference: {fileID: 0}
     - target: {fileID: 8229544012899842194, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
       propertyPath: m_LocalRotation.x
@@ -1033,6 +953,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4794713310298258986, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -3.2580018
       objectReference: {fileID: 0}
     - target: {fileID: 8229544012899842200, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}

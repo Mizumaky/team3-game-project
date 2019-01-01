@@ -5,7 +5,7 @@ using UnityEngine.AI;
 [RequireComponent (typeof (NavMeshAgent), typeof (Animator), typeof (EnemyStats))]
 public class EnemyControls : MonoBehaviour {
   [Header ("Refs")]
-  private Transform castleTransform;
+  protected Transform castleTransform;
 
   [Header ("Parameters")]
   [Range (5f, 15f)]
@@ -19,15 +19,15 @@ public class EnemyControls : MonoBehaviour {
   public GameObject lootPrefab;
 
   protected NavMeshAgent navMeshAgent;
-  private Animator animator;
-  private EnemyStats stats;
+  protected Animator animator;
+  protected EnemyStats stats;
 
   protected Transform targetTransform;
-  private float distanceToTarget;
+  protected float distanceToTarget;
 
-  private float speed;
-  private int slowedTimes = 0;
-  private int stunnedTimes = 0;
+  protected float speed;
+  protected int slowedTimes = 0;
+  protected int stunnedTimes = 0;
 
   protected virtual void Awake () {
     Init ();
@@ -61,7 +61,7 @@ public class EnemyControls : MonoBehaviour {
     }
   }
 
-  private IEnumerator UpdateBehaviourRoutine () {
+  protected virtual IEnumerator UpdateBehaviourRoutine () {
     WaitForSeconds waitForUpdate = new WaitForSeconds (behaviourUpdatePeriod);
     float attackDistance;
     while (stats.isAlive) {
@@ -107,7 +107,7 @@ public class EnemyControls : MonoBehaviour {
   /// Sets the enemy's target and makes it follow 
   /// </summary>
   /// <param name="targetTransform"></param>
-  public void AggroTo (Transform targetTransform) {
+  public virtual void AggroTo (Transform targetTransform) {
     this.targetTransform = targetTransform;
   }
 
