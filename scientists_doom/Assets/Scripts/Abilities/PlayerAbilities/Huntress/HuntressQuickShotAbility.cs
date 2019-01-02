@@ -14,7 +14,7 @@ public class HuntressQuickShotAbility : Ability
 
   [Header("Travel")]
   public float velocityMagnitude;
-  public float travelHeight = 1f;
+  public float travelHeight = 3f;
   public float timeToLive = 2;
   public Transform arrowSpawnTransform;
 

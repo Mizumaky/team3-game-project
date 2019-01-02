@@ -513,7 +513,7 @@ MonoBehaviour:
   radius: 3
   cloudVelocity: 10
   cloudDestinationHeight: 8
-  areaOutlinePrefab: {fileID: 885, guid: 057c7766a767e4a46b6a9cdec90a268f, type: 3}
+  areaOutlinePrefab: {fileID: 530, guid: 057c7766a767e4a46b6a9cdec90a268f, type: 3}
 --- !u!114 &5959028619980497673
 MonoBehaviour:
   m_ObjectHideFlags: 0

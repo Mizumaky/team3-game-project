@@ -6,9 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: f3ccf14f628a7154ca6afd956f482cd7
+    path: Assets/SceneCopies/petr/MainMenu 1.unity
+    guid: a0f1f9efd1fdd5240b2ed027c2d0117d
   - enabled: 1
-    path: Assets/Scenes/SinglePlayerGame.unity
-    guid: 39d1c0496bdb3114180ba7590015d478
+    path: Assets/SceneCopies/petr/SinglePlayerGame 1.unity
+    guid: c3706cd1e48be374baabb51d861a3e69
   m_configObjects: {}

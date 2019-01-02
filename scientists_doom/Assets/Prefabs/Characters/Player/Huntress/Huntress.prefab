@@ -874,7 +874,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 134144
   velocityMagnitude: 80
-  travelHeight: 0.5
+  travelHeight: 1
   timeToLive: 2
   arrowSpawnTransform: {fileID: 4922013344986260}
 --- !u!114 &114570753321723344

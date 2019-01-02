@@ -32,6 +32,7 @@ public class LevelManager : MonoBehaviour{
         if (highestLevel < 0){
             highestLevel = 0;
         }
+        highestLevel = 4;
         Debug.Log("Player finished level "+highestLevel+"before.");
         StartLevel(highestLevel+1);
 

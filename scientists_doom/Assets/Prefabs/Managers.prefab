@@ -559,7 +559,7 @@ MonoBehaviour:
   mycamera: {fileID: 0}
   sunLight: {fileID: 108327538163355366}
   moonLight: {fileID: 108032755899516152}
-  intensity: 4
+  intensity: 5
   fogDensity: 0.02
   sunlightGradient:
     serializedVersion: 2
