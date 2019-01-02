@@ -126,7 +126,6 @@ public class EnemySpawner : MonoBehaviour {
       enemy.transform.localScale = enemy.transform.localScale * Random.Range(0.8f, 2f);
       yield return delay;
     }
-
     yield return null;
   }
 

@@ -20,14 +20,15 @@ public class LevelManager : MonoBehaviour{
     private PostProcessVolume pfx;
     private ColorGrading color;
     private bool levelActive;
+    private Stats castleStats;
 
     private void Start(){
+        castleStats = GameObject.Find("Castle").GetComponent<Stats>();
         playerReady = false;
         lightAnimator = FindObjectOfType<SceneLighting>().gameObject.GetComponent<Animator>();
         enemySpawner = FindObjectOfType<EnemySpawner>();
         storyLevelCount = storyLevels.Length;
         highestLevel = PlayerPrefs.GetInt(PREF_MAX_FINISHED_LEVEL, 0);
-        //highestLevel = 0;
         if (highestLevel < 0){
             highestLevel = 0;
         }
@@ -75,7 +76,8 @@ public class LevelManager : MonoBehaviour{
             OnDestroy();
             yield return null;
         }
-        levelActive = true;
+        castleStats.ResetHealth();
+        EventManager.TriggerEvent("updateHUD");
         Debug.Log("Starting level "+levelNumber);
         curLevel = levelNumber;
 
@@ -87,6 +89,7 @@ public class LevelManager : MonoBehaviour{
             yield return new WaitForSeconds(0.5f);
         }
         playerReady = levelPending = false;
+        levelActive = true;
         lightAnimator.SetTrigger("TriggerNight");
         yield return new WaitForSeconds(5);
         

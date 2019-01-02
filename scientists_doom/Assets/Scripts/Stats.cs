@@ -21,6 +21,11 @@ public class Stats : MonoBehaviour
   {
     return totalMaxHealth;
   }
+
+  public void ResetHealth(){
+    currentHealth = baseMaxHealth;
+  }
+
   public float GetCurrentHealth()
   {
     return currentHealth;
