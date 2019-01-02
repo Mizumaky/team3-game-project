@@ -1,8 +1,8 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Immortality", menuName = "AbilityRankData/Barbarian/Immortality", order = 0)]
-public class BarbImmortalityRankData : AbilityRankData
-{
+[CreateAssetMenu (fileName = "Immortality", menuName = "AbilityRankData/Barbarian/Immortality", order = 0)]
+public class BarbImmortalityRankData : AbilityRankData {
+  [Header ("Immortality")]
   public int stackCost = 100;
   public float duration = 5f;
   public int stacksCap;
