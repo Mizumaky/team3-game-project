@@ -18,6 +18,7 @@ public class HUDScript : MonoBehaviour
   public GameObject wizardCastBar;
   public GameObject huntressStackBar;
 
+  public Image[] abilityIcons;
   public Image[] cooldownImages;
 
   private AbilityManager abilityManager;
@@ -91,6 +92,12 @@ public class HUDScript : MonoBehaviour
 
   public void ChangeCharSpecUI()
   {
+    abilityManager = CharacterManager.activeCharacterObject.GetComponent<AbilityManager>();
+    for (int i = 0; i < abilityIcons.Length; i++)
+    {
+      abilityIcons[i].sprite = abilityManager.abilities[i].GetRankData().icon;
+    }
+
     switch (CharacterManager.activeCharacter)
     {
       case CharacterManager.Character.Barbarian:

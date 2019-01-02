@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KegThrowApprentice
   m_EditorClassIdentifier: 
   abilityName: Stong Keg Throw
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 4fbaff25510338442892c3cf49e4c48f, type: 3}
   description: Throws a keg of beer at the target location, splashing when struck
     with terrain or obstacles, dealing 50 damage and spilling beer on the ground
   upgradeCost: 50

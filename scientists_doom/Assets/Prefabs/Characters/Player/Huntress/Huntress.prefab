@@ -575,8 +575,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1465694572464804}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.8999476, y: -1.2763567, z: -2.3569174}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 7.8999476, y: -1.2763567, z: -2.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4922013344986260}
@@ -894,7 +894,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8483647ac6b0f8f47a855f4aaa30f99c, type: 2}
   - {fileID: 11400000, guid: 3a2e74c12bf5d5c4aa46ee679222cef3, type: 2}
   keyCode: 113
-  dashPS: {fileID: 0}
+  smokePrefab: {fileID: 7542116280525106890, guid: b8f72d3e7c9c0474cb3234a4173f3e49,
+    type: 3}
 --- !u!114 &114689673893674452
 MonoBehaviour:
   m_ObjectHideFlags: 0
