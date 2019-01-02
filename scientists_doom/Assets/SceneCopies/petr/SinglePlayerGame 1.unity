@@ -15,7 +15,7 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 1
-  m_FogColor: {r: 0.32442686, g: 0.64371526, b: 0.80907613, a: 1}
+  m_FogColor: {r: 0.2659864, g: 0.21493772, b: 0.22451305, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.016
   m_LinearFogStart: 0
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0.3
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.052208003, g: 0.06528288, b: 0.08993673, a: 0.3}
+  m_IndirectSpecularColor: {r: 0.05489708, g: 0.06790267, b: 0.08796732, a: 0.3}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -175,7 +175,7 @@ PrefabInstance:
     - target: {fileID: 114219062614291806, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
       propertyPath: progress
-      value: 0.21
+      value: 0.439
       objectReference: {fileID: 0}
     - target: {fileID: 114219062614291806, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
@@ -194,34 +194,34 @@ PrefabInstance:
       objectReference: {fileID: 754034532}
     - target: {fileID: 4107925407924824, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.79015505
+      value: 0.19046637
       objectReference: {fileID: 0}
     - target: {fileID: 4107925407924824, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: -0.612907
+      value: -0.98169374
       objectReference: {fileID: 0}
     - target: {fileID: 4144756542169316, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.61290705
+      value: 0.98169374
       objectReference: {fileID: 0}
     - target: {fileID: 4144756542169316, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.79015505
+      value: 0.1904663
       objectReference: {fileID: 0}
     - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.82084227
+      value: 0.45989424
       objectReference: {fileID: 0}
     - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.48726416
+      value: 0.44274312
       objectReference: {fileID: 0}
     - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
       propertyPath: m_Color.r
-      value: 1
+      value: 0.7287443
       objectReference: {fileID: 0}
     - target: {fileID: 108327538163355366, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
@@ -581,6 +581,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DoubleFocusCamera
       objectReference: {fileID: 0}
+    - target: {fileID: 1731022128256686, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4256388101895934, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1
@@ -628,17 +632,22 @@ PrefabInstance:
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.32442686
+      value: 0.2659864
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.64371526
+      value: 0.21493772
       objectReference: {fileID: 0}
     - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.80907613
+      value: 0.22451305
+      objectReference: {fileID: 0}
+    - target: {fileID: 20874872077049208, guid: 3ca3e0b70f22ea440b2162b7a529983e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 236513804, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: antialiasingMode
@@ -652,6 +661,11 @@ PrefabInstance:
         type: 3}
       propertyPath: minFOV
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114700509174181696, guid: 3ca3e0b70f22ea440b2162b7a529983e,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
