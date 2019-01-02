@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KegThrowMaster
   m_EditorClassIdentifier: 
   abilityName: Powerful Keg Throw
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 4fbaff25510338442892c3cf49e4c48f, type: 3}
   description: Throws a keg of beer at the target location, splashing when struck
     with terrain or obstacles, dealing 75 damage and spilling beer on the ground
   upgradeCost: 100

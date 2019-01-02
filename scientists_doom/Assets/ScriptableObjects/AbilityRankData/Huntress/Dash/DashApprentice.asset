@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: DashApprentice
   m_EditorClassIdentifier: 
   abilityName: Longer Dash
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: db0369fd9dbf00542b63f2ec6ab2e230, type: 3}
   description: Leaps 5 steps forward in the facing direction and can pass through
     obstacles
   upgradeCost: 50

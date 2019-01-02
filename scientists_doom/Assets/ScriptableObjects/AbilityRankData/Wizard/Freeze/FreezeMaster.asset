@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: FreezeMaster
   m_EditorClassIdentifier: 
   abilityName: Powerful Freeze
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 41db6d9e869b8894bbddbfacd1ed9330, type: 3}
   description: Blows a 360 degree cone of frost in the facing direction, hitting enemies
     for 50 damage plus modifiers
   upgradeCost: 100

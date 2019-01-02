@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlashMaster
   m_EditorClassIdentifier: 
   abilityName: Powerful Slash
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cac284ae4fb489a4987d075fab546c9e, type: 3}
   description: Slashes enemies in front with his weapon dealing 30 damage
   upgradeCost: 100
   rank: 2

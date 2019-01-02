@@ -7,7 +7,7 @@ public class HuntressDashAbility : Ability
   #region Variables
 
   [Header("Visuals")]
-  public ParticleSystem dashPS;
+  public GameObject smokePrefab;
 
   [Header("Scriptable Parameters")]
   private float _distance;
@@ -46,14 +46,28 @@ public class HuntressDashAbility : Ability
     float rayLength = 5f;
     int groundMask = 1 << LayerMask.NameToLayer("Ground");
 
+    GameObject smokeTrail, smokeSelf;
+    smokeTrail = smokeSelf = null;
     if (Physics.Raycast(rayDown, out hit, rayLength, groundMask))
     {
+      smokeTrail = Instantiate(smokePrefab, transform.position, Quaternion.identity, null);
       agent.Warp(hit.point);
+      smokeSelf = Instantiate(smokePrefab, transform.position, Quaternion.identity, transform);
       StartCoroutine(CooldownRoutine());
     }
     else
     {
       Debug.LogWarning("Failed to find a place to put ass!");
+    }
+
+    if (smokeTrail != null)
+    {
+      Destroy(smokeTrail, 2);
+    }
+
+    if (smokeSelf != null)
+    {
+      Destroy(smokeSelf, 2);
     }
   }
 

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SlashBasic
   m_EditorClassIdentifier: 
   abilityName: Weak Slash
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cac284ae4fb489a4987d075fab546c9e, type: 3}
   description: Slashes enemies in front with his weapon dealing 10 damage
   upgradeCost: 0
   rank: 0

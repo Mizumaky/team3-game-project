@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: QuickShotApprentice
   m_EditorClassIdentifier: 
   abilityName: Strong Quick Shot
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: e9a6f16492295104f8a2d581e265ab53, type: 3}
   description: Fires a rapid shot in the facing direction, dealing 60 damage to the
     first unit hit. Every 3rd shot is empowered, dealing 120 damage and passing through
     units

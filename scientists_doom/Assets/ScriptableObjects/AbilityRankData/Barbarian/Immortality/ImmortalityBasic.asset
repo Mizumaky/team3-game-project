@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: ImmortalityBasic
   m_EditorClassIdentifier: 
   abilityName: Immortality - Basic
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ce4ff83dc2dffad40923fa6b7185e5d3, type: 3}
+  description: 
+  upgradeCost: 0
   rank: 0
   cooldown: 15
   stackCost: 50
