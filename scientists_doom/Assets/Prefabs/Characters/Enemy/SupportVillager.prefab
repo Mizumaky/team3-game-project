@@ -633,7 +633,6 @@ GameObject:
   - component: {fileID: 114003812736959210}
   - component: {fileID: 114165247036519690}
   - component: {fileID: 82135154014665754}
-  - component: {fileID: 114023148560999444}
   - component: {fileID: 7919175076917907094}
   m_Layer: 10
   m_Name: SupportVillager
@@ -729,7 +728,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &114059231861312018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -948,18 +947,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &114023148560999444
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719296003474282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f228e72bb8f3bea438aaeb5a078eedca, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7919175076917907094
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -972,15 +959,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f903c7c15c4efaf4d972d42f6f8330d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castleTransform: {fileID: 4175797458501482, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+  aggroDistance: 15
+  attackPlayerDistance: 13
+  attackCastleDistance: 13
+  behaviourUpdatePeriod: 0.2
+  soulPrefab: {fileID: 2277853177391363982, guid: 92787489c11cb9803a118155557cdce3,
     type: 3}
-  state: 0
-  aggroDistance: 10
-  attackPlayerDistance: 10
-  attackCastleDistance: 10
-  behaviourUpdatePeriod: 0.1
   lootPrefab: {fileID: 1414109511527648, guid: 41d48ecce97a9964c9f69b5fe219ef67, type: 3}
-  projectile: {fileID: 1702160029146168, guid: b112a9d340770cf44874b8f13a541142, type: 3}
+  projectile: {fileID: 1702160029146168, guid: 64e09a1fdb6639d49ba4fb678ee00d3d, type: 3}
   attackSpawnPoint: {fileID: 806134998915365837}
 --- !u!1 &1729846742366300
 GameObject:

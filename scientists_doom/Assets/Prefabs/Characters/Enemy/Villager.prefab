@@ -637,6 +637,7 @@ GameObject:
   - component: {fileID: 114654747455779430}
   - component: {fileID: 114023148560999444}
   - component: {fileID: 114596931426344402}
+  - component: {fileID: 2955302091794847649}
   m_Layer: 10
   m_Name: Villager
   m_TagString: enemy
@@ -730,7 +731,7 @@ NavMeshAgent:
   m_Height: 1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &114059231861312018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -778,13 +779,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9d0b56f882e89f42a7e30a2cdac64df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castleTransform: {fileID: 4592247287189482, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
-    type: 3}
-  state: 0
   aggroDistance: 10
   attackPlayerDistance: 1
   attackCastleDistance: 4
-  behaviourUpdatePeriod: 0.1
+  behaviourUpdatePeriod: 0.3
+  soulPrefab: {fileID: 2277853177391363982, guid: 92787489c11cb9803a118155557cdce3,
+    type: 3}
   lootPrefab: {fileID: 1414109511527648, guid: 41d48ecce97a9964c9f69b5fe219ef67, type: 3}
 --- !u!114 &114165247036519690
 MonoBehaviour:
@@ -981,8 +981,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 695652aea2b3c004e97bc4acaee8906b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 0
   abilityRankData: []
+  keyCode: 0
   weaponHand: 0
   enableCollision: 0
   damage: 5
@@ -1012,6 +1012,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities: []
   abilityRanks: 
+--- !u!114 &2955302091794847649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1719296003474282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389fd136583f1784fb52b220386eb11d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bubblePrefab: {fileID: 652552461872457760, guid: a4aed3d73197bf940a876868fa5479be,
+    type: 3}
+  speeches:
+  - {fileID: 11400000, guid: 9c8130bab70b3714b9a743064076dd7d, type: 2}
 --- !u!1 &1729846742366300
 GameObject:
   m_ObjectHideFlags: 0

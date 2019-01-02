@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Fireball
   icon: {fileID: 0}
+  description: Shoots a small ball of fire in the facing direction that hits for 10
+    AOE damage plus modifiers
+  upgradeCost: 0
   rank: 0
+  cooldown: 0
   maxCharge: 0
   damage: 10

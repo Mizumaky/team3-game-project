@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Quick Shot
   icon: {fileID: 0}
+  description: Fires a rapid shot in the facing direction, dealing 30 damage to the
+    first unit hit. Every 3rd shot is empowered, dealing 60 damage and passing through
+    units
+  upgradeCost: 0
   rank: 0
+  cooldown: 0.5
   damage: 30
   damageEmpowered: 60
-  enemiesToHit: 3

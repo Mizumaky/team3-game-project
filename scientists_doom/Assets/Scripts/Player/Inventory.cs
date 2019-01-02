@@ -8,7 +8,6 @@ public class Inventory : MonoBehaviour
   public int wood;
   [HideInInspector]
   public int stone;
-  [HideInInspector]
   public int souls;
 
   void Start()
@@ -45,7 +44,6 @@ public class Inventory : MonoBehaviour
         stn = resourcesCnt / 4;
       }
       AddResources(wd, stn);
-      AddSouls(1);
       loot.DestroyLootObject();
     }
   }

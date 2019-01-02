@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Long Distract
   icon: {fileID: 0}
+  description: Sends the eagle at the target position. When he reaches destination,
+    he taunts enemies in a 15 step area below him
+  upgradeCost: 100
   rank: 2
-  radius: 20
-  duration: 8
+  cooldown: 8
+  radius: 15
+  duration: 7

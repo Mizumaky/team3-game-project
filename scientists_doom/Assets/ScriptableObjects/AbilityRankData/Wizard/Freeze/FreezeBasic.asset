@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3f1a5f55d8fc27c4ea87f1c3ca12923c, type: 3}
+  m_Name: FreezeBasic
+  m_EditorClassIdentifier: 
+  abilityName: Weak Freeze
+  icon: {fileID: 0}
+  description: Blows a 90 degree cone of frost in the facing direction, hitting enemies
+    for 10 damage plus modifiers
+  upgradeCost: 0
+  rank: 0
+  cooldown: 7
+  maxCharge: 0.5
+  damage: 10
+  angle: 90
+  stunDuration: 1

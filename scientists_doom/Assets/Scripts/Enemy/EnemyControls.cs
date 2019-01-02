@@ -2,104 +2,90 @@
 using UnityEngine;
 using UnityEngine.AI;
 
-[RequireComponent(typeof(NavMeshAgent), typeof(Animator), typeof(EnemyStats))]
-public class EnemyControls : MonoBehaviour
-{
-  public enum State { Normal, Stunned, Taunted }
+[RequireComponent (typeof (NavMeshAgent), typeof (Animator), typeof (EnemyStats))]
+public class EnemyControls : MonoBehaviour {
+  [Header ("Refs")]
+  protected Transform castleTransform;
 
-  [Header("Refs")]
-  public Transform castleTransform;
-
-  [Header("Parameters")]
-  public State state = State.Normal;
-  [Range(5f, 15f)]
+  [Header ("Parameters")]
+  [Range (5f, 15f)]
   public float aggroDistance = 10f;
   public float attackPlayerDistance = 1f;
   public float attackCastleDistance = 4f;
   public float behaviourUpdatePeriod = 0.1f;
 
-  [Header("Drop After Death")]
+  [Header ("Drop After Death")]
+  public GameObject soulPrefab;
   public GameObject lootPrefab;
 
   protected NavMeshAgent navMeshAgent;
-  private Animator animator;
-  private EnemyStats stats;
+  protected Animator animator;
+  protected EnemyStats stats;
 
   protected Transform targetTransform;
-  private float distanceToTarget;
+  protected float distanceToTarget;
 
-  private float speed;
-  private int slowedTimes = 0;
-  private int stunnedTimes = 0;
+  protected float speed;
+  protected int slowedTimes = 0;
+  protected int stunnedTimes = 0;
 
-  protected virtual void Awake()
-  {
-    Init();
+  protected virtual void Awake () {
+    Init ();
   }
 
-  private void Start()
-  {
-    StartCoroutine(UpdateBehaviourRoutine());
-    StartCoroutine(UpdateAnimatorRoutine());
+  private void Start () {
+    castleTransform = GameObject.Find("Castle").transform;
+    StartCoroutine (UpdateBehaviourRoutine ());
+    StartCoroutine (UpdateAnimatorRoutine ());
   }
 
-  private void Init()
-  {
-    navMeshAgent = GetComponent<NavMeshAgent>();
+  private void Init () {
+    navMeshAgent = GetComponent<NavMeshAgent> ();
     speed = navMeshAgent.speed;
-    animator = GetComponent<Animator>();
-    stats = GetComponent<EnemyStats>();
+    animator = GetComponent<Animator> ();
+    stats = GetComponent<EnemyStats> ();
   }
 
-  private IEnumerator UpdateAnimatorRoutine()
-  {
+  private IEnumerator UpdateAnimatorRoutine () {
     float speedParam = 0;
     Vector3 lastPosition = transform.position;
 
-    while (stats.isAlive)
-    {
-      if (animator.isActiveAndEnabled)
-      {
-        speedParam = Mathf.Lerp(speedParam, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
+    while (stats.isAlive) {
+      if (animator.isActiveAndEnabled) {
+        speedParam = Mathf.Lerp (speedParam, (transform.position - lastPosition).magnitude / Time.deltaTime, 0.5f) / navMeshAgent.speed;
         lastPosition = transform.position;
 
-        animator.SetFloat("speedParam", speedParam);
+        animator.SetFloat ("speedParam", speedParam);
       }
       yield return null;
     }
   }
 
-  private IEnumerator UpdateBehaviourRoutine()
-  {
-    WaitForSeconds waitForUpdate = new WaitForSeconds(behaviourUpdatePeriod);
-
-    while (stats.isAlive)
-    {
-      if (stunnedTimes <= 0)
-      {
-        if (targetTransform == null)
-        {
+  protected virtual IEnumerator UpdateBehaviourRoutine () {
+    WaitForSeconds waitForUpdate = new WaitForSeconds (behaviourUpdatePeriod);
+    float attackDistance;
+    while (stats.isAlive) {
+      if (stunnedTimes <= 0) {
+        if (targetTransform == null) {
           targetTransform = castleTransform;
         }
 
-        distanceToTarget = Vector3.Distance(transform.position, targetTransform.position);
-        float attackDistance = (targetTransform == castleTransform ? attackCastleDistance : attackPlayerDistance);
+        distanceToTarget = Vector3.Distance (transform.position, targetTransform.position);
+        attackDistance = (targetTransform == castleTransform ? attackCastleDistance : attackPlayerDistance);
 
         // ATTACK
-        if (distanceToTarget < attackDistance)
-        {
-          Attack();
+        if (distanceToTarget < attackDistance) {
+          Attack ();
         }
         // MOVE TOWARDS TARGET
-        else
-        {
-          navMeshAgent.isStopped = false;
+        else {
+          if (navMeshAgent.isOnNavMesh)
+            navMeshAgent.isStopped = false;
           // TARGET TOO FAR, RETARGET TO CASTLE
-          if (distanceToTarget > aggroDistance)
-          {
-            AggroTo(castleTransform);
+          if (distanceToTarget > aggroDistance) {
+            AggroTo (castleTransform);
           }
-          SetPathToTargetPosition(targetTransform.position);
+          SetPathToTargetPosition (targetTransform.position);
         }
       }
       yield return waitForUpdate;
@@ -108,82 +94,80 @@ public class EnemyControls : MonoBehaviour
     yield return null;
   }
 
-  protected virtual void Attack()
-  {
+  protected virtual void Attack () {
     // FIXME: Remove or opt the rotation?
-    Quaternion lookRotation = Quaternion.LookRotation(new Vector3(targetTransform.position.x - transform.position.x, 0, targetTransform.position.z - transform.position.z));
-    transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.3f);
-
-    navMeshAgent.isStopped = true;
-    animator.SetTrigger("attackTrigger");
+    Quaternion lookRotation = Quaternion.LookRotation (new Vector3 (targetTransform.position.x - transform.position.x, 0, targetTransform.position.z - transform.position.z));
+    transform.rotation = Quaternion.Slerp (transform.rotation, lookRotation, 0.3f);
+    if (navMeshAgent.isOnNavMesh)
+      navMeshAgent.isStopped = true;
+    animator.SetTrigger ("attackTrigger");
   }
 
   /// <summary>
   /// Sets the enemy's target and makes it follow 
   /// </summary>
   /// <param name="targetTransform"></param>
-  public void AggroTo(Transform targetTransform)
-  {
+  public virtual void AggroTo (Transform targetTransform) {
     this.targetTransform = targetTransform;
   }
 
-  protected void SetPathToTargetPosition(Vector3 targetPosition)
-  {
+  protected void SetPathToTargetPosition (Vector3 targetPosition) {
     NavMeshHit hit;
-    NavMeshPath path = new NavMeshPath();
+    NavMeshPath path = new NavMeshPath ();
     // FIXME: Shorten the distance for opt maybe?
     float distanceFromSource = 50f;
 
-    bool nearestPointFound = NavMesh.SamplePosition(targetPosition, out hit, distanceFromSource, 5);
-    bool pathFound = nearestPointFound && NavMesh.CalculatePath(transform.position, hit.position, NavMesh.AllAreas, path);
+    bool nearestPointFound = NavMesh.SamplePosition (targetPosition, out hit, distanceFromSource, 5);
+    bool pathFound = nearestPointFound && NavMesh.CalculatePath (transform.position, hit.position, NavMesh.AllAreas, path);
 
-    if (navMeshAgent.enabled && pathFound)
-    {
-      navMeshAgent.SetPath(path);
-    }
-    else
-    {
-      Debug.LogWarning("Navmesh path not found!");
+    if (navMeshAgent.enabled && pathFound) {
+      navMeshAgent.SetPath (path);
+    } else {
+      Debug.LogWarning ("Navmesh path not found!");
     }
   }
 
-  public void Disable()
-  {
-    StopAllCoroutines();
+  public void Disable () {
+    StopAllCoroutines ();
 
-    Destroy(GetComponent<Rigidbody>());
-    GetComponent<Collider>().enabled = false;
+    Destroy (GetComponent<Rigidbody> ());
+    Collider col = GetComponent<Collider> ();
+    if (col != null) {
+      col.enabled = false;
+    }
     navMeshAgent.enabled = false;
 
-    animator.SetTrigger("dieTrigger");
+    animator.SetTrigger ("dieTrigger");
 
-    SpawnLoot();
-    Destroy(gameObject, 3f);
+    SpawnLoot ();
+    Destroy (gameObject, 3f);
   }
 
-  public void Stun()
-  {
-    state = State.Stunned;
+  public void Stun () {
     stunnedTimes++;
-    navMeshAgent.isStopped = true;
+    if (navMeshAgent.isOnNavMesh)
+      navMeshAgent.isStopped = true;
   }
 
-  public void Slow()
-  {
+  public void RemoveStun () {
+    stunnedTimes--;
+  }
+
+  public void Slow () {
     slowedTimes++;
     navMeshAgent.speed = navMeshAgent.speed / 3;
   }
 
-  public void RemoveSlow()
-  {
+  public void RemoveSlow () {
     slowedTimes--;
     navMeshAgent.speed = navMeshAgent.speed * 3;
   }
 
-  private void SpawnLoot()
-  {
+  private void SpawnLoot () {
     float OffsetY = 0.5f;
-    Vector3 lootPosition = new Vector3(transform.position.x, transform.position.y + OffsetY, transform.position.z);
-    GameObject loot = Instantiate(lootPrefab, lootPosition, transform.rotation * Quaternion.Euler(-90, 0, 0));
+    Vector3 lootPosition = new Vector3 (transform.position.x, transform.position.y + OffsetY, transform.position.z);
+    GameObject loot = Instantiate (lootPrefab, lootPosition, transform.rotation * Quaternion.Euler (-90, 0, 0));
+    GameObject soul = Instantiate (soulPrefab, lootPosition, Quaternion.identity, null);
+    soul.GetComponent<SoulTransfer>().castle = castleTransform;
   }
 }

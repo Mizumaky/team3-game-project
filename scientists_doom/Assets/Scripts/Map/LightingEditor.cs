@@ -10,12 +10,7 @@ public class LightingEditor : Editor {
 		SceneLighting lighting = (SceneLighting) target;
 
 		if (DrawDefaultInspector ()) {
-			if (lighting.lightMovement == SceneLighting.LightMovement.Stale) {
-				lighting.UpdateSceneLight ();
-			} else {
-				lighting.UpdateShiftingLight ();
-			}
-			lighting.UpdateLightType ();
+			lighting.UpdateShiftingLight ();
 		}
 	}
 }

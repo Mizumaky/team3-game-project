@@ -4,7 +4,8 @@
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,5 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Slash
   icon: {fileID: 0}
+  description: Slashes enemies in front with his weapon dealing 10 damage
+  upgradeCost: 0
   rank: 0
+  cooldown: 1
   damage: 10

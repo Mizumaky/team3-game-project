@@ -7,8 +7,8 @@ public class KegProjectile : MonoBehaviour
   #region Variables
 
   [Header("Scriptable Parameters")]
-  private int _damage;
-  public int damage { get { return _damage; } }
+  private float _damage;
+  public float damage { get { return _damage; } }
   private float _spillDuration;
   public float spillDuration { get { return _spillDuration; } }
 
@@ -26,7 +26,7 @@ public class KegProjectile : MonoBehaviour
   /// <param name="destinationGround"></param>
   /// <param name="duration"></param>
   /// <param name="casterTransform"></param>
-  public void SetAndRelease(int damage, float spillDuration, GameObject spillPrefab, Transform casterTransform, LayerMask collisionMask)
+  public void SetAndRelease(float damage, float spillDuration, GameObject spillPrefab, Transform casterTransform, LayerMask collisionMask)
   {
     this._damage = damage;
     this._spillDuration = spillDuration;
@@ -55,9 +55,13 @@ public class KegProjectile : MonoBehaviour
     {
       isTraveling = false;
 
+      GetComponent<Collider>().enabled = false;
+      transform.GetChild(0).gameObject.SetActive(false);
+
       GetComponent<ParticleSystem>().Play();
 
       SpawnSpill();
+
       Destroy(gameObject, GetComponent<ParticleSystem>().main.duration);
     }
   }

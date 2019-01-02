@@ -20,6 +20,8 @@ public class DoubleFocusCamera : MonoBehaviour
   [Tooltip("When camera crosses playerBounds distance from the castle, it starts to move with the player")]
   [SerializeField] private float playerBounds = 5f;
 
+  private Camera cam;
+
   //leave here for debugging
   private float diameter;
 
@@ -32,10 +34,10 @@ public class DoubleFocusCamera : MonoBehaviour
 
   private float lerpTime = 0;
 
-
-  /*public void SetFocusTransform(Transform focus) {
-      this.focus = focus;
-  }*/
+  void Start()
+  {
+    cam = gameObject.GetComponent<Camera>();
+  }
 
   public void UpdateDFCamera()
   {
@@ -51,19 +53,16 @@ public class DoubleFocusCamera : MonoBehaviour
 
     }
 
-    float currentFOV = gameObject.GetComponent<Camera>().fieldOfView;
+    float currentFOV = cam.fieldOfView;
     float targetFOV = minFOV + Mathf.Lerp(0, maxFOV - minFOV, scrollWheel);
 
-    gameObject.GetComponent<Camera>().fieldOfView = Mathf.SmoothDamp(currentFOV, targetFOV, ref FOVvelocity, fovSmoothTime);
-
+    cam.fieldOfView = Mathf.SmoothDamp(currentFOV, targetFOV, ref FOVvelocity, fovSmoothTime);
 
     float playerDistance = Vector3.Distance(secondaryFocus.position, focus.position);
 
     //camera position modifiers
     float distanceScale;
     float cameraHeight = heightCurve.Evaluate(playerDistance);
-
-
 
     diameter = defaultRadius;
 

@@ -82,7 +82,6 @@ GameObject:
   - component: {fileID: 82779544059597260}
   - component: {fileID: 114627230455323210}
   - component: {fileID: 114282198932504814}
-  - component: {fileID: 114771612900400474}
   - component: {fileID: 114052020169413120}
   - component: {fileID: 114460700769417648}
   - component: {fileID: 114508637614604888}
@@ -103,7 +102,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1195421657766132}
   m_LocalRotation: {x: 0, y: -0.71721625, z: 0, w: 0.6968507}
-  m_LocalPosition: {x: 3.2410307, y: -0.491, z: -7.6298833}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4828322318558776}
@@ -122,10 +121,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5080876
-  m_Height: 2.2307293
+  m_Radius: 0.7
+  m_Height: 3
   m_Direction: 1
-  m_Center: {x: 0, y: 0.29106876, z: 0}
+  m_Center: {x: 0, y: 0.5, z: 0}
 --- !u!54 &54462459108205698
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -151,7 +150,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1195421657766132}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.5
+  m_Radius: 0.7
   m_Speed: 4
   m_Acceleration: 50
   avoidancePriority: 50
@@ -160,7 +159,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1
+  m_Height: 3
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -229,7 +228,7 @@ MonoBehaviour:
   baseAttackDamage: 30
   totalAttackDamage: 0
   attackDamageIncrement: 1
-  isInvulnerable: 0
+  isInvulnerable: 1
   maxHeroLevel: 60
   heroLevel: 0
   experience: 0
@@ -373,36 +372,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   abilities:
-  - {fileID: 114771612900400474}
   - {fileID: 114052020169413120}
   - {fileID: 114508637614604888}
   - {fileID: 114229640784623656}
-  abilityRanks: 00000000000000000000000000000000
---- !u!114 &114771612900400474
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1195421657766132}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe02dca3184c41e499985c30a18974ab, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 0
-  abilityRankData:
-  - {fileID: 11400000, guid: 21e43c713e35b6f4083596b33750fca3, type: 2}
-  - {fileID: 11400000, guid: d5065de85ab21544caa82303045fc58d, type: 2}
-  - {fileID: 11400000, guid: 9576f2345d764f447aa4f8a81e505123, type: 2}
-  perStackDamageIncrement: 0
-  stackDecayStartDelay: 0
-  rageParticleSystem: {fileID: 198256024540029150}
-  stacks: 0
-  stacksCap: 100
-  canStack: 1
-  stackDecrement: 0
-  stackDecayPeriod: 1
+  abilityRanks: 000000000000000000000000
 --- !u!114 &114052020169413120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -415,14 +388,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9acf815fe4bd09742859c06c688ce617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 32
   abilityRankData:
   - {fileID: 11400000, guid: b6fd309989499c24d838218bb95cac53, type: 2}
   - {fileID: 11400000, guid: 5bd26fe693869724da15c106105a707d, type: 2}
   - {fileID: 11400000, guid: 897d007d99070d543a551a918130e6b5, type: 2}
+  keyCode: 32
   weaponHand: 1
   enableCollision: 0
-  keyCode: 32
   damage: 0
 --- !u!114 &114460700769417648
 MonoBehaviour:
@@ -448,7 +420,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ba198887b5ce074781f880122feb61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 113
   abilityRankData:
   - {fileID: 11400000, guid: f3e38fb56324d214fa2cc0c1d193b3a0, type: 2}
   - {fileID: 11400000, guid: 4bc25eedaa715b74fa536b1cfbb0fd54, type: 2}
@@ -475,17 +446,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c01a2502c745cd144a95903b356b10a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 101
   abilityRankData:
   - {fileID: 11400000, guid: 462595506c75df04493c7aff5f4c4d6a, type: 2}
   - {fileID: 11400000, guid: 9f3519b02017aa445a17aa0cdaeca218, type: 2}
   - {fileID: 11400000, guid: b40d7474c5110dc418ce5ecd7bad6e91, type: 2}
   keyCode: 101
+  rageParticleSystem: {fileID: 198256024540029150}
   stackCost: 0
   duration: 0
+  perStackDamageIncrement: 0
+  stackDecayStartDelay: 0
   isAvailable: 0
   updatePeriodFloat: 1
   modelRenderer: {fileID: 137324606348254724}
+  stacks: 0
+  stacksCap: 100
+  canStack: 1
+  stackDecrement: 0
+  stackDecayPeriod: 1
 --- !u!114 &114184735269996266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -502,6 +480,11 @@ MonoBehaviour:
   - {fileID: 1738905357413482, guid: 6ab220e295c887c4bb1da4aae3a330db, type: 3}
   - {fileID: 1211203942256296, guid: b4dca32ac1bbacb47a84e0497c79497c, type: 3}
   - {fileID: 1032453366612140, guid: 807f7dd600c4f4841961eb9de1ba3e4d, type: 3}
+  weaponData:
+  - {fileID: 11400000, guid: e7fe2c8bba80d6b41acff26d9d8aeca8, type: 2}
+  - {fileID: 11400000, guid: b29df11296147ac46b3b6b6fcee0f7c6, type: 2}
+  - {fileID: 11400000, guid: ce4559ccf98493b42a325d2829a0dadd, type: 2}
+  activeWeaponIndex: 0
   attachPosition: {x: -0.28, y: -0.059, z: 0}
 --- !u!1 &1198179779684966
 GameObject:
@@ -782,7 +765,7 @@ Transform:
   m_GameObject: {fileID: 1290357477036644}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 4669987480895772}
   - {fileID: 4866714296754182}

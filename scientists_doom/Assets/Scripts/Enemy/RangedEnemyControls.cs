@@ -38,12 +38,11 @@ public class RangedEnemyControls : EnemyControls
     }
   }
 
-  private void ShootProjectile()
+  private void ShootProjectile() //to the animation event
   {
-    GameObject pr = Instantiate(projectile);
-    pr.transform.position = attackSpawnPoint.transform.position;
-    pr.transform.rotation = attackSpawnPoint.transform.rotation;
-    pr.GetComponent<Rigidbody>().velocity = targetTransform.position - transform.position;
+    GameObject pr = Instantiate(projectile, attackSpawnPoint.transform.position, attackSpawnPoint.transform.rotation);
+    pr.GetComponent<RangedEnemyProjectiles>().SetDamage(gameObject.GetComponent<Stats>().GetAttackDamage());
+    pr.GetComponent<RangedEnemyProjectiles>().Fire(targetTransform.position);
     Destroy(pr, 2);
   }
 
@@ -51,7 +50,7 @@ public class RangedEnemyControls : EnemyControls
   {
     RaycastHit hit;
     bool ret;
-    if (Physics.Raycast(transform.position, (targetTransform.position - transform.position).normalized, out hit, 20, mask))
+    if (Physics.Raycast(attackSpawnPoint.transform.position, (targetTransform.position - attackSpawnPoint.transform.position).normalized, out hit, 20, mask))
     {
       ret = (hit.transform.position == targetTransform.position) ? true : false;
     }

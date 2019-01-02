@@ -558,8 +558,9 @@ GameObject:
   - component: {fileID: 114635549016687628}
   - component: {fileID: 114269541643194780}
   - component: {fileID: 114201074502855828}
-  - component: {fileID: 114689673893674452}
   - component: {fileID: 114570753321723344}
+  - component: {fileID: 114689673893674452}
+  - component: {fileID: 1928212276915627246}
   m_Layer: 14
   m_Name: Huntress
   m_TagString: Huntress
@@ -593,10 +594,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.14706045
-  m_Height: 1.1803055
+  m_Radius: 0.3
+  m_Height: 2.1
   m_Direction: 1
-  m_Center: {x: 0, y: 0.535107, z: 0}
+  m_Center: {x: 0, y: 1.15, z: 0}
 --- !u!54 &54375225016080348
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -622,7 +623,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 1465694572464804}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.15
+  m_Radius: 0.3
   m_Speed: 4
   m_Acceleration: 50
   avoidancePriority: 99
@@ -631,10 +632,10 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 1.1
+  m_Height: 2.1
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 1
 --- !u!114 &114245162598997172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -845,10 +846,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilities:
   - {fileID: 114201074502855828}
-  - {fileID: 114201074502855828}
   - {fileID: 114570753321723344}
   - {fileID: 114689673893674452}
-  abilityRanks: 00000000000000000000000000000000
+  abilityRanks: 000000000000000000000000
 --- !u!114 &114201074502855828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -861,11 +861,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e1b6d384f874ea4180fb3d878575530, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 32
   abilityRankData:
   - {fileID: 11400000, guid: c817206ce75246c4b951b52f4a4ad5d1, type: 2}
   - {fileID: 11400000, guid: ade8d3781fe36284c8e37d751af629e8, type: 2}
   - {fileID: 11400000, guid: d714e6eac68473b46ab924180ba26233, type: 2}
+  keyCode: 32
   arrowPrefab: {fileID: 1180320206294934, guid: 8adbab1fc54a3c5449578fd3b52979a4,
     type: 3}
   empoweredArrowPrefab: {fileID: 1146329335169676, guid: fb935193fd33e744db22d203200bbb90,
@@ -875,32 +875,8 @@ MonoBehaviour:
     m_Bits: 134144
   velocityMagnitude: 80
   travelHeight: 0.5
+  timeToLive: 2
   arrowSpawnTransform: {fileID: 4922013344986260}
---- !u!114 &114689673893674452
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1465694572464804}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e1b6f55e4db51ff449e14c91ee85eff4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  keyCode: 101
-  abilityRankData:
-  - {fileID: 11400000, guid: 4766a2a6401e3e840b5fea57c80b78d8, type: 2}
-  - {fileID: 11400000, guid: 8f32d49f704937d419fd972d1363586c, type: 2}
-  - {fileID: 11400000, guid: 642fe87c3d68bdb4ea4b6135fffdc9d8, type: 2}
-  keyCode: 101
-  eaglePrefab: {fileID: 1727019830729638, guid: c95850030315f134cba892b47a5e505e,
-    type: 3}
-  eagleSpawnTransform: {fileID: 4922013344986260}
-  eagleVelocity: 5
-  eagleDestinationHeight: 5
-  areaOutlinePrefab: {fileID: 1788745233935808, guid: 246c3b7aacd75d44b815e31de47f75b7,
-    type: 3}
 --- !u!114 &114570753321723344
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -913,13 +889,58 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 07cb3e8e0df545d45b58b63b28f88d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keyCode: 113
   abilityRankData:
   - {fileID: 11400000, guid: 92f60e0a4495b694b9cda4d0791da0af, type: 2}
   - {fileID: 11400000, guid: 8483647ac6b0f8f47a855f4aaa30f99c, type: 2}
   - {fileID: 11400000, guid: 3a2e74c12bf5d5c4aa46ee679222cef3, type: 2}
   keyCode: 113
   dashPS: {fileID: 0}
+--- !u!114 &114689673893674452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465694572464804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1b6f55e4db51ff449e14c91ee85eff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilityRankData:
+  - {fileID: 11400000, guid: 4766a2a6401e3e840b5fea57c80b78d8, type: 2}
+  - {fileID: 11400000, guid: 8f32d49f704937d419fd972d1363586c, type: 2}
+  - {fileID: 11400000, guid: 642fe87c3d68bdb4ea4b6135fffdc9d8, type: 2}
+  keyCode: 101
+  eaglePrefab: {fileID: 1727019830729638, guid: c95850030315f134cba892b47a5e505e,
+    type: 3}
+  eagleSpawnTransform: {fileID: 4922013344986260}
+  eagleVelocity: 5
+  eagleDestinationHeight: 5
+  areaOutlinePrefab: {fileID: 1788745233935808, guid: 246c3b7aacd75d44b815e31de47f75b7,
+    type: 3}
+--- !u!114 &1928212276915627246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465694572464804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9b830d78c4ac8547bde8779f6e4ee8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapons:
+  - {fileID: 631719987206057495, guid: 77cdce28816761e4a8fd672fe1e55ba0, type: 3}
+  - {fileID: 645133702192305001, guid: 9b88f64b5148c3c4b85054323fbdfb4d, type: 3}
+  - {fileID: 4478221369370334120, guid: 31767fc57ff6f3a4d9a0600c8b64a3be, type: 3}
+  weaponData:
+  - {fileID: 11400000, guid: d81a1f7144c8400409ac43c405212b3d, type: 2}
+  - {fileID: 11400000, guid: 80cc87ab50faaed4b85ae3d0fa858336, type: 2}
+  - {fileID: 11400000, guid: d81f8b2cb3f93f048a7eade4f43c175d, type: 2}
+  activeWeaponIndex: 0
+  attachPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1493028866261492
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1031,7 @@ Transform:
   m_GameObject: {fileID: 1575497034283834}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3, y: 1.3, z: 1.3}
   m_Children:
   - {fileID: 4117772678518424}
   - {fileID: 4560409454003732}

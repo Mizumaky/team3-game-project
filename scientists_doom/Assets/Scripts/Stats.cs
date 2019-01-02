@@ -21,6 +21,11 @@ public class Stats : MonoBehaviour
   {
     return totalMaxHealth;
   }
+
+  public void ResetHealth(){
+    currentHealth = baseMaxHealth;
+  }
+
   public float GetCurrentHealth()
   {
     return currentHealth;
@@ -33,7 +38,7 @@ public class Stats : MonoBehaviour
 
   private void Start()
   {
-    Init();
+    UpdateStats();
   }
 
   public void AddBonusDamage(int amount)
@@ -51,10 +56,9 @@ public class Stats : MonoBehaviour
     totalAttackDamage = baseAttackDamage;
   }
 
-  protected virtual void Init()
+  protected virtual void UpdateStats()
   {
     _isAlive = true;
-
     totalMaxHealth = baseMaxHealth;
     totalAttackDamage = baseAttackDamage;
 
@@ -66,6 +70,7 @@ public class Stats : MonoBehaviour
     if (!isInvulnerable)
     {
       currentHealth -= damage;
+
       if (currentHealth <= 0)
       {
         Die();
@@ -78,7 +83,14 @@ public class Stats : MonoBehaviour
     if (_isAlive)
     {
       _isAlive = false;
-      Debug.Log(gameObject.name + " died!");
+      if(gameObject.name == "Castle"){
+        EventManager.TriggerEvent(LevelManager.EVENT_CASTLE_DESTROYED);
+      }else if(gameObject.GetComponent<PlayerStats>()){
+        EventManager.TriggerEvent(LevelManager.EVENT_PLAYER_DEAD);
+        GetComponent<Animator>().SetTrigger("dieTrigger");
+      }else{
+        Debug.Log(gameObject.name + " died!");
+      }
     }
   }
 }

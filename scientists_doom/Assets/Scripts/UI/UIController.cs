@@ -20,6 +20,7 @@ public class UIController : MonoBehaviour
   public GameObject settingsWindow;
   public GameObject characterWindow;
   public GameObject shopWindow;
+  public GameObject retryWindow;
 
   [Header("UI Elements")]
   [Header("Settings Window")]
@@ -130,19 +131,5 @@ public class UIController : MonoBehaviour
   public void LoadMainMenu()
   {
     SceneManager.LoadScene(0);
-  }
-
-  public void IncreasePassiveRank()
-  {
-    AbilityManager manager = CharacterManager.activeCharacterObject.GetComponent<AbilityManager>();
-
-    if (manager != null)
-    {
-      manager.IncreaseAbilityRank(AbilityManager.AbilityTypes.Passive);
-    }
-    else
-    {
-      Debug.LogWarning("UIController: No ability manager found on active character!");
-    }
   }
 }

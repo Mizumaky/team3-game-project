@@ -19,7 +19,7 @@ public class CharacterManager : MonoBehaviour
   public GameObject cameraParentReference;
 
   [Space]
-  public static GameObject activeCharacterObject = null; //BTW statics OK even when multi - static variables are not shared between clients
+  public static GameObject activeCharacterObject = null;
   public static Character activeCharacter = Character.Barbarian;
 
   private DoubleFocusCamera dfcameraReference;
