@@ -6,17 +6,19 @@ public class EnemySpawner : MonoBehaviour {
   public static int enemiesAlive;
 
   public Transform spawnOriginTransform;
-  public GameObject enemyPrefab;
+  public GameObject[] enemyPrefab;
 
   public float spawnCircleRadius;
-  [Range(1, 1000)] public int totalEnemyCount;
   [Range(1, 16)] public int numberOfWaves;
   [Range(1, 10)] public int initialGroupDelay;
   [Range(0, 0.5f)] public float individualEnemySpawnDelay;
   public AnimationCurve groupDelayDumpCurve;
 
   private float ringAngleOffsetLimit = 180f;
+  private int totalEnemyCount = 0;
   private Coroutine activeSpawnRoutine;
+  private float lastAngle = 0, nextAngle, progress, delay;
+  private int levelNum;
 
   private void Awake() {
     if (spawnOriginTransform == null) {
@@ -28,76 +30,99 @@ public class EnemySpawner : MonoBehaviour {
 
   public void StartSpawnWaveIfInactive() {
     if (activeSpawnRoutine == null) {
-      activeSpawnRoutine = StartCoroutine(SpawnWave(totalEnemyCount));
+      activeSpawnRoutine = StartCoroutine(SpawnWave(0,0,0));
     } else {
       Debug.Log("Wave is already in progress!");
     }
   }
 
-  public void StartSpawnWaveIfInactive(int enemyCount) {
+  public void StartSpawnWaveIfInactive(StoryLevel level) {
     if (activeSpawnRoutine == null) {
       enemiesAlive = 0;
-      activeSpawnRoutine = StartCoroutine(SpawnWave(enemyCount));
+      levelNum = level.levelNo;
+      activeSpawnRoutine = StartCoroutine(SpawnWave(level.peasantCount, level.supportCount, level.siegeCount));
     } else {
       Debug.Log("Wave is already in progress!");
     }
   }
 
-  private IEnumerator SpawnWave(int enemyCount) {
-    int enemiesLeft = enemyCount;
-    enemiesAlive = enemyCount;
-    int groupSize = enemyCount / numberOfWaves;
-    if (groupSize == 0) {
-      groupSize = 1;
-    }
-
+  private Vector3 GetPosition() {
     Vector3 rayOriginPosition = Vector3.zero, spawnPosition;
-    float x, z, lastAngle = 0, nextAngle, progress, delay;
+    float x, z;
     Ray rayDown;
     RaycastHit hit;
     float rayLength = 25f;
     int groundLayer = 1 << LayerMask.NameToLayer("Ground");
 
-    while (enemiesLeft > 0) {
-      nextAngle = (lastAngle + Random.Range(90f, 180f)) % 360f;
-      lastAngle = nextAngle;
+    nextAngle = (lastAngle + Random.Range(90f, 180f)) % 360f;
+    lastAngle = nextAngle;
 
-      x = spawnOriginTransform.position.x + spawnCircleRadius * Mathf.Sin(nextAngle * Mathf.Deg2Rad);
-      z = spawnOriginTransform.position.z + spawnCircleRadius * Mathf.Cos(nextAngle * Mathf.Deg2Rad);
-      rayOriginPosition = new Vector3(x, spawnOriginTransform.position.y, z);
+    x = spawnOriginTransform.position.x + spawnCircleRadius * Mathf.Sin(nextAngle * Mathf.Deg2Rad);
+    z = spawnOriginTransform.position.z + spawnCircleRadius * Mathf.Cos(nextAngle * Mathf.Deg2Rad);
+    rayOriginPosition = new Vector3(x, spawnOriginTransform.position.y, z);
 
-      rayDown = new Ray(rayOriginPosition, Vector3.down);
-      spawnPosition = Vector3.zero;
+    rayDown = new Ray(rayOriginPosition, Vector3.down);
+    spawnPosition = Vector3.zero;
 
-      if (Physics.Raycast(rayDown, out hit, rayLength, groundLayer)) {
-        spawnPosition = hit.point;
-      }
-
-      if (spawnPosition == Vector3.zero) {
-        Debug.LogWarning("EnemySpawner: Can't find group spawn via raycast! Picking new location!");
-        continue;
-      }
-      StartCoroutine(SpawnEnemyGroup(groupSize, hit.point));
-
-      enemiesLeft -= groupSize;
-      progress = 1f - (float)enemiesLeft / (float)enemyCount;
-
-      Debug.Log("Level Progress: " + progress);
-
-      delay = initialGroupDelay * groupDelayDumpCurve.Evaluate(progress);
-      yield return new WaitForSeconds(initialGroupDelay * groupDelayDumpCurve.Evaluate(progress));
+    if (Physics.Raycast(rayDown, out hit, rayLength, groundLayer)) {
+      spawnPosition = hit.point;
     }
+    return spawnPosition;
+  }
 
+  private IEnumerator SpawnWave(int peasantCnt, int suppCnt, int siegeCnt) {
+    //print("Will Spawn " + peasantCnt + " + " + suppCnt + " + " + siegeCnt + " = " + (peasantCnt+suppCnt+siegeCnt));
+    int enemiesLeft = peasantCnt + suppCnt + siegeCnt;
+    enemiesAlive = enemiesLeft;
+
+    int[] enemyTypesCnt = new int[3];
+    enemyTypesCnt[0] = peasantCnt;
+    enemyTypesCnt[1] = suppCnt;
+    enemyTypesCnt[2] = siegeCnt;
+
+    int[] groupSize = new int[3];
+    for (int i = 0; i < groupSize.Length; i++) {
+      groupSize[i] = enemyTypesCnt[i] / numberOfWaves;
+      if (groupSize[i] == 0 && enemyTypesCnt[i] != 0)
+        groupSize[i] = 1;
+    }
+    Vector3 spawnPosition = Vector3.zero;
+
+    while (enemiesLeft > 0) {
+      for (int i = 0; i < groupSize.Length; i++) {
+        if (enemyTypesCnt[i] <= 0) {
+          continue;
+        }
+        spawnPosition = GetPosition();
+
+        if (spawnPosition == Vector3.zero) {
+          Debug.LogWarning("EnemySpawner: Can't find group spawn via raycast! Picking new location!");
+          i--;
+          continue;
+        }
+        
+        StartCoroutine(SpawnEnemyGroup((groupSize[i] > enemyTypesCnt[i] ? enemyTypesCnt[i] : groupSize[i]), spawnPosition, i));
+        enemyTypesCnt[i] -= groupSize[i];
+        enemiesLeft -= groupSize[i];
+        progress = 1f - (float)enemiesLeft / (float)enemiesAlive;
+
+        Debug.Log("Level Progress: " + progress);
+
+        delay = initialGroupDelay * groupDelayDumpCurve.Evaluate(progress);
+        yield return new WaitForSeconds(initialGroupDelay * groupDelayDumpCurve.Evaluate(progress));
+      }      
+    }
+    levelNum++;
     activeSpawnRoutine = null;
     yield return null;
   }
 
-  private IEnumerator SpawnEnemyGroup(int groupSize, Vector3 groupSpawnPosition) {
+  private IEnumerator SpawnEnemyGroup(int groupSize, Vector3 groupSpawnPosition, int enemy_type) {
     Quaternion rotation = Quaternion.LookRotation((transform.position - groupSpawnPosition).normalized);
 
     WaitForSeconds delay = new WaitForSeconds(individualEnemySpawnDelay);
     for (int i = 0; i < groupSize; i++) {
-      GameObject enemy = Instantiate(enemyPrefab, groupSpawnPosition, rotation, transform);
+      GameObject enemy = Instantiate(enemyPrefab[enemy_type], groupSpawnPosition, rotation, transform);
       enemy.transform.localScale = enemy.transform.localScale * Random.Range(0.8f, 2f);
       yield return delay;
     }

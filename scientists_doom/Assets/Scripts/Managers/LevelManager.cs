@@ -27,7 +27,8 @@ public class LevelManager : MonoBehaviour{
         enemySpawner = FindObjectOfType<EnemySpawner>();
         storyLevelCount = storyLevels.Length;
         highestLevel = PlayerPrefs.GetInt(PREF_MAX_FINISHED_LEVEL, 0);
-        if(highestLevel < 0){
+        //highestLevel = 0;
+        if (highestLevel < 0){
             highestLevel = 0;
         }
         Debug.Log("Player finished level "+highestLevel+"before.");
@@ -91,7 +92,7 @@ public class LevelManager : MonoBehaviour{
         
         Debug.Log("Starting StoryLevel "+storyLevels[levelNumber-1]);
         Announcer.Announce(("Level "+(levelNumber)+" begins"), "Defend the castle!");
-        enemySpawner.StartSpawnWaveIfInactive(storyLevels[levelNumber-1].peasantCount);
+        enemySpawner.StartSpawnWaveIfInactive(storyLevels[levelNumber-1]);
     }
 
     private void EndLevel(){

@@ -228,7 +228,7 @@ MonoBehaviour:
   baseAttackDamage: 30
   totalAttackDamage: 0
   attackDamageIncrement: 1
-  isInvulnerable: 0
+  isInvulnerable: 1
   maxHeroLevel: 60
   heroLevel: 0
   experience: 0
