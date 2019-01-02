@@ -50,7 +50,7 @@ public class RangedEnemyControls : EnemyControls
   {
     RaycastHit hit;
     bool ret;
-    if (Physics.Raycast(transform.position, (targetTransform.position - transform.position).normalized, out hit, 20, mask))
+    if (Physics.Raycast(attackSpawnPoint.transform.position, (targetTransform.position - attackSpawnPoint.transform.position).normalized, out hit, 20, mask))
     {
       ret = (hit.transform.position == targetTransform.position) ? true : false;
     }
