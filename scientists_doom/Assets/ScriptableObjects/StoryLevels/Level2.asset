@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Level2
   m_EditorClassIdentifier: 
   levelNo: 2
-  peasantCount: 20
-  supportCount: 10
+  peasantCount: 15
+  supportCount: 8
   siegeCount: 0

@@ -976,6 +976,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3009806672164203340, guid: 791027200f5ebcd458cf0b07b2c53a03,
         type: 3}
+    - target: {fileID: 114989796907727594, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: isInvulnerable
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4175797458501482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

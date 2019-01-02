@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelNo: 5
   peasantCount: 30
-  supportCount: 60
+  supportCount: 20
   siegeCount: 0

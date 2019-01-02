@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour{
         enemySpawner = FindObjectOfType<EnemySpawner>();
         storyLevelCount = storyLevels.Length;
         highestLevel = PlayerPrefs.GetInt(PREF_MAX_FINISHED_LEVEL, 0);
-        //highestLevel = 0;
+        highestLevel = 0;
         if (highestLevel < 0){
             highestLevel = 0;
         }
