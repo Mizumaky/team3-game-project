@@ -8,7 +8,6 @@ public class Inventory : MonoBehaviour
   public int wood;
   [HideInInspector]
   public int stone;
-  [HideInInspector]
   public int souls;
 
   void Start()

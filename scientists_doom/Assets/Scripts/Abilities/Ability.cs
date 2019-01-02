@@ -1,16 +1,17 @@
 using System.Collections;
 using UnityEngine;
 
-[RequireComponent (typeof (AbilityManager))]
-public class Ability : MonoBehaviour {
+[RequireComponent(typeof(AbilityManager))]
+public class Ability : MonoBehaviour
+{
   public enum Rank { Basic, Apprentice, Master }
 
-  [Header ("Rank Data Refs")]
+  [Header("Rank Data Refs")]
   public AbilityRankData[] abilityRankData;
-  [Header ("Key")]
+  [Header("Key")]
   public KeyCode keyCode;
 
-  [Header ("Rank Data")]
+  [Header("Rank Data")]
   protected string abilityName;
   protected Sprite icon;
   protected Rank rank = Rank.Basic;
@@ -21,30 +22,40 @@ public class Ability : MonoBehaviour {
 
   protected bool onCooldown = false;
 
-  public AbilityRankData GetNextRankData () {
-    return abilityRankData[(int) rank + 1];
+  public AbilityRankData GetRankData()
+  {
+    return abilityRankData[(int)rank];
   }
 
-  public virtual void SetRank (Rank newRank) {
+  public AbilityRankData GetNextRankData()
+  {
+    return abilityRankData[(int)rank + 1];
+  }
+  public virtual void SetRank(Rank newRank)
+  {
     rank = newRank;
-    UpdateAbilityData ();
+    UpdateAbilityData();
   }
 
-  public void IncreaseRank () {
+  public void IncreaseRank()
+  {
     rank++;
-    UpdateAbilityData ();
+    UpdateAbilityData();
   }
 
-  public virtual void UpdateAbilityData () {
-    abilityName = abilityRankData[(int) rank].abilityName;
-    icon = abilityRankData[(int) rank].icon;
-    _cooldown = abilityRankData[(int) rank].cooldown;
+  public virtual void UpdateAbilityData()
+  {
+    abilityName = abilityRankData[(int)rank].abilityName;
+    icon = abilityRankData[(int)rank].icon;
+    _cooldown = abilityRankData[(int)rank].cooldown;
   }
 
-  protected IEnumerator CooldownRoutine () {
+  protected IEnumerator CooldownRoutine()
+  {
     _cooldownCountdown = cooldown;
     onCooldown = true;
-    while (cooldownCountdown > 0) {
+    while (cooldownCountdown > 0)
+    {
       yield return null;
       _cooldownCountdown -= Time.deltaTime;
     }

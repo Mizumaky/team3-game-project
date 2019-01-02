@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Brief Distract
   icon: {fileID: 0}
+  description: Sends the eagle at the target position. When he reaches destination,
+    he taunts enemies in a 10 step area below him
+  upgradeCost: 0
   rank: 0
   cooldown: 10
   radius: 10

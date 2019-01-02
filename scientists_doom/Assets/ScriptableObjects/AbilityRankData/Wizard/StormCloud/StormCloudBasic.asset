@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Storm Cloud
   icon: {fileID: 0}
+  description: Sends a storm cloud at the target position that will hit enemies for
+    5 damage every 0.5s plus modifiers in a small area underneath it
+  upgradeCost: 0
   rank: 0
   cooldown: 6
   maxCharge: 0

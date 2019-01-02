@@ -14,9 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Strong Fireball
   icon: {fileID: 0}
-  description: 
+  description: Shoots a larger ball of fire in the facing direction that hits for
+    15 AOE damage plus modifiers
   upgradeCost: 50
   rank: 1
-  cooldown: 0.75
+  cooldown: 0
   maxCharge: 0.5
   damage: 15

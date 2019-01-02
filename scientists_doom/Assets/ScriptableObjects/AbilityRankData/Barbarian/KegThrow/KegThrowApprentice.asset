@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Stong Keg Throw
   icon: {fileID: 0}
-  description: 
+  description: Throws a keg of beer at the target location, splashing when struck
+    with terrain or obstacles, dealing 50 damage and spilling beer on the ground
   upgradeCost: 50
   rank: 1
   cooldown: 6

@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Freeze
   icon: {fileID: 0}
+  description: Blows a 90 degree cone of frost in the facing direction, hitting enemies
+    for 10 damage plus modifiers
+  upgradeCost: 0
   rank: 0
   cooldown: 7
   maxCharge: 0.5

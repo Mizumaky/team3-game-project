@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Fireball
   icon: {fileID: 0}
+  description: Shoots a small ball of fire in the facing direction that hits for 10
+    AOE damage plus modifiers
+  upgradeCost: 0
   rank: 0
-  cooldown: 1
+  cooldown: 0
   maxCharge: 0
   damage: 10

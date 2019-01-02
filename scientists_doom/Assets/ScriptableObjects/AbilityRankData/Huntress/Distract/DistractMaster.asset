@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Long Distract
   icon: {fileID: 0}
-  description: 
+  description: Sends the eagle at the target position. When he reaches destination,
+    he taunts enemies in a 15 step area below him
   upgradeCost: 100
   rank: 2
   cooldown: 8
