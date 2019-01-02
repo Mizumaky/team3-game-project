@@ -9,6 +9,7 @@ public class RangedEnemyControls : EnemyControls
   public GameObject attackSpawnPoint;
   private int mask;
   private int direction;
+  private Animator animator;
 
   protected override void Awake()
   {
@@ -19,6 +20,7 @@ public class RangedEnemyControls : EnemyControls
       | (1 << LayerMask.NameToLayer("Enemy"))
       | (1 << LayerMask.NameToLayer("Obstacle")); //in case that unity changes numbers of leyers
     direction = Random.Range(0, 2);
+    animator = GetComponent<Animator>();
   }
 
   protected override void Attack()
@@ -30,7 +32,7 @@ public class RangedEnemyControls : EnemyControls
       transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.4f);
       navMeshAgent.isStopped = true;
       // FIXME: Animation should start attack...
-      ShootProjectile();
+      animator.SetTrigger("attackTrigger");
     }
     else
     {
@@ -38,7 +40,7 @@ public class RangedEnemyControls : EnemyControls
     }
   }
 
-  private void ShootProjectile() //to the animation event
+  private void Fire() //to the animation event
   {
     GameObject pr = Instantiate(projectile, attackSpawnPoint.transform.position, attackSpawnPoint.transform.rotation);
     pr.GetComponent<RangedEnemyProjectiles>().SetDamage(gameObject.GetComponent<Stats>().GetAttackDamage());
