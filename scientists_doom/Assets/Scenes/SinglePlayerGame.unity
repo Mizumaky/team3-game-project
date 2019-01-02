@@ -853,15 +853,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
+      propertyPath: enemyPrefab.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
       propertyPath: spawnCircleRadius
-      value: 25
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
       propertyPath: enemyPrefab
       value: 
-      objectReference: {fileID: 3009806672164203340, guid: 791027200f5ebcd458cf0b07b2c53a03,
-        type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
       propertyPath: totalEnemyCount
@@ -870,13 +879,103 @@ PrefabInstance:
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
       propertyPath: numberOfWaves
-      value: 10
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
         type: 3}
       propertyPath: initialGroupDelay
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: enemyPrefab1
+      value: 
+      objectReference: {fileID: 1719296003474282, guid: 5ba095872f96a3c42813afad30bfaff2,
+        type: 3}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: enemyPrefab2
+      value: 
+      objectReference: {fileID: 1719296003474282, guid: 63f1e9c360900924db488023340630c9,
+        type: 3}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 44dc8315ee9079f44a81a9dae8c8b541,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 97a71b2c56898834786c911966dee85f,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 542a6f587acccf5499ee9dc3dd54d1f5,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7b6ffba90e2702e46afc44f4097ed250,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: ea0913b51b743d942b52b967aee1ef9d,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 876c489924fbb9141b63f13ff9508170,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 654c2e250a17de2489d96593016e7e46,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: a639b2c20e88e6c43b6e92ea91aecc07,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f52ccae4e6d56b478708aca34aa3815,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: storyLevels.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7beb5ed018adc214d9c749a02deebd68,
+        type: 2}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: enemyPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 1719296003474282, guid: 63f1e9c360900924db488023340630c9,
+        type: 3}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: enemyPrefab.Array.data[1]
+      value: 
+      objectReference: {fileID: 1719296003474282, guid: 5ba095872f96a3c42813afad30bfaff2,
+        type: 3}
+    - target: {fileID: 114342644042399940, guid: 24e627c1444a53e4aa0cb5b79e6648a7,
+        type: 3}
+      propertyPath: enemyPrefab.Array.data[2]
+      value: 
+      objectReference: {fileID: 3009806672164203340, guid: 791027200f5ebcd458cf0b07b2c53a03,
+        type: 3}
     - target: {fileID: 4175797458501482, guid: 24e627c1444a53e4aa0cb5b79e6648a7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

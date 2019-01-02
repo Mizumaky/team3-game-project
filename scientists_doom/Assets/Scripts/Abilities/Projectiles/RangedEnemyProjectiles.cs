@@ -6,7 +6,7 @@ public class RangedEnemyProjectiles : MonoBehaviour
 {
   private float damage;
   private Vector3 targetPos;
-  public float YAxisOffset; // siege machine = 15, support = 2
+  public float YAxisOffset; // siege machine = 15, support = 1
   public float velocity; // siege machine = 18, support = 15
   public float timeToLiveAfterHit;
 
