@@ -4,9 +4,6 @@ public class HuntressQuickShotAbility : Ability
 {
   #region Variables
 
-  [Header("Key")]
-  public KeyCode keyCode = KeyCode.Space;
-
   [Header("Objects")]
   public GameObject arrowPrefab;
   public GameObject empoweredArrowPrefab;
@@ -66,7 +63,7 @@ public class HuntressQuickShotAbility : Ability
     ArrowProjectile proj = newArrow.GetComponent<ArrowProjectile>();
 
     newArrow.GetComponent<Rigidbody>().velocity = transform.forward * velocityMagnitude;
-    proj.SetAndRelease(damage, damageEmpowered, transform, travelHeight, isEmpoweredShot, collisionMask);
+    proj.Set(damage, damageEmpowered, transform, travelHeight, isEmpoweredShot, collisionMask);
   }
 
   public override void UpdateAbilityData()

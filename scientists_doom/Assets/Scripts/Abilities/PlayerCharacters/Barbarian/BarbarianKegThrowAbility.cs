@@ -5,9 +5,6 @@ public class BarbarianKegThrowAbility : Ability
 {
   #region Variables
 
-  [Header("Key")]
-  public KeyCode keyCode = KeyCode.Q;
-
   [Header("Object")]
   public GameObject kegPrefab;
   public GameObject spillPrefab;
