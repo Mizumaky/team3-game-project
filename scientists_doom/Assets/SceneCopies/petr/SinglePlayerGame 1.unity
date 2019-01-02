@@ -500,25 +500,11 @@ PrefabInstance:
       propertyPath: enemySpawner
       value: 
       objectReference: {fileID: 1114331486}
-    - target: {fileID: 1566380676124794, guid: cee624a6a881de143ab97ae841a95789, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114522957771933610, guid: cee624a6a881de143ab97ae841a95789,
         type: 3}
       propertyPath: castleStats
       value: 
       objectReference: {fileID: 2121333352}
-    - target: {fileID: 4150281367755807925, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 49933466240256568, guid: cee624a6a881de143ab97ae841a95789,
-        type: 3}
-      propertyPath: m_FontData.m_Alignment
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cee624a6a881de143ab97ae841a95789, type: 3}
 --- !u!1001 &655907965
