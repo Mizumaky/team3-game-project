@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Strong Slash
   icon: {fileID: 0}
-  description: 
+  description: Slashes enemies in front with his weapon dealing 20 damage
   upgradeCost: 50
   rank: 1
   cooldown: 0.75

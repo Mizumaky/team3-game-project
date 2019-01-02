@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Strong Quick Shot
   icon: {fileID: 0}
-  description: 
+  description: Fires a rapid shot in the facing direction, dealing 60 damage to the
+    first unit hit. Every 3rd shot is empowered, dealing 120 damage and passing through
+    units
   upgradeCost: 50
   rank: 1
   cooldown: 0.5

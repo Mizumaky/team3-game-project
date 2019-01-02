@@ -375,7 +375,7 @@ MonoBehaviour:
   - {fileID: 114052020169413120}
   - {fileID: 114508637614604888}
   - {fileID: 114229640784623656}
-  abilityRanks: 020000000000000000000000
+  abilityRanks: 000000000000000000000000
 --- !u!114 &114052020169413120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -480,6 +480,11 @@ MonoBehaviour:
   - {fileID: 1738905357413482, guid: 6ab220e295c887c4bb1da4aae3a330db, type: 3}
   - {fileID: 1211203942256296, guid: b4dca32ac1bbacb47a84e0497c79497c, type: 3}
   - {fileID: 1032453366612140, guid: 807f7dd600c4f4841961eb9de1ba3e4d, type: 3}
+  weaponData:
+  - {fileID: 11400000, guid: e7fe2c8bba80d6b41acff26d9d8aeca8, type: 2}
+  - {fileID: 11400000, guid: b29df11296147ac46b3b6b6fcee0f7c6, type: 2}
+  - {fileID: 11400000, guid: ce4559ccf98493b42a325d2829a0dadd, type: 2}
+  activeWeaponIndex: 0
   attachPosition: {x: -0.28, y: -0.059, z: 0}
 --- !u!1 &1198179779684966
 GameObject:

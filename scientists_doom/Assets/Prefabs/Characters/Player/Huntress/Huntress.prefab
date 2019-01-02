@@ -935,6 +935,11 @@ MonoBehaviour:
   - {fileID: 631719987206057495, guid: 77cdce28816761e4a8fd672fe1e55ba0, type: 3}
   - {fileID: 645133702192305001, guid: 9b88f64b5148c3c4b85054323fbdfb4d, type: 3}
   - {fileID: 4478221369370334120, guid: 31767fc57ff6f3a4d9a0600c8b64a3be, type: 3}
+  weaponData:
+  - {fileID: 11400000, guid: d81a1f7144c8400409ac43c405212b3d, type: 2}
+  - {fileID: 11400000, guid: 80cc87ab50faaed4b85ae3d0fa858336, type: 2}
+  - {fileID: 11400000, guid: d81f8b2cb3f93f048a7eade4f43c175d, type: 2}
+  activeWeaponIndex: 0
   attachPosition: {x: 0, y: 0, z: 0}
 --- !u!1 &1493028866261492
 GameObject:

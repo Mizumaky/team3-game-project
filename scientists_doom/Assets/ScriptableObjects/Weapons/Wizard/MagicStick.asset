@@ -9,14 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77388d7c4b4e33543b87d494edc6f35c, type: 3}
-  m_Name: DashBasic
+  m_Script: {fileID: 11500000, guid: 3114657b9f604ce1b94072a1d8291e06, type: 3}
+  m_Name: MagicStick
   m_EditorClassIdentifier: 
-  abilityName: Short Dash
-  icon: {fileID: 0}
-  description: Leaps 3 steps forward in the facing direction and can pass through
-    obstacles
+  weaponName: Magic Stick
+  icon: {fileID: 21300000, guid: 233d004c74ac5bb46b30e7b1c4467daf, type: 3}
+  description: Its a stick!
+  levelReq: 0
   upgradeCost: 0
-  rank: 0
-  cooldown: 5
-  distance: 3
+  damage: 5

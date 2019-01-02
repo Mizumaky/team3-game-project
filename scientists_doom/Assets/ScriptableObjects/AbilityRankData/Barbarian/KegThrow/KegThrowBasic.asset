@@ -14,6 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Keg Throw
   icon: {fileID: 0}
+  description: Throws a keg of beer at the target location, splashing when struck
+    with terrain or obstacles, dealing 25 damage and spilling beer on the ground
+  upgradeCost: 0
   rank: 0
   cooldown: 7
   damage: 25

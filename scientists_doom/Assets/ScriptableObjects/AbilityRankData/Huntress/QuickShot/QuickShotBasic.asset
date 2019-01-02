@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Quick Shot
   icon: {fileID: 0}
+  description: Fires a rapid shot in the facing direction, dealing 30 damage to the
+    first unit hit. Every 3rd shot is empowered, dealing 60 damage and passing through
+    units
+  upgradeCost: 0
   rank: 0
   cooldown: 0.5
   damage: 30

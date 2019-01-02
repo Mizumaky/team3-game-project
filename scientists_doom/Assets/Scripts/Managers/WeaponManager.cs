@@ -1,37 +1,46 @@
 ﻿using UnityEngine;
 
-public class WeaponManager : MonoBehaviour {
+public class WeaponManager : MonoBehaviour
+{
   public GameObject[] weapons;
   public WeaponData[] weaponData;
   public int activeWeaponIndex;
   private GameObject activeWeapon;
   private Transform hand;
   public Vector3 attachPosition;
+  private PlayerStats stats;
 
-  void Awake () {
-    hand = transform.FindDeepChild ("Hand_L");
-    if (hand) {
+  void Awake()
+  {
+    hand = transform.FindDeepChild("Hand_L");
+    if (hand)
+    {
       activeWeaponIndex = 0;
-      EquipWeapon (activeWeaponIndex);
-    } else {
-      Debug.Log ("Could not find the characters hand!!!");
+      EquipWeapon(activeWeaponIndex);
+    }
+    else
+    {
+      Debug.Log("Could not find the characters hand!!!");
     }
   }
   ///<summary>
   ///Equip weapon of tier weaponIndex(0 - starting, 1 - advanced, 2 - master)
   ///</summary>
-  public bool EquipWeapon (int weaponIndex) {
-    activeWeaponIndex = weaponIndex;
-    if (hand.childCount > 0) {
-      Destroy (hand.GetChild (0).gameObject);
+  public bool EquipWeapon(int weaponIndex)
+  {
+    if (hand.childCount > 0)
+    {
+      GetComponent<PlayerStats>().RemoveBonusDamage(weaponData[activeWeaponIndex].damage);
+      Destroy(hand.GetChild(0).gameObject);
     }
-    Debug.Log ("Spawning weapon(" + weapons[weaponIndex].name + ")");
-    activeWeapon = Instantiate (weapons[weaponIndex]);
+    activeWeaponIndex = weaponIndex;
+    GetComponent<PlayerStats>().AddBonusDamage(weaponData[activeWeaponIndex].damage);
 
+    Debug.Log("Spawning weapon(" + weapons[weaponIndex].name + ")");
+    activeWeapon = Instantiate(weapons[weaponIndex]);
     activeWeapon.transform.parent = hand;
-    //activeWeapon.transform.localScale = Vector3.one;
     activeWeapon.transform.localPosition = attachPosition;
-    activeWeapon.transform.localEulerAngles = new Vector3 (0, 0, 0);
+    activeWeapon.transform.localEulerAngles = new Vector3(0, 0, 0);
 
     return true;
   }

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Long Dash
   icon: {fileID: 0}
-  description: 
+  description: Leaps 8 steps forward in the facing direction and can pass through
+    obstacles
   upgradeCost: 100
   rank: 2
   cooldown: 3

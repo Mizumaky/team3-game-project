@@ -9,11 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5855965619431b4a982a7c070985ce4, type: 3}
-  m_Name: DoubleAxe
+  m_Script: {fileID: 11500000, guid: 3114657b9f604ce1b94072a1d8291e06, type: 3}
+  m_Name: TwinEdges
   m_EditorClassIdentifier: 
-  weaponName: Double Axe
+  weaponName: TwinEdges
   icon: {fileID: 21300000, guid: a7bf1aa269182164a889458eadee9e10, type: 3}
-  description: A godly weapon, forged by the Barbarian himself. Empowered with his
-    sweat and fierceness, this weapon slices through enemies with ease and precision.
-  price: 400
+  description: Two brightly shining edges!!
+  levelReq: 42
+  upgradeCost: 100
+  damage: 30

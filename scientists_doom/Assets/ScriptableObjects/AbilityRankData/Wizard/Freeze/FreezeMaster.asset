@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Powerful Freeze
   icon: {fileID: 0}
-  description: 
+  description: Blows a 360 degree cone of frost in the facing direction, hitting enemies
+    for 50 damage plus modifiers
   upgradeCost: 100
   rank: 2
   cooldown: 5

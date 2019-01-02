@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Strong Freeze
   icon: {fileID: 0}
-  description: 
+  description: Blows a 180 degree cone of frost in the facing direction, hitting enemies
+    for 30 damage plus modifiers
   upgradeCost: 50
   rank: 1
   cooldown: 6

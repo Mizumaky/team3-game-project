@@ -14,6 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityName: Weak Slash
   icon: {fileID: 0}
+  description: Slashes enemies in front with his weapon dealing 10 damage
+  upgradeCost: 0
   rank: 0
   cooldown: 1
   damage: 10
