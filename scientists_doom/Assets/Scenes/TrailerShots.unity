@@ -32,12 +32,11 @@ RenderSettings:
   m_FlareFadeSpeed: 3
   m_HaloTexture: {fileID: 0}
   m_SpotCookie: {fileID: 10001, guid: 0000000000000000e000000000000000, type: 0}
-  m_DefaultReflectionMode: 1
+  m_DefaultReflectionMode: 0
   m_DefaultReflectionResolution: 128
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 0.2
-  m_CustomReflection: {fileID: 1683134517039983843, guid: 0000000000000000d000000000000000,
-    type: 0}
+  m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
   m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
@@ -2314,6 +2313,8 @@ MonoBehaviour:
   - {fileID: 4478221369370334120, guid: 31767fc57ff6f3a4d9a0600c8b64a3be, type: 3}
   - {fileID: 645133702192305001, guid: 9b88f64b5148c3c4b85054323fbdfb4d, type: 3}
   - {fileID: 4478221369370334120, guid: 31767fc57ff6f3a4d9a0600c8b64a3be, type: 3}
+  weaponData: []
+  activeWeaponIndex: 0
   attachPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &172323181
 MonoBehaviour:
@@ -2356,7 +2357,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8483647ac6b0f8f47a855f4aaa30f99c, type: 2}
   - {fileID: 11400000, guid: 3a2e74c12bf5d5c4aa46ee679222cef3, type: 2}
   keyCode: 113
-  dashPS: {fileID: 0}
+  smokePrefab: {fileID: 0}
 --- !u!114 &172323183
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2996,11 +2997,6 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 0.13156435
       objectReference: {fileID: 0}
-    - target: {fileID: 95354837094732020, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 108032755899516152, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
         type: 3}
       propertyPath: m_Color.r
@@ -3040,6 +3036,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Shadows.m_Strength
       value: 0.375
+      objectReference: {fileID: 0}
+    - target: {fileID: 95354837094732020, guid: 7c2aacb48ae93b049a85edc24cd58bb7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c2aacb48ae93b049a85edc24cd58bb7, type: 3}
@@ -9561,7 +9562,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441374441}
-  m_LocalRotation: {x: 0.33747554, y: 0.5785032, z: -0.2846457, w: 0.68587255}
+  m_LocalRotation: {x: 0.33747557, y: 0.5785032, z: -0.28464574, w: 0.6858725}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -12472,6 +12473,8 @@ MonoBehaviour:
   - {fileID: 1032453366612140, guid: 807f7dd600c4f4841961eb9de1ba3e4d, type: 3}
   - {fileID: 1211203942256296, guid: b4dca32ac1bbacb47a84e0497c79497c, type: 3}
   - {fileID: 1032453366612140, guid: 807f7dd600c4f4841961eb9de1ba3e4d, type: 3}
+  weaponData: []
+  activeWeaponIndex: 0
   attachPosition: {x: -0.28, y: -0.059, z: 0}
 --- !u!114 &648129281
 MonoBehaviour:
@@ -16371,31 +16374,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4981200066306656, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.03810779
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4981200066306656, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.4288392
+      value: -0.6227875
       objectReference: {fileID: 0}
     - target: {fileID: 4981200066306656, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.024081877
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 4981200066306656, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8259201
+      value: 0.7823911
       objectReference: {fileID: 0}
     - target: {fileID: 4981200066306656, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 28.01
+      value: 0.98
       objectReference: {fileID: 0}
     - target: {fileID: 4981200066306656, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.34
+      value: 4.6
       objectReference: {fileID: 0}
     - target: {fileID: 4981200066306656, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -58.67
+      value: -2.1799998
       objectReference: {fileID: 0}
     - target: {fileID: 236513804, guid: 3ca3e0b70f22ea440b2162b7a529983e, type: 3}
       propertyPath: m_ShowToolkit
@@ -16910,6 +16913,8 @@ MonoBehaviour:
   - {fileID: 4910896440388290889, guid: 01817685686bdf94cbaec2087e7b4add, type: 3}
   - {fileID: 8875045515770987677, guid: f3f4115979f80e048992456f0c64c422, type: 3}
   - {fileID: 4910896440388290889, guid: 01817685686bdf94cbaec2087e7b4add, type: 3}
+  weaponData: []
+  activeWeaponIndex: 0
   attachPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &1159593431
 MonoBehaviour:
@@ -68154,6 +68159,8 @@ MonoBehaviour:
   - {fileID: 1032453366612140, guid: 807f7dd600c4f4841961eb9de1ba3e4d, type: 3}
   - {fileID: 1211203942256296, guid: b4dca32ac1bbacb47a84e0497c79497c, type: 3}
   - {fileID: 1032453366612140, guid: 807f7dd600c4f4841961eb9de1ba3e4d, type: 3}
+  weaponData: []
+  activeWeaponIndex: 0
   attachPosition: {x: -0.28, y: -0.059, z: 0}
 --- !u!114 &114201075543860136
 MonoBehaviour:
@@ -68417,7 +68424,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8483647ac6b0f8f47a855f4aaa30f99c, type: 2}
   - {fileID: 11400000, guid: 3a2e74c12bf5d5c4aa46ee679222cef3, type: 2}
   keyCode: 113
-  dashPS: {fileID: 0}
+  smokePrefab: {fileID: 0}
 --- !u!114 &114599221203091560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80362,6 +80369,8 @@ MonoBehaviour:
   - {fileID: 4478221369370334120, guid: 31767fc57ff6f3a4d9a0600c8b64a3be, type: 3}
   - {fileID: 645133702192305001, guid: 9b88f64b5148c3c4b85054323fbdfb4d, type: 3}
   - {fileID: 4478221369370334120, guid: 31767fc57ff6f3a4d9a0600c8b64a3be, type: 3}
+  weaponData: []
+  activeWeaponIndex: 0
   attachPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &2996516457931659502
 PrefabInstance:
@@ -80558,6 +80567,8 @@ MonoBehaviour:
   - {fileID: 4910896440388290889, guid: 01817685686bdf94cbaec2087e7b4add, type: 3}
   - {fileID: 8875045515770987677, guid: f3f4115979f80e048992456f0c64c422, type: 3}
   - {fileID: 4910896440388290889, guid: 01817685686bdf94cbaec2087e7b4add, type: 3}
+  weaponData: []
+  activeWeaponIndex: 0
   attachPosition: {x: 0, y: 0, z: 0}
 --- !u!1001 &6096814029258700002
 PrefabInstance:

@@ -9,7 +9,6 @@ public class RangedEnemyControls : EnemyControls
   public GameObject attackSpawnPoint;
   private int mask;
   private int direction;
-  private Animator animator;
 
   protected override void Awake()
   {
@@ -20,7 +19,6 @@ public class RangedEnemyControls : EnemyControls
       | (1 << LayerMask.NameToLayer("Enemy"))
       | (1 << LayerMask.NameToLayer("Obstacle")); //in case that unity changes numbers of leyers
     direction = Random.Range(0, 2);
-    animator = GetComponent<Animator>();
   }
 
   protected override void Attack()
