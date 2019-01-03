@@ -9,6 +9,8 @@ public class RangedEnemyControls : EnemyControls
   public GameObject attackSpawnPoint;
   private int mask;
   private int direction;
+  private float raycastLen;
+  private int raycastMissCnt = 0; //if more than 5 miss than switch target to caslte
 
   protected override void Awake()
   {
@@ -19,12 +21,14 @@ public class RangedEnemyControls : EnemyControls
       | (1 << LayerMask.NameToLayer("Enemy"))
       | (1 << LayerMask.NameToLayer("Obstacle")); //in case that unity changes numbers of leyers
     direction = Random.Range(0, 2);
+    raycastLen = attackCastleDistance > attackPlayerDistance ? attackCastleDistance : attackPlayerDistance;
   }
 
   protected override void Attack()
   {
     if (FreeViewToTarget())
     {
+      raycastMissCnt = 0;
       // FIXME: Remove or opt the rotation?
       Quaternion lookRotation = Quaternion.LookRotation(new Vector3(targetTransform.position.x - transform.position.x, 0, targetTransform.position.z - transform.position.z));
       transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, 0.4f);
@@ -50,15 +54,19 @@ public class RangedEnemyControls : EnemyControls
   {
     RaycastHit hit;
     bool ret;
-    if (Physics.Raycast(attackSpawnPoint.transform.position, (targetTransform.position - transform.position).normalized, out hit, 20, mask))
+    if (Physics.Raycast(attackSpawnPoint.transform.position, (targetTransform.position - transform.position).normalized, out hit, raycastLen, mask))
     {
       ret = (hit.transform.position == targetTransform.position) ? true : false;
     }
     else
     {
-
       Debug.LogWarning("Enemy FreeViewToTarget() raycast miss, " + targetTransform.name + targetTransform.position);
-      
+      if(targetTransform.name != "Eagle(Clone)") {
+        raycastMissCnt++;
+      }
+      if (raycastMissCnt >= 5) {
+        targetTransform = castleTransform;
+      }
       ret = false;
     }
     return ret;
