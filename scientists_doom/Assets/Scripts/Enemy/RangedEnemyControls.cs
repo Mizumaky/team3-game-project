@@ -50,13 +50,15 @@ public class RangedEnemyControls : EnemyControls
   {
     RaycastHit hit;
     bool ret;
-    if (Physics.Raycast(attackSpawnPoint.transform.position, (targetTransform.position - attackSpawnPoint.transform.position).normalized, out hit, 20, mask))
+    if (Physics.Raycast(attackSpawnPoint.transform.position, (targetTransform.position - transform.position).normalized, out hit, 20, mask))
     {
       ret = (hit.transform.position == targetTransform.position) ? true : false;
     }
     else
     {
-      Debug.LogWarning("Enemy FreeViewToTarget() raycast miss");
+
+      Debug.LogWarning("Enemy FreeViewToTarget() raycast miss, " + targetTransform.name + targetTransform.position);
+      
       ret = false;
     }
     return ret;
