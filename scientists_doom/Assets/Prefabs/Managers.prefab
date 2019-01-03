@@ -487,7 +487,7 @@ MonoBehaviour:
   wizard: {fileID: 1106552325252950, guid: e9e4af9646be111458eaef36fa064098, type: 3}
   barbarian: {fileID: 1195421657766132, guid: 585ff51c34f98fa469b3816fceb9eb11, type: 3}
   huntress: {fileID: 1465694572464804, guid: a780d622def24c54a8da85e3c4265430, type: 3}
-  spawnOnStart: 1
+  spawnOnStart: 0
   characterOnStart: 1
   spawnPoint: {fileID: 4360926578144620}
   cameraParentReference: {fileID: 0}
