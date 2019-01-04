@@ -101,27 +101,25 @@ public class HUDScript : MonoBehaviour
       abilityIcons[i].sprite = abilityManager.abilities[i].GetRankData().icon;
     }
 
+    barbarianRageBar.SetActive(false);
+    wizardCastBar.SetActive(false);
+    huntressStackBar.SetActive(false);
     switch (CharacterManager.activeCharacter)
     {
       case CharacterManager.Character.Barbarian:
         {
           barbarianRageBar.SetActive(true);
-          wizardCastBar.SetActive(false);
-          huntressStackBar.SetActive(false);
           break;
         }
       case CharacterManager.Character.Wizard:
         {
-          barbarianRageBar.SetActive(false);
           wizardCastBar.SetActive(true);
-          huntressStackBar.SetActive(false);
           break;
         }
       case CharacterManager.Character.Huntress:
         {
-          barbarianRageBar.SetActive(false);
-          wizardCastBar.SetActive(false);
           huntressStackBar.SetActive(true);
+          //huntressStackBar.GetComponent<Animator>().Play("HuntressStackBar", -1, 0f);
           break;
         }
     }
