@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 8900000, guid: 71f110759c0c7d84a9d573fd45a2ce1b, type: 2}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -119,6 +119,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1916920925979076, guid: a2b001b62b99443858e3e2e37e13d371, type: 3}
+      propertyPath: m_Name
+      value: MenuCanvas
+      objectReference: {fileID: 0}
     - target: {fileID: 224712989306730382, guid: a2b001b62b99443858e3e2e37e13d371,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -158,6 +162,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 224712989306730382, guid: a2b001b62b99443858e3e2e37e13d371,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224712989306730382, guid: a2b001b62b99443858e3e2e37e13d371,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 224712989306730382, guid: a2b001b62b99443858e3e2e37e13d371,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 224712989306730382, guid: a2b001b62b99443858e3e2e37e13d371,
         type: 3}
@@ -214,11 +233,6 @@ PrefabInstance:
       propertyPath: m_TargetCamera
       value: 
       objectReference: {fileID: 805736035}
-    - target: {fileID: 114992881288063740, guid: a2b001b62b99443858e3e2e37e13d371,
-        type: 3}
-      propertyPath: currentUser
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2b001b62b99443858e3e2e37e13d371, type: 3}
 --- !u!20 &805736035 stripped

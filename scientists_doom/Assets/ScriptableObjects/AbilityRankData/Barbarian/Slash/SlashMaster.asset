@@ -17,5 +17,5 @@ MonoBehaviour:
   description: Slashes enemies in front with his weapon dealing 30 damage
   upgradeCost: 100
   rank: 2
-  cooldown: 0.5
+  cooldown: 0
   damage: 30
