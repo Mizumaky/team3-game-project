@@ -25,12 +25,15 @@ public class HUDScript : MonoBehaviour
   private PlayerStats playerStatsReference;
   private GameObject lastActiveCharObject = null;
 
-  private void Start()
+  private void Awake()
   {
     EventManager.StartListening("updateHUD", UpdateHUD);
     EventManager.StartListening("changeCharSpec", ChangeCharSpecUI);
     EventManager.StartListening("updateCharSpec", UpdateCharSpecUI);
+  }
 
+  private void Start()
+  {
     UpdateHUD();
   }
 
