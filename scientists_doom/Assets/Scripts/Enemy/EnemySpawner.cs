@@ -52,20 +52,21 @@ public class EnemySpawner : MonoBehaviour {
     Ray rayDown;
     RaycastHit hit;
     float rayLength = 25f;
-    int groundLayer = 1 << LayerMask.NameToLayer("Ground");
+    int layerMask = (1 << LayerMask.NameToLayer("Ground")) | (1 << LayerMask.NameToLayer("Obstacle"));
 
     nextAngle = (lastAngle + Random.Range(90f, 180f)) % 360f;
     lastAngle = nextAngle;
 
     x = spawnOriginTransform.position.x + spawnCircleRadius * Mathf.Sin(nextAngle * Mathf.Deg2Rad);
     z = spawnOriginTransform.position.z + spawnCircleRadius * Mathf.Cos(nextAngle * Mathf.Deg2Rad);
-    rayOriginPosition = new Vector3(x, spawnOriginTransform.position.y, z);
+    rayOriginPosition = new Vector3(x, spawnOriginTransform.position.y + 5, z);
 
     rayDown = new Ray(rayOriginPosition, Vector3.down);
     spawnPosition = Vector3.zero;
 
-    if (Physics.Raycast(rayDown, out hit, rayLength, groundLayer)) {
-      spawnPosition = hit.point;
+    if (Physics.Raycast(rayDown, out hit, rayLength, layerMask)) {
+      if(hit.transform.gameObject.layer == LayerMask.NameToLayer("Ground"))
+        spawnPosition = hit.point;
     }
     return spawnPosition;
   }
