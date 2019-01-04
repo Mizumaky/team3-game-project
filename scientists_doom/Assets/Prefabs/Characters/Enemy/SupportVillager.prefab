@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a3ae5d5b599514085836aadebd2c35, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footStep: {fileID: 8300000, guid: 93c933717a2277742af5c2ca3409655a, type: 3}
+  footStep: {fileID: 8300000, guid: f0197b8a8e423b94c84e0f93381c80b9, type: 3}
   footStepVolume: 1
   audioSource: {fileID: 82135154014665754}
 --- !u!82 &82135154014665754
@@ -789,7 +789,8 @@ AudioSource:
   m_GameObject: {fileID: 1719296003474282}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 243352885923470486, guid: f5a701637eb67144e902e30b4d8b7cc4,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 93c933717a2277742af5c2ca3409655a, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

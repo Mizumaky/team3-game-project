@@ -271,8 +271,9 @@ AudioSource:
   m_GameObject: {fileID: 1106552325252950}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 93c933717a2277742af5c2ca3409655a, type: 3}
+  OutputAudioMixerGroup: {fileID: 243352885923470486, guid: f5a701637eb67144e902e30b4d8b7cc4,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: f0197b8a8e423b94c84e0f93381c80b9, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.3
   m_Pitch: 1
@@ -513,7 +514,7 @@ MonoBehaviour:
   radius: 3
   cloudVelocity: 10
   cloudDestinationHeight: 8
-  areaOutlinePrefab: {fileID: 530, guid: 057c7766a767e4a46b6a9cdec90a268f, type: 3}
+  areaOutlinePrefab: {fileID: 885, guid: 057c7766a767e4a46b6a9cdec90a268f, type: 3}
 --- !u!114 &5959028619980497673
 MonoBehaviour:
   m_ObjectHideFlags: 0

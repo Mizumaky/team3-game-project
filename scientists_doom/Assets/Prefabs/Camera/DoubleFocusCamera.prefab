@@ -60,13 +60,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1335610351868658}
-  m_LocalRotation: {x: 0.08878489, y: -0.8191268, z: 0.1319601, w: 0.55112165}
-  m_LocalPosition: {x: 20.208618, y: 4.010089, z: 7.626301}
+  m_LocalRotation: {x: -0.06675046, y: -0.12936673, z: -0.008728606, w: 0.9893091}
+  m_LocalPosition: {x: 5.71, y: -2.71, z: -23.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4256388101895934}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 38.86, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -7.72, y: -14.9, z: 0}
 --- !u!81 &81794949109612392
 AudioListener:
   m_ObjectHideFlags: 0
@@ -85,7 +85,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.31864366, g: 0.6281395, b: 0.78898984, a: 1}
+  m_BackGroundColor: {r: 0.29750448, g: 0.43645656, b: 0.52609915, a: 1}
   m_projectionMatrixMode: 1
   m_SensorSize: {x: 36, y: 24}
   m_LensShift: {x: 0, y: 0}
@@ -99,7 +99,7 @@ Camera:
     height: 1
   near clip plane: 0.01
   far clip plane: 2000
-  field of view: 60
+  field of view: 80
   orthographic: 0
   orthographic size: 7
   m_Depth: -1
@@ -147,7 +147,7 @@ MonoBehaviour:
   fovSmoothTime: 0.3
   posSmoothTime: 0.4
   rotSlerpParam: 5
-  minFOV: 35
+  minFOV: 15
   maxFOV: 70
   heightCurve:
     serializedVersion: 2
@@ -222,9 +222,9 @@ MonoBehaviour:
     m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
-  antialiasingMode: 2
+  antialiasingMode: 1
   temporalAntialiasing:
-    jitterSpread: 0.75
+    jitterSpread: 0.575
     sharpness: 0.25
     stationaryBlending: 0.95
     motionBlending: 0.85
@@ -232,7 +232,7 @@ MonoBehaviour:
     quality: 2
   fastApproximateAntialiasing:
     fastMode: 0
-    keepAlpha: 0
+    keepAlpha: 1
   fog:
     enabled: 1
     excludeSkybox: 1
