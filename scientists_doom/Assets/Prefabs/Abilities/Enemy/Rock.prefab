@@ -142,5 +142,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   YAxisOffset: 1
-  velocity: 12
+  velocity: 8
   timeToLiveAfterHit: 0
