@@ -120,10 +120,13 @@ public class StormCloudProjectile : MonoBehaviour
 
   private GameObject SpawnAreaOutline(Vector3 rotationVector)
   {
-    var shape = areaOutlinePrefab.GetComponent<ParticleSystem>().shape;
-    shape.radius = radius;
-
     var rotation = Quaternion.LookRotation(rotationVector);
-    return Instantiate(areaOutlinePrefab, destinationGround, rotation, null) as GameObject;
+    GameObject outline = Instantiate(areaOutlinePrefab, destinationGround, rotation, null) as GameObject;
+
+    var shape = outline.GetComponent<ParticleSystem>().shape;
+    shape.radius = radius;
+    outline.GetComponent<ParticleSystem>().Play();
+
+    return outline;
   }
 }
