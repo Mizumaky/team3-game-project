@@ -30,8 +30,8 @@ public class ShopController : MonoBehaviour
   {
     if (CharacterManager.activeCharacterObject)
     {
-      weaponManager = FindObjectOfType<WeaponManager>();
-      abilityManager = FindObjectOfType<AbilityManager>();
+      weaponManager = CharacterManager.activeCharacterObject.GetComponent<WeaponManager>();
+      abilityManager = CharacterManager.activeCharacterObject.GetComponent<AbilityManager>();
       playerStats = CharacterManager.activeCharacterObject.GetComponent<PlayerStats>();
       playerInventory = CharacterManager.activeCharacterObject.GetComponent<Inventory>();
 

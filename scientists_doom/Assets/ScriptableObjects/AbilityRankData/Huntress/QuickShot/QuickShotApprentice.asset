@@ -19,6 +19,6 @@ MonoBehaviour:
     units
   upgradeCost: 50
   rank: 1
-  cooldown: 0.5
+  cooldown: 0
   damage: 60
   damageEmpowered: 120
