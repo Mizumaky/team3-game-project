@@ -60,7 +60,9 @@ public class CharacterManager : MonoBehaviour
     }
     activeCharacterObject = Instantiate(newCharacter, transform.position, transform.rotation, this.transform);
     dfcameraReference.focus = activeCharacterObject.transform;
+    EventManager.TriggerEvent("updateHUD");
     EventManager.TriggerEvent("changeCharSpec");
+    EventManager.TriggerEvent("updateCharSpec");
   }
 
   /// <summary>
