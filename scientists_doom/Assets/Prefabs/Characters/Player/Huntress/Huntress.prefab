@@ -673,6 +673,8 @@ MonoBehaviour:
   heroLevel: 0
   experience: 0
   nextLvlExperience: 0
+  firstLevelExp: 300
+  nextLevelExpMultiplier: 1.1
 --- !u!114 &114239786977244888
 MonoBehaviour:
   m_ObjectHideFlags: 0

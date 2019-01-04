@@ -118,9 +118,9 @@ public class EagleProjectile : MonoBehaviour
       outlineRotation = Quaternion.LookRotation(hit.normal);
     }
 
-    var shape = areaOutlinePrefab.GetComponent<ParticleSystem>().shape;
-    shape.radius = radius;
     GameObject areaOutline = Instantiate(areaOutlinePrefab, destinationGround, outlineRotation, transform);
+    var shape = areaOutline.GetComponent<ParticleSystem>().shape;
+    shape.radius = radius;
     return areaOutline;
   }
 }

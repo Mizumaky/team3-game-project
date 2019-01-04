@@ -7,8 +7,10 @@ public class PlayerStats : Stats
   [Header("Hero Level")]
   [SerializeField] private int maxHeroLevel = 60;
   [SerializeField] private int heroLevel;
-  [SerializeField] private float experience;
-  [SerializeField] private float nextLvlExperience;
+  [SerializeField] private int experience;
+  [SerializeField] private int nextLvlExperience;
+  private int firstLevelExp = 200;
+  private float nextLevelExpMultiplier = 1.3f;
 
   #region GettersSetters
   public int GetMaxHeroLevel()
@@ -41,6 +43,19 @@ public class PlayerStats : Stats
     UpdateStats();
   }
 
+  public void GainExp(int expAmount){
+    if(heroLevel < maxHeroLevel){
+      experience += expAmount;
+      Debug.Log("Experience: "+experience);
+    }
+    if(experience >= nextLvlExperience){
+      LevelUp(1);
+      experience = experience % nextLvlExperience;
+      nextLvlExperience = (int)(nextLvlExperience * nextLevelExpMultiplier);
+      Debug.Log("Hero Level Up, cur level: "+heroLevel);
+    }
+  }
+
   public float GetCurrentHeroExperience()
   {
     return experience;
@@ -62,15 +77,19 @@ public class PlayerStats : Stats
     {
       heroLevel = 1;
     }
-
+  
     if (PlayerPrefs.HasKey("experience"))
     {
-      experience = PlayerPrefs.GetFloat("experience", 0);
+      experience = PlayerPrefs.GetInt("experience", 0);
+      nextLvlExperience = firstLevelExp * (int)Mathf.Pow(nextLevelExpMultiplier, (float)heroLevel+1);
     }
     else
     {
       experience = 0;
+      
+      nextLvlExperience = firstLevelExp * (int)Mathf.Pow(nextLevelExpMultiplier, (float)heroLevel+1);
     }
+    Debug.Log("Set exp to: "+experience+" nextLevelExp: "+nextLvlExperience);
 
     UpdateStats();
   }
@@ -93,7 +112,7 @@ public class PlayerStats : Stats
   private void SaveStatsToPPrefs()
   {
     PlayerPrefs.SetInt("heroLevel", heroLevel);
-    PlayerPrefs.SetFloat("experience", experience);
+    PlayerPrefs.SetInt("experience", experience);
   }
 
 }

@@ -10,6 +10,7 @@ public class HUDScript : MonoBehaviour
   [SerializeField] private Image healthSlider;
   [SerializeField] private Text healthText;
   [SerializeField] private Image xpSlider;
+  [SerializeField] private Text lvlText;
   [SerializeField] private Text woodText;
   [SerializeField] private Text stoneText;
   [SerializeField] private Text soulsText;
@@ -76,16 +77,20 @@ public class HUDScript : MonoBehaviour
       float playerXp = playerStatsReference.GetCurrentHeroExperience();
       float nextLevelXp = playerStatsReference.GetNextLevelExperience();
 
+      Debug.Log("Cur: "+playerXp+" next: "+nextLevelXp +" = "+playerXp/nextLevelXp);
+
       healthSlider.fillAmount = playerHealth / maxPlayerHealth;
       healthText.text = playerHealth + " / " + maxPlayerHealth;
+      lvlText.text = "Lvl: "+playerStatsReference.GetCurrentHeroLevel().ToString();
       if (nextLevelXp != 0 && playerXp != 0)
       {
-        xpSlider.fillAmount = nextLevelXp / playerXp;
+        xpSlider.fillAmount = playerXp / nextLevelXp;
       }
       else
       {
         xpSlider.fillAmount = 0;
       }
+      Debug.Log(xpSlider.fillAmount);
     }
     else
     {
@@ -101,27 +106,25 @@ public class HUDScript : MonoBehaviour
       abilityIcons[i].sprite = abilityManager.abilities[i].GetRankData().icon;
     }
 
+    barbarianRageBar.SetActive(false);
+    wizardCastBar.SetActive(false);
+    huntressStackBar.SetActive(false);
     switch (CharacterManager.activeCharacter)
     {
       case CharacterManager.Character.Barbarian:
         {
           barbarianRageBar.SetActive(true);
-          wizardCastBar.SetActive(false);
-          huntressStackBar.SetActive(false);
           break;
         }
       case CharacterManager.Character.Wizard:
         {
-          barbarianRageBar.SetActive(false);
           wizardCastBar.SetActive(true);
-          huntressStackBar.SetActive(false);
           break;
         }
       case CharacterManager.Character.Huntress:
         {
-          barbarianRageBar.SetActive(false);
-          wizardCastBar.SetActive(false);
           huntressStackBar.SetActive(true);
+          //huntressStackBar.GetComponent<Animator>().Play("HuntressStackBar", -1, 0f);
           break;
         }
     }

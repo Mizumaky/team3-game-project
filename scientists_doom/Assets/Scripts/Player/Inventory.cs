@@ -88,5 +88,4 @@ public class Inventory : MonoBehaviour
     }
     EventManager.TriggerEvent("updateHUD");
   }
-
 }

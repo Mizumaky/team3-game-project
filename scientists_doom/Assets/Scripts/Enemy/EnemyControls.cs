@@ -169,5 +169,6 @@ public class EnemyControls : MonoBehaviour {
     GameObject loot = Instantiate (lootPrefab, lootPosition, transform.rotation * Quaternion.Euler (-90, 0, 0));
     GameObject soul = Instantiate (soulPrefab, lootPosition, Quaternion.identity, null);
     soul.GetComponent<SoulTransfer>().castle = castleTransform;
+    CharacterManager.activeCharacterObject.GetComponent<PlayerStats>().GainExp(100);
   }
 }
