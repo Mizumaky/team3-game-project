@@ -169,6 +169,7 @@ public class LevelManager : MonoBehaviour
 
   private IEnumerator GameOver()
   {
+    isGameOver = true;
     color = ScriptableObject.CreateInstance<ColorGrading>();
     color.enabled.Override(true);
     color.saturation.Override(-100f);
