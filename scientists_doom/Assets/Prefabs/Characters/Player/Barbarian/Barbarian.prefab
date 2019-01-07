@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 114508637614604888}
   - component: {fileID: 114229640784623656}
   - component: {fileID: 114184735269996266}
+  - component: {fileID: 3804741174606154291}
   m_Layer: 14
   m_Name: Barbarian
   m_TagString: Barbarian
@@ -228,7 +229,7 @@ MonoBehaviour:
   baseAttackDamage: 30
   totalAttackDamage: 0
   attackDamageIncrement: 1
-  isInvulnerable: 1
+  isInvulnerable: 0
   maxHeroLevel: 60
   heroLevel: 0
   experience: 0
@@ -487,6 +488,21 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ce4559ccf98493b42a325d2829a0dadd, type: 2}
   activeWeaponIndex: 0
   attachPosition: {x: -0.28, y: -0.059, z: 0}
+--- !u!114 &3804741174606154291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1195421657766132}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d10a3cdb30ddc5f0cadbc258b7942ef6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPointTransform: {fileID: 1690068986228302191, guid: ef90d9462fb6061499e1eb6eac91bf90,
+    type: 3}
+  walk: 0
 --- !u!1 &1198179779684966
 GameObject:
   m_ObjectHideFlags: 0

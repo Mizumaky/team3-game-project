@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 /// <summary>
 /// Manages UI windows
@@ -13,6 +14,10 @@ public class UIController : MonoBehaviour
   public GameController gameController;
   public CharacterManager characterManager;
   public EnemySpawner enemySpawner;
+  public LevelManager levelManager;
+
+  public AudioMixer masterMixer;
+
 
   [Header("Windows")]
   public GameObject currentWindow;
@@ -20,11 +25,13 @@ public class UIController : MonoBehaviour
   public GameObject settingsWindow;
   public GameObject characterWindow;
   public GameObject shopWindow;
+  public GameObject helperWindow;
   public GameObject retryWindow;
 
   [Header("UI Elements")]
   [Header("Settings Window")]
   public Dropdown settingsQualityDropdown;
+  public GameObject readyButton;
 
   private void Awake()
   {
@@ -32,6 +39,8 @@ public class UIController : MonoBehaviour
     {
       currentWindow = characterWindow;
     }
+    EventManager.StartListening("levelInProgess", SetPlayerReady);
+    EventManager.StartListening("levelReady", ShowReadyButton);
   }
 
   private void Update()
@@ -64,6 +73,12 @@ public class UIController : MonoBehaviour
     if (Input.GetKeyDown(KeyCode.S))
     {
       ToggleWindow(shopWindow);
+    }
+
+    // H
+    if (Input.GetKeyDown(KeyCode.H))
+    {
+      ToggleWindow(helperWindow);
     }
   }
 
@@ -118,6 +133,22 @@ public class UIController : MonoBehaviour
   public void SpawnNewEnemyWave()
   {
     enemySpawner.StartSpawnWaveIfInactive();
+  }
+
+  public void SetMasterVolume(Scrollbar bar)
+  {
+    masterMixer.SetFloat("volume", -80f + 100f * bar.value);
+  }
+
+  private void ShowReadyButton()
+  {
+    readyButton.SetActive(true);
+  }
+
+  public void SetPlayerReady()
+  {
+    levelManager.SetPlayerReady();
+    readyButton.SetActive(false);
   }
 
   /// <summary>

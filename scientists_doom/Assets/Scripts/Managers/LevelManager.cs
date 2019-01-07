@@ -22,6 +22,7 @@ public class LevelManager : MonoBehaviour
   private ColorGrading color;
   private bool levelActive;
   private Stats castleStats;
+  private bool isGameOver;
 
   private void Start()
   {
@@ -54,8 +55,16 @@ public class LevelManager : MonoBehaviour
     {
       if (color.postExposure.value > -100)
       {
-        color.postExposure.Override(color.postExposure.value - Time.deltaTime);
+        color.postExposure.Override(color.postExposure.value - 2 * Time.deltaTime);
       }
+    }
+  }
+
+  public void SetPlayerReady()
+  {
+    if (levelPending)
+    {
+      playerReady = true;
     }
   }
 
@@ -99,6 +108,7 @@ public class LevelManager : MonoBehaviour
     yield return new WaitForSeconds(3);
     //Prompt user to start next level (press *key* to start next level)
     Announcer.Announce("", "Press 'R' to start next level...");
+    EventManager.TriggerEvent("levelReady");
     levelPending = true;
     while (!playerReady)
     {
@@ -106,6 +116,7 @@ public class LevelManager : MonoBehaviour
     }
     playerReady = levelPending = false;
     levelActive = true;
+    EventManager.TriggerEvent("levelInProgess");
     lightAnimator.SetTrigger("TriggerNight");
     EventManager.TriggerEvent("nightTheme");
     yield return new WaitForSeconds(5);
@@ -140,14 +151,20 @@ public class LevelManager : MonoBehaviour
 
   private void EndGameCastleDestroyed()
   {
-    Announcer.Announce("You Lose!", "The Castle Has Fallen");
-    StartCoroutine(GameOver());
+    if (!isGameOver)
+    {
+      Announcer.Announce("You Lose!", "The Castle Has Fallen");
+      StartCoroutine(GameOver());
+    }
   }
 
   private void EndGamePlayerDead()
   {
-    Announcer.Announce("You lose!", "The Character Has Died");
-    StartCoroutine(GameOver());
+    if (!isGameOver)
+    {
+      Announcer.Announce("You lose!", "The Character Has Died");
+      StartCoroutine(GameOver());
+    }
   }
 
   private IEnumerator GameOver()

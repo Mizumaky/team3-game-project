@@ -509,7 +509,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: acc6cfc571b8b9c47ac26b59d1a25507, type: 2}
   keyCode: 113
   minChargeForRelease: 0.2
-  chargedObjectPrefab: {fileID: 1565276060188188, guid: e0cf95fc33026424b8a21b05caf5fa70,
+  chargedObjectPrefab: {fileID: 1565276060188188, guid: ef6679cab961944418a93c7b135ce4ee,
     type: 3}
   radius: 3
   cloudVelocity: 10
