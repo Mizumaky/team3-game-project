@@ -41,6 +41,7 @@ public class UIController : MonoBehaviour
     }
     EventManager.StartListening("levelInProgess", SetPlayerReady);
     EventManager.StartListening("levelReady", ShowReadyButton);
+    levelManager = FindObjectOfType<LevelManager>();
   }
 
   private void Update()
@@ -88,27 +89,29 @@ public class UIController : MonoBehaviour
   /// <param name="window">Window to toggle</param>
   public void ToggleWindow(GameObject window)
   {
-    if (currentWindow == null)
-    { // no window active
-      GameController.currentFocusLayer = GameController.FocusLayer.UI;
-      currentWindow = window;
-      currentWindow.SetActive(true);
-    }
-    else
-    {
-      if (window == currentWindow)
-      { // closing an active window
-        GameController.currentFocusLayer = GameController.FocusLayer.Game;
-        currentWindow.SetActive(false);
-        currentWindow = null;
-      }
-      else
-      { // closing one and opening another
-        currentWindow.SetActive(false);
+    //if(window != retryWindow && !levelManager.isGameOver){
+      if (currentWindow == null)
+      { // no window active
+        GameController.currentFocusLayer = GameController.FocusLayer.UI;
         currentWindow = window;
         currentWindow.SetActive(true);
       }
-    }
+      else
+      {
+        if (window == currentWindow)
+        { // closing an active window
+          GameController.currentFocusLayer = GameController.FocusLayer.Game;
+          currentWindow.SetActive(false);
+          currentWindow = null;
+        }
+        else
+        { // closing one and opening another
+          currentWindow.SetActive(false);
+          currentWindow = window;
+          currentWindow.SetActive(true);
+        }
+      }
+    //}
   }
 
   /// <summary>

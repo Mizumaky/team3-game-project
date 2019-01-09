@@ -14,6 +14,12 @@ public class MenuController : MonoBehaviour {
     public string mira = "Assets/SceneCopies/mira/";
     public string fanda = "Assets/SceneCopies/fanda/";
 
+    void Start(){
+        PlayerPrefs.SetInt(LevelManager.PREF_MAX_FINISHED_LEVEL, 0);
+        PlayerPrefs.SetInt("heroLevel", 0);
+        PlayerPrefs.SetInt("experience", 0);
+    }
+
     public struct SceneNames {
         public string mainMenu;
         public string single;

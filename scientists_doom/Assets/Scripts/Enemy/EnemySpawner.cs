@@ -124,7 +124,7 @@ public class EnemySpawner : MonoBehaviour {
     WaitForSeconds delay = new WaitForSeconds(individualEnemySpawnDelay);
     for (int i = 0; i < groupSize; i++) {
       GameObject enemy = Instantiate(enemyPrefab[enemy_type], groupSpawnPosition, rotation, transform);
-      enemy.transform.localScale = enemy.transform.localScale * Random.Range(1f, 1.7f);
+      enemy.transform.localScale = enemy.transform.localScale * Random.Range(1.4f, 1.7f);
       yield return delay;
     }
     yield return null;

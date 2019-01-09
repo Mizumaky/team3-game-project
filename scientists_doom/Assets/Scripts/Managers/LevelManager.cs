@@ -22,7 +22,7 @@ public class LevelManager : MonoBehaviour
   private ColorGrading color;
   private bool levelActive;
   private Stats castleStats;
-  private bool isGameOver;
+  public bool isGameOver;
 
   private void Start()
   {
