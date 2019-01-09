@@ -1,12 +1,14 @@
 {
-  "title": "Pacman",
+  "title": "Scientist's Doom",
   "team": 3,
   "authors": [
-    {"fullname": "Jan Example", "email": "exampjan@fel.cvut.cz"},
-    {"fullname": "Aleš Vopršálek", "email": "voprsale@fit.cvut.cz"}
+    {"fullname": "Vojtěch Vavera", "email": "vavervoj@fel.cvut.cz"},
+    {"fullname": "Petr Ježek", "email": "jezekpe6@fel.cvut.cz"},
+	  {"fullname": "Franta Čmuchař", "email": "cmuchfra@fel.cvut.cz"},
+	  {"fullname": "Miroslav Müller", "email": "mullemi5@fel.cvut.cz"}
   ],
-  "term": 121,
-  "summary": "An amazing arcade game, where you navigate your character through a maze, eating pac-dots and hiding from evil ghosts.",
+  "term": 181,
+  "summary": "A castle defense RPG game, where you try to defend the mad scientist's castle against waves of enemies.",
   "opensource": true,
-  "url": "http://pacman.com"
+  "url": "http://scarcegames.com"
 }

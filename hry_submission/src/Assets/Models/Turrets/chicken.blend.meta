@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 5acd368de87d13e439d218010fda77ff
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Anchor
+    100002: AnimationPart
+    100004: //RootNode
+    100006: kamen
+    100008: kolo
+    100010: kost
+    100012: oci
+    100014: provaz1
+    100016: provaz2
+    100018: provaz2_001
+    100020: RotationPoint
+    100022: ShootPoint
+    100024: slepice
+    100026: sutr
+    100028: vec
+    100030: PlayerPosition
+    100032: prkno
+    100034: prkno_001
+    100036: prkno_002
+    100038: FirePoint
+    100040: CameraPoint
+    400000: Anchor
+    400002: AnimationPart
+    400004: //RootNode
+    400006: kamen
+    400008: kolo
+    400010: kost
+    400012: oci
+    400014: provaz1
+    400016: provaz2
+    400018: provaz2_001
+    400020: RotationPoint
+    400022: ShootPoint
+    400024: slepice
+    400026: sutr
+    400028: vec
+    400030: PlayerPosition
+    400032: prkno
+    400034: prkno_001
+    400036: prkno_002
+    400038: FirePoint
+    400040: CameraPoint
+    2100000: unnamed
+    2100002: stone
+    2100004: wood2
+    2100006: Material_003
+    2100008: wood
+    2100010: Material_002
+    2100012: Material_001
+    2100014: fur
+    2100016: haro
+    2100018: Material
+    2300000: Anchor
+    2300002: AnimationPart
+    2300004: kamen
+    2300006: kolo
+    2300008: kost
+    2300010: oci
+    2300012: provaz1
+    2300014: provaz2
+    2300016: provaz2_001
+    2300018: slepice
+    2300020: sutr
+    2300022: vec
+    2300024: prkno
+    2300026: prkno_001
+    2300028: prkno_002
+    3300000: Anchor
+    3300002: AnimationPart
+    3300004: kamen
+    3300006: kolo
+    3300008: kost
+    3300010: oci
+    3300012: provaz1
+    3300014: provaz2
+    3300016: provaz2_001
+    3300018: slepice
+    3300020: sutr
+    3300022: vec
+    3300024: prkno
+    3300026: prkno_001
+    3300028: prkno_002
+    4300000: Anchor
+    4300002: kamen
+    4300004: AnimationPart
+    4300006: sutr
+    4300008: kolo
+    4300010: kost
+    4300012: provaz1
+    4300014: provaz2
+    4300016: provaz2_001
+    4300018: slepice
+    4300020: oci
+    4300022: vec
+    4300024: prkno_002
+    4300026: prkno_001
+    4300028: prkno
+    7400000: Default Take
+    9500000: //RootNode
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

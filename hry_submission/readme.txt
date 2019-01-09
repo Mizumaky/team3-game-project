@@ -1,8 +1,18 @@
-PingPong
+Scientist's Doom
 
-Představujeme vám nejlepší online realtime tahovou strategii - PingPong.
+is a Castle-Defense game with RPG elements. Players pick a character to defend a mad scientist in his castle.
+Each character has its special weapons and abilities with specific upgrades. Each level is split into two parts - day and night.
+During the day the player has time to upgrade and buy new weapons/abilties. When the night comes, enemies start to siege the castle and
+the player has to defend.
 
-velká pálka velka@palka.ctu.cz
-malá pálka mala@palka.ctu.cz
-míček micek@no-palka.ctu.cz
-stůl stul@no-palka.ctu.cz
+
+
+Team
+
+Vojtech Vavera		      - vavervoj@fel.cvut.cz
+
+Petr Je�ek                    - jezekpe6@fel.cvut.cz
+
+Franta Cmuchar                - cmuchfra@fel.cvut.cz
+
+Miroslav M�ller               - mullemi5@fel.cvut.cz
