@@ -25,3 +25,4 @@ https://docs.google.com/spreadsheets/d/1FfNZkCX_sc22mioICgqf72rU8JFHtDtSiJqtR0NI
 6. enemies spawning at certain points instead of at random raycast
 7. player gets alerted in advance about the direction of incoming enemies
 8. player gets a direction UI thingy pointing to enemies out of sight
+9. lerp healthbars
